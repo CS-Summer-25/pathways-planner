@@ -1,0 +1,71 @@
+td{
+     border: 1px solid black; 
+
+}
+
+tr{
+    border-bottom: 1px solid black;
+}
+
+table{
+    border: 1px solid rgb(246, 255, 0);
+}
+
+#headerRow{
+    background-color: rgb(246, 255, 0);
+    font-weight: bold;
+}
+
+.firstCol{
+    background-color: rgb(255, 0, 0);
+    color: white;   
+}
+
+#heading{
+    padding: 0px;
+    margin: 0px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#header{
+    background-color: purple;
+    color: white;
+}
+
+#controlPanel{
+    background-color: rgb(0, 255, 0);
+    width: 20%;
+    height: 100%;
+    float: left;
+    position: fixed;
+}
+
+#mainBody{
+
+    background-color: aqua;
+    width: 80%;
+    float: right;
+    /* position: fixed; */
+}
+
+select{
+    margin-top: 20px;
+}
+
+#logo {
+    width: 200px;
+    filter:invert(0.5);
+    margin-right: 20px;
+}
+
+#footer{
+
+    background-color: rgb(255, 0, 255);
+    color: white;
+    text-align: center;
+    /* float: bottom; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+} 

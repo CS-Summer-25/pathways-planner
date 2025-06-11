@@ -1,0 +1,32 @@
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pathways Planner</title>
+        <link rel="stylesheet" href="styles.css">
+        <script src="script.js" defer></script>
+    </head>
+    <body onload="populateTable()">
+        <div id="header">
+            <img src="logo.png" alt="Pathways Planner Logo" id="logo">
+            <span id="heading">Pathways Planner</span>
+        </div>
+        <div id="controlPanel">
+            <label for="courseSelect">Select Major:</label>
+            <select id="courseSelect" onchange="filterCourses()">
+
+                <option value="None"></option>
+                <option value="IT">Information Technology</option>
+                <option value="CS">Computer Science</option>
+            </select>
+        </div>
+        <div id="mainBody">
+            <table id="courses"></table>
+        </div>
+        <div id="footer">
+            <p>Pathways Planner © 2023</p>
+        </div>
+
+    </body>
+</html>
