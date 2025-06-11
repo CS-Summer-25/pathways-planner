@@ -21,6 +21,11 @@ table{
     color: white;   
 }
 
+#semesterSlider{
+    width: 80%;
+    
+}
+
 #heading{
     padding: 0px;
     margin: 0px;
@@ -49,8 +54,16 @@ table{
     /* position: fixed; */
 }
 
+input{
+    width: 100%;
+}
+
 select{
     margin-top: 20px;
+}
+
+iframe{
+    width: 40%;
 }
 
 #logo {

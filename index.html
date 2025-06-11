@@ -20,6 +20,16 @@
                 <option value="IT">Information Technology</option>
                 <option value="CS">Computer Science</option>
             </select>
+
+            <br/>
+            <br/>
+            <label for="semesterSlider">Select Current Semester:</label>
+            <span id="semesterLabel"> 1</span>
+            <center><input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()"></center>
+            
+
+            <!-- <a href="https://furman.edu">Give up? Go to Furman website</a>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q57_iaGrxLg?si=Doe0GEgVDqG2lX5e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         </div>
         <div id="mainBody">
             <table id="courses"></table>
