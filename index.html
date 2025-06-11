@@ -6,6 +6,8 @@
         <title>Pathways Planner</title>
         <link rel="stylesheet" href="styles.css">
         <script src="script.js" defer></script>
+        <!-- import for require('fs') -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
     </head>
     <body onload="populateTable()">
         <div id="header">
@@ -27,6 +29,16 @@
             <span id="semesterLabel"> 1</span>
             <center><input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()"></center>
             
+            <hr/>
+            <!-- text field -->
+            <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>
+            <br/><br/>
+            <input type="text" id="password" placeholder="Type in password here" >
+            
+            <br/><br/>
+            <button id="saveBtn" onclick="savePlan()">Save</button>
+            <button id="loadBtn" onclick="loadPlan()">Load</button>
+
 
             <!-- <a href="https://furman.edu">Give up? Go to Furman website</a>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/Q57_iaGrxLg?si=Doe0GEgVDqG2lX5e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->

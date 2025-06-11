@@ -92,3 +92,107 @@ function updateSemesterLabel() {
     semesterLabel.innerHTML = `${slider.value}`;
 }
 
+function savePlan(){
+
+    var currentSemester = document.getElementById("semesterLabel").innerHTML;
+
+    var password = document.getElementById("password").value;
+    console.log(password);
+    var table = document.getElementById("courses");
+    var countGers = GERS.length;
+    var plan = {};
+
+    // Saving plan in compressed form for GET requests 
+    var compressed = "";
+    for (let i = 0; i < countGers; i++){
+        var relevantRow = table.rows[i+1];
+        var inputs = relevantRow.getElementsByTagName("input");
+        var courses = [];
+        for (let j = 0; j < inputs.length; j++) {
+            if (inputs[j].value !== "") {
+                courses.push(inputs[j].value);
+                compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
+            }
+        }
+    }
+
+    // Make get request and pass password and plan as query parameters
+    // var xhr = new XMLHttpRequest();
+    plan = "Abc"; // Placeholder for plan, replace with actual plan data
+    var constructedUrl = `https://furmancs.com/tabot/savePlan?password=${encodeURIComponent(password)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
+    console.log(constructedUrl);
+    // xhr.open("GET", constructedUrl, true);
+    // xhr.onreadystatechange = function() {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //         alert("Plan saved successfully!");
+    //     } else if (xhr.readyState === 4) {
+    //         alert("Failed to save plan. Please try again.");
+    //     }
+    //     else{
+    //         console.log("Request in progress...");
+    //     }
+    // };
+
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    });
+
+}
+
+
+function loadPlan(){
+
+    var password = document.getElementById("password").value;
+
+    console.log(password);
+    console.log("Load Plan");
+    var constructedUrl = `https://furmancs.com/tabot/loadPlan?password=${encodeURIComponent(password)}`;
+
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        var coursesInfo = response.json();
+
+        coursesInfo.then(data => {
+
+            for(i = 0; i<data.length; i++){
+                console.log(data[i]);
+                let course = data[i];
+                let ger = course.ger;
+                let semester = parseInt(course.sem);
+                let courseName = course.title;
+
+                console.log(ger);
+
+                // Find the row corresponding to the GER
+                let gerIndex = GERS.indexOf(ger);
+                console.log(gerIndex);
+                let table = document.getElementById("courses");
+                let relevantRow = table.rows[gerIndex + 1];
+                let inputs = relevantRow.getElementsByTagName("input");
+                console.log(semester);
+                // Find the input corresponding to the semester
+                if (semester >= 1 && semester <= 8) {
+                    let inputIndex = semester - 1; // Adjust for zero-based index
+                    console.log(inputs[inputIndex]);
+                    if (inputs[inputIndex]) {
+                        inputs[inputIndex].value = courseName;
+                        inputs[inputIndex].dispatchEvent(new Event('input')); // Trigger input event to update styles
+                    }
+                }
+            }
+            
+        }).catch(error => {
+            console.error("There was a problem with the fetch operation:", error);
+            alert("Failed to load plan. Please check your password and try again.");
+
+        
+        });
+    });
+}
