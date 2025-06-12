@@ -1,11 +1,20 @@
 
 
 GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "NW1", "NW2", "HB1", "HB2"];
+MAJORS = [
+            ["CSBS", ['CSC-105', 'CSC-121', 'CSC-122', 'CSC-223', 'CSC-231', 'CSC-261', 'CSC-461', 'MTH-150', 'CSC-300+ A or B', 'CSC-300+ A', 'CSC-300+ A', 'LLE', 'CAP', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']],
+            ["CSBA", ['CSC-105', 'CSC-121', 'CSC-122', 'CSC-223', 'CSC-231', 'CSC-261', 'CSC-461', 'MTH-120 or 150', 'CSC-300+ A or B', 'CSC-300+ B', 'CSC-300+ B', 'LLE', 'CAP', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']],
+            ["ITBS", ['CSC-105', 'CSC-121', 'CSC-122', 'CAP', 'CSC-300+', 'CSC-200+', '300+ cog', '200+ cog', '200+ cog', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']]
+         ];
+// function addInputRow(colVal) {
+// Potentialy add function to automatically create input rows for each req - seemingly repetitive code in populateTable() and filterCourses()
+// }
 
 function populateTable(){
     var table = document.getElementById("courses");
     var countGers = GERS.length;
 
+    // Create header row
     var headerRow = table.insertRow(0);
     headerRow.setAttribute("id", "headerRow");
     for (let i = 0; i < 9; i++){
@@ -15,7 +24,7 @@ function populateTable(){
             headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
     }
 
-
+    // Populate table with GER column vals, input fields
     for (let i = 0; i < countGers; i++){
         var newRow = table.insertRow(-1);
         for (let j = 0; j < 9; j++){
@@ -63,9 +72,11 @@ function populateTable(){
                             // Get first cell of the relevant row
                             firstCell.setAttribute("style", "background-color: green;");
                         }
+                        // If semester is current, set to ongoing
                         else if (currentSemester == j){ 
-                            firstCell.setAttribute("style", "background-color: yellow;");
+                            firstCell.setAttribute("style", "background-color: khaki;");
                         }
+                        // Else, set to planned
                         else{
                             firstCell.setAttribute("style", "background-color: #0000ff;");
                         }
@@ -86,13 +97,108 @@ function populateTable(){
     }
 }
 
+// Seems to be problem with function, when changing majors, adds unnecessary rows
+function filterCourses() {
+    var table = document.getElementById("courses");
+    var filter = document.getElementById("courseSelect").value;
+    
+   
+        // Attempt at removing all req (not GER) rows. Temp: replace with better code (seems to keep previous row)
+        var oldRows = document.querySelectorAll("#majorsRow");
+        oldRows.forEach(function(row) {
+            row.parentNode.removeChild(row);
+        }); 
+    
+    if (filter != "None") {
+        // find select major
+        var selectedMajor = MAJORS.find(function(major) {
+            return major[0] === filter;
+        });
+        console.log(selectedMajor);
+        var reqs = selectedMajor[1];
+        console.log(reqs);
+
+        for (let i = 0; i < reqs.length; i++){
+            var newRow = table.insertRow(-1);
+            for (let j = 0; j < 9; j++){
+                var cell = newRow.insertCell(j);
+                // code repasted from populateTable(), maybe redundant?
+                cell.setAttribute("id", "majorsRow");
+                if(j === 0){
+                    //cell = newRow.insertCell(j)
+                    cell.setAttribute("class", "firstCol");
+                    cell.innerHTML = `<td>${reqs[i]}</td>`;
+                }
+                else{
+                    var newInput = document.createElement("input");
+                    newInput.setAttribute("class", "courseTitle");
+                    newInput.setAttribute("type", "text");
+                    newInput.setAttribute("reqs", reqs[i]);
+
+                    // Add event listener to handle input changes
+                    newInput.addEventListener("input", function() {
+
+                        // Get value of the input
+                        var inputValue = this.value;
+
+
+                        // Handle input change if necessary
+                        console.log(`Input changed for ${reqs[i]} in Semester ${j}`);
+                        var table = document.getElementById("courses");
+                        // Get rows 
+                        var rows = table.rows;
+                        // need to add GER length so it picks correct row (Majors added after GERs)
+                        var relevantRow = rows[i+1+GERS.length];
+
+                        var firstCell = relevantRow.cells[0];
+                        var relevantRowInputs = relevantRow.getElementsByTagName("input");
+                        if(this.value == ""){
+                            // If input is empty, reset the background color
+                            firstCell.setAttribute("style", "background-color: #ff0000;");
+                            for (let k = 0; k < relevantRowInputs.length; k++) {
+                                relevantRowInputs[k].disabled = false;
+                            }
+                        }
+                        else{
+                            var currentSemester = document.getElementById("semesterLabel");
+                            currentSemester = parseInt(currentSemester.innerHTML);
+                            console.log(currentSemester, j);
+                            if (currentSemester > j){
+                                // Get first cell of the relevant row
+                                firstCell.setAttribute("style", "background-color: green;");
+                            }
+                            else if (currentSemester == j){ 
+                                firstCell.setAttribute("style", "background-color: yellow;");
+                            }
+                            else{
+                                firstCell.setAttribute("style", "background-color: #0000ff;");
+                            }
+
+                            
+                            for (let k = 0; k < relevantRowInputs.length; k++) {
+                                if (k+1!=j){
+                                    relevantRowInputs[k].disabled = true;
+                                }
+                            }
+                        }
+
+                    });
+
+                    cell.appendChild(newInput);
+                }
+            }
+                    }
+                }
+            }
+           
+
 function updateSemesterLabel() {
     var semesterLabel = document.getElementById("semesterLabel");
     var slider = document.getElementById("semesterSlider");
     semesterLabel.innerHTML = `${slider.value}`;
 }
 
-function savePlan(){
+function savePlan() {
 
     var currentSemester = document.getElementById("semesterLabel").innerHTML;
 
@@ -143,8 +249,7 @@ function savePlan(){
 
 }
 
-
-function loadPlan(){
+function loadPlan() {
 
     var password = document.getElementById("password").value;
 
