@@ -1,26 +1,34 @@
 
 GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "NW1", "NW2", "HB1", "HB2"];
-MAJORS = [
-            ["CSBS", ['CSC-105', 'CSC-121', 'CSC-122', 'CSC-223', 'CSC-231', 'CSC-261', 'CSC-461', 'MTH-150', 'CSC-300+ A or B', 'CSC-300+ A', 'CSC-300+ A', 'LLE', 'CAP', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']],
-            ["CSBA", ['CSC-105', 'CSC-121', 'CSC-122', 'CSC-223', 'CSC-231', 'CSC-261', 'CSC-461', 'MTH-120 or 150', 'CSC-300+ A or B', 'CSC-300+ B', 'CSC-300+ B', 'LLE', 'CAP', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']],
-            ["ITBS", ['CSC-105', 'CSC-121', 'CSC-122', 'CAP', 'CSC-300+', 'CSC-200+', '300+ cog', '200+ cog', '200+ cog', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']]
-         ];
-// This code currently doesn't work, as it isn't allowed under CORS policy 
-// const csvUrl = 'majors.csv'; // URL to the CSV file
-// fetch(csvUrl)
-//     .then(response => response.text())
-//     .then(csvText => {
-//         const results = Papa.parse(csvText, {
-//             header: true,
-//             skipEmptyLines: true,
-//             comments: '#'
-//         });
-//         console.log(results.data);
-//     });
-// var allMajors = results.data;
+
+let MAJORS = [];
+async function assignMAJORS() {
+    // must wait to ensure that data is properly loaded into global var MAJORS
+    const data = await d3.csv("majors.csv")
+    for (i = 0; i < data.length; i++) {
+        if (!data[i]["Major"].startsWith("#")) {
+            var major = data[i]["Major"];
+            var name = data[i]["Name"];
+            // this was more painful than I initially anticipated
+            var vals = data[i]["Reqs"].split(',');
+            console.log(vals)
+
+        MAJORS.push([major, name, vals])
+        }
+    }
+}
+
+async function initialize() {
+    // Recall, waiting so MAJORS assigned properly
+        // Note: 'may' not work properly if used outside of any function
+    await assignMAJORS();
+    console.log("Starting Population");
+    populateTable();    
+    console.log("Final MAJORS: ");
+    console.log(MAJORS);
+}
 
 // -----------------------------------------------------------
-
 // Q: Potentialy add function to automatically create input rows for each req - seemingly repetitive code in populateTable() and filterCourses()
 // function addInputRow(colVal) {
 // }
@@ -201,8 +209,12 @@ function populateTable(){
 
 // Seems to be a problem with function, when changing majors, adds unnecessary rows
 function filterCourses() {
+    //Please hope to god this decides to work
+    console.log("Testing")
+    console.log(MAJORS)
     var table = document.getElementById("courses");
     var filter = document.getElementById("courseSelect").value;
+    
     // Add something to work with double majors, minors, may need to adjust entire function
     // var filter1 = document.getElementById("courseSelect1").value;
     // var filter2 = document.getElementById("courseSelect2").value;
@@ -210,19 +222,27 @@ function filterCourses() {
     
    
         // Attempt at removing all req (not GER) rows. Temp: replace with better code (seems to one previous row every time ran)
-        // Maybe requests Shawn's / Greyson's forks for this?
+        // Maybe requests Sean's / Greyson's forks for this?
         var oldRows = document.querySelectorAll("#majorsRow");
         oldRows.forEach(function(row) {
             row.parentNode.removeChild(row);
         }); 
     
     if (filter != "None") {
-        // find select major, replace with .csv file when implemented
-        var selectedMajor = MAJORS.find(function(major) {
-            return major[0] === filter;
-        });
-        console.log(selectedMajor);
-        var reqs = selectedMajor[1];
+        // find select major, csv file compliant
+        // console.log(MAJORS[0][0]);
+        console.log(filter);
+        var i = 0;
+        while (i < MAJORS.length && filter != MAJORS[i][0]) {
+            i++;
+            console.log(MAJORS[i][0]);
+        }
+        var reqs = MAJORS[i][2];
+        // for (i = 0; i < MAJORS.length; i++) {
+        //     if (filter == MAJORS[i][0]) {
+        //         var reqs = MAJORS[i][2];
+        //     }
+        // }
         console.log(reqs);
 
         for (let i = 0; i < reqs.length; i++){
@@ -294,9 +314,9 @@ function filterCourses() {
                     cell.appendChild(newInput);
                 }
             }
-                    }
-                }
-            }
+        }
+     }
+}
          
 function updateSemesterLabel() {
     // Should we add something about updating the table when this function is called? Otherwise, data must be re-entered to refresh table

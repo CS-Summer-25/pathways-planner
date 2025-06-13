@@ -70,6 +70,9 @@ input{
     width: 100%;
     background-color: rgba(255, 255, 255, 0.75);
 }
+input:disabled{
+    background-color:rgba(255, 255, 255, 0.25)
+}
 
 select{
     margin-top: 20px;

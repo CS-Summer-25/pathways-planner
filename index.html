@@ -5,15 +5,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pathways Planner</title>
         <link rel="stylesheet" href="styles.css">
-        <script src="script.js" defer></script>
+
+        <!-- import d3.js -->
+        <script src="https://d3js.org/d3.v7.min.js"></script>
 
         <!-- import for require('fs'), -- IMPORTANT: causing an uncaught error, mentions 'mismatched anonymous define() module'-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script> 
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>  -->
         <!-- import for csv parsing -->
         <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
+        <script src="script.js" defer></script>
+
     </head>
-    <body onload="populateTable()">
+    <body onload="initialize()">
         <div id="header">
             <img src="logo.png" alt="Pathways Planner Logo" id="logo">
             <span id="heading">Pathways Planner</span>
