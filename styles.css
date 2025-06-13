@@ -68,19 +68,22 @@ table{
 
 input{
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 select{
     margin-top: 20px;
 }
 
+/* Not utilized - no vidoes on site (other than example)
 iframe{
     width: 40%;
 }
+*/
 
 #logo {
     width: 200px;
-    filter:invert(0.5);
+    filter:invert(0.25);
     margin-right: 20px;
 }
 

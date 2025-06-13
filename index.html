@@ -1,4 +1,4 @@
-<html>
+<html lang='en-US'>
 
     <head>
         <meta charset="UTF-8">
@@ -6,8 +6,12 @@
         <title>Pathways Planner</title>
         <link rel="stylesheet" href="styles.css">
         <script src="script.js" defer></script>
-        <!-- import for require('fs') -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>
+
+        <!-- import for require('fs'), -- IMPORTANT: causing an uncaught error, mentions 'mismatched anonymous define() module'-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script> 
+        <!-- import for csv parsing -->
+        <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
     </head>
     <body onload="populateTable()">
         <div id="header">
@@ -17,8 +21,6 @@
         <div id="controlPanel">
             <label for="courseSelect">Select Major:</label>
             <select id="courseSelect" onchange="filterCourses()">
-
-
                 <option value="None"></option>
                 <option value="ITBS">Information Technology</option>
                 <!--<option value="CS">Computer Science</option>-->
@@ -100,16 +102,22 @@
                 -->
             </select>
 
-            <!-- For Double Major Selection
+            <br/>
+            <!-- For Double Major Selection -->
             <label for="courseSelect2">Select 2nd Major:</label>
             <select id="courseSelect2" onchange="filterCourses()">
+            <!--
                 To be added later, after functionality is complete
+            -->
                 
-            </select> -->
+            </select> 
 
-            <!-- For Minor Selection
+            <br/>
+            <!-- For Minor Selection -->
+            <!---->
             <label for="minorSelect">Select Minor:</label>
             <select id="minorSelect" onchange="filterCourses()">
+            <!--
                 To be added later, after functionality is complete
                 <option value="None"></option>
                 <option value="AFCm">Africana Studies</option>
@@ -130,8 +138,8 @@
                 <option value="SCEDUm">Science Education</option>
                 <option value="VSTm">Visual Strategy</option>
                 <option value="WGSm">Women's Gender, and Sexuality Studies</option>
-                
-            </select> -->
+            -->
+            </select>
 
             <br/>
             <br/>
@@ -143,6 +151,7 @@
             <!-- text field -->
             <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>
             <br/><br/>
+            <!--Should we add a username/passcode system instead?-->
             <input type="text" id="password" placeholder="Type in password here" >
             
             <br/><br/>

@@ -1,0 +1,4 @@
+"CSBS","CSBA","IT"
+"['csc-105', 'csc-121', 'csc-122', 'csc-223', 'csc-231', 'csc-261', 'csc-461', 'mth-150', '300+ from A or B', '300+ from A', '300+ from A', 'LLE', 'CAP', 'PP1', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']","['csc-105', 'csc-121', 'csc-122', 'csc-223', 'csc-231', 'csc-261', 'csc-461', 'mth-120 or 150', '300+ from A or B', '300+ from B', '300+ from B', 'LLE', 'CAP', 'PP1', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']","['csc-105', 'csc-121', 'csc-122', 'CAP', '300+ csc', '200+ csc', '300+ cog', '200+ cog', '200+ cog', 'PP1', 'CE1', 'CE2', 'PP1', 'PP2', 'NEE1', 'NEE2']"
+# plan to add more majors and reqs
+# is there a better, more visually appealing way to store this, maybe per row, first item is major, rest is reqs?
