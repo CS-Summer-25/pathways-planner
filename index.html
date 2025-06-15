@@ -9,10 +9,10 @@
         <!-- import d3.js -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
 
-        <!-- import for require('fs'), -- IMPORTANT: causing an uncaught error, mentions 'mismatched anonymous define() module'-->
+        <!-- import for require('fs'), - SEEMINGLY UNUSED AS WELL-->
         <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>  -->
-        <!-- import for csv parsing -->
-        <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+        <!-- import for csv parsing UNUSED - SEE D3.js-->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script> -->
 
         <script src="script.js" defer></script>
 
@@ -24,12 +24,12 @@
         </div>
         <div id="controlPanel">
             <label for="courseSelect">Select Major:</label>
-            <select id="courseSelect" onchange="filterCourses()">
-                <option value="None"></option>
+            <select id="courseSelect" onchange="filterCourses(id)">
+                <!-- <option value="None"></option>
                 <option value="ITBS">Information Technology</option>
-                <!--<option value="CS">Computer Science</option>-->
                 <option value="CSBS">Computer Science, B.S.</option>
-                <option value="CSBA">Computer Science, B.A.</option>
+                <option value="CSBA">Computer Science, B.A.</option> -->
+                <!-- Should we implement area of study check? Might shorten list, need to add to majors.csv -->
                 <!-- To be added later, after functionality is complete
                                
                 <option value="ACC">Accounting, B.A.</option>
@@ -54,8 +54,6 @@
                 <option value="CLS1">Classics, Historical Language and Literature Track, B.A.</option>
                 <option value="CLS2">Classics, Information, Tradition, and Text Track, B.A.</option>                
                 <option value="COM">Communication Studies, B.A.</option>
-                <option value="CSBS">Computer Science, B.S.</option>
-                <option value="CSBA">Computer Science, B.A.</option>
                 <option value="EESBS">Earth and Environmental Science, B.S.</option>
                 <option value="EESBA">Earth and Environmental Science, B.A.</option>
                 <option value="ECN">Economics, B.A.</option>
@@ -109,18 +107,17 @@
             <br/>
             <!-- For Double Major Selection -->
             <label for="courseSelect2">Select 2nd Major:</label>
-            <select id="courseSelect2" onchange="filterCourses()">
+            <select id="courseSelect2" onchange="filterCourses(id)">
             <!--
                 To be added later, after functionality is complete
-            -->
-                
+            -->                
             </select> 
 
             <br/>
             <!-- For Minor Selection -->
             <!---->
             <label for="minorSelect">Select Minor:</label>
-            <select id="minorSelect" onchange="filterCourses()">
+            <select id="minorSelect" onchange="filterCourses(id)">
             <!--
                 To be added later, after functionality is complete
                 <option value="None"></option>

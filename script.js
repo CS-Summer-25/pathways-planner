@@ -1,31 +1,72 @@
-
-GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "NW1", "NW2", "HB1", "HB2"];
+// GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "NW1", "NW2", "HB1", "HB2"];
+GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "NW", "HB"];
+// make sure to have NW and HB be given two slots
 
 let MAJORS = [];
-async function assignMAJORS() {
+let MINORS = [];
+
+async function assignCOURSES(type) {
     // must wait to ensure that data is properly loaded into global var MAJORS
-    const data = await d3.csv("majors.csv")
+    const data = await d3.csv("programs.csv")
     for (i = 0; i < data.length; i++) {
-        if (!data[i]["Major"].startsWith("#")) {
-            var major = data[i]["Major"];
+        if (!data[i]["Program"].startsWith("#")) {
+            var type = data[i]["Type"];
+            var program = data[i]["Program"];
             var name = data[i]["Name"];
             // this was more painful than I initially anticipated
             var vals = data[i]["Reqs"].split(',');
-            console.log(vals)
-
-        MAJORS.push([major, name, vals])
+            // console.log(vals)
+        if (type == "M") {
+            MAJORS.push([program, name, vals])
+        }
+        else if (type == "m") {
+            MINORS.push([program, name, vals])
+        }
         }
     }
 }
 
 async function initialize() {
     // Recall, waiting so MAJORS assigned properly
-        // Note: 'may' not work properly if used outside of any function
-    await assignMAJORS();
-    console.log("Starting Population");
+        // Note: MAJORS/MINORS'may' not display properly if used outside of any function
+    await assignCOURSES("programs.csv");
+    console.log("Starting Table Population");
     populateTable();    
-    console.log("Final MAJORS: ");
-    console.log(MAJORS);
+    console.log("MAJORS/MINORS Initialized: ");
+    console.log(MAJORS, MINORS);
+    constructCourses();
+    console.log("Initialization complete!")
+}
+
+// We should assign majors list based on what majors.csv has in the list
+function constructCourses() {
+    var progId = ["courseSelect", "courseSelect2", "minorSelect"];
+
+    for (i = 0; i < progId.length; i++) {
+        console.log(`constructCourses running. ID: ${progId[i]}`);
+        var courses;
+        if (progId[i] == "minorSelect") {
+            courses = MINORS;
+        }
+        else {
+            courses = MAJORS;
+        }
+        console.log(courses)
+        var selectLoc = document.getElementById(progId[i]);
+        
+        // Create a none option by default
+        const noneOption = document.createElement("option");
+        noneOption.setAttribute("value", "None");
+        noneOption.setAttribute("label", "");
+        selectLoc.appendChild(noneOption);
+
+        for (courseidx=0; courseidx < courses.length; courseidx++) {
+            var courseOption = document.createElement("option");
+            courseOption.setAttribute("value", courses[courseidx][0]);
+            courseOption.setAttribute("label", courses[courseidx][1]);
+            selectLoc.appendChild(courseOption)
+        }
+    }
 }
 
 // -----------------------------------------------------------
@@ -33,7 +74,7 @@ async function initialize() {
 // function addInputRow(colVal) {
 // }
 
-
+// Add HB and NW validation
 function populateTable(){
     var table = document.getElementById("courses");
     var countGers = GERS.length;
@@ -43,7 +84,7 @@ function populateTable(){
     headerRow.setAttribute("id", "headerRow");
     for (let i = 0; i < 9; i++){
         if (i === 0)
-            headerRow.insertCell(i).innerHTML = `<th>GERs</th>`;
+            headerRow.insertCell(i).innerHTML = `<th>Requirements</th>`;
         else
             headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
     }
@@ -180,11 +221,16 @@ function populateTable(){
                             firstCell.setAttribute("style", "background-color: #0000ff;");
                         }
                         
+                        // Make sure to add validation for special cases NW and HB - they need at least 2 credits
+                        // if you have multiple slots (you need to have two NWs and HBs)
+                        // if (GERS[i] == "NW" || GERS[i] == "HB") {
+                        //     var total = 0;
+                            
+
+                        // }
                         // Disable all other inputs in row except input semester
-                        if (GERS[i] != "CLPs" && GERS[i] != "Pathways") {
+                         if (GERS[i] != "CLPs" && GERS[i] != "Pathways") {
                             for (let k = 0; k < relevantRowInputs.length; k++) {
-                                // Pathways and CLPS are special cases, 
-                                    // Pathways is only taken in the first 4, CLPS are for every semester
                                 if (k+1!=j) {
                                     relevantRowInputs[k].disabled = true;
                                 }
@@ -207,50 +253,52 @@ function populateTable(){
     }
 }
 
-// Seems to be a problem with function, when changing majors, adds unnecessary rows
-function filterCourses() {
+// Should we add an option for a "Year 5" selection? May be a headache
+// function addYear5Col() {
+//}
+
+function filterCourses(id) {
     //Please hope to god this decides to work
-    console.log("Testing")
-    console.log(MAJORS)
+    var courses;
+    var coursesAtt = "";
+    if (id == "courseSelect" || id == "courseSelect2") {
+        courses = MAJORS
+        coursesAtt = "majors".concat(id)
+    }
+    else {
+        courses = MINORS
+        coursesAtt = "minors".concat(id)
+    }
+    console.log(`filterCourses(${id}) running. ${coursesAtt}: `);
+    console.log(courses);
     var table = document.getElementById("courses");
-    var filter = document.getElementById("courseSelect").value;
-    
-    // Add something to work with double majors, minors, may need to adjust entire function
-    // var filter1 = document.getElementById("courseSelect1").value;
-    // var filter2 = document.getElementById("courseSelect2").value;
-    // var filter3 = document.getElementById("minorSelect").value;
-    
-   
-        // Attempt at removing all req (not GER) rows. Temp: replace with better code (seems to one previous row every time ran)
-        // Maybe requests Sean's / Greyson's forks for this?
-        var oldRows = document.querySelectorAll("#majorsRow");
-        oldRows.forEach(function(row) {
-            row.parentNode.removeChild(row);
-        }); 
+    var filter = document.getElementById(id).value;
+        
+    // Attempt at removing all req (not GER) rows. Temp: potentially replace with more readable code 
+    var oldRows = document.querySelectorAll(`#${coursesAtt}`);
+    oldRows.forEach(function(row) {
+        row.parentNode.removeChild(row);
+    }); 
     
     if (filter != "None") {
-        // find select major, csv file compliant
-        // console.log(MAJORS[0][0]);
-        console.log(filter);
+        // find selected program, csv file compliant
+        console.log(`Selected: ${filter}`);
         var i = 0;
-        while (i < MAJORS.length && filter != MAJORS[i][0]) {
+        while (i < courses.length && filter != courses[i][0]) {
             i++;
-            console.log(MAJORS[i][0]);
+            console.log(courses[i][0]);
         }
-        var reqs = MAJORS[i][2];
-        // for (i = 0; i < MAJORS.length; i++) {
-        //     if (filter == MAJORS[i][0]) {
-        //         var reqs = MAJORS[i][2];
-        //     }
-        // }
+        var reqs = courses[i][2];
         console.log(reqs);
 
         for (let i = 0; i < reqs.length; i++){
             var newRow = table.insertRow(-1);
+            // ensures that row gets deleted when new major chosen
+            newRow.setAttribute("id", coursesAtt);
             for (let j = 0; j < 9; j++){
                 var cell = newRow.insertCell(j);
                 // code repasted from populateTable(), maybe redundant?
-                cell.setAttribute("id", "majorsRow");
+                cell.setAttribute("id", coursesAtt);
                 if(j === 0){
                     //cell = newRow.insertCell(j)
                     cell.setAttribute("class", "firstCol");
@@ -325,6 +373,7 @@ function updateSemesterLabel() {
     semesterLabel.innerHTML = `${slider.value}`;
 }
 
+// Make sure that savePlan and loadPlan save the programs as well
 function savePlan() {
 
     var currentSemester = document.getElementById("semesterLabel").innerHTML;
