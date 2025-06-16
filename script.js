@@ -5,7 +5,7 @@ GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "U
 let MAJORS = [];
 let MINORS = [];
 
-async function assignCOURSES(type) {
+async function assignCourses(type) {
     // must wait to ensure that data is properly loaded into global var MAJORS
     const data = await d3.csv("programs.csv")
     for (i = 0; i < data.length; i++) {
@@ -16,27 +16,27 @@ async function assignCOURSES(type) {
             // this was more painful than I initially anticipated
             var vals = data[i]["Reqs"].split(',');
             // console.log(vals)
-        if (type == "M") {
-            MAJORS.push([program, name, vals])
-        }
-        else if (type == "m") {
-            MINORS.push([program, name, vals])
-        }
+            if (type == "major") {
+                MAJORS.push([program, name, vals])
+            }
+            else if (type == "minor") {
+                MINORS.push([program, name, vals])
+            }
         }
     }
 }
 
 async function initialize() {
-    // Recall, waiting so MAJORS assigned properly
-        // Note: MAJORS/MINORS'may' not display properly if used outside of any function
-    await assignCOURSES("programs.csv");
+    // Recall, waiting so that MAJORS assigned properly
+    await assignCourses("programs.csv");
     console.log("Starting Table Population");
-    populateTable();    
+    createTable("GERS", "GERS", GERS);    
     console.log("MAJORS/MINORS Initialized: ");
     console.log(MAJORS, MINORS);
     constructCourses();
     console.log("Initialization complete!")
 }
+
 
 // We should assign majors list based on what majors.csv has in the list
 function constructCourses() {
@@ -70,59 +70,36 @@ function constructCourses() {
 }
 
 // -----------------------------------------------------------
-// Q: Potentialy add function to automatically create input rows for each req - seemingly repetitive code in populateTable() and filterCourses()
-// function addInputRow(colVal) {
-// }
-
-// Add HB and NW validation
-function populateTable(){
-    var table = document.getElementById("courses");
-    var countGers = GERS.length;
-
-    // Create header row
-    var headerRow = table.insertRow(0);
-    headerRow.setAttribute("id", "headerRow");
-    for (let i = 0; i < 9; i++){
-        if (i === 0)
-            headerRow.insertCell(i).innerHTML = `<th>Requirements</th>`;
-        else
-            headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
-    }
+function addInputRow(tableId, firstCol) {//, att) {
+    var table = document.getElementById(tableId.concat("-table"));
+    console.log(table)
 
     // Populate table with GER column vals, input fields
-    for (let i = 0; i < countGers; i++){
+    for (let i = 0; i < firstCol.length; i++){
         var newRow = table.insertRow(-1);
         for (let j = 0; j < 9; j++){
             if(j === 0){
                 cell = newRow.insertCell(j)
                 cell.setAttribute("class", "firstCol");
                 
-                cell.innerHTML = `<td>${GERS[i]}</td>`;
-                // Since pathways and CLPS are special cases, let's make this simpler
-                // cell.setAttribute("GERtype", "normal");
-                // if (GERS[i] === "CLPs" || GERS[i] === "Pathways") {
-                //     cell.setAttribute("GERtype", "special");
-                // }
+                cell.innerHTML = `<td>${firstCol[i]}</td>`;
+                cell.setAttribute("tableClass", tableId.concat("-rows"));
             }
             else{
                 var cell = newRow.insertCell(j);
                 var newInput = document.createElement("input");
 
                 newInput.setAttribute("class", "courseTitle");
-                newInput.setAttribute("GER", GERS[i]);
-                // Since pathways and CLPS are special cases, let's make this simpler
-                // newInput.setAttribute("GERtype", "normal");
-                // if (GERS[i] === "CLPs" || GERS[i] === "Pathways") {
-                //     newInput.setAttribute("GERtype", "special");
-                // }
+
+                newInput.setAttribute("tableClass", tableId.concat("-rows"));
                 
                 // if row is CLPs, set to number inputs, string otherwise
-                if (newInput.getAttribute("GER") === "CLPs") {
+                if (firstCol[i] == "CLPs") {
                     newInput.setAttribute("type", "number");
                     newInput.setAttribute("min", "0");
                 }
                 // Pathways is constant, so set to text with values in first 4 accordingly,  last 4 disabled
-                else if (GERS[i] === "Pathways") {                    
+                else if (firstCol[i] == "Pathways") {                    
                     newInput.setAttribute("value", ["PTH-101", "PTH-102", "PTH-201", "PTH-210", "", "", "", ""][j-1]);
                     if (j > 4) {
                         newInput.setAttribute("disabled", "true");
@@ -134,7 +111,7 @@ function populateTable(){
                     }
                 }
                 // Can only take an FYW in freshman year
-                else if (GERS[i] === "FYW" && j > 2) {
+                else if (firstCol[i] === "FYW" && j > 2) {
                     newInput.setAttribute("disabled", "true");
                 }
                 else {
@@ -143,6 +120,7 @@ function populateTable(){
                 
 
                 // Add event listener to handle input changes
+                // Can Event Listener go outside of function?
                 newInput.addEventListener("input", function() {
 
                     // Get value of the input
@@ -150,18 +128,17 @@ function populateTable(){
 
 
                     // Handle input change if necessary
-                    console.log(`Input changed for ${GERS[i]} in Semester ${j}`);
-                    var table = document.getElementById("courses");
+                    console.log(`Input changed for ${firstCol[i]} in Semester ${j}`);
                     // Get rows 
+                    var idx = i
                     var rows = table.rows;
-                    var relevantRow = rows[i+1];
+                    var relevantRow = rows[idx+1]
 
                     var firstCell = relevantRow.cells[0];
                     var relevantRowInputs = relevantRow.getElementsByTagName("input");
                     
                     // if val is empty, reset background to red and enable all input slots in row
                     if(this.value == "") {
-                        // If input is empty, reset the background color
                         firstCell.setAttribute("style", "background-color: #ff0000;");
                         for (let k = 0; k < relevantRowInputs.length; k++) {
                             relevantRowInputs[k].disabled = false;
@@ -173,7 +150,7 @@ function populateTable(){
                         console.log(currentSemester, j);
                         // CLP Check, check sum of all semester, if input is CLPs, check if sum of all inputs >= 32, if so, set to green (done), otherwise, set to yellow (ongoing). 
                         // Follows different logic than other GERS - all inputs are enabled
-                        if (GERS[i] == "CLPs") {
+                        if (firstCol[i] == "CLPs") {
                             var total = 0;
                             for (let k = 0; k < relevantRowInputs.length; k++) {
                                 if (relevantRowInputs[k].value != "") {
@@ -195,7 +172,7 @@ function populateTable(){
                             // In all honesty, probably should just disable all inputs except for first 4 on startup, as well as populate info
                             // thus relying on current semester to determine if ongoing or done.
                             // Do we want validation (i.e. specific course names) for pathways in the planner?
-                        else if (GERS[i] == "Pathways") {
+                        else if (firstCol[i] == "Pathways") {
                             if (currentSemester > 4 &&
                             relevantRowInputs[0].value.toLowerCase().replace("-", "") == "pth101" &&
                             relevantRowInputs[1].value.toLowerCase().replace("-", "") == "pth102" &&
@@ -226,59 +203,93 @@ function populateTable(){
                         // if (GERS[i] == "NW" || GERS[i] == "HB") {
                         //     var total = 0;
                             
-
-                        // }
                         // Disable all other inputs in row except input semester
-                         if (GERS[i] != "CLPs" && GERS[i] != "Pathways") {
+                         if (firstCol[i] != "CLPs" && firstCol[i] != "Pathways") {
                             for (let k = 0; k < relevantRowInputs.length; k++) {
                                 if (k+1!=j) {
                                     relevantRowInputs[k].disabled = true;
                                 }
                             }
                         }
-                        // Seemingly redundant code, see when cells are created earlier in code
-                        // else if (GERS[i] == "Pathways") {
-                        //     for (let k = 0; k < relevantRowInputs.length; k++) {
-                        //         if (k!=0 && k!=1 & k!=2 && k!=3) {
-                        //             relevantRowInputs[k].disabled = true;
-                        //         }
-                        //     }
-                        // }
                     }
                 });
-
                 cell.appendChild(newInput);
             }
         }
     }
 }
 
-// Should we add an option for a "Year 5" selection? May be a headache
-// function addYear5Col() {
-//}
+function removeTable(tableId) {
+    var oldTable = document.getElementById(tableId.concat("-table"));
+    // Ensures that the <h1> tag also gets removed
+    var oldRows = document.querySelectorAll(`[tableClass=${tableId}-rows]`);
+    console.log(`table ${oldTable}`);
+    console.log(`rows ${oldRows}`);
+    if (oldTable) {
+        oldTable.remove()
+        oldRows.forEach(function(row) {
+            row.parentNode.removeChild(row);
+        });
+    }
+    console.log(`Previous rows of type: ${tableId} removed.`)
+}
 
-function filterCourses(id) {
-    //Please hope to god this decides to work
+// Remember to add HB and NW validation
+function createTable(tableName, tableId, data) {
+    // expected table IDs: GERS, mainMajor, doubleMajor, minor
+    // How to implement table order? (i.e. GERS, main, double, always in that order)
+    var loc = document.getElementById("mainBody");
+    var name = document.createElement("h2");
+    
+    name.innerHTML = `${tableName}`;
+    name.setAttribute("id", "tableHeader")
+    name.setAttribute("tableClass", tableId.concat("-rows"))
+    loc.appendChild(name);
+
+    var table = document.createElement("table");
+    // DON't CHANGE - NEED THIS TO ACCESS TABLE IN JS
+    table.setAttribute("id", tableId.concat("-table"));
+    loc.appendChild(table);
+
+    // Create header row
+    var headerRow = table.insertRow(0);
+    headerRow.setAttribute("id", "headerRow");
+    headerRow.setAttribute("tableClass", tableId.concat("-rows"));
+    for (let i = 0; i < 9; i++){
+        if (i === 0) {
+            headerRow.insertCell(i).innerHTML = `<th>Requirements</th>`;
+        }
+        else {
+            headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
+        }
+    }
+    addInputRow(tableId, data)
+}
+
+function filterCourses(selectId) {
     var courses;
-    var coursesAtt = "";
-    if (id == "courseSelect" || id == "courseSelect2") {
-        courses = MAJORS
-        coursesAtt = "majors".concat(id)
+    var tableId = "";
+    console.log(`SelectID = ${selectId}`);
+    // var coursesAtt = """
+    if (selectId == "courseSelect") {
+        courses = MAJORS;   
+        tableId = "mainMajor"
+    }
+    else if (selectId == "courseSelect2") {
+        tableId = "doubleMajor";
+        courses = MAJORS;   
     }
     else {
-        courses = MINORS
-        coursesAtt = "minors".concat(id)
+        tableId += "minor";
+        courses = MINORS;
+        // coursesAtt = "minors".concat(id)
     }
-    console.log(`filterCourses(${id}) running. ${coursesAtt}: `);
+    // coursesAtt = id.concat("-rows")
+    console.log(`filterCourses(${selectId}) running.`);// ${coursesAtt}: `);
     console.log(courses);
-    var table = document.getElementById("courses");
-    var filter = document.getElementById(id).value;
-        
-    // Attempt at removing all req (not GER) rows. Temp: potentially replace with more readable code 
-    var oldRows = document.querySelectorAll(`#${coursesAtt}`);
-    oldRows.forEach(function(row) {
-        row.parentNode.removeChild(row);
-    }); 
+    
+    var filter = document.getElementById(selectId).value;
+    removeTable(tableId);
     
     if (filter != "None") {
         // find selected program, csv file compliant
@@ -286,85 +297,19 @@ function filterCourses(id) {
         var i = 0;
         while (i < courses.length && filter != courses[i][0]) {
             i++;
-            console.log(courses[i][0]);
+            // console.log(courses[i][0]);
         }
+        // tableId += courses[i][0];
+        var tableName = courses[i][1];
         var reqs = courses[i][2];
-        console.log(reqs);
-
-        for (let i = 0; i < reqs.length; i++){
-            var newRow = table.insertRow(-1);
-            // ensures that row gets deleted when new major chosen
-            newRow.setAttribute("id", coursesAtt);
-            for (let j = 0; j < 9; j++){
-                var cell = newRow.insertCell(j);
-                // code repasted from populateTable(), maybe redundant?
-                cell.setAttribute("id", coursesAtt);
-                if(j === 0){
-                    //cell = newRow.insertCell(j)
-                    cell.setAttribute("class", "firstCol");
-                    cell.innerHTML = `<td>${reqs[i]}</td>`;
-                }
-                else{
-                    var newInput = document.createElement("input");
-                    newInput.setAttribute("class", "courseTitle");
-                    newInput.setAttribute("type", "text");
-                    newInput.setAttribute("reqs", reqs[i]);
-
-                    // Add event listener to handle input changes
-                    newInput.addEventListener("input", function() {
-
-                        // Get value of the input
-                        var inputValue = this.value;
-
-
-                        // Handle input change if necessary
-                        console.log(`Input changed for ${reqs[i]} in Semester ${j}`);
-                        var table = document.getElementById("courses");
-                        // Get rows 
-                        var rows = table.rows;
-                        // need to add GER length so it picks correct row (Majors added after GERs)
-                        var relevantRow = rows[i+1+GERS.length];
-
-                        var firstCell = relevantRow.cells[0];
-                        var relevantRowInputs = relevantRow.getElementsByTagName("input");
-                        if(this.value == ""){
-                            // If input is empty, reset the background color
-                            firstCell.setAttribute("style", "background-color: #ff0000;");
-                            for (let k = 0; k < relevantRowInputs.length; k++) {
-                                relevantRowInputs[k].disabled = false;
-                            }
-                        }
-                        else{
-                            var currentSemester = document.getElementById("semesterLabel");
-                            currentSemester = parseInt(currentSemester.innerHTML);
-                            console.log(currentSemester, j);
-                            if (currentSemester > j){
-                                // Get first cell of the relevant row
-                                firstCell.setAttribute("style", "background-color: green;");
-                            }
-                            else if (currentSemester == j){ 
-                                firstCell.setAttribute("style", "background-color: yellow;");
-                            }
-                            else{
-                                firstCell.setAttribute("style", "background-color: #0000ff;");
-                            }
-
-                            
-                            for (let k = 0; k < relevantRowInputs.length; k++) {
-                                if (k+1!=j){
-                                    relevantRowInputs[k].disabled = true;
-                                }
-                            }
-                        }
-
-                    });
-
-                    cell.appendChild(newInput);
-                }
-            }
-        }
-     }
+        console.log(tableId, tableName, reqs);
+        createTable(tableName, tableId, reqs)
+    }
 }
+
+// Should we add an option for a "Year 5" selection? May be a headache
+// function addYear5Col() {
+//}
          
 function updateSemesterLabel() {
     // Should we add something about updating the table when this function is called? Otherwise, data must be re-entered to refresh table

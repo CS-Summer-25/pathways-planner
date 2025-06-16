@@ -8,12 +8,6 @@
 
         <!-- import d3.js -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
-
-        <!-- import for require('fs'), - SEEMINGLY UNUSED AS WELL-->
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"></script>  -->
-        <!-- import for csv parsing UNUSED - SEE D3.js-->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script> -->
-
         <script src="script.js" defer></script>
 
     </head>
@@ -25,121 +19,18 @@
         <div id="controlPanel">
             <label for="courseSelect">Select Major:</label>
             <select id="courseSelect" onchange="filterCourses(id)">
-                <!-- <option value="None"></option>
-                <option value="ITBS">Information Technology</option>
-                <option value="CSBS">Computer Science, B.S.</option>
-                <option value="CSBA">Computer Science, B.A.</option> -->
-                <!-- Should we implement area of study check? Might shorten list, need to add to majors.csv -->
-                <!-- To be added later, after functionality is complete
-                               
-                <option value="ACC">Accounting, B.A.</option>
-                <option value="AFSH">Africana Studies Humanities Track, B.A.</option>
-                <option value="AFSS">Africana Studies Social Sciences Track, B.A.</option>
-                <option value="ANT">Anthropology, B.A.</option>
-                <option value="APM">Applied Mathematics, B.S.</option>
-                <option value="ART">Art History, B.A.</option>
-                <option value="AST">Asian Studies, B.A.</option>
-                <option value="BIOBS">Biology, B.S. Biomedical Sciences Track</option>
-                <option value="BIOCMB">Biology, B.S. Cell and Molecular Biology Track</option>
-                <option value="BIOECB">Biology, B.S. Environmental and Conservation Biology Track</option>
-                <option value="BIOIB">Biology, B.S. Integrative Biology Track</option>
-                <option value="BIOBA">Biology, B.A.</option>
-                <option value="BUS">Business Administration, B.A.</option>
-                <option value="CHMBIO">Chemistry, Biochemistry Track, B.S.</option>
-                <option value="CHMENV">Chemistry, Environmental Chemistry Track, B.S.</option>
-                <option value="CHMSTN">Chemistry, Standard Track, B.S.</option>
-
-                <option value="CHN">Chinese Studies, B.A.</option>
-                <option value="CHMBM">Church Music, B.M.</option>
-                <option value="CLS1">Classics, Historical Language and Literature Track, B.A.</option>
-                <option value="CLS2">Classics, Information, Tradition, and Text Track, B.A.</option>                
-                <option value="COM">Communication Studies, B.A.</option>
-                <option value="EESBS">Earth and Environmental Science, B.S.</option>
-                <option value="EESBA">Earth and Environmental Science, B.A.</option>
-                <option value="ECN">Economics, B.A.</option>
-                <option value="EDU26">Education, B.A. (Teaching in Grades 2-6)</option>
-                <option value="EDU">Educational Studies, B.A.</option>
-                <option value="ENG">English, B.A.</option>
-                <option value="FRN">French, B.A.</option>
-                <option value="GRM">German Studies, B.A.</option>
-                <option value="HSCBS">Health Sciences, B.S.</option>
-                <option value="HSCBA">Health Sciences, B.A.</option>
-                <option value="HST">History, B.A.</option>
-                <option value="ITBS">Information Technology, B.S.</option>
-                <option value="ITBA">Information Technology, B.A.</option>
-                <option value="JPN">Japanese Studies, B.A.</option>
-                <option value="MTHBS">Mathematics, B.S.</option>
-                <option value="MTHBA">Mathematics, B.A.</option>
-                <option value="MTENBS">Mathematics-Economics, B.S.</option>
-                <option value="MTENBA">Mathematics-Economics, B.A.</option>
-
-                <option value="MUSCMP">Music Composition, B.M.</option>               
-                <option value="MUSEDCM">Music Education, Choral Music Emphasis, B.M.</option>               
-                <option value="MUSEDI">Music Education, Instrumental, B.M.</option>
-                <option value="MUSBA">Music, B.A.</option>   
-                <option value="MUSORG">Music Performance, Organ Emphasis, B.M.</option>
-                <option value="MUSPNO">Music Performance, Piano Emphasis, B.M.</option>
-                <option value="MUSSTR">Music Performance, Strings Emphasis, B.M.</option>
-                <option value="MUSVOC">Music Performance, Vocal Emphasis, B.M.</option>
-                <option value="MUSWPE">Music Performance, Wind or Percussion Emphasis, B.M.</option>                      
-                <option value="MUSTHR">Music Theory, B.M.</option>     
-                <option value="NSC">Neuroscience, B.S.</option>                         
-                <option value="PHL">Philosophy, B.A.</option>
-                <option value="PHY">Physics, B.S.</option>
-                <option value="POL">Politics & International Affairs, B.A.</option>
-                <option value="PSYBS">Psychology, B.S.</option>
-                <option value="PSYBA">Psychology, B.A.</option>
-                <option value="PBHBS">Public Health, B.S.</option>
-                <option value="PBHBA">Public Health, B.A.</option>
-                <option value="REL">Religion, B.A.</option>
-                <option value="SOC">Sociology, B.A.</option>
-                <option value="SPN">Spanish, B.A.</option>
-                <option value="STA">Studio Art, B.A.</option>
-                <option value="SUS">Sustainability Science, B.S.</option>
-                <option value="THA">Theatre Arts, B.A.</option>
-                <option value="THS">Theatre Studies, B.A.</option>
-                <option value="UST">Urban Studies, B.A.</option>
-                <option value="WGS">Women's, Gender, and Sexuality Studies, B.A.</option>               
-
-                -->
             </select>
 
             <br/>
             <!-- For Double Major Selection -->
             <label for="courseSelect2">Select 2nd Major:</label>
-            <select id="courseSelect2" onchange="filterCourses(id)">
-            <!--
-                To be added later, after functionality is complete
-            -->                
+            <select id="courseSelect2" onchange="filterCourses(id)">       
             </select> 
 
             <br/>
             <!-- For Minor Selection -->
-            <!---->
             <label for="minorSelect">Select Minor:</label>
             <select id="minorSelect" onchange="filterCourses(id)">
-            <!--
-                To be added later, after functionality is complete
-                <option value="None"></option>
-                <option value="AFCm">Africana Studies</option>
-                <option value="AGRSm">Ancient Greek and Roman Studies</option>
-                <option value="DANm">Data Analytics</option>
-                <option value="DETHm">Digital Ethics</option>
-                <option value="ENVm">Environmental Studies</option>
-                <option value="FLMm">Film Studies</option>
-                <option value="HUMm">Humanities</option>
-                <option value="JRNm">Journalism</option>
-                <option value="LTNm">Latin American & LatinX Studies</option>
-                <option value="LNGm">Linguistics</option>
-                <option value="MHCm">Medicine, Health & Culture</option>
-                <option value="MEMSm">Medieval and Early Modern Studies</option>
-                <option value="MEISm">Middle East and Islamic Studies</option>
-                <option value="MUS">Musical Theatre</option>
-                <option value="POVm">Poverty Studies</option>
-                <option value="SCEDUm">Science Education</option>
-                <option value="VSTm">Visual Strategy</option>
-                <option value="WGSm">Women's Gender, and Sexuality Studies</option>
-            -->
             </select>
 
             <br/>
@@ -159,12 +50,16 @@
             <button id="saveBtn" onclick="savePlan()">Save</button>
             <button id="loadBtn" onclick="loadPlan()">Load</button>
 
+            <br/><br/>
+
+            <button id="removeGER" onclick="removeTable('GERS')">Remove GERs table (TEST)</button>
+
 
             <!-- <a href="https://furman.edu">Give up? Go to Furman website</a>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/Q57_iaGrxLg?si=Doe0GEgVDqG2lX5e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         </div>
         <div id="mainBody">
-            <table id="courses"></table>
+            <!-- This is where the schedule tables get created -->
         </div>
         <div id="footer">
             <p>Pathways Planner © 2023</p>
