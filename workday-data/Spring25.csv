@@ -1,0 +1,1121 @@
+CourseCode,Section,CourseTitle,RoomId,Days,Time,Status,InstructorName,Mode,Fill
+ACC 120,02,Principles of Financial and Managerial Accounting,HIP-202,TR,8:30 AM - 9:45 AM,Closed,Mark Bettner,In-Person,25/24
+ACC 120,03,Principles of Financial and Managerial Accounting,HIP-202,MW,4:00 PM - 5:15 PM,Closed,Samuel Welchel,In-Person,26/24
+ACC 120,04,Principles of Financial and Managerial Accounting,HIP-202,MW,6:00 PM - 7:15 PM,Closed,Greg Haselden,In-Person,25/24
+ACC 311,01,Intermediate Accounting I,HIP-202,TR,11:30 AM - 12:45 PM,Closed,Mark Bettner,In-Person,24/24
+ACC 313,01,Intermediate Accounting III,HIP-204,MWF,9:30 AM - 10:20 AM,Open,Sandy Roberson,In-Person,23/27
+ACC 320,01,Cost Accounting,HIP-204,MWF,11:30 AM - 12:20 PM,Open,Sandy Roberson,In-Person,14/24
+ACC 330,01,Auditing,HIP-204,TR,11:30 AM - 12:45 PM,Open,Tom Smythe,In-Person,12/24
+AFS 100,01,Introduction to Africana Studies,HIP-102,MW,1:30 PM - 2:45 PM,Open,Marion McHugh,In-Person,17/24
+ANT 101,01,Introduction to Anthropology,FUR-110,TR,1:00 PM - 2:15 PM,Closed,Kaniqua Robinson,In-Person,23/18
+ANT 101,02,Introduction to Anthropology,FUR-207,MWF,9:30 AM - 10:20 AM,Closed,Scott Legge,In-Person,24/24
+ANT 205,01,Japanese Popular Culture,FUR-204,TR,1:00 PM - 2:15 PM,Closed,Andrew Womack,In-Person,24/24
+ANT 253,01,Anthropology of Development in Latin America,FUR-204,MWF,11:30 AM - 12:20 PM,Open,Shusuke Yagi,In-Person,21/24
+ANT 262,01,Magic and Religion,FUR-126,MWF,10:30 AM - 11:20 AM,Closed,Karen Allen,In-Person,25/24
+ANT 306,01,Human Osteology & Paleopathology,FUR-208,MWF,1:30 PM - 2:20 PM,Closed,Ed Yazijian,In-Person,24/24
+ANT 306,01L,Human Osteology & Paleopathology,PYR-025,TR,10:00 AM - 11:15 AM,Open,Scott Legge,In-Person,7/18
+ANT 327,01,Feminist Anthropology,PYR-025,T,3:00 PM - 5:20 PM,Open,Scott Legge,In-Person,7/18
+ART 111,01,Introduction to Design,FUR-118,TR,11:30 AM - 12:45 PM,Closed,Kaniqua Robinson,In-Person,18/18
+ART 111,02,Introduction to Design,RAB-DSS,TR,9:30 AM - 11:20 AM,Closed,Ross McClain,In-Person,12/12
+ART 111,03,Introduction to Design,RAB-DSS,MW,1:30 PM - 3:20 PM,Closed,Dana Potter,In-Person,12/12
+ART 112,01,Introduction to Sculpture,RAB-DSS,MW,3:30 PM - 5:20 PM,Open,Dana Potter,In-Person,11/12
+ART 112,02,Introduction to Sculpture,RAB-SCS,MW,10:30 AM - 12:20 PM,Open,Derek Reese,In-Person,11/12
+ART 113,01,Introduction to Painting,RAB-SCS,MW,8:30 AM - 10:20 AM,Open,Waylon Bigsby,In-Person,10/12
+ART 124,01,Drawing,RAB-PTS,MW,9:30 AM - 11:20 AM,Closed,Michael May,In-Person,13/12
+ART 124,02,Drawing,RAB-PTS,TR,9:30 AM - 11:20 AM,Open,Lindsay Gustave,In-Person,11/12
+ART 124,03,Drawing,RAB-PTS,TR,11:30 AM - 1:20 PM,Open,Huan LaPlante,In-Person,10/12
+ART 132,01,Histories of Art I,RAB-PTS,TR,1:30 PM - 3:20 PM,Open,Huan LaPlante,In-Person,11/12
+ART 133,01,Histories of Art II,RAB-LLR,MWF,9:30 AM - 10:20 AM,Open,Kylie Fisher,In-Person,23/24
+ART 200,01,Introduction to Ceramics,RAB-LLR,MWF,10:30 AM - 11:20 AM,Open,Stephen Mandravelis,In-Person,12/24
+ART 200,02,Introduction to Ceramics,RAB-CRS,TR,9:30 AM - 11:20 AM,Closed,Kevin Kao,In-Person,12/12
+ART 204,01,Themes in Painting,RAB-CRS,TR,1:30 PM - 3:20 PM,Closed,Kevin Kao,In-Person,12/12
+ART 205,01,Darkroom Photography,RAB-PTS,MW,1:30 PM - 3:20 PM,Open,Michael May,In-Person,6/12
+ART 206,01,Digital Photography,RAB-PRS,MW,9:30 AM - 11:20 AM,Open,Terri Bright,In-Person,10/12
+ART 222,01,Media Art,RAB-PRS,MW,1:30 PM - 3:20 PM,Closed,Terri Bright,In-Person,12/12
+ART 246,01,Twentieth Century Art,RAB-DSS,MW,9:30 AM - 11:20 AM,Open,Dana Potter,In-Person,8/12
+ART 263,01,Arts of Japan,RAB-LLR,TR,10:00 AM - 11:15 AM,Open,Sarah Archino,In-Person,14/15
+ART 265,01,Museums Are Not Neutral,RAB-LLR,MWF,1:30 PM - 2:20 PM,Open,Shusuke Yagi,In-Person,20/24
+ART 272,01,Success in the Arts,RAB-LLR,TR,1:00 PM - 2:15 PM,Open,Kylie Fisher,In-Person,14/15
+ART 302,TU,Painting Portfolio,RAB-LLR,MW,2:30 PM - 4:20 PM,Open,Polly Gaillard,In-Person,6/24
+ART 303,01,Photographic Essay,ART 302-TU - Painting Portfolio,,,Closed,Michael May,In-Person,3/0
+ART 320,01,Brand Design,RAB-PRS,TR,11:30 AM - 1:20 PM,Closed,Terri Bright,In-Person,11/11
+ART 330,TU,Art Theory and Criticism,RAB-DSS,TR,12:30 PM - 2:20 PM,Closed,Ross McClain,In-Person,13/12
+ART 402,01,Studio Seminar II,ART 330-TU - Art Theory and Criticism,,,Closed,Sarah Archino,In-Person,1/0
+ART 501,01,Independent Study,RAB-LLR,T,2:30 PM - 3:45 PM,Open,Michael May,In-Person,10/24
+ART 501,02,Independent Study,ART 501-01 - Independent Study,,,Closed,Sarah Archino,In-Person,1/0
+ART 501,03,Independent Study,ART 501-02 - Independent Study,,,Closed,Terri Bright,In-Person,1/0
+ART 503,01,Individualized Internship,ART 501-03 - Independent Study,,,Closed,Dana Potter,In-Person,1/0
+AST 240,01,Archaeology of the Silk Road,ART 503-01 - Individualized Internship,,,Closed,Michael May,In-Person,1/0
+AST 250,01,Human Development in Contemporary Asia,FUR-204,TR,11:30 AM - 12:45 PM,Closed,Andrew Womack,In-Person,19/19
+AST 470,01,Seminar in Asian Studies,FUR-109,TR,11:30 AM - 12:45 PM,Open,Veena Khandke,In-Person,17/24
+Find Course Listings,,,FUR-229,T,2:30 PM - 5:20 PM,Open,Shusuke Yagi,In-Person,9/19
+BIO 075,01,Seminar in Biology,AST 470-TU - Seminar in Asian Studies,,,Closed,Victoria Montrose,In-Person,1/0
+BIO 075,02,Seminar in Biology,PYR-143,T,11:30 AM - 12:45 PM,Closed,Greg Lewis,In-Person,12/11
+BIO 102,01,Biology and the Environment,PYR-143,R,11:30 AM - 12:45 PM,Closed,Min-Ken Liao,In-Person,12/11
+BIO 102,01L,Biology and the Environment,PYR-126,TR,10:00 AM - 11:15 AM,Open,Travis Perry,In-Person,18/28
+BIO 111,01,Foundations of Biology,PYR-141,R,2:30 PM - 5:20 PM,Open,Travis Perry,In-Person,18/28
+BIO 111,01L,Foundations of Biology,PYR-028,TR,8:30 AM - 9:45 AM,Open,Wade Worthen,In-Person,23/28
+BIO 111,02,Foundations of Biology,PYR-142,T,2:30 PM - 5:20 PM,Open,Wade Worthen,In-Person,23/28
+BIO 111,02L,Foundations of Biology,PYR-026,MWF,11:30 AM - 12:20 PM,Open,Grace Freundlich,In-Person,24/28
+BIO 111,03,Foundations of Biology,PYR-142,W,2:30 PM - 5:20 PM,Open,Grace Freundlich,In-Person,24/28
+BIO 111,03L,Foundations of Biology,PYR-026,TR,10:00 AM - 11:15 AM,Open,David Hollis,In-Person,16/28
+BIO 210,01,Genetics,PYR-142,R,2:30 PM - 5:20 PM,Open,David Hollis,In-Person,16/28
+BIO 210,01L,Genetics,PYR-024,TR,1:00 PM - 2:15 PM,Open,Jason Rawlings,In-Person,16/18
+BIO 210,02,Genetics,TNS-172,R,2:30 PM - 5:20 PM,Open,Jason Rawlings,In-Person,16/18
+BIO 210,02L,Genetics,PYR-026,MWF,10:30 AM - 11:20 AM,Open,Sri Chandrasekaran,In-Person,12/18
+BIO 210,03,Genetics,TNS-172,T,2:30 PM - 5:20 PM,Open,Sri Chandrasekaran,In-Person,12/18
+BIO 210,03L,Genetics,PYR-026,MWF,9:30 AM - 10:20 AM,Closed,Mara Robu,In-Person,18/18
+BIO 210,04,Genetics,TNS-172,M,2:30 PM - 5:20 PM,Closed,Mara Robu,In-Person,18/18
+BIO 210,04L,Genetics,PYR-028,MWF,11:30 AM - 12:20 PM,Open,Mara Robu,In-Person,16/18
+BIO 222,01,Research and Analysis,TNS-172,W,2:30 PM - 5:20 PM,Open,Mara Robu,In-Person,16/18
+BIO 222,01L,Research and Analysis,PYR-131,MWF,9:30 AM - 10:20 AM,Closed,Grace Freundlich,In-Person,15/15
+BIO 222,02,Research and Analysis,PYR-131,M,2:30 PM - 5:20 PM,Closed,Grace Freundlich,In-Person,15/15
+BIO 222,02L,Research and Analysis,PYR-143,TR,1:00 PM - 2:15 PM,Open,John Quinn,In-Person,14/15
+BIO 303,01,Biochemistry of the Cell,PYR-143,R,2:30 PM - 5:20 PM,Open,John Quinn,In-Person,14/15
+BIO 303,01L,Biochemistry of the Cell,PYR-143,TR,10:00 AM - 11:15 AM,Closed,Linnea Freeman,In-Person,17/16
+BIO 320,01,Animal Physiology,TNS-161,T,2:30 PM - 5:20 PM,Closed,Linnea Freeman,In-Person,17/16
+BIO 320,01L,Animal Physiology,PYR-143,MWF,9:30 AM - 10:20 AM,Open,Dennis Haney,In-Person,15/18
+BIO 322,01,Human Physiology,PYR-027,T,2:30 PM - 5:20 PM,Open,Dennis Haney,In-Person,15/18
+BIO 322,01L,Human Physiology,PYR-143,MWF,11:30 AM - 12:20 PM,Closed,Adi Dubash,In-Person,19/18
+BIO 340,01,Ecology,PYR-027,W,2:30 PM - 5:20 PM,Closed,Adi Dubash,In-Person,19/18
+BIO 340,01L,Ecology,PYR-143,MWF,1:30 PM - 2:20 PM,Closed,Greg Lewis,In-Person,17/14
+BIO 340,02,Ecology,PYR-144,W,2:30 PM - 5:20 PM,Closed,Greg Lewis,In-Person,17/14
+BIO 340,02L,Ecology,PYR-129,TR,8:30 AM - 9:45 AM,Open,Travis Perry,In-Person,13/14
+BIO 401,01,Economic Botany,PYR-129,T,2:30 PM - 5:20 PM,Open,Travis Perry,In-Person,13/14
+BIO 401,01L,Economic Botany,PYR-144,TR,1:00 PM - 2:15 PM,Closed,Ashley Morris,In-Person,15/14
+BIO 402,TS,Belize: Biodiversity and Culture,PYR-144,R,2:30 PM - 5:20 PM,Closed,Ashley Morris,In-Person,15/14
+BIO 402,TSL,Belize: Biodiversity and Culture,PYR-144,TR,8:30 AM - 9:45 AM,Open,Ashley Morris,In-Person,12/24
+BIO 423,TS,Marine Biology,PYR-144,M,2:30 PM - 5:20 PM,Open,Ashley Morris,In-Person,12/24
+BIO 423,TSL,Marine Biology,PYR-143,MWF,10:30 AM - 11:20 AM,Open,Dennis Haney,In-Person,12/16
+BIO 425,01,Developmental Biology,M | 2:30 PM - 5:20 PM,,,Open,Dennis Haney,In-Person,12/16
+BIO 425,01L,Developmental Biology,PYR-028,TR,10:00 AM - 11:15 AM,Open,Jason Rawlings,In-Person,7/16
+BIO 426,01,Human Anatomical Systems,TNS-175,W,2:30 PM - 5:20 PM,Open,Jason Rawlings,In-Person,7/16
+BIO 426,01L,Human Anatomical Systems,PYR-026,TR,1:00 PM - 2:15 PM,Closed,Victoria Turgeon,In-Person,19/18
+BIO 460,01,Neurobiology,PYR-025,R,2:30 PM - 5:20 PM,Closed,Victoria Turgeon,In-Person,19/18
+BIO 460,01L,Neurobiology,HIP-209,MWF,9:30 AM - 10:20 AM,Open,David Hollis,In-Person,16/18
+BIO 501,01,Independent Study,PYR-027,M,2:30 PM - 5:20 PM,Open,David Hollis,In-Person,16/18
+BIO 502,02,Research,BIO 501-01 - Independent Study,,,Open,Ashley Morris,In-Person,1/0
+BIO 502,03,Research,BIO 502-02 - Research,,,Open,Min-Ken Liao,In-Person,0/0
+BIO 503,01,Individualized Internship,BIO 502-03 - Research,,,Open,Travis Perry,In-Person,1/0
+BIO 503,02,Individualized Internship,BIO 503-01 - Individualized Internship,,,Open,Ashley Morris,In-Person,1/0
+BIO 503,03,Individualized Internship,BIO 503-02 - Individualized Internship,,,Open,Victoria Turgeon,In-Person,1/0
+BIO 503,04,Individualized Internship,BIO 503-03 - Individualized Internship,,,Open,Greg Lewis,In-Person,1/0
+BIO 503,05,Individualized Internship,BIO 503-04 - Individualized Internship,,,Open,Adi Dubash,In-Person,1/0
+BIO 503,06,Individualized Internship,BIO 503-05 - Individualized Internship,,,Open,Grace Freundlich,In-Person,1/0
+BIO 506,01,Experience in Research,BIO 503-06 - Individualized Internship,,,Open,David Hollis,In-Person,1/0
+BIO 506,02,Experience in Research,BIO 506-01 - Experience in Research,,,Open,Linnea Freeman,In-Person,1/0
+BIO 506,03,Experience in Research,BIO 506-02 - Experience in Research,,,Open,Linnea Freeman,In-Person,1/0
+BIO 506,04,Experience in Research,BIO 506-03 - Experience in Research,,,Open,Alison Roark,In-Person,1/0
+BIO 506,05,Experience in Research,BIO 506-04 - Experience in Research,,,Open,Sri Chandrasekaran,In-Person,0/0
+BIO 506,06,Experience in Research,BIO 506-05 - Experience in Research,,,Open,Sri Chandrasekaran,In-Person,1/0
+BIO 510,04,Thesis,BIO 506-06 - Experience in Research,,,Open,Victoria Turgeon,In-Person,1/0
+BIO 510,05,Thesis,BIO 510-04 - Thesis,,,Open,Jason Rawlings,In-Person,3/0
+BIO 510,06,Thesis,BIO 510-05 - Thesis,,,Open,Adi Dubash,In-Person,3/0
+BIO 510,07,Thesis,BIO 510-06 - Thesis,,,Open,John Quinn,In-Person,2/0
+BIO 510,08,Thesis,BIO 510-07 - Thesis,,,Open,Victoria Turgeon,In-Person,1/0
+BIO 510,09,Thesis,BIO 510-08 - Thesis,,,Open,Min-Ken Liao,In-Person,1/0
+BUS 100,01,Personal Finance,BIO 510-09 - Thesis,,,Open,Travis Perry,In-Person,4/0
+BUS 100,02,Personal Finance,HIP-107,TR,10:00 AM - 11:15 AM,Open,Ronald Copsey,In-Person,23/24
+BUS 230,01,Business Analytics,HIP-107,TR,1:00 PM - 2:15 PM,Closed,Ronald Copsey,In-Person,24/24
+BUS 230,02,Business Analytics,HIP-102,TR,1:00 PM - 2:15 PM,Closed,Marion McHugh,In-Person,20/18
+BUS 230,03,Business Analytics,HIP-102,TR,2:30 PM - 3:45 PM,Closed,Marion McHugh,In-Person,20/18
+BUS 270,02,Entrepreneurship and New Venture Development,HIP-102,MWF,8:30 AM - 9:20 AM,Closed,Virginia Gerde,In-Person,19/18
+BUS 280A,02,New Venture Business Modeling,HIP-202,MWF,11:30 AM - 12:20 PM,Closed,Steve Stewart,In-Person,24/22
+BUS 320,01,Marketing Principles,HIP-209,MWF,1:30 PM - 2:20 PM,Open,Steve Stewart,In-Person,15/24
+BUS 320,02,Marketing Principles,HIP-102,TR,8:30 AM - 9:45 AM,Closed,Bob Underwood,In-Person,25/24
+BUS 340,01,Introduction to Finance and Markets,HIP-102,TR,10:00 AM - 11:15 AM,Closed,Bob Underwood,In-Person,25/24
+BUS 340,02,Introduction to Finance and Markets,HIP-202,TR,10:00 AM - 11:15 AM,Open,Tom Smythe,In-Person,23/24
+BUS 340,03,Introduction to Finance and Markets,HIP-104,TR,11:30 AM - 12:45 PM,Closed,Francis Kim,In-Person,24/24
+BUS 350,01,Business Law,HIP-104,TR,1:00 PM - 2:15 PM,Open,Francis Kim,In-Person,9/24
+BUS 421,01,International Marketing,HIP-107,TR,8:30 AM - 9:45 AM,Open,Anthony Nolte,In-Person,21/24
+BUS 423,01,Consumer Behavior,HIP-202,TR,1:00 PM - 2:15 PM,Closed,Bob Underwood,In-Person,24/24
+BUS 424,01,"Business, Branding and Behavior",HIP-209,TR,10:00 AM - 11:15 AM,Closed,Jeanine Stratton,In-Person,24/24
+BUS 440,01,Investments Management,HIP-209,TR,11:30 AM - 12:45 PM,Closed,Jeanine Stratton,In-Person,24/24
+BUS 442,01,Financial Institutions and Markets,HIP-104,TR,8:30 AM - 9:45 AM,Closed,Francis Kim,In-Person,27/24
+BUS 450,02,Strategic Management,HIP-202,MW,1:30 PM - 2:45 PM,Closed,Tom Smythe,In-Person,25/24
+BUS 450,03,Strategic Management,HIP-102,MWF,9:30 AM - 10:20 AM,Open,Virginia Gerde,In-Person,20/24
+BUS 501,01,Independent Study,HIP-102,MWF,10:30 AM - 11:20 AM,Open,Virginia Gerde,In-Person,21/23
+BUS 501,02,Independent Study,BUS 501-01 - Independent Study,,,Open,Jeanine Stratton,In-Person,1/0
+BUS 501,03,Independent Study,BUS 501-02 - Independent Study,,,Open,Virginia Gerde,In-Person,3/0
+BUS 501,04,Independent Study,BUS 501-03 - Independent Study,,,Open,Marion McHugh,In-Person,1/0
+BUS 503,01,Individualized Internship,BUS 501-04 - Independent Study,,,Open,Virginia Gerde,In-Person,1/0
+BUS 503,02,Individualized Internship,BUS 503-01 - Individualized Internship,,,Open,Virginia Gerde,In-Person,0/0
+BUS 503,03,Individualized Internship,BUS 503-02 - Individualized Internship,,,Open,Marion McHugh,In-Person,1/0
+BUS 503,04,Individualized Internship,BUS 503-03 - Individualized Internship,,,Open,Marion McHugh,In-Person,4/0
+CHM 075,01,Seminar in Chemistry,BUS 503-04 - Individualized Internship,,,Open,Marion McHugh,In-Person,1/0
+CHM 101,01,Chemistry and Global Awareness,PYR-031,TR,8:30 AM - 9:45 AM,Closed,Lauren E. Jarocha,In-Person,15/10
+CHM 101,02,Chemistry and Global Awareness,PYR-030,MWF,9:30 AM - 10:20 AM,Open,Fritz Moise,In-Person,25/26
+CHM 101,03,Chemistry and Global Awareness,PYR-030,MWF,1:30 PM - 2:20 PM,Open,Jeff Petty,In-Person,25/26
+CHM 101,04,Chemistry and Global Awareness,PYR-030,TR,10:00 AM - 11:15 AM,Closed,Elizabeth Gordon,In-Person,27/26
+CHM 110,01,Foundations of Chemistry,PYR-030,TR,11:30 AM - 12:45 PM,Closed,Elizabeth Gordon,In-Person,27/26
+CHM 110,01L,Foundations of Chemistry,PYR-031,MWF,11:30 AM - 12:20 PM,Open,Karen Buchmueller,In-Person,17/18
+CHM 110,02,Foundations of Chemistry,PYR-031,T,10:00 AM - 12:00 PM,Open,Karen Buchmueller,In-Person,17/18
+CHM 110,02L,Foundations of Chemistry,PYR-031,MWF,1:30 PM - 2:20 PM,Closed,Karen Buchmueller,In-Person,18/18
+CHM 110,03,Foundations of Chemistry,PYR-030,T,1:00 PM - 3:00 PM,Closed,Karen Buchmueller,In-Person,18/18
+CHM 110,03L,Foundations of Chemistry,PYR-031,MWF,10:30 AM - 11:20 AM,Closed,Gary Guillet,In-Person,19/18
+CHM 110,04,Foundations of Chemistry,PYR-030,W,2:30 PM - 4:30 PM,Closed,Gary Guillet,In-Person,19/18
+CHM 110,04L,Foundations of Chemistry,PYR-030,MWF,8:30 AM - 9:20 AM,Open,Jeff Petty,In-Person,11/18
+CHM 115,01,Kinetics Thermodynamics and the Environment,PYR-031,R,10:00 AM - 12:00 PM,Open,Jeff Petty,In-Person,11/18
+CHM 115,01L,Kinetics Thermodynamics and the Environment,PYR-231,MWF,11:30 AM - 12:20 PM,Open,Brian Augustine,In-Person,27/32
+CHM 115,02L,Kinetics Thermodynamics and the Environment,PYR-031,R,1:00 PM - 3:00 PM,Open,Brian Augustine,In-Person,17/18
+CHM 115,03,Kinetics Thermodynamics and the Environment,PYR-031,R,3:30 PM - 5:30 PM,Open,Brian Augustine,In-Person,10/18
+CHM 115,03L,Kinetics Thermodynamics and the Environment,PYR-030,MWF,10:30 AM - 11:20 AM,Open,George Shields,In-Person,14/18
+CHM 115,04,Kinetics Thermodynamics and the Environment,PYR-031,T,1:00 PM - 3:00 PM,Open,George Shields,In-Person,14/18
+CHM 115,04L,Kinetics Thermodynamics and the Environment,PYR-031,MWF,9:30 AM - 10:20 AM,Open,George Shields,In-Person,13/18
+CHM 120,01,Organic Chemistry I,PYR-031,T,3:30 PM - 5:30 PM,Open,George Shields,In-Person,13/18
+CHM 120,01L,Organic Chemistry I,PYR-231,MWF,9:30 AM - 10:20 AM,Open,David Watt,In-Person,23/30
+CHM 120,02,Organic Chemistry I,PYR-249,T,8:30 AM - 11:20 AM,Open,David Watt,In-Person,19/20
+CHM 120,02L,Organic Chemistry I,PYR-231,MWF,10:30 AM - 11:20 AM,Open,David Watt,In-Person,29/30
+CHM 120,03L,Organic Chemistry I,PYR-231,T,1:00 PM - 3:50 PM,Open,David Watt,In-Person,19/20
+CHM 220,01,Organic Chemistry II,TNS-261,R,1:00 PM - 3:30 PM,Open,Kyle Martin,In-Person,14/20
+CHM 230,01,Inorganic Chemistry,PYR-231,TR,10:00 AM - 11:15 AM,Open,Greg Springsteen,In-Person,34/36
+CHM 230,01L,Inorganic Chemistry,PYR-030,TR,8:30 AM - 9:45 AM,Open,Gary Guillet,In-Person,15/32
+CHM 240,01,Experimental Techniques,PYR-231,F,1:30 PM - 5:20 PM,Open,Gary Guillet,In-Person,15/32
+CHM 240,01L,Experimental Techniques,MWF | 9:30 AM - 10:20 AM,,,Open,Brian Goess,In-Person,7/10
+CHM 240,02,Experimental Techniques,TNS-275,MW,1:30 PM - 5:30 PM,Open,Brian Goess,In-Person,7/10
+CHM 240,02L,Experimental Techniques,PYR-249,MWF,9:30 AM - 10:20 AM,Open,Paul Wagenknecht,In-Person,8/10
+CHM 340,01,Physical Chemistry II,TNS-275,TR,1:30 PM - 5:30 PM,Open,Paul Wagenknecht,In-Person,8/10
+CHM 340,01L,Physical Chemistry II,PYR-126,MWF,10:30 AM - 11:20 AM,Open,Lauren E. Jarocha,In-Person,26/27
+CHM 445,01,Advanced Topics in Physical Chemistry (Topic to be determined),PYR-249,T,1:00 PM - 4:00 PM,Open,Lauren E. Jarocha,In-Person,26/27
+CHM 465,01,Advanced Biological Chemistry,PYR-249,MWF,2:30 PM - 3:20 PM,Open,Lauren E. Jarocha,In-Person,10/20
+CHM 465,01L,Advanced Biological Chemistry,PYR-249,MWF,11:30 AM - 12:20 PM,Open,Meghan Breen,In-Person,13/20
+CHM 470,01,Special Topics in Biochemistry,PYR-249,R,1:00 PM - 4:00 PM,Open,Meghan Breen,In-Person,13/20
+CHM 502,01,Undergraduate Research,PYR-031,MWF,2:30 PM - 3:20 PM,Open,Karen Buchmueller,In-Person,13/14
+CHM 502,02,Undergraduate Research,CHM 502-01 - Undergraduate Research,,,Open,Tim Hanks,In-Person,1/0
+CHM 502,03,Undergraduate Research,CHM 502-02 - Undergraduate Research,,,Open,Paul Wagenknecht,In-Person,1/0
+CHM 502,04,Undergraduate Research,CHM 502-03 - Undergraduate Research,,,Open,Sandy Wheeler,In-Person,1/0
+CHM 502,05,Undergraduate Research,CHM 502-04 - Undergraduate Research,,,Open,Meghan Breen,In-Person,2/0
+CHM 502,06,Undergraduate Research,CHM 502-05 - Undergraduate Research,,,Open,Tim Hanks,In-Person,1/0
+CHM 502,07,Undergraduate Research,CHM 502-06 - Undergraduate Research,,,Open,Karen Buchmueller,In-Person,1/0
+CHM 502,08,Undergraduate Research,CHM 502-07 - Undergraduate Research,,,Open,Mary Elizabeth Anderson,In-Person,1/0
+CHM 502,09,Undergraduate Research,CHM 502-08 - Undergraduate Research,,,Open,George Shields,In-Person,2/0
+CHM 502,10,Undergraduate Research,CHM 502-09 - Undergraduate Research,,,Open,Brian Goess,In-Person,2/0
+CHM 502,11,Undergraduate Research,CHM 502-10 - Undergraduate Research,,,Open,Tim Hanks,In-Person,1/0
+CHM 502,12,Undergraduate Research,CHM 502-11 - Undergraduate Research,,,Open,Lauren E. Jarocha,In-Person,1/0
+CHM 511,01,Undergraduate Thesis II,CHM 502-12 - Undergraduate Research,,,Open,George Shields,In-Person,1/0
+CHM 511,02,Undergraduate Thesis II,CHM 511-01 - Undergraduate Thesis II,,,Closed,Greg Springsteen,In-Person,1/0
+CHM 511,03,Undergraduate Thesis II,CHM 511-02 - Undergraduate Thesis II,,,Closed,Brian Goess,In-Person,3/0
+CHM 511,04,Undergraduate Thesis II,CHM 511-03 - Undergraduate Thesis II,,,Closed,Karen Buchmueller,In-Person,3/0
+CHM 511,05,Undergraduate Thesis II,CHM 511-04 - Undergraduate Thesis II,,,Closed,George Shields,In-Person,3/0
+CHM 511,06,Undergraduate Thesis II,CHM 511-05 - Undergraduate Thesis II,,,Closed,Paul Wagenknecht,In-Person,2/0
+CHM 511,07,Undergraduate Thesis II,CHM 511-06 - Undergraduate Thesis II,,,Closed,Jeff Petty,In-Person,1/0
+CHM 511,08,Undergraduate Thesis II,CHM 511-07 - Undergraduate Thesis II,,,Closed,Sandy Wheeler,In-Person,5/0
+CHM 511,09,Undergraduate Thesis II,CHM 511-08 - Undergraduate Thesis II,,,Closed,Lauren E. Jarocha,In-Person,1/0
+CHM 511,10,Undergraduate Thesis II,CHM 511-09 - Undergraduate Thesis II,,,Closed,Mary Beth Daub,In-Person,1/0
+CHM 511,11,Undergraduate Thesis II,CHM 511-10 - Undergraduate Thesis II,,,Closed,Meghan Breen,In-Person,1/0
+CHM 511,13,Undergraduate Thesis II,CHM 511-11 - Undergraduate Thesis II,,,Closed,Tim Hanks,In-Person,4/0
+CHN 120,01,Elementary Chinese II,CHM 511-13 - Undergraduate Thesis II,,,Closed,Gary Guillet,In-Person,0/0
+CHN 120,02,Elementary Chinese II,FUR-229,MTWR,8:30 AM - 9:20 AM,Open,Dongming Zhang,In-Person,4/24
+CHN 202,01,Intermediate Chinese II,RLY-107,MTWR,11:30 AM - 12:20 PM,Closed,Dongming Zhang,In-Person,24/24
+CHN 246,01,Twentieth Century Chinese Popular Fiction,RLY-107,MTRF,10:30 AM - 11:20 AM,Open,Dongming Zhang,In-Person,8/24
+CHN 302,01,Intermediate Chinese IV,FUR-107,TR,11:30 AM - 12:45 PM,Open,Mengling Wang,In-Person,22/24
+CHN 402,01,Advanced Chinese II,FUR-118,MWF,10:30 AM - 11:20 AM,Open,Mengling Wang,In-Person,5/24
+CLS 216-01 - Historical Linguistics and Proto-Indo-European,,,MWF | 10:30 AM - 11:20 AM,,,Open,Mengling Wang,In-Person,1/24
+CLS 233,01,The Art of Poetry,FUR-230,TR,2:30 PM - 3:45 PM,Open,Eunice Kim,In-Person,21/24
+CLS 322,01,The Power in Democracy,FUR-108,MWF,9:30 AM - 10:20 AM,Open,Emma Brobeck,In-Person,10/24
+COM 101,01,Public Speaking,FUR-229,TR,1:00 PM - 2:15 PM,Open,Chiara Palladino,In-Person,13/18
+COM 101,03,Public Speaking,FUR-126,MWF,8:30 AM - 9:20 AM,Closed,Raiana de Carvalho,In-Person,15/15
+COM 101,04,Public Speaking,FUR-127,MWF,1:30 PM - 2:20 PM,Closed,Andrew Moore,In-Person,15/15
+COM 101,05,Public Speaking,FUR-127,MWF,11:30 AM - 12:20 PM,Open,Mai Nou Xiong-Gum,In-Person,13/15
+COM 101,06,Public Speaking,FUR-126,MWF,9:30 AM - 10:20 AM,Closed,Raiana de Carvalho,In-Person,15/15
+COM 102,01,Media & Society,FUR-127,TR,8:30 AM - 9:45 AM,Closed,Daniel Stout,In-Person,15/15
+COM 102,02,Media & Society,FUR-127,MWF,2:30 PM - 3:20 PM,Closed,Andrew Moore,In-Person,19/18
+COM 102,03,Media & Society,JHN-212,MWF,11:30 AM - 12:20 PM,Closed,Raiana de Carvalho,In-Person,18/18
+COM 201,01,Rhetoric & Strategy,FUR-127,MWF,9:30 AM - 10:20 AM,Closed,Mai Nou Xiong-Gum,In-Person,18/18
+COM 201,02,Rhetoric & Strategy,FUR-127,TR,1:00 PM - 2:15 PM,Closed,Brandon Inabinet,In-Person,16/16
+COM 202,01,Digital Storytelling,FUR-110,TR,8:30 AM - 9:45 AM,Closed,Camille Lewis,In-Person,17/16
+COM 202,02,Digital Storytelling,FUR-136,TR,1:30 PM - 3:20 PM,Open,Mary Sturgill,In-Person,12/14
+COM 202,03,Digital Storytelling,FUR-136,MF,8:30 AM - 10:20 AM,Open,Selena Dickey,In-Person,9/14
+COM 301,01,Rhetorical Criticism,FUR-136,TR,11:30 AM - 1:20 PM,Closed,Tim Piper,In-Person,17/14
+COM 303,01,Communication Research Methods,FUR-110,TR,10:00 AM - 11:15 AM,Open,Camille Lewis,In-Person,13/15
+COM 304,01,Broadcast Communication,FUR-201,TR,11:30 AM - 12:45 PM,Closed,Adam Richards,In-Person,15/15
+COM 314,01,Social Media Strategy,FUR-136,MW,10:30 AM - 12:20 PM,Open,Mary Sturgill,In-Person,7/15
+COM 331,01,Media History,FUR-127,TR,10:00 AM - 11:15 AM,Closed,Nigel Robertson,In-Person,20/18
+COM 351,01,Advocacy,FUR-126,MW,1:30 PM - 3:20 PM,Closed,Selena Dickey,In-Person,18/18
+COM 377,01,Persuasive Message Design,FUR-118,TR,8:30 AM - 9:45 AM,Open,Zachary White,In-Person,16/18
+COM 421,01,Studies in Mass Media (Sports Media),FUR-201,TR,10:00 AM - 11:15 AM,Closed,Adam Richards,In-Person,18/18
+COM 421,02,Studies in Mass Media (Media Management),FUR-126,TR,8:30 AM - 9:45 AM,Open,Tim Piper,In-Person,16/18
+COM 461,01,Media Law,FUR-106,MW,1:30 PM - 3:20 PM,Open,David Carfolite,In-Person,14/18
+COM 505,01,Structured Internship,FUR-126,MWF,11:30 AM - 12:20 PM,Closed,Selena Dickey,In-Person,18/18
+CSC 105,01,Intro to Computer Science (Creativity and Computers),FUR-111,R,11:30 AM - 12:45 PM,Open,Janna Pennington,In-Person,9/10
+CSC 105,01L,Intro to Computer Science (Creativity and Computers),RLY-106,TR,1:00 PM - 2:15 PM,Open,Andrea Tartaro,In-Person,15/24
+CSC 121,01,Intro to Computer Programming,RLY-201,T,2:30 PM - 4:30 PM,Open,Andrea Tartaro,In-Person,15/24
+CSC 121,01L,Intro to Computer Programming,RLY-106,TR,11:30 AM - 12:45 PM,Closed,Trey Grainger [C],In-Person,25/24
+CSC 121,02,Intro to Computer Programming,RLY-201,W,4:30 PM - 6:30 PM,Closed,Trey Grainger [C],In-Person,25/24
+CSC 121,02L,Intro to Computer Programming,RLY-106,TR,3:00 PM - 4:15 PM,Open,Mark Johnson,In-Person,14/24
+CSC 122,01,Data Structures and Algorithms,W | 2:30 PM - 4:30 PM,,,Open,Mark Johnson,Online,14/24
+CSC 122,01L,Data Structures and Algorithms,RLY-106,MWF,10:30 AM - 11:20 AM,Open,Rebecca Drucker,In-Person,22/24
+CSC 223,01,Advanced Data Structures and Software Development,RLY-201,W,2:30 PM - 4:30 PM,Open,Rebecca Drucker,In-Person,22/24
+CSC 223,01L,Advanced Data Structures and Software Development,RLY-204,TR,10:00 AM - 11:15 AM,Closed,Syed Fahad Sultan,In-Person,18/15
+CSC 231,01,Computer Organization,RLY-203,W,2:30 PM - 4:30 PM,Closed,Syed Fahad Sultan,In-Person,18/15
+CSC 231,01L,Computer Organization,RLY-204,MWF,8:30 AM - 9:20 AM,Open,Rebecca Drucker,In-Person,23/24
+CSC 272,01,Introduction to Data Mining,RLY-203,M,2:30 PM - 4:30 PM,Open,Rebecca Drucker,In-Person,23/24
+CSC 272,01L,Introduction to Data Mining,RLY-106,MWF,11:30 AM - 12:20 PM,Closed,Kevin Treu,In-Person,26/24
+CSC 272,02,Introduction to Data Mining,RLY-203,T,2:30 PM - 4:30 PM,Closed,Kevin Treu,In-Person,26/24
+CSC 272,02L,Introduction to Data Mining,RLY-106,MWF,8:30 AM - 9:20 AM,Closed,Kevin Treu,In-Person,25/24
+CSC 332,TU,Data Communications and Networking,RLY-203,T,4:30 PM - 6:30 PM,Closed,Kevin Treu,In-Person,25/24
+CSC 332,TUL,Data Communications and Networking,CSC 332-TU - Data Communications and Networking,,,Closed,Rebecca Drucker,In-Person,1/0
+CSC 341,01,Database Management Systems,CSC 332-TUL - Data Communications and Networking,,,Closed,Rebecca Drucker,In-Person,1/0
+CSC 341,01L,Database Management Systems,RLY-106,MWF,9:30 AM - 10:20 AM,Closed,Kevin Treu,In-Person,25/24
+CSC 372,01,Machine Learning with Big Data,RLY-201,M,2:30 PM - 4:30 PM,Closed,Kevin Treu,In-Person,25/24
+CSC 372,01L,Machine Learning with Big Data,RLY-204,TR,8:30 AM - 9:45 AM,Closed,Syed Fahad Sultan,In-Person,24/24
+CSC 475,01,Seminar in Computer Science,RLY-203,R,2:30 PM - 4:30 PM,Closed,Syed Fahad Sultan,In-Person,24/24
+CSC 475,02,Seminar in Computer Science,RLY-204,W,2:30 PM - 5:20 PM,Closed,Andrea Tartaro,In-Person,9/9
+CSC 502,01,Research,RLY-204,M,2:30 PM - 5:20 PM,Open,Andrea Tartaro,In-Person,8/9
+DAN 220,01,Dance Techniques II,CSC 502-01 - Research,,,Closed,"Kevin Treu, Syed Fahad Sultan",In-Person,1/0
+ECN 111,01,Introduction to Economics,TPH-STR,MW,8:30 AM - 10:20 AM,Open,Helen Joy,In-Person,7/12
+ECN 111,02,Introduction to Economics,RLY-109E,MWF,2:30 PM - 3:20 PM,Closed,Jessica Sauve-Syed,In-Person,19/18
+ECN 111,03,Introduction to Economics,RLY-105,MWF,9:30 AM - 10:20 AM,Open,Taha Kasim,In-Person,17/18
+ECN 111,04,Introduction to Economics,RLY-109E,TR,10:00 AM - 11:15 AM,Open,Nathan Cook,In-Person,17/18
+ECN 111,05,Introduction to Economics,RLY-108,TR,11:30 AM - 12:45 PM,Open,Nathan Cook,In-Person,17/18
+ECN 224,01,Law and Economics,RLY-109E,TR,2:30 PM - 3:45 PM,Open,Jeffrey Yankow,In-Person,17/18
+ECN 233,01,Economics of Gender,RLY-103,TR,2:30 PM - 3:45 PM,Closed,Nathan Cook,In-Person,19/18
+ECN 238,01,Public Economics,RLY-204,TR,1:00 PM - 2:15 PM,Closed,Jessica Hennessey,In-Person,18/18
+ECN 241,01,Money and Banking,RLY-106,TR,10:00 AM - 11:15 AM,Open,Jessica Hennessey,In-Person,16/18
+ECN 244,01,Behavioral Economics,HIP-209,MWF,11:30 AM - 12:20 PM,Open,Kailash Khandke,In-Person,16/18
+ECN 256,01,Economics of Strategy,RLY-109E,MWF,9:30 AM - 10:20 AM,Open,Kelsey Hample,In-Person,16/18
+ECN 331,01,Empirical Methods in Economics,RLY-109E,MWF,1:30 PM - 2:20 PM,Closed,Ken Peterson,In-Person,18/18
+ECN 331,01L,Empirical Methods in Economics,RLY-108,TR,10:00 AM - 11:15 AM,Closed,Taha Kasim,In-Person,15/12
+ECN 345,01,Intermediate Macroeconomics Analysis,RLY-108,R,2:30 PM - 5:20 PM,Closed,Taha Kasim,In-Person,15/12
+ECN 475,01,Senior Seminar in Economics (Human Capital),HIP-209,TR,1:00 PM - 2:15 PM,Open,Kailash Khandke,In-Person,17/18
+ECN 475,02,Senior Seminar in Economics (The Rise and Fall of American Growth),RLY-109E,MWF,10:30 AM - 11:20 AM,Closed,Jessica Sauve-Syed,In-Person,13/12
+ECN 503,01,Individualized Internship,RLY-109E,TR,11:30 AM - 12:45 PM,Open,Jeffrey Yankow,In-Person,9/12
+EDU 112,01,History of Education in America,ECN 503-01 - Individualized Internship,,,Closed,Jeffrey Yankow,In-Person,2/0
+EDU 114,01,"Culture, Identity, and Schooling",HIP-209,MWF,10:30 AM - 11:20 AM,Closed,Scott Henderson,In-Person,22/20
+EDU 120,01,Human Development,HIP-204,MWF,10:30 AM - 11:20 AM,Open,Michael Jennings,In-Person,19/20
+EDU 120,02,Human Development,HIP-206,MWF,10:30 AM - 11:20 AM,Open,Judy Stuart,In-Person,19/20
+EDU 120,03,Human Development,HIP-205,MWF,11:30 AM - 12:20 PM,Closed,Temi Bidjerano,In-Person,22/20
+EDU 221,01,Students with Exceptionalities,HIP-205,MWF,1:30 PM - 2:20 PM,Closed,Temi Bidjerano,In-Person,20/20
+EDU 222,01,Nature of Learning Disabilities,HIP-206,MWF,9:30 AM - 10:20 AM,Open,Judy Stuart,In-Person,12/20
+EDU 223,01,Nature of Emotional and Behavioral Disorders,EDU 222-01 - Nature of Learning Disabilities,,,Open,Patricia Hensley,Online,5/15
+EDU 250,01,Scholarly Reading and Writing in Education,EDU 223-01 - Nature of Emotional and Behavioral Disorders,,,Open,Patricia Hensley,Online,1/15
+EDU 275,01,Educational Psychology,HIP-107,MWF,10:30 AM - 11:20 AM,Closed,Paul Thomas,In-Person,15/15
+EDU 305,01,Arts Integration in Elementary Grades,HIP-205,TR,10:00 AM - 11:15 AM,Closed,Temi Bidjerano,In-Person,21/20
+EDU 331-01 - Literacy Processes and Instruction in Grades 2-6,,,HIP-205,TR,11:30 AM - 12:45 PM,Open,Caroline Davis,In-Person,12/15
+EDU 332-01 - Social Studies in Grades PK-6,,,HIP-206,TR,10:00 AM - 11:15 AM,Open,Katie Kelly,In-Person,6/15
+EDU 434,01,Content Literacy Strategies and Modifications for Diverse Learners,HIP-205,TR,1:00 PM - 2:15 PM,Open,George Lipscomb,In-Person,14/15
+EDU 434,02,Content Literacy Strategies and Modifications for Diverse Learners,HIP-101A,MWF,9:30 AM - 10:20 AM,Open,Katie Kelly,In-Person,7/14
+EDU 435,01,"Plan, Instruct, Assess in the Elementary Classroom",HIP-106,M,6:00 PM - 8:30 PM,Open,Jena Ford,In-Person,7/15
+EDU 470,01,Practicum in Teaching,HIP-205,MWF,2:30 PM - 3:20 PM,Open,Shameera Virani,In-Person,7/14
+EDU 470,02,Practicum in Teaching,EDU 470-01 - Practicum in Teaching,,,Open,Deborah Hoffmann,In-Person,2/6
+EDU 470,03,Practicum in Teaching,EDU 470-02 - Practicum in Teaching,,,Open,Gabrielle Lollis,In-Person,3/6
+EDU 503,01,Individualized Internship,EDU 470-03 - Practicum in Teaching,,,Open,Abby Price,In-Person,2/6
+EDU 505,01,Teaching Internship,W | 1:30 PM - 2:20 PM,,,Open,Judy Stuart,In-Person,5/10
+EES 112,01,Environmental Science,EDU 505-01 - Teaching Internship,,,Open,Sue Samuels,In-Person,7/10
+EES 112,01L,Environmental Science,RNK-152,MWF,8:30 AM - 9:20 AM,Closed,Karen Allen,In-Person,25/24
+EES 112,02,Environmental Science,RNK-152,M,2:30 PM - 5:20 PM,Closed,Karen Allen,In-Person,25/24
+EES 112,02L,Environmental Science,RNK-152,TR,1:00 PM - 2:15 PM,Open,Valeska Minkowski,In-Person,22/24
+EES 113,01,Natural Hazards and Natural Disasters,PYR-026,T,2:30 PM - 5:20 PM,Open,Valeska Minkowski,In-Person,22/24
+EES 113,01L,Natural Hazards and Natural Disasters,RNK-151,MWF,9:30 AM - 10:20 AM,Closed,Gustavo Coelho,In-Person,24/24
+EES 115,02,Earth Systems,RNK-151,M,2:30 PM - 5:20 PM,Closed,Gustavo Coelho,In-Person,24/24
+EES 115,02L,Earth Systems,RNK-151,MWF,10:30 AM - 11:20 AM,Closed,Peter Horvath,In-Person,24/24
+EES 201,01,Geographic Information Systems,RNK-151,W,2:30 PM - 5:20 PM,Closed,Peter Horvath,In-Person,24/24
+EES 201,01L,Geographic Information Systems,PYR-118,TR,11:30 AM - 12:45 PM,Closed,Suresh Muthukrishnan,In-Person,16/16
+EES 202,01,Methods in Earth and Environmental Sciences,PYR-118,T,2:30 PM - 5:20 PM,Closed,Suresh Muthukrishnan,In-Person,16/16
+EES 202,01L,Methods in Earth and Environmental Sciences,PYR-108,TR,1:00 PM - 2:15 PM,Closed,Emma Hunt,In-Person,13/12
+EES 301,01,Remote Sensing,PYR-108,R,2:30 PM - 5:20 PM,Closed,Emma Hunt,In-Person,13/12
+EES 301,01L,Remote Sensing,PYR-118,MWF,11:30 AM - 12:20 PM,Open,Suresh Muthukrishnan,In-Person,13/16
+EES 474,01,Senior Capstone,PYR-118,W,2:30 PM - 5:20 PM,Open,Suresh Muthukrishnan,In-Person,13/16
+ENG 111,01,Texts and Meaning (Science Fiction: The Pulp Era to the Present),RNK-152,TR,10:00 AM - 11:15 AM,Open,Melissa Ranhofer,In-Person,7/8
+ENG 111,02,Texts and Meaning (Science Fiction: The Pulp Era to the Present),FUR-117,MWF,10:30 AM - 11:20 AM,Open,Jeanne Provost,In-Person,17/18
+ENG 111,03,Texts and Meaning (British Literature Since 1798),FUR-117,MWF,11:30 AM - 12:20 PM,Closed,Jeanne Provost,In-Person,18/18
+ENG 112,01,Texts and Identities (Biography and Identity),FUR-106,MWF,9:30 AM - 10:20 AM,Open,Gretchen Braun,In-Person,12/18
+ENG 112,02,Texts and Identities (Biography and Identity),FUR-106,TR,2:30 PM - 3:45 PM,Closed,Gregg Hecimovich,In-Person,18/18
+ENG 112,03,Texts and Identities (Biography and Identity),FUR-106,TR,4:00 PM - 5:15 PM,Open,Gregg Hecimovich,In-Person,17/18
+ENG 200,01,Introduction to Creative Writing,FUR-106,TR,1:00 PM - 2:15 PM,Closed,Gregg Hecimovich,In-Person,18/18
+ENG 200,02,Introduction to Creative Writing,FUR-111,MWF,9:30 AM - 10:20 AM,Closed,Laura Morris,In-Person,12/12
+ENG 212,01,Journalism Principles and Practice,FUR-111,MWF,10:30 AM - 11:20 AM,Closed,Laura Morris,In-Person,12/12
+ENG 215,01,Copyediting,FUR-109,TR,2:30 PM - 3:45 PM,Closed,Jordana Megonigal,In-Person,12/12
+ENG 221,01,Writing Fiction,FUR-107,TR,2:30 PM - 3:45 PM,Closed,Magdelyn Hammond Helwig,In-Person,14/12
+ENG 223,01,Writing Nonfiction,FUR-121,MWF,1:30 PM - 2:20 PM,Open,Laura Morris,In-Person,11/12
+ENG 230,01,Digital Writing,FUR-106,TR,10:00 AM - 11:15 AM,Open,Joni Tevis,In-Person,10/12
+ENG 270,01,Queer Stories,FUR-106,TR,8:30 AM - 9:45 AM,Open,Margaret Oakes,In-Person,11/12
+ENG 281,01,Food Writing,FUR-106,TR,11:30 AM - 12:45 PM,Closed,Nick Radel,In-Person,18/18
+ENG 319,01,Major Figures in Early Modern British Literature,FUR-109,M,5:00 PM - 6:15 PM,Open,Jane Stern,In-Person,11/12
+ENG 336,01,British Romantic Literature,FUR-117,TR,10:00 AM - 11:15 AM,Open,Margaret Oakes,In-Person,16/18
+ENG 353,01,Critical and Cultural Theory,FUR-107,TR,1:00 PM - 2:15 PM,Closed,Michele Speitz,In-Person,20/18
+ENG 363,TU,Mystery and Detective Fiction,FUR-106,MWF,10:30 AM - 11:20 AM,Open,Gretchen Braun,In-Person,13/18
+ENG 399,01,Upper Level Pathways,W | 11:00 AM - 12:30 PM,,,Closed,Margaret Oakes,In-Person,1/0
+ENG 475,01,Senior Seminar in English,FUR-214,MW,12:30 PM - 1:20 PM,Closed,Margaret Oakes,In-Person,29/20
+ENG 501,01,Independent Study,FUR-107,W,2:45 PM - 5:30 PM,Closed,Willard Pate,In-Person,13/12
+ENG 501,02,Independent Study,ENG 501-01 - Independent Study,,,Closed,Timothy Helwig,In-Person,1/0
+EST 301,01,Environment and Society,ENG 501-02 - Independent Study,,,Closed,Willard Pate,In-Person,1/0
+EST 301,01L,Environment and Society,PYR-222,TR,11:30 AM - 12:45 PM,Open,John Quinn,In-Person,14/24
+FRN 120,01,Elementary French II,EST 301-01L - Environment and Society,,,Open,John Quinn,In-Person,14/24
+FRN 120,02,Elementary French II,FUR-229,MTRF,10:30 AM - 11:20 AM,Open,Carole Salmon,In-Person,12/18
+FRN 120,03,Elementary French II,FUR-229,MTRF,11:30 AM - 12:20 PM,Open,Carole Salmon,In-Person,16/18
+FRN 201,01,Intermediate French I,FUR-209,MTRF,11:30 AM - 12:20 PM,Closed,Daniel Worden,In-Person,18/18
+FRN 201,02,Intermediate French I,FUR-110,MWF,10:30 AM - 11:20 AM,Open,Nathan Brown,In-Person,16/18
+FRN 208,01,French Language House,FUR-110,MWF,1:30 PM - 2:20 PM,Open,Nathan Brown,In-Person,7/18
+FRN 214,01,French Conversation,FRN 208-01 - French Language House,,,Open,"Carole Salmon, Marianne Bessy",In-Person,7/24
+FRN 332,01,French Literature and Civilization II: Classicism and Enlightenment,FUR-209,MWF,10:30 AM - 11:20 AM,Open,Marianne Bessy,In-Person,16/18
+FRN 332,TU,French Literature and Civilization II: Classicism and Enlightenment,FUR-110,MWF,9:30 AM - 10:20 AM,Open,Nathan Brown,In-Person,18/24
+FRN 430,01,Studies in French Literature,FRN 332-TU - French Literature and Civilization II: Classicism and Enlightenment,,,Open,Nathan Brown,In-Person,1/24
+FST 202,01,Introduction to Reading Film,FUR-204,MWF,1:30 PM - 2:20 PM,Open,Daniel Worden,In-Person,17/24
+FST 202,01L,Introduction to Reading Film,FUR-106,MW,11:30 AM - 12:20 PM,Open,Willard Pate,In-Person,17/18
+FYW 1111,01,Haunted Mansions,FUR-214,M,2:30 PM - 5:00 PM,Open,Willard Pate,In-Person,17/18
+FYW 1111,02,Haunted Mansions,FUR-121,MWF,9:30 AM - 10:20 AM,Open,Timothy Helwig,In-Person,11/12
+FYW 1137,01,Freedom or Oppression: Human Rights in Asia,FUR-121,MWF,10:30 AM - 11:20 AM,Closed,Timothy Helwig,In-Person,12/12
+FYW 1140,01,History of Detective Fiction,FUR-109,TR,1:00 PM - 2:15 PM,Closed,Veena Khandke,In-Person,12/12
+FYW 1141,01,Homer and History,FUR-111,TR,1:00 PM - 2:15 PM,Closed,Margaret Oakes,In-Person,12/12
+FYW 1167,01,American Disaster Literature,FUR-107,MWF,1:30 PM - 2:20 PM,Open,Emma Brobeck,In-Person,11/12
+FYW 1178,01,Academic Autobiography,FUR-119,TR,1:00 PM - 2:15 PM,Open,Joni Tevis,In-Person,5/12
+FYW 1185,CE,Crossing Borders/Rites of Passage,JHN-106G,TR,8:30 AM - 9:45 AM,Open,Kenneth Kolb,In-Person,10/12
+FYW 1202,01,Medieval Forests in Literature and Law,JHN-106G,TR,10:00 AM - 11:15 AM,Closed,Angelica Lozano-Alonso,In-Person,12/12
+FYW 1206,01,Spain in the U.S. Imagination,FUR-119,MWF,1:30 PM - 2:20 PM,Closed,Jeanne Provost,In-Person,12/12
+FYW 1232,01,Inferno: Tales of Hell and Justice,JHN-111I,MWF,10:30 AM - 11:20 AM,Closed,Linda Bartlett,In-Person,12/12
+FYW 1234,01,Bird by Bird: Interactions in Nature and Society,FUR-107,MWF,9:30 AM - 10:20 AM,Closed,David Fink,In-Person,12/12
+FYW 1239,01,Pseudoscience and Skepticism,PYR-143,TR,8:30 AM - 9:45 AM,Closed,John Quinn,In-Person,12/12
+FYW 1245,01,The Parables of Jesus,JHN-206H,TR,1:00 PM - 2:15 PM,Open,Erin Wamsley,In-Person,11/12
+FYW 1266,01,Inside the White Cube: Exhibition Practice and History,JHN-207,TR,11:30 AM - 12:45 PM,Open,Brian Bunnell,In-Person,11/12
+FYW 1272,01,Biodiversity: The Other Earthlings,FUR-121,TR,1:00 PM - 2:15 PM,Open,Stephen Mandravelis,In-Person,10/12
+FYW 1311,01,Game On! Tabletop Play and Contemporary Culture,PYR-143,M,2:30 PM - 5:20 PM,Closed,Wade Worthen,In-Person,12/12
+FYW 1311,02,Game On! Tabletop Play and Contemporary Culture,FUR-111,TR,8:30 AM - 9:45 AM,Closed,James Engelhardt,In-Person,12/12
+FYW 1312,01,Technofeminism,FUR-111,TR,10:00 AM - 11:15 AM,Closed,James Engelhardt,In-Person,12/12
+FYW 1320,01,"Leaders, Leadership, and Writing",FUR-127,MWF,8:30 AM - 9:20 AM,Closed,Mai Nou Xiong-Gum,In-Person,12/12
+FYW 1321,01,African American Agency in the Civil War era,RLY-109E,TR,1:00 PM - 2:15 PM,Closed,Ken Peterson,In-Person,12/12
+FYW 1322,01,From Frankenstein to WandaVision,FUR-119,MWF,9:30 AM - 10:20 AM,Open,Holly Pinheiro,In-Person,11/12
+FYW 1322,02,From Frankenstein to WandaVision,HIP-107,MWF,9:30 AM - 10:20 AM,Closed,Paul Thomas,In-Person,12/12
+FYW 1323,01,What is a Cult?,HIP-107,MWF,11:30 AM - 12:20 PM,Open,Paul Thomas,In-Person,10/12
+FYW 1326,01,Cultural Narratives in Reality TV,RLY-102,MWF,9:30 AM - 10:20 AM,Closed,Grace Stadnyk,In-Person,12/12
+FYW 1327,01,Health Headlines,TPH-ANX,TR,2:30 PM - 3:45 PM,Closed,Caroline Davis,In-Person,12/12
+FYW 1328,01,Men & Masculinities,PAC-116,TR,1:00 PM - 2:15 PM,Closed,Shaniece Criss,In-Person,12/12
+FYW 1330,01,The Impact of the College Environment on Health,FUR-119,TR,2:30 PM - 3:45 PM,Open,Erik Anderson,In-Person,11/12
+GRK 120,01,Elementary Greek II,PAC-105,TR,10:00 AM - 11:15 AM,Open,Julian Reed,In-Person,11/12
+GRK 315,01,Ancient Greek: Translation & Research Methods (Topic to be Determined),FUR-108,MTRF,11:30 AM - 12:20 PM,Open,Eunice Kim,In-Person,22/24
+GRM 120,01,Elementary German II,FUR-108,MWF,1:30 PM - 2:20 PM,Open,Chiara Palladino,In-Person,5/12
+GRM 120,02,Elementary German II,FUR-107,MTRF,8:30 AM - 9:20 AM,Open,"Ilka Rasch, Matthew Anderson",In-Person,13/18
+GRM 120,03,Elementary German II,FUR-230,MTRF,10:30 AM - 11:20 AM,Open,Anne Culberson,In-Person,17/18
+GRM 208,01,German Language House,FUR-230,MTRF,11:30 AM - 12:20 PM,Open,"Ilka Rasch, Matthew Anderson",In-Person,15/18
+GRM 240,01,Introduction to German Comics and Graphic Novels,GRM 208-01 - German Language House,,,Open,Anne Culberson,In-Person,3/24
+HSC 075,01,Seminar in Public Health,FUR-118,TR,10:00 AM - 11:15 AM,Open,"Ilka Rasch, Matthew Anderson",In-Person,15/18
+HSC 075,02,Seminar in Public Health,PAC-105,W,12:30 PM - 1:20 PM,Open,Meghan Slining,In-Person,9/25
+HSC 101,01,Wellness Concepts,PAC-113,W,12:30 PM - 1:20 PM,Open,Anna Cass,In-Person,8/25
+HSC 101,01L,Wellness Concepts,PAC-113,MW,8:30 AM - 9:20 AM,Closed,Heath Burton,In-Person,25/25
+HSC 101,02,Wellness Concepts,PAC-FTC,TR,8:30 AM - 9:20 AM,Closed,Heath Burton,In-Person,25/25
+HSC 101,02L,Wellness Concepts,PAC-113,MW,9:30 AM - 10:20 AM,Open,Heath Burton,In-Person,24/25
+HSC 101,03,Wellness Concepts,PAC-FTC,TR,9:30 AM - 10:20 AM,Open,Heath Burton,In-Person,24/25
+HSC 101,03L,Wellness Concepts,PAC-116,TR,9:30 AM - 10:20 AM,Closed,Eric Sobolewski,In-Person,25/25
+HSC 101,04,Wellness Concepts,PAC-FTC,MW,9:30 AM - 10:20 AM,Closed,Eric Sobolewski,In-Person,25/25
+HSC 101,04L,Wellness Concepts,PAC-116,TR,10:30 AM - 11:20 AM,Closed,Tim Patrick,In-Person,26/25
+HSC 101,05,Wellness Concepts,PAC-FTC,MW,10:30 AM - 11:20 AM,Closed,Tim Patrick,In-Person,26/25
+HSC 101,05L,Wellness Concepts,PAC-114,MW,10:30 AM - 11:20 AM,Open,Tony Caterisano,In-Person,16/25
+HSC 101,06,Wellness Concepts,PAC-FTC,TR,10:30 AM - 11:20 AM,Open,Tony Caterisano,In-Person,16/25
+HSC 101,06L,Wellness Concepts,PAC-116,TR,11:30 AM - 12:20 PM,Closed,Tim Patrick,In-Person,26/25
+HSC 101,07,Wellness Concepts,PAC-FTC,MW,11:30 AM - 12:20 PM,Closed,Tim Patrick,In-Person,26/25
+HSC 101,07L,Wellness Concepts,PAC-116,MW,11:30 AM - 12:20 PM,Closed,Eric Sobolewski,In-Person,31/25
+HSC 101,08,Wellness Concepts,PAC-FTC,TR,11:30 AM - 12:20 PM,Closed,Eric Sobolewski,In-Person,31/25
+HSC 101,08L,Wellness Concepts,PAC-114,MW,1:30 PM - 2:20 PM,Open,Tony Caterisano,In-Person,3/25
+HSC 101,09,Wellness Concepts,PAC-FTC,TR,1:30 PM - 2:20 PM,Open,Tony Caterisano,In-Person,3/25
+HSC 101,09L,Wellness Concepts,PAC-114,TR,1:30 PM - 2:20 PM,Open,Kelly Frazier,In-Person,24/25
+HSC 101,10,Wellness Concepts,PAC-FTC,MW,1:30 PM - 2:20 PM,Open,Kelly Frazier,In-Person,24/25
+HSC 101,10L,Wellness Concepts,PAC-114,TR,2:30 PM - 3:20 PM,Closed,Kelly Frazier,In-Person,25/25
+HSC 101,11,Wellness Concepts,PAC-FTC,MW,2:30 PM - 3:20 PM,Closed,Kelly Frazier,In-Person,25/25
+HSC 101,11L,Wellness Concepts,PAC-116,TR,8:30 AM - 9:20 AM,Open,Chris Hopkins,In-Person,24/25
+HSC 102,01,Mindfulness for Stress Reduction and Wellness,PAC-FTC,MW,8:30 AM - 9:20 AM,Open,Chris Hopkins,In-Person,24/25
+HSC 102,01L,Mindfulness for Stress Reduction and Wellness,CHP-GAR,W,8:30 AM - 10:20 AM,Closed,Scott Murr,In-Person,20/20
+HSC 201,01,Research and Evaluation in Health Sciences,PAC-FTC,F,9:30 AM - 10:20 AM,Closed,Scott Murr,In-Person,20/20
+HSC 201,01L,Research and Evaluation in Health Sciences,PAC-HPL,TR,10:00 AM - 11:15 AM,Closed,Chris Hopkins,In-Person,19/18
+HSC 201,02,Research and Evaluation in Health Sciences,PAC-113,R,2:30 PM - 5:20 PM,Closed,Chris Hopkins,In-Person,19/18
+HSC 201,02L,Research and Evaluation in Health Sciences,PYR-028,TR,11:30 AM - 12:45 PM,Closed,Elizabeth Holt,In-Person,19/18
+HSC 205,01,Fundamentals of Public Health,PYR-028,T,2:30 PM - 5:20 PM,Closed,Elizabeth Holt,In-Person,19/18
+HSC 205,02,Fundamentals of Public Health,PAC-114,TR,8:30 AM - 9:45 AM,Open,Julian Reed,In-Person,9/25
+HSC 210,01,Anatomy and Physiology I,PAC-113,TR,1:00 PM - 2:15 PM,Closed,Anna Cass,In-Person,25/25
+HSC 210,01L,Anatomy and Physiology I,PAC-105,MWF,8:30 AM - 9:20 AM,Open,Tim Patrick,In-Person,16/18
+HSC 210,02,Anatomy and Physiology I,PAC-105,M,2:30 PM - 5:20 PM,Open,Tim Patrick,In-Person,16/18
+HSC 210,02L,Anatomy and Physiology I,PAC-105,MWF,9:30 AM - 10:20 AM,Open,Benjamin Snyder,In-Person,4/18
+HSC 211,01,Anatomy and Physiology II,PAC-105,W,2:30 PM - 5:20 PM,Open,Benjamin Snyder,In-Person,4/18
+HSC 211,01L,Anatomy and Physiology II,PAC-116,MWF,9:30 AM - 10:20 AM,Open,Matt Feigenbaum,In-Person,17/18
+HSC 211,02,Anatomy and Physiology II,PAC-116,W,2:30 PM - 5:20 PM,Open,Matt Feigenbaum,In-Person,17/18
+HSC 211,02L,Anatomy and Physiology II,PAC-113,MWF,11:30 AM - 12:20 PM,Open,Heath Burton,In-Person,14/18
+HSC 242,01,Scientific Principles of Coaching,PAC-116,M,2:30 PM - 5:30 PM,Open,Heath Burton,In-Person,14/18
+HSC 300,01,Chronic Disease: Epidemiology and Prevention,PAC-116,MWF,8:30 AM - 9:20 AM,Closed,Eric Sobolewski,In-Person,33/24
+HSC 305,01,Global Public Health (Survey in Global Public Health),PYR-028,TR,1:00 PM - 2:15 PM,Closed,Elizabeth Holt,In-Person,25/24
+HSC 305,02,Global Public Health (Survey in Global Public Health),PAC-113,TR,8:30 AM - 9:45 AM,Closed,Meghan Slining,In-Person,12/12
+HSC 308,01,Exercise Epidemiology,PAC-113,TR,11:30 AM - 12:45 PM,Closed,Meghan Slining,In-Person,14/12
+HSC 313,02,Fundamentals of Physical Rehabilitation,PAC-113,MWF,10:30 AM - 11:20 AM,Closed,Chris Hopkins,In-Person,12/12
+HSC 314,01,Essentials of Strength and Conditioning,PAC-105,TR,11:30 AM - 12:45 PM,Open,Julian Reed,In-Person,11/20
+HSC 315,01,Fundamentals of Nutrition,PAC-HPL,MWF,1:30 PM - 2:20 PM,Closed,Benjamin Snyder,In-Person,24/24
+HSC 332,01,Graded Exercise Test Practicum,PAC-114,TR,10:00 AM - 11:15 AM,Open,Natalie The,In-Person,22/24
+HSC 343,01,Pathophysiology of Infectious Disease,PAC-HPL,MWF,11:30 AM - 12:20 PM,Closed,Scott Murr,In-Person,24/24
+HSC 401,01,Epidemiology,PAC-116,MWF,10:30 AM - 11:20 AM,Open,Matt Feigenbaum,In-Person,22/24
+HSC 401,01L,Epidemiology,PAC-113,TR,10:00 AM - 11:15 AM,Open,Anna Cass,In-Person,11/24
+HSC 501,01,Independent Study,PAC-113,W,2:30 PM - 5:20 PM,Open,Anna Cass,In-Person,11/24
+HSC 501,02,Independent Study,HSC 501-01 - Independent Study,,,Open,Meghan Slining,In-Person,1/0
+HSC 502,01,Research,HSC 501-02 - Independent Study,,,Open,Eric Sobolewski,In-Person,1/0
+HSC 502,02,Research,HSC 502-01 - Research,,,Open,Eric Sobolewski,In-Person,1/0
+HSC 502,03,Research,HSC 502-02 - Research,,,Open,Heath Burton,In-Person,3/0
+HSC 503,01,Individualized Internship,HSC 502-03 - Research,,,Open,Shaniece Criss,In-Person,2/0
+HSC 503,02,Individualized Internship,HSC 503-01 - Individualized Internship,,,Open,Kelly Frazier,In-Person,2/0
+HSC 505,01,Structured Internship,HSC 503-02 - Individualized Internship,,,Open,Kelly Frazier,In-Person,1/0
+HSC 505,02,Structured Internship,PAC-105,R,8:30 AM - 9:45 AM,Closed,Kelly Frazier,In-Person,10/10
+HST 104,01,Europe in the Modern World,PAC-105,T,8:30 AM - 9:45 AM,Open,Kelly Frazier,In-Person,2/10
+HST 104,02,Europe in the Modern World,FUR-207,TR,8:30 AM - 9:45 AM,Open,Jason Hansen,In-Person,20/22
+HST 104,03,Europe in the Modern World,FUR-107,TR,10:00 AM - 11:15 AM,Open,Carolyn Day,In-Person,20/22
+HST 104,04,Europe in the Modern World,FUR-214,MWF,10:30 AM - 11:20 AM,Open,Marian Strobel (Retired - Active),In-Person,19/22
+HST 111,01,Passages in the Ancient and Medieval World,FUR-204,TR,10:00 AM - 11:15 AM,Closed,Jason Hansen,In-Person,22/22
+HST 112,01,Passages in the Early Modern World,FUR-201,MWF,8:30 AM - 9:20 AM,Open,Abigail Hartman,In-Person,15/22
+HST 112,02,Passages in the Early Modern World,FUR-209,MWF,8:30 AM - 9:20 AM,Closed,Tim Fehler,In-Person,22/22
+HST 122,02,United States and the World since 1877,FUR-209,MWF,9:30 AM - 10:20 AM,Open,Tim Fehler,In-Person,21/22
+HST 124,TU,War  Military and Society in American History,FUR-207,MWF,8:30 AM - 9:20 AM,Closed,Holly Pinheiro,In-Person,23/22
+HST 141,01,Latin America in the Early Modern World,HST 124-TU - War  Military and Society in American History,,,Closed,Courtney Tollison,In-Person,1/0
+HST 166,01,China in the Modern World,JHN-105,MWF,9:30 AM - 10:20 AM,Closed,John Barrington,In-Person,22/22
+HST 203,01,The Crusades,FUR-208,MWF,8:30 AM - 9:20 AM,Open,Lane Harris,In-Person,21/22
+HST 224,01,American Civil War Era,FUR-201,MWF,9:30 AM - 10:20 AM,Open,Abigail Hartman,In-Person,12/15
+HST 277,01,Wars  Rebellions and Revolutions (English Civil War),FUR-214,MWF,11:30 AM - 12:20 PM,Closed,Holly Pinheiro,In-Person,16/15
+HST 278,01,Empire and Imperialism (The Mongol Empire),FUR-207,R,10:00 AM - 11:15 AM,Open,Tim Fehler,In-Person,13/15
+HST 285,01,Apparel and Identity in America,FUR-207,T,10:00 AM - 11:15 AM,Closed,Lane Harris,In-Person,18/15
+HST 312,01,History of Business,FUR-121,TR,10:00 AM - 11:15 AM,Closed,Kathleen Casey,In-Person,15/15
+HST 316,01,"Museums, Movies, and Monuments",FUR-110,MWF,11:30 AM - 12:20 PM,Closed,John Barrington,In-Person,15/15
+HST 331,01,The Plains Indians,FUR-207,T,2:30 PM - 5:20 PM,Open,Courtney Tollison,In-Person,11/15
+HST 476,01,Senior Seminar in History II (The Fashioned Body),FUR-201,TR,1:00 PM - 2:15 PM,Open,Steve O'Neill,In-Person,6/15
+HST 476,02,Senior Seminar in History II (America's Long Civil Rights Movement),FUR-201,T,2:30 PM - 5:20 PM,Closed,Carolyn Day,In-Person,12/12
+HST 501,01,Independent Study,FUR-201,R,2:30 PM - 5:20 PM,Open,Steve O'Neill,In-Person,6/12
+HST 501,02,Independent Study,HST 501-01 - Independent Study,,,Open,Lane Harris,In-Person,1/0
+HST 501,03,Independent Study,HST 501-02 - Independent Study,,,Open,Tim Fehler,In-Person,1/0
+HUM 502,01,Humanities Lab (Applying Film Production Skills to Advance Humanities Projects),HST 501-03 - Independent Study,,,Open,Steve O'Neill,In-Person,1/0
+IGD 101,01,Introduction to Intergroup Dialogue (Spirituality and Wonder),FUR-117,TR,11:30 AM - 12:45 PM,Closed,Geoffrey Gunn,In-Person,11/10
+IGD 101,02,Introduction to Intergroup Dialogue (Bodies),FUR-207,M,3:00 PM - 5:00 PM,Closed,"Melanie Gordon, Victoria Montrose",In-Person,13/12
+IGD 101,03,Introduction to Intergroup Dialogue (Race and Ethnicity),PAC-113,T,3:00 PM - 5:30 PM,Closed,"Jocelyn Boulware Bruce, Meghan Slining",In-Person,14/12
+JPN 120,01,Elementary Japanese II,LIB-043 | R | 3:00 PM - 5:00 PM | 01/13/2025 - 03/20/2025,,,Open,"Andy Coe, Claire Whitlinger",In-Person,9/12
+JPN 120,02,Elementary Japanese II,HIP-106,MTWR,9:30 AM - 10:20 AM,Open,Alexander Francis-Ratte,In-Person,18/24
+JPN 202,01,Intermediate Japanese II,HIP-106,MTWR,10:30 AM - 11:20 AM,Open,Alexander Francis-Ratte,In-Person,10/24
+JPN 202,TU,Intermediate Japanese II,FUR-109,MTRF,10:30 AM - 11:20 AM,Open,Izumi Tokunaga,In-Person,15/16
+JPN 302,01,Intermediate Japanese IV,JPN 202-TU - Intermediate Japanese II,,,Closed,Izumi Tokunaga,In-Person,1/0
+JPN 402,01,Advanced Japanese II,FUR-119,MWF,11:30 AM - 12:20 PM,Open,Izumi Tokunaga,In-Person,2/16
+JPN 504,01,Directed Independent Study,FUR-209,W,2:30 PM - 5:20 PM,Open,Alexander Francis-Ratte,In-Person,7/19
+JPN 504,02,Directed Independent Study,JPN 504-01 - Directed Independent Study,,,Closed,Alexander Francis-Ratte,In-Person,1/0
+LAS 470,01,Issues in Latin America,JPN 504-02 - Directed Independent Study,,,Closed,Alexander Francis-Ratte,In-Person,1/0
+LNG 210,01,General Linguistics,FUR-230,TR,1:00 PM - 2:15 PM,Open,Eunice Rojas,In-Person,14/24
+LNG 260,01,The Bilingual Mind,JHN-109,MWF,9:30 AM - 10:20 AM,Closed,Melinda Menzer,In-Person,25/24
+LNG 503,01,Individualized Internship,FUR-109,MWF,11:30 AM - 12:20 PM,Open,Juan Garrido,In-Person,10/15
+LNG 503,02,Individualized Internship,LNG 503-01 - Individualized Internship,,,Closed,Stephanie Knouse,In-Person,9/0
+LTN 120,01,Elementary Latin II,LNG 503-02 - Individualized Internship,,,Open,Stephanie Knouse,In-Person,1/18
+LTN 120,02,Elementary Latin II,FUR-109,MTRF,8:30 AM - 9:20 AM,Open,Randall Childree,In-Person,14/22
+LTN 305,01,Latin: Analytical Approaches (Manilius),FUR-108,MTRF,10:30 AM - 11:20 AM,Open,Eunice Kim,In-Person,15/22
+MEM 201,01,Medieval and Early Modern Studies Colloquium,FUR-121,TR,11:30 AM - 12:45 PM,Open,Randall Childree,In-Person,7/12
+MES 401,01,Middle Eastern and Islamic Studies Capstone Seminar,FUR-207,R,4:15 PM - 5:30 PM,Open,Tim Fehler,In-Person,7/18
+MLL 360,01L,Latin America Through Film,JHN-111I,W,2:30 PM - 5:20 PM,Open,Buket Oztas,In-Person,8/15
+MSL 102,01,Foundations of Agile and Adaptive Leadership,FUR-214,R,6:00 PM - 8:30 PM,Open,Santiago Quintero Ayarza,In-Person,0/24
+MSL 102,01L,Foundations of Agile and Adaptive Leadership,BCM-CLR,MWF,1:30 PM - 2:20 PM,Open,James DeLong [C],In-Person,8/24
+MSL 202,01,Decision Making and Army Doctrine,PYR-126,W,2:30 PM - 5:30 PM,Open,James DeLong [C],In-Person,8/24
+MSL 202,01L,Decision Making and Army Doctrine,HIP-204,MWF,1:30 PM - 2:20 PM,Open,Jeffrey Sloan [C],In-Person,13/24
+MSL 202,TS,Decision Making and Army Doctrine,PYR-126,W,2:30 PM - 5:20 PM,Open,Jeffrey Sloan [C],In-Person,13/24
+MSL 202,TSL,Decision Making and Army Doctrine,MSL 202-TS - Decision Making and Army Doctrine,,,Closed,Jeffrey Sloan [C],In-Person,1/0
+MSL 302,01,Applied Leadership,MSL 202-TSL - Decision Making and Army Doctrine,,,Closed,Jeffrey Sloan [C],In-Person,1/0
+MSL 302,01L,Applied Leadership,BCM-CLR,TR,1:00 PM - 2:15 PM,Open,Kyle Casey [C],In-Person,12/24
+MSL 402,01,Adaptive Leadership,PYR-126,W,2:30 PM - 5:00 PM,Open,Kyle Casey [C],In-Person,12/24
+MSL 402,01L,Adaptive Leadership,BCM-CLR,MWF,8:30 AM - 9:20 AM,Open,Chad Monroe [C],In-Person,7/24
+MTH 120,01,Introduction to Statistics,PYR-126,W,2:30 PM - 5:20 PM,Open   |   In-Person   |   7/24,,,
+MTH 120,02,Introduction to Statistics,RLY-102,TR,8:30 AM - 9:45 AM,Open,Tom Lewis,In-Person,22/24
+MTH 120,03,Introduction to Statistics,RLY-106,TR,8:30 AM - 9:45 AM,Open,Roy Bower,In-Person,23/24
+MTH 120,04,Introduction to Statistics,RLY-103,TR,10:00 AM - 11:15 AM,Closed,Liz Bouzarth,In-Person,24/24
+MTH 120,05,Introduction to Statistics,RLY-102,TR,10:00 AM - 11:15 AM,Open,Tom Lewis,In-Person,20/24
+MTH 120,06,Introduction to Statistics,RLY-103,TR,11:30 AM - 12:45 PM,Closed,Liz Bouzarth,In-Person,24/24
+MTH 120,07,Introduction to Statistics,RLY-103,TR,1:00 PM - 2:15 PM,Open,Roy Bower,In-Person,21/24
+MTH 120,08,Introduction to Statistics,RLY-102,TR,1:00 PM - 2:15 PM,Open,Sara Yoder,In-Person,21/24
+MTH 145,02,Calculus for Management  Life and Social Sciences,RLY-103,MWF,9:30 AM - 10:20 AM,Closed,Sarah Frick,In-Person,24/24
+MTH 145,03,Calculus for Management  Life and Social Sciences,RLY-103,MWF,10:30 AM - 11:20 AM,Open,Sarah Frick,In-Person,16/24
+MTH 145,04,Calculus for Management  Life and Social Sciences,RLY-103,MWF,11:30 AM - 12:20 PM,Open,Vic Bednar,In-Person,22/24
+MTH 150,02,Analytic Geometry and Calculus I,RLY-103,MWF,1:30 PM - 2:20 PM,Open,Vic Bednar,In-Person,23/24
+MTH 150,03,Analytic Geometry and Calculus I,RLY-105,MTRF,10:30 AM - 11:20 AM,Open,Casey Hawthorne,In-Person,13/24
+MTH 150,04,Analytic Geometry and Calculus I,RLY-105,MTRF,11:30 AM - 12:20 PM,Open,Casey Hawthorne,In-Person,19/24
+MTH 151,01,Analytic Geometry and Calculus II,RLY-107,MTRF,1:30 PM - 2:20 PM,Open,Kevin Hutson,In-Person,18/24
+MTH 151,CBE,Analytic Geometry and Calculus II,RLY-102,MTRF,11:30 AM - 12:20 PM,Open,Mark Woodard,In-Person,22/24
+MTH 160,01,Vectors and Matrices,MTH 151-CBE - Analytic Geometry and Calculus II,,,Closed,Mark Woodard,In-Person,1/0
+MTH 245,01,Statistical Methods I with R,RLY-204,MWF,9:30 AM - 10:20 AM,Open,Kevin Hutson,In-Person,20/24
+MTH 245,02,Statistical Methods I with R,RLY-103,TR,8:30 AM - 9:45 AM,Open,Liz Bouzarth,In-Person,20/24
+MTH 250,01,Vector Calculus,RLY-204,TR,11:30 AM - 12:45 PM,Closed,Jordan Bounds,In-Person,24/24
+MTH 255,01,Differential Equations,RLY-102,MWF,1:30 PM - 2:20 PM,Open,Sarah Frick,In-Person,11/24
+MTH 260,01,Transition to Higher Mathematics,RLY-101,MWF,10:30 AM - 11:20 AM,Open,Jordan Bounds,In-Person,10/24
+MTH 301,01,Mathematics for Elementary School Teachers I,RLY-105,MWF,8:30 AM - 9:20 AM,Open,John Harris,In-Person,16/18
+MTH 320,01,Number Theory,RLY-101,MWF,8:30 AM - 9:20 AM,Open,Casey Hawthorne,In-Person,6/24
+MTH 345,01,Statistical Methods II with R,RLY-101,MWF,9:30 AM - 10:20 AM,Open,Mark Woodard,In-Person,12/24
+MTH 460,01,Group Theory,RLY-101,TR,10:00 AM - 11:15 AM,Closed,Roy Bower,In-Person,22/18
+MTH 465,01,Linear Algebra and Matrix Theory,MTH 460-01 - Group Theory,,,Closed,Jordan Bounds,In-Person,1/0
+MTH 465,02,Linear Algebra and Matrix Theory,RLY-102,MWF,10:30 AM - 11:20 AM,Open,Grace Stadnyk,In-Person,12/15
+MUS 050,01,Recital Attendance,RLY-204,MWF,10:30 AM - 11:20 AM,Closed,Kevin Hutson,In-Person,15/15
+MUS 060,01,Symphony Orchestra,DMB-RCT,T,2:30 PM - 3:20 PM,Open,Randall Umstead,In-Person,99/190
+MUS 061,01,Furman Bands,DMB-013,TR,4:00 PM - 6:00 PM,Open,Stephan Fillare,In-Person,65/80
+MUS 062,01,Furman Singers,DMB-013,MWF,4:00 PM - 6:00 PM,Open,"David Stanley, Sue Samuels",In-Person,84/100
+MUS 064,01,Women's Chorale (Belle Voci),HMP-121,TR,4:00 PM - 6:00 PM,Open,Stephen Gusukuma,In-Person,62/100
+MUS 065,01,Chamber Choir,HMP-121,TR,1:00 PM - 2:15 PM,Open,Vivian Hamilton,In-Person,21/50
+MUS 067,01,Jazz Ensemble,HMP-121,MW,2:30 PM - 3:20 PM,Open,Stephen Gusukuma,In-Person,28/40
+MUS 068,01,Jazz Combo,DMB-013,MR,2:30 PM - 3:45 PM,Closed,Matt Olson,In-Person,20/20
+MUS 068,02,Jazz Combo,DMB-013,TR,6:00 PM - 7:00 PM,Open,Matt Dingledine,In-Person,5/15
+MUS 068,03,Jazz Combo,DMB-013,TR,7:00 PM - 8:00 PM,Open,Matt Dingledine,In-Person,7/15
+MUS 069,01,Brass Ensemble,MUS 068-03 - Jazz Combo,,,Open,Joseph Hoover,In-Person,6/15
+MUS 070,01,Woodwind Ensemble,MUS 069-01 - Brass Ensemble,,,Open,Buddy Deshler,In-Person,10/25
+MUS 071,01,Percussion Ensemble,MUS 070-01 - Woodwind Ensemble,,,Open,Anastasia Christofakis,In-Person,13/20
+MUS 072,01,String Chamber Music,DMB-013,MW,6:00 PM - 8:00 PM,Open,Omar Carmenates,In-Person,14/20
+MUS 073,01,String Quartet,MUS 072-01 - String Chamber Music,,,Open   |   In-Person   |   0/20,,,
+MUS 074,01,Saxophone Quartet,MUS 073-01 - String Quartet,,,Open,Stephan Fillare,In-Person,8/20
+MUS 079,01,Bluegrass Ensemble,MUS 074-01 - Saxophone Quartet,,,Open,Matt Olson,In-Person,8/20
+MUS 101,01,Introduction to Music,MUS 079-01 - Bluegrass Ensemble,,,Closed,Andrew Carlson,In-Person,17/12
+MUS 101,03,Introduction to Music,FUR-214,TR,8:30 AM - 9:45 AM,Closed,David Stanley,In-Person,32/32
+MUS 102,01,Introduction to Jazz,FUR-214 | WF | 1:30 PM - 2:45 PM | 01/13/2025 - 04/29/2025,,,Open,Michelle Moeller,In-Person,30/32
+MUS 103,01,Introduction to American Folk and Country Music,FUR-214,TR,11:30 AM - 12:45 PM,Closed,Matt Dingledine,In-Person,32/32
+MUS 106,01,Piano Class I,FUR-214,MWF,9:30 AM - 10:20 AM,Closed,Andrew Carlson,In-Person,33/32
+MUS 108,01,Guitar Class I,DMB-005,MF,9:30 AM - 10:20 AM,Open,Kelly Herd,In-Person,3/24
+MUS 112A,01,Basic Musicianship II: Written & Analytical,DMB-013,T,1:00 PM - 2:15 PM,Open,Matt Dingledine,In-Person,10/12
+MUS 112A,02,Basic Musicianship II: Written & Analytical,DMB-003,TR,10:30 AM - 11:20 AM,Closed,Megan Lyons,In-Person,20/18
+MUS 112B,01,Basic Musicianship II: Aural,DMB-003,TR,11:30 AM - 12:20 PM,Closed,Megan Lyons,In-Person,18/18
+MUS 112B,02,Basic Musicianship II: Aural,DMB-003,MF,10:30 AM - 11:20 AM,Closed,Megan Lyons,In-Person,22/18
+MUS 112C,01,Basic Musicianship II: Keyboard,DMB-003,MF,11:30 AM - 12:20 PM,Open,Megan Lyons,In-Person,16/18
+MUS 112C,02,Basic Musicianship II: Keyboard,DMB-004,W,10:30 AM - 11:20 AM,Closed,Derek Parsons,In-Person,9/9
+MUS 112C,03,Basic Musicianship II: Keyboard,DMB-005,W,10:30 AM - 11:20 AM,Closed,David Gross,In-Person,10/9
+MUS 112C,04,Basic Musicianship II: Keyboard,DMB-005,W,11:30 AM - 12:20 PM,Closed,David Gross,In-Person,9/9
+MUS 112C,05,Basic Musicianship II: Keyboard,DMB-004,W,11:30 AM - 12:20 PM,Closed,Derek Parsons,In-Person,10/9
+MUS 113,01,Composition Seminar,DMB-004,W,8:30 AM - 9:20 AM,Open,Derek Parsons,In-Person,0/9
+MUS 115-CBE - Music-reading Fundamentals for the Singing Actor,,,HMP-123E,F,11:30 AM - 1:00 PM,Open,Samuel Hunter,In-Person,11/12
+MUS 120,01,Introductory Music Literature,MUS 115-CBE - Music-reading Fundamentals for the Singing Actor,,,Open,Lisa Barksdale,In-Person,1/5
+MUS 212A,01,Basic Musicianship IV: Written & Analysis,HMP-121,MW,1:30 PM - 2:20 PM,Open,Randall Umstead,In-Person,34/36
+MUS 212A,02,Basic Musicianship IV: Written & Analysis,DMB-104,TR,10:30 AM - 11:20 AM,Open,Benjamin Dobbs,In-Person,16/18
+MUS 212B,01,Basic Musicianship IV: Aural,DMB-104,TR,11:30 AM - 12:20 PM,Open,Benjamin Dobbs,In-Person,14/18
+MUS 212B,02,Basic Musicianship IV: Aural,DMB-104,MW,10:30 AM - 11:20 AM,Open,Benjamin Dobbs,In-Person,16/18
+MUS 212C,01,Basic Musicianship IV: Keyboard,DMB-104,MW,11:30 AM - 12:20 PM,Open,Benjamin Dobbs,In-Person,14/18
+MUS 212C,02,Basic Musicianship IV: Keyboard,DMB-004,F,10:30 AM - 11:20 AM,Open,Derek Parsons,In-Person,8/9
+MUS 212C,03,Basic Musicianship IV: Keyboard,DMB-005,F,10:30 AM - 11:20 AM,Closed,David Gross,In-Person,9/9
+MUS 212C,04,Basic Musicianship IV: Keyboard,DMB-004,F,11:30 AM - 12:20 PM,Open,David Rhyne,In-Person,7/9
+MUS 220,01,World Music,DMB-005,F,11:30 AM - 12:20 PM,Open,David Gross,In-Person,6/9
+MUS 310,01,Form and Analysis,HMP-121,TR,8:30 AM - 9:45 AM,Open,Omar Carmenates,In-Person,35/36
+MUS 311,01,Composition Seminar,DMB-104,TR,8:30 AM - 9:45 AM,Open,Benjamin Dobbs,In-Person,6/8
+MUS 312,01,Orchestration,HMP-123E,F,11:30 AM - 1:00 PM,Open,Samuel Hunter,In-Person,3/8
+MUS 321,01,Music History III,DMB-104,MW,1:30 PM - 2:20 PM,Open,Mark Britt,In-Person,9/24
+MUS 321,02,Music History III,HMP-121,MW,10:30 AM - 11:20 AM,Open,Randall Umstead,In-Person,16/36
+MUS 327,01,The Alexander Technique and Body Mapping,HMP-121,MW,11:30 AM - 12:20 PM,Open,Randall Umstead,In-Person,12/36
+MUS 331A,01,Woodwind Methods,HMP-121,T,11:30 AM - 12:45 PM,Closed,Petrea Warneck,In-Person,16/15
+MUS 332,01,Brass Methods,MUS 331A-01 - Woodwind Methods,,,Open,Anastasia Christofakis,In-Person,0/12
+MUS 333,01,Percussion Methods,DMB-013,TR,8:30 AM - 9:20 AM,Open,Mark Britt,In-Person,5/18
+MUS 351,01,Applied Jazz Improvisation,DMB-013,MW,8:30 AM - 9:20 AM,Open,Omar Carmenates,In-Person,5/18
+MUS 351,02,Applied Jazz Improvisation,MUS 351-01 - Applied Jazz Improvisation,,,Open,Matt Olson,In-Person,1/12
+MUS 351,03,Applied Jazz Improvisation,MUS 351-02 - Applied Jazz Improvisation,,,Open,Matt Dingledine,In-Person,0/12
+MUS 351,04,Applied Jazz Improvisation,MUS 351-03 - Applied Jazz Improvisation,,,Open,Keith Davis,In-Person,1/12
+MUS 351A,01,Applied Jazz Improvisation,MUS 351-04 - Applied Jazz Improvisation,,,Open,Joseph Hoover,In-Person,2/12
+MUS 351A,02,Applied Jazz Improvisation,MUS 351A-01 - Applied Jazz Improvisation,,,Open,Matt Olson,In-Person,0/12
+MUS 351A,03,Applied Jazz Improvisation,MUS 351A-02 - Applied Jazz Improvisation,,,Open,Matt Dingledine,In-Person,0/12
+MUS 351A,04,Applied Jazz Improvisation,MUS 351A-03 - Applied Jazz Improvisation,,,Open,Keith Davis,In-Person,0/12
+MUS 351D,01,Applied Jazz Improvisation,MUS 351A-04 - Applied Jazz Improvisation,,,Open,Joseph Hoover,In-Person,0/12
+MUS 351D,02,Applied Jazz Improvisation,MUS 351D-01 - Applied Jazz Improvisation,,,Open,Matt Olson,In-Person,0/12
+MUS 351D,03,Applied Jazz Improvisation,MUS 351D-02 - Applied Jazz Improvisation,,,Open,Matt Dingledine,In-Person,0/12
+MUS 351D,04,Applied Jazz Improvisation,MUS 351D-03 - Applied Jazz Improvisation,,,Open,Keith Davis,In-Person,0/12
+MUS 351E,01,Applied Jazz Improvisation,MUS 351D-04 - Applied Jazz Improvisation,,,Open,Joseph Hoover,In-Person,3/12
+MUS 351E,02,Applied Jazz Improvisation,MUS 351E-01 - Applied Jazz Improvisation,,,Open,Matt Olson,In-Person,0/12
+MUS 351E,03,Applied Jazz Improvisation,MUS 351E-02 - Applied Jazz Improvisation,,,Open,Matt Dingledine,In-Person,1/12
+MUS 351E,04,Applied Jazz Improvisation,MUS 351E-03 - Applied Jazz Improvisation,,,Open,Keith Davis,In-Person,2/12
+MUS 352,01,Basic Conducting,MUS 351E-04 - Applied Jazz Improvisation,,,Open,Joseph Hoover,In-Person,2/12
+MUS 352,02,Basic Conducting,DMB-003,TR,1:00 PM - 1:50 PM,Open,Stephen Gusukuma,In-Person,8/12
+MUS 352,03,Basic Conducting,DMB-013,MW,1:30 PM - 2:20 PM,Closed,Sue Samuels,In-Person,12/12
+MUS 356,01,Lyric Diction I,DMB-003,MW,1:30 PM - 2:20 PM,Closed,Stephan Fillare,In-Person,12/12
+MUS 412,01,Senior Project,DMB-104,TR,1:00 PM - 1:50 PM,Open,Bronwen Forbay,In-Person,14/24
+MUS 420G,01,Literature of Voice,R | 11:30 AM - 12:45 PM,,,Open,Benjamin Dobbs,In-Person,0/12
+MUS 421A,01,History and Literature of Piano,JHN-107,R,11:30 AM - 12:45 PM,Open,Craig Price,In-Person,14/24
+MUS 423,01,Survey of Choral Literature,HMP-123E,TR,11:30 AM - 12:45 PM,Open,Derek Parsons,In-Person,3/12
+MUS 501,01,Independent Study,HMP-123E,MW,10:30 AM - 11:20 AM,Open,Stephen Gusukuma,In-Person,4/15
+MUS 505,01,Chamber Music for Winds & Percussion,MUS 501-01 - Independent Study,,,Open,Megan Lyons,In-Person,1/0
+MUS 511,01,Voice,MUS 505-01 - Chamber Music for Winds & Percussion,,,Open   |   In-Person   |   0/24,,,
+MUS 511,02,Voice,MUS 511-01 - Voice,,,Open,Grant Knox,In-Person,3/24
+MUS 511,03,Voice,MUS 511-02 - Voice,,,Open,Katie Knauer,In-Person,7/24
+MUS 511,04,Voice,MUS 511-03 - Voice,,,Open,Craig Price,In-Person,10/24
+MUS 511,05,Voice,MUS 511-04 - Voice,,,Open,Lisa Barksdale,In-Person,4/24
+MUS 511,06,Voice,MUS 511-05 - Voice,,,Open,Erica Lustig,In-Person,0/24
+MUS 511,07,Voice,MUS 511-06 - Voice,,,Open,Bronwen Forbay,In-Person,8/24
+MUS 511A,01,Voice,MUS 511-07 - Voice,,,Open,Stephen Gusukuma,In-Person,0/24
+MUS 511A,02,Voice,MUS 511A-01 - Voice,,,Open,Grant Knox,In-Person,0/24
+MUS 511A,03,Voice,MUS 511A-02 - Voice,,,Open,Katie Knauer,In-Person,1/24
+MUS 511A,04,Voice,MUS 511A-03 - Voice,,,Open,Craig Price,In-Person,0/24
+MUS 511A,05,Voice,MUS 511A-04 - Voice,,,Open,Lisa Barksdale,In-Person,3/24
+MUS 511A,06,Voice,MUS 511A-05 - Voice,,,Open,Erica Lustig,In-Person,10/24
+MUS 511C,01,Voice,MUS 511A-06 - Voice,,,Open,Bronwen Forbay,In-Person,1/24
+MUS 511C,02,Voice,MUS 511C-01 - Voice,,,Open,Grant Knox,In-Person,9/24
+MUS 511C,03,Voice,MUS 511C-02 - Voice,,,Open,Katie Knauer,In-Person,0/24
+MUS 511C,04,Voice,MUS 511C-03 - Voice,,,Open,Craig Price,In-Person,0/24
+MUS 511C,05,Voice,MUS 511C-04 - Voice,,,Open,Lisa Barksdale,In-Person,1/24
+MUS 511C,06,Voice,MUS 511C-05 - Voice,,,Open,Erica Lustig,In-Person,0/24
+MUS 511D,01,Voice,MUS 511C-06 - Voice,,,Open,Bronwen Forbay,In-Person,4/24
+MUS 511D,02,Voice,MUS 511D-01 - Voice,,,Open,Grant Knox,In-Person,0/24
+MUS 511D,03,Voice,MUS 511D-02 - Voice,,,Open,Katie Knauer,In-Person,5/24
+MUS 511D,04,Voice,MUS 511D-03 - Voice,,,Open,Craig Price,In-Person,0/24
+MUS 511D,05,Voice,MUS 511D-04 - Voice,,,Open,Lisa Barksdale,In-Person,5/24
+MUS 511D,06,Voice,MUS 511D-05 - Voice,,,Open,Erica Lustig,In-Person,1/24
+MUS 511E,01,Voice,MUS 511D-06 - Voice,,,Open,Bronwen Forbay,In-Person,1/24
+MUS 511E,02,Voice,MUS 511E-01 - Voice,,,Open,Grant Knox,In-Person,0/24
+MUS 511E,03,Voice,MUS 511E-02 - Voice,,,Open,Katie Knauer,In-Person,4/24
+MUS 511E,04,Voice,MUS 511E-03 - Voice,,,Open,Craig Price,In-Person,2/24
+MUS 511E,05,Voice,MUS 511E-04 - Voice,,,Open,Lisa Barksdale,In-Person,0/24
+MUS 511E,06,Voice,MUS 511E-05 - Voice,,,Open,Erica Lustig,In-Person,1/24
+MUS 512D,01,Opera,MUS 511E-06 - Voice,,,Open,Bronwen Forbay,In-Person,0/24
+MUS 521,01,Violin,DMB-RCT,M,4:00 PM - 6:00 PM,Open,Grant Knox,In-Person,13/24
+MUS 521,02,Violin,MUS 521-01 - Violin,,,Open,Anastasia Petrunina,In-Person,12/24
+MUS 521A_,01,Violin,MUS 521-02 - Violin,,,Open,Andrew Carlson,In-Person,1/24
+MUS 521A_,02,Violin,MUS 521A_-01 - Violin,,,Open,Anastasia Petrunina,In-Person,0/24
+MUS 521C_,01,Violin,MUS 521A_-02 - Violin,,,Open,Andrew Carlson,In-Person,0/24
+MUS 521D,01,Violin,MUS 521C_-01 - Violin,,,Open,Anastasia Petrunina,In-Person,1/24
+MUS 521D,02,Violin,MUS 521D-01 - Violin,,,Open,Anastasia Petrunina,In-Person,0/24
+MUS 521E,01,Violin,MUS 521D-02 - Violin,,,Open,Andrew Carlson,In-Person,3/24
+MUS 521E,02,Violin,MUS 521E-01 - Violin,,,Open,Anastasia Petrunina,In-Person,2/24
+MUS 522,01,Viola,MUS 521E-02 - Violin,,,Open,Andrew Carlson,In-Person,2/24
+MUS 522A_,01,Viola,MUS 522-01 - Viola,,,Open,Anna Joiner,In-Person,3/24
+MUS 522C,01,Viola,MUS 522A_-01 - Viola,,,Open,Anna Joiner,In-Person,0/24
+MUS 522D,01,Viola,MUS 522C-01 - Viola,,,Open,Anna Joiner,In-Person,0/24
+MUS 522E,01,Viola,MUS 522D-01 - Viola,,,Open,Anna Joiner,In-Person,0/24
+MUS 523A,01,Cello,MUS 522E-01 - Viola,,,Open,Anna Joiner,In-Person,3/24
+MUS 523C,01,Cello,MUS 523A-01 - Cello,,,Open,Christopher Hutton,In-Person,0/24
+MUS 523D,01,Cello,MUS 523C-01 - Cello,,,Open,Christopher Hutton,In-Person,1/24
+MUS 523E,01,Cello,MUS 523D-01 - Cello,,,Open,Christopher Hutton,In-Person,0/24
+MUS 523_,01,Cello,MUS 523E-01 - Cello,,,Open,Christopher Hutton,In-Person,5/24
+MUS 524,01,Double Bass,MUS 523_-01 - Cello,,,Open,Christopher Hutton,In-Person,7/24
+MUS 524A,01,Double Bass,MUS 524-01 - Double Bass,,,Open,Ian Bracchitta,In-Person,1/24
+MUS 524C,01,Double Bass,MUS 524A-01 - Double Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 524D,01,Double Bass,MUS 524C-01 - Double Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 524E,01,Double Bass,MUS 524D-01 - Double Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 525,01,Classical Guitar,MUS 524E-01 - Double Bass,,,Open,Ian Bracchitta,In-Person,3/24
+MUS 525A,01,Classical Guitar,MUS 525-01 - Classical Guitar,,,Open,Steve Newbrough,In-Person,1/24
+MUS 525C,01,Classical Guitar,MUS 525A-01 - Classical Guitar,,,Open,Steve Newbrough,In-Person,0/24
+MUS 525D,01,Classical Guitar,MUS 525C-01 - Classical Guitar,,,Open,Steve Newbrough,In-Person,0/24
+MUS 525E,01,Classical Guitar,MUS 525D-01 - Classical Guitar,,,Open,Steve Newbrough,In-Person,2/24
+MUS 526,01,Jazz Guitar,MUS 525E-01 - Classical Guitar,,,Open,Steve Newbrough,In-Person,0/24
+MUS 526A,01,Jazz Guitar,MUS 526-01 - Jazz Guitar,,,Open,Matt Dingledine,In-Person,1/24
+MUS 526C,01,Jazz Guitar,MUS 526A-01 - Jazz Guitar,,,Open,Matt Dingledine,In-Person,0/24
+MUS 526D,01,Jazz Guitar,MUS 526C-01 - Jazz Guitar,,,Open,Matt Dingledine,In-Person,0/24
+MUS 526E,01,Jazz Guitar,MUS 526D-01 - Jazz Guitar,,,Open,Matt Dingledine,In-Person,0/24
+MUS 527,01,Harp,MUS 526E-01 - Jazz Guitar,,,Open,Matt Dingledine,In-Person,0/24
+MUS 527A,01,Harp,MUS 527-01 - Harp,,,Open,Anita Burroughs-Price,In-Person,0/24
+MUS 527C,01,Harp,MUS 527A-01 - Harp,,,Open,Anita Burroughs-Price,In-Person,1/24
+MUS 527D,01,Harp,MUS 527C-01 - Harp,,,Open,Anita Burroughs-Price,In-Person,0/24
+MUS 527E,01,Harp,MUS 527D-01 - Harp,,,Open,Anita Burroughs-Price,In-Person,2/24
+MUS 528,01,Jazz Bass,MUS 527E-01 - Harp,,,Open,Anita Burroughs-Price,In-Person,0/24
+MUS 528A,01,Jazz Bass,MUS 528-01 - Jazz Bass,,,Open,Ian Bracchitta,In-Person,1/24
+MUS 528C,01,Jazz Bass,MUS 528A-01 - Jazz Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 528D,01,Jazz Bass,MUS 528C-01 - Jazz Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 528E,01,Jazz Bass,MUS 528D-01 - Jazz Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 531,01,Trumpet,MUS 528E-01 - Jazz Bass,,,Open,Ian Bracchitta,In-Person,0/24
+MUS 531A,01,Trumpet,MUS 531-01 - Trumpet,,,Open,Buddy Deshler,In-Person,9/24
+MUS 531B,01,Trumpet,MUS 531A-01 - Trumpet,,,Open,Buddy Deshler,In-Person,1/24
+MUS 531C,01,Trumpet,MUS 531B-01 - Trumpet,,,Open,Buddy Deshler,In-Person,0/24
+MUS 531D,01,Trumpet,MUS 531C-01 - Trumpet,,,Open,Buddy Deshler,In-Person,2/24
+MUS 531E,01,Trumpet,MUS 531D-01 - Trumpet,,,Open,Buddy Deshler,In-Person,1/24
+MUS 532,01,Horn,MUS 531E-01 - Trumpet,,,Open,Buddy Deshler,In-Person,3/24
+MUS 532A,01,Horn,MUS 532-01 - Horn,,,Open,Tyler Goodwin,In-Person,2/24
+MUS 532B,01,Horn,MUS 532A-01 - Horn,,,Open,Tyler Goodwin,In-Person,0/24
+MUS 532C,01,Horn,MUS 532B-01 - Horn,,,Open,Tyler Goodwin,In-Person,0/24
+MUS 532D,01,Horn,MUS 532C-01 - Horn,,,Open,Tyler Goodwin,In-Person,0/24
+MUS 532E,01,Horn,MUS 532D-01 - Horn,,,Open,Tyler Goodwin,In-Person,4/24
+MUS 533,01,Trombone,MUS 532E-01 - Horn,,,Open,Tyler Goodwin,In-Person,2/24
+MUS 533A,01,Trombone,MUS 533-01 - Trombone,,,Open,Mark Britt,In-Person,4/24
+MUS 533B,01,Trombone,MUS 533A-01 - Trombone,,,Open,Mark Britt,In-Person,0/24
+MUS 533D,01,Trombone,MUS 533B-01 - Trombone,,,Open,Mark Britt,In-Person,0/24
+MUS 533E,01,Trombone,MUS 533D-01 - Trombone,,,Open,Mark Britt,In-Person,1/24
+MUS 534,01,Euphonium,MUS 533E-01 - Trombone,,,Open,Mark Britt,In-Person,0/24
+MUS 534A,01,Euphonium,MUS 534-01 - Euphonium,,,Open,Mark Britt,In-Person,0/24
+MUS 534B,01,Euphonium,MUS 534A-01 - Euphonium,,,Open,Mark Britt,In-Person,0/24
+MUS 534C,01,Euphonium,MUS 534B-01 - Euphonium,,,Open,Mark Britt,In-Person,0/24
+MUS 534D,01,Euphonium,MUS 534C-01 - Euphonium,,,Open,Mark Britt,In-Person,0/24
+MUS 534E,01,Euphonium,MUS 534D-01 - Euphonium,,,Open,Mark Britt,In-Person,0/24
+MUS 535,01,Tuba,MUS 534E-01 - Euphonium,,,Open,Mark Britt,In-Person,1/24
+MUS 535A,01,Tuba,MUS 535-01 - Tuba,,,Open,Mark Britt,In-Person,1/24
+MUS 535B,01,Tuba,MUS 535A-01 - Tuba,,,Open,Mark Britt,In-Person,0/24
+MUS 535C,01,Tuba,MUS 535B-01 - Tuba,,,Open,Mark Britt,In-Person,0/24
+MUS 535D,01,Tuba,MUS 535C-01 - Tuba,,,Open,Mark Britt,In-Person,0/24
+MUS 535E,01,Tuba,MUS 535D-01 - Tuba,,,Open,Mark Britt,In-Person,3/24
+MUS 541,01,Flute,MUS 535E-01 - Tuba,,,Open,Mark Britt,In-Person,1/24
+MUS 541A,01,Flute,MUS 541-01 - Flute,,,Open,Caroline Ulrich,In-Person,3/24
+MUS 541B,01,Flute,MUS 541A-01 - Flute,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 541C,01,Flute,MUS 541B-01 - Flute,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 541D,01,Flute,MUS 541C-01 - Flute,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 541E,01,Flute,MUS 541D-01 - Flute,,,Open,Caroline Ulrich,In-Person,6/24
+MUS 542,01,Oboe,MUS 541E-01 - Flute,,,Open,Caroline Ulrich,In-Person,1/24
+MUS 542A,01,Oboe,MUS 542-01 - Oboe,,,Open,Michelle Moeller,In-Person,2/24
+MUS 542B,01,Oboe,MUS 542A-01 - Oboe,,,Open,Michelle Moeller,In-Person,0/24
+MUS 542C,01,Oboe,MUS 542B-01 - Oboe,,,Open,Michelle Moeller,In-Person,0/24
+MUS 542D,01,Oboe,MUS 542C-01 - Oboe,,,Open,Michelle Moeller,In-Person,0/24
+MUS 542E,01,Oboe,MUS 542D-01 - Oboe,,,Open,Michelle Moeller,In-Person,0/24
+MUS 543,01,Clarinet,MUS 542E-01 - Oboe,,,Open,Michelle Moeller,In-Person,1/24
+MUS 543A,01,Clarinet,MUS 543-01 - Clarinet,,,Open,Anastasia Christofakis,In-Person,3/24
+MUS 543B,01,Clarinet,MUS 543A-01 - Clarinet,,,Open,Anastasia Christofakis,In-Person,0/24
+MUS 543C,01,Clarinet,MUS 543B-01 - Clarinet,,,Open,Anastasia Christofakis,In-Person,0/24
+MUS 543D,01,Clarinet,MUS 543C-01 - Clarinet,,,Open,Anastasia Christofakis,In-Person,0/24
+MUS 543E,01,Clarinet,MUS 543D-01 - Clarinet,,,Open,Anastasia Christofakis,In-Person,5/24
+MUS 544,01,Bassoon,MUS 543E-01 - Clarinet,,,Open,Anastasia Christofakis,In-Person,1/24
+MUS 544A,01,Bassoon,MUS 544-01 - Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 544B,01,Bassoon,MUS 544A-01 - Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 544C,01,Bassoon,MUS 544B-01 - Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 544D,01,Bassoon,MUS 544C-01 - Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 544E,01,Bassoon,MUS 544D-01 - Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 545,01,Saxophone,MUS 544E-01 - Bassoon,,,Open,Allen Jiang,In-Person,1/24
+MUS 545A,01,Saxophone,MUS 545-01 - Saxophone,,,Open,Matt Olson,In-Person,7/24
+MUS 545B,01,Saxophone,MUS 545A-01 - Saxophone,,,Open,Matt Olson,In-Person,0/24
+MUS 545C,01,Saxophone,MUS 545B-01 - Saxophone,,,Open,Matt Olson,In-Person,0/24
+MUS 545D,01,Saxophone,MUS 545C-01 - Saxophone,,,Open,Matt Olson,In-Person,1/24
+MUS 545E,01,Saxophone,MUS 545D-01 - Saxophone,,,Open,Matt Olson,In-Person,1/24
+MUS 546-01 - Contra-Bassoon,,,MUS 545E-01 - Saxophone,,,Open,Matt Olson,In-Person,4/24
+MUS 546A-01 - Contra-Bassoon,,,MUS 546-01 - Contra-Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 546B-01 - Contra-Bassoon,,,MUS 546A-01 - Contra-Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 546C-01 - Contra-Bassoon,,,MUS 546B-01 - Contra-Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 546D-01 - Contra-Bassoon,,,MUS 546C-01 - Contra-Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 546E-01 - Contra-Bassoon,,,MUS 546D-01 - Contra-Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 547,01,Bass Clarinet,MUS 546E-01 - Contra-Bassoon,,,Open,Allen Jiang,In-Person,0/24
+MUS 547A-01 - Bass-Clarinet,,,MUS 547-01 - Bass Clarinet,,,Open,Anastasia Christofakis,In-Person,0/24
+MUS 547B-01 - Bass-Clarinet,,,MUS 547A-01 - Bass-Clarinet,,,Open,Anastasia Christofakis,In-Person,1/24
+MUS 547C-01 - Bass-Clarinet,,,MUS 547B-01 - Bass-Clarinet,,,Open,Anastasia Christofakis,In-Person,0/24
+MUS 547D-01 - Bass-Clarinet,,,MUS 547C-01 - Bass-Clarinet,,,Open,Anastasia Christofakis,In-Person,0/24
+MUS 547E-01 - Bass-Clarinet,,,MUS 547D-01 - Bass-Clarinet,,,Open,Anastasia Christofakis,In-Person,1/24
+MUS 548,01,Piccolo,MUS 547E-01 - Bass-Clarinet,,,Open,Anastasia Christofakis,In-Person,3/24
+MUS 548A,01,Piccolo,MUS 548-01 - Piccolo,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 548B,01,Piccolo,MUS 548A-01 - Piccolo,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 548C,01,Piccolo,MUS 548B-01 - Piccolo,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 548D,01,Piccolo,MUS 548C-01 - Piccolo,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 548E,01,Piccolo,MUS 548D-01 - Piccolo,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 549,01,English Horn,MUS 548E-01 - Piccolo,,,Open,Caroline Ulrich,In-Person,0/24
+MUS 549A,01,English Horn,MUS 549-01 - English Horn,,,Open,Michelle Moeller,In-Person,0/24
+MUS 549B,01,English Horn,MUS 549A-01 - English Horn,,,Open,Michelle Moeller,In-Person,0/24
+MUS 549C,01,English Horn,MUS 549B-01 - English Horn,,,Open,Michelle Moeller,In-Person,0/24
+MUS 549D,01,English Horn,MUS 549C-01 - English Horn,,,Open,Michelle Moeller,In-Person,0/24
+MUS 549E,01,English Horn,MUS 549D-01 - English Horn,,,Open,Michelle Moeller,In-Person,0/24
+MUS 551,01,Percussion,MUS 549E-01 - English Horn,,,Open,Michelle Moeller,In-Person,0/24
+MUS 551A,01,Percussion,MUS 551-01 - Percussion,,,Open,Omar Carmenates,In-Person,7/24
+MUS 551B,01,Percussion,MUS 551A-01 - Percussion,,,Open,Omar Carmenates,In-Person,0/24
+MUS 551C,01,Percussion,MUS 551B-01 - Percussion,,,Open,Omar Carmenates,In-Person,0/24
+MUS 551D,01,Percussion,MUS 551C-01 - Percussion,,,Open,Omar Carmenates,In-Person,0/24
+MUS 551E,01,Percussion,MUS 551D-01 - Percussion,,,Open,Omar Carmenates,In-Person,6/24
+MUS 552,01,Drum Set,MUS 551E-01 - Percussion,,,Open,Omar Carmenates,In-Person,1/24
+MUS 552A,01,Drum Set,MUS 552-01 - Drum Set,,,Open,Justin Watt,In-Person,4/24
+MUS 552B,01,Drum Set,MUS 552A-01 - Drum Set,,,Open,Justin Watt,In-Person,1/24
+MUS 552C,01,Drum Set,MUS 552B-01 - Drum Set,,,Open,Justin Watt,In-Person,0/24
+MUS 552D,01,Drum Set,MUS 552C-01 - Drum Set,,,Open,Justin Watt,In-Person,0/24
+MUS 552E,01,Drum Set,MUS 552D-01 - Drum Set,,,Open,Justin Watt,In-Person,5/24
+MUS 561,01,Piano,MUS 552E-01 - Drum Set,,,Open,Justin Watt,In-Person,0/24
+MUS 561,02,Piano,DMB-RCT,W,5:30 PM - 6:20 PM,Open,David Gross,In-Person,4/24
+MUS 561A,01,Piano,W | 4:00 PM - 5:30 PM,,,Open,Derek Parsons,In-Person,3/24
+MUS 561A,02,Piano,W | 5:30 PM - 6:20 PM,,,Open,David Gross,In-Person,1/24
+MUS 561C,01,Piano,W | 4:00 PM - 5:30 PM,,,Open,Derek Parsons,In-Person,1/24
+MUS 561C,02,Piano,W | 5:30 PM - 6:20 PM,,,Open,David Gross,In-Person,1/24
+MUS 561D,01,Piano,W | 4:00 PM - 5:30 PM,,,Open,Derek Parsons,In-Person,1/24
+MUS 561D,02,Piano,W | 5:30 PM - 6:20 PM,,,Open,David Gross,In-Person,4/24
+MUS 561E,01,Piano,W | 4:00 PM - 5:30 PM,,,Open,Derek Parsons,In-Person,4/24
+MUS 561E,02,Piano,W | 5:30 PM - 6:20 PM,,,Open,David Gross,In-Person,1/24
+MUS 562,01,Organ,W | 4:00 PM - 5:30 PM,,,Open,Derek Parsons,In-Person,6/24
+MUS 562A,01,Organ,MUS 562-01 - Organ,,,Open,David Rhyne,In-Person,2/24
+MUS 562C,01,Organ,MUS 562A-01 - Organ,,,Open,David Rhyne,In-Person,2/24
+MUS 562D,01,Organ,MUS 562C-01 - Organ,,,Open,David Rhyne,In-Person,0/24
+MUS 562E,01,Organ,MUS 562D-01 - Organ,,,Open,David Rhyne,In-Person,4/24
+MUS 563,01,Harpsichord,MUS 562E-01 - Organ,,,Open,David Rhyne,In-Person,2/24
+MUS 563A,01,Harpsichord,MUS 563-01 - Harpsichord,,,Open,David Rhyne,In-Person,0/24
+MUS 563C,01,Harpsichord,MUS 563A-01 - Harpsichord,,,Open,David Rhyne,In-Person,0/24
+MUS 563D,01,Harpsichord,MUS 563C-01 - Harpsichord,,,Open,David Rhyne,In-Person,0/24
+MUS 563E,01,Harpsichord,MUS 563D-01 - Harpsichord,,,Open,David Rhyne,In-Person,0/24
+MUS 569,01,Jazz Piano,MUS 563E-01 - Harpsichord,,,Open,David Rhyne,In-Person,0/24
+MUS 569,02,Jazz Piano,MUS 569-01 - Jazz Piano,,,Open,Keith Davis,In-Person,2/24
+MUS 569A,01,Jazz Piano,MUS 569-02 - Jazz Piano,,,Open,Joseph Hoover,In-Person,1/24
+MUS 569C,01,Jazz Piano,MUS 569A-01 - Jazz Piano,,,Open,Keith Davis,In-Person,0/24
+MUS 569D,01,Jazz Piano,MUS 569C-01 - Jazz Piano,,,Open,Keith Davis,In-Person,0/24
+MUS 569E,01,Jazz Piano,MUS 569D-01 - Jazz Piano,,,Open,Keith Davis,In-Person,0/24
+MUS 570,01,Bluegrass Fiddle,MUS 569E-01 - Jazz Piano,,,Open,Keith Davis,In-Person,0/24
+MUS 570A,01,Bluegrass Fiddle,MUS 570-01 - Bluegrass Fiddle,,,Open,Andrew Carlson,In-Person,0/12
+MUS 570D,01,Bluegrass Fiddle,MUS 570A-01 - Bluegrass Fiddle,,,Open,Andrew Carlson,In-Person,2/12
+MUS 570E,01,Bluegrass Fiddle,MUS 570D-01 - Bluegrass Fiddle,,,Open,Andrew Carlson,In-Person,4/12
+MUS 571,01,Bluegrass Mandolin,MUS 570E-01 - Bluegrass Fiddle,,,Open,Andrew Carlson,In-Person,0/12
+MUS 571A,01,Bluegrass Mandolin,MUS 571-01 - Bluegrass Mandolin,,,Open,Andrew Carlson,In-Person,0/12
+MUS 571D,01,Bluegrass Mandolin,MUS 571A-01 - Bluegrass Mandolin,,,Open,Andrew Carlson,In-Person,1/12
+MUS 571E,01,Bluegrass Mandolin,MUS 571D-01 - Bluegrass Mandolin,,,Open,Andrew Carlson,In-Person,10/12
+MUS 572,01,Music Composition,MUS 571E-01 - Bluegrass Mandolin,,,Open,Andrew Carlson,In-Person,0/12
+MUS 572A,01,Music Composition,MUS 572-01 - Music Composition,,,Open,Samuel Hunter,In-Person,2/0
+MUS 572D,01,Music Composition,MUS 572A-01 - Music Composition,,,Open,Samuel Hunter,In-Person,2/0
+MUS 572E,01,Music Composition,MUS 572D-01 - Music Composition,,,Open,Samuel Hunter,In-Person,2/0
+NSC 401,01,Current Topics in Neuroscience,MUS 572E-01 - Music Composition,,,Open,Samuel Hunter,In-Person,0/0
+NSC 401,02,Current Topics in Neuroscience,JHN-212,F,2:30 PM - 5:20 PM,Open,"David Hollis, Onarae Rice",In-Person,10/12
+PHL 101,01,Introduction to Philosophy,JHN-212,F,2:30 PM - 5:20 PM,Closed,"David Hollis, Onarae Rice",In-Person,12/12
+PHL 101,02,Introduction to Philosophy,FUR-126,TR,4:00 PM - 5:15 PM,Open,Eiho Baba,In-Person,19/20
+PHL 101,03,Introduction to Philosophy,FUR-110,TR,11:30 AM - 12:45 PM,Closed,David Gandolfo,In-Person,21/20
+PHL 101,04,Introduction to Philosophy,FUR-126,TR,1:00 PM - 2:15 PM,Open,Darren Hick,In-Person,19/20
+PHL 101,05,Introduction to Philosophy,FUR-127,TR,2:30 PM - 3:45 PM,Open,Darren Hick,In-Person,21/24
+PHL 101,06,Introduction to Philosophy,FUR-201,MWF,11:30 AM - 12:20 PM,Open,Mark Stone,In-Person,19/20
+PHL 101,07,Introduction to Philosophy,FUR-126,TR,10:00 AM - 11:15 AM,Open,Sarah Worth,In-Person,19/20
+PHL 101,08,Introduction to Philosophy,FUR-126,TR,11:30 AM - 12:45 PM,Closed,Sarah Worth,In-Person,20/20
+PHL 200,01,Logic,FUR-109,W,2:30 PM - 5:20 PM,Open,David Gandolfo,In-Person,23/24
+PHL 208,01,Ethics,FUR-127,MWF,10:30 AM - 11:20 AM,Open,Mark Stone,In-Person,18/24
+PHL 211,01,Modern Philosophy,FUR-126,TR,2:30 PM - 3:45 PM,Open,Carmela Epright,In-Person,14/20
+PHL 215,01,Philosophy of Religion,JHN-106G,TR,1:00 PM - 2:15 PM,Open,Mark Stone,In-Person,7/10
+PHL 270,01,Africana Philosophies,FUR-126,R,6:00 PM - 8:30 PM,Open,Aaron Simmons,In-Person,18/24
+PHL 310,01,Social and Political Philosophy,JHN-206H,TR,10:00 AM - 11:15 AM,Open,David Gandolfo,In-Person,15/16
+PHL 317,01,Twentieth Century Philosophy,JHN-212,TR,11:30 AM - 12:45 PM,Closed,Erik Anderson,In-Person,22/20
+PHL 370,01,Philosophers  Movements and Problems (Radical Political Theory),FUR-109,MWF,1:30 PM - 2:20 PM,Open,Darren Hick,In-Person,6/20
+PHL 370,02,"Philosophers  Movements and Problems (Ethics, the Media, and Mental Illness)",FUR-126,T,6:00 PM - 8:30 PM,Open,Aaron Simmons,In-Person,9/20
+PHL 420,01,Metaphysics: Reality  Identity and Possible Worlds,FUR-127,W,6:00 PM - 8:30 PM,Open,Carmela Epright,In-Person,13/20
+PHL 499,01,Philosophy for Life,FUR-118,M,2:30 PM - 5:20 PM,Open,Eiho Baba,In-Person,16/24
+PHL 507,01,Senior Honor Thesis II,FUR-127,TR,4:00 PM - 5:15 PM,Open,Aaron Simmons,In-Person,5/18
+PHL 507,02,Senior Honor Thesis II,PHL 507-01 - Senior Honor Thesis II,,,Open,Erik Anderson,In-Person,1/0
+PHY 111,01,General Physics I,PHL 507-02 - Senior Honor Thesis II,,,Open,Aaron Simmons,In-Person,1/0
+PHY 111,01L,General Physics I,PYR-222,MWF,9:30 AM - 10:20 AM,Open,Bill Brantley,In-Person,29/30
+PHY 111,02L,General Physics I,RNK-252,M,1:30 PM - 3:30 PM,Open,Courtney Kucera,In-Person,13/14
+PHY 111,03L,General Physics I,RNK-252,T,9:30 AM - 11:30 AM,Open,Courtney Kucera,In-Person,2/14
+PHY 112,01,General Physics II,RNK-252,W,3:30 PM - 5:30 PM,Closed,Courtney Kucera,In-Person,14/14
+PHY 112,01L,General Physics II,PYR-126,MWF,8:30 AM - 9:20 AM,Open,Jeremy Gulley,In-Person,32/42
+PHY 112,02,General Physics II,RNK-251,M,3:30 PM - 5:30 PM,Closed,Courtney Kucera,In-Person,15/14
+PHY 112,02L,General Physics II,PYR-222,MWF,11:30 AM - 12:20 PM,Open,David Moffett,In-Person,27/30
+PHY 112,03L,General Physics II,RNK-251,T,1:00 PM - 3:00 PM,Open,Courtney Kucera,In-Person,13/14
+PHY 112,04L,General Physics II,RNK-251,W,1:30 PM - 3:30 PM,Closed,Courtney Kucera,In-Person,16/14
+PHY 312,01,Classical Mechanics II,RNK-251,R,9:30 AM - 11:30 AM,Closed,Courtney Kucera,In-Person,15/14
+PHY 322,01,Electromagnetic Theory II,PYR-204,MWF,1:30 PM - 2:20 PM,Closed,David Moffett,In-Person,11/10
+PHY 322,TU,Electromagnetic Theory II,PYR-204,MWF,9:30 AM - 10:20 AM,Open,David Moffett,In-Person,5/15
+PHY 331,01,Thermodynamics,PHY 322-TU - Electromagnetic Theory II,,,Closed,David Moffett,In-Person,2/0
+PHY 502,01,Research,PYR-204,TR,11:30 AM - 12:45 PM,Closed,Bill Brantley,In-Person,14/10
+PHY 504,01,Directed Independent Study,PHY 502-01 - Research,,,Open,Courtney Kucera,In-Person,1/0
+POL 101,01,Introduction to American Government,PHY 504-01 - Directed Independent Study,,,Closed,Jeremy Gulley,In-Person,3/0
+POL 101,02,Introduction to American Government,JHN-101,MWF,9:30 AM - 10:20 AM,Open,Danielle Vinson,In-Person,17/18
+POL 102,01,Introduction to World Politics,JHN-105,TR,1:00 PM - 2:15 PM,Closed,Liz Smith,In-Person,19/18
+POL 102,02,Introduction to World Politics,JHN-101,TR,1:00 PM - 2:15 PM,Open,Buket Oztas,In-Person,17/18
+POL 102,03,Introduction to World Politics,JHN-101,MWF,10:30 AM - 11:20 AM,Closed,Mike Bressler,In-Person,18/18
+POL 103,01,Introduction to Political Thought,JHN-101,TR,10:00 AM - 11:15 AM,Open,Akan Malici,In-Person,17/18
+POL 103,02,Introduction to Political Thought,JHN-201,MWF,9:30 AM - 10:20 AM,Closed,Mary Craig,In-Person,18/16
+POL 150,01,Introduction to Political Analysis,JHN-208,MWF,1:30 PM - 2:20 PM,Closed,Mary Craig,In-Person,16/16
+POL 150,01L,Introduction to Political Analysis,JHN-109,TR,8:30 AM - 9:45 AM,Open,David Fleming,In-Person,11/15
+POL 150,02,Introduction to Political Analysis,JHN-203,W,3:30 PM - 4:20 PM,Open,David Fleming,In-Person,11/15
+POL 150,02L,Introduction to Political Analysis,JHN-109,TR,10:00 AM - 11:15 AM,Open,David Fleming,In-Person,14/15
+POL 200,01,Native American Politics,JHN-203,W,2:30 PM - 3:20 PM,Open,David Fleming,In-Person,14/15
+POL 205,01,Public Policy in the United States,JHN-109,MWF,11:30 AM - 12:20 PM,Open,Danielle Vinson,In-Person,14/15
+POL 208,TU,Urban Politics,JHN-212,TR,1:00 PM - 2:15 PM,Closed,David Fleming,In-Person,17/15
+POL 221,01,Politics of European Union,POL 208-TU - Urban Politics,,,Open,Glen Halva-Neubauer,In-Person,4/12
+POL 223,01,Politics of Developing Nations,JHN-109,MWF,10:30 AM - 11:20 AM,Closed,Brent Nelsen,In-Person,20/15
+POL 224,01,Politics of Africa,FUR-209,TR,10:00 AM - 11:15 AM,Closed,Kate Kaup,In-Person,15/15
+POL 226,01,Politics of China,JHN-111I,TR,10:00 AM - 11:15 AM,Open,Buket Oztas,In-Person,12/15
+POL 250,01,International Relations,JHN-207,TR,1:00 PM - 2:15 PM,Closed,Kate Kaup,In-Person,15/15
+POL 252,01,American Foreign Policy,JHN-101,MWF,1:30 PM - 2:20 PM,Open,Mike Bressler,In-Person,12/15
+POL 255,01,Understanding Terrorism,JHN-101,MWF,11:30 AM - 12:20 PM,Open,Cleve Fraser,In-Person,14/15
+POL 259-01 - The Arab-Israeli Conflict,,,JHN-109,TR,11:30 AM - 12:45 PM,Closed,Akan Malici,In-Person,15/15
+POL 290,01,Civil Discourse,JHN-109,TR,1:00 PM - 2:15 PM,Open,Akan Malici,In-Person,14/15
+POL 375-01 - Issues in Political Thought (Anti-Colonial Political Thought),,,JHN-105,W,2:30 PM - 5:20 PM,Open,Liz Smith,In-Person,12/15
+POL 406,01,Fieldwork in State and Local Public Affairs,JHN-111I,TR,11:30 AM - 12:45 PM,Open,Mary Craig,In-Person,10/15
+POL 504,01,Directed Independent Study,JHN-212,T,2:30 PM - 5:20 PM,Open,Cleve Fraser,In-Person,12/15
+POL 504,02,Directed Independent Study,POL 504-01 - Directed Independent Study,,,Open,Glen Halva-Neubauer,In-Person,1/0
+POL 504,03,Directed Independent Study,POL 504-02 - Directed Independent Study,,,Open,Glen Halva-Neubauer,In-Person,1/0
+POL 504,04,Directed Independent Study,POL 504-03 - Directed Independent Study,,,Open,Glen Halva-Neubauer,In-Person,1/0
+PSY 111,02,Introduction to Psychology,POL 504-04 - Directed Independent Study,,,Open,Cleve Fraser,In-Person,1/0
+PSY 111,03,Introduction to Psychology,JHN-208,TR,1:00 PM - 2:15 PM,Open,Adam Putnam,In-Person,29/30
+PSY 111,04,Introduction to Psychology,JHN-208,MWF,9:30 AM - 10:20 AM,Closed,Veronica Flores,In-Person,31/30
+PSY 201,01,Research Methods and Statistics I,JHN-201,MWF,10:30 AM - 11:20 AM,Closed,Riley McCallus,In-Person,30/30
+PSY 201,01L,Research Methods and Statistics I,JHN-207,MWF,10:30 AM - 12:20 PM,Closed,Cinnamon Stetler,In-Person,14/14
+PSY 201,02,Research Methods and Statistics I,JHN-207,T,2:30 PM - 5:30 PM,Closed,Cinnamon Stetler,In-Person,14/14
+PSY 201,02L,Research Methods and Statistics I,JHN-207,MWF,8:30 AM - 10:20 AM,Closed,Grace Binion,In-Person,14/14
+PSY 202,01,Research Methods and Statistics II,JHN-207,R,2:30 PM - 5:20 PM,Closed,Grace Binion,In-Person,14/14
+PSY 202,01L,Research Methods and Statistics II,JHN-207,MWF,10:30 AM - 12:20 PM,Closed,Erin Hahn,In-Person,14/14
+PSY 202,02,Research Methods and Statistics II,JHN-207,T,2:30 PM - 5:30 PM,Closed,Erin Hahn,In-Person,14/14
+PSY 202,02L,Research Methods and Statistics II,JHN-207,MWF,8:30 AM - 10:20 AM,Closed,Grace Binion,In-Person,14/14
+PSY 211,01,Childhood and Adolescence,JHN-207,R,2:30 PM - 5:20 PM,Closed,Grace Binion,In-Person,14/14
+PSY 211,02,Childhood and Adolescence,JHN-208,TR,11:30 AM - 12:45 PM,Closed,Amanda Burkholder,In-Person,25/25
+PSY 212,01,Social Psychology,JHN-208,TR,2:30 PM - 3:45 PM,Closed,Amanda Burkholder,In-Person,25/25
+PSY 214,01,Health Psychology,JHN-201,TR,11:30 AM - 12:45 PM,Closed,Riley McCallus,In-Person,26/25
+PSY 215,01,Organizational Psychology,JHN-207,MWF,2:30 PM - 3:20 PM,Closed,Cinnamon Stetler,In-Person,25/25
+PSY 218,01,Adult Psychopathology,JHN-201,MWF,11:30 AM - 12:20 PM,Closed,Riley McCallus,In-Person,26/25
+PSY 219,01,"Stereotyping, Prejudice, & Discrimination",JHN-201,TR,10:00 AM - 11:15 AM,Closed,Kerstin Blomquist,In-Person,26/25
+PSY 221,01,Applied Sports Psychology,JHN-105,TR,4:00 PM - 5:15 PM,Open,Franklin Ellis,In-Person,23/25
+PSY 320,01,Introduction to Biopsychology,JHN-212,TR,8:30 AM - 9:45 AM,Open,Suzanne Dodd,In-Person,13/25
+PSY 320,01L,Introduction to Biopsychology,JHN-207,TR,10:00 AM - 11:15 AM,Closed,Onarae Rice,In-Person,25/24
+PSY 322,01,Memory and Cognition,JHN-216,W,2:30 PM - 5:20 PM,Closed,Onarae Rice,In-Person,25/24
+PSY 327,01,Functional Neuroanatomy,JHN-208,MWF,10:30 AM - 11:20 AM,Closed,Adam Putnam,In-Person,25/24
+PSY 328,01,Sensation and Perception,JHN-212,TR,10:00 AM - 11:15 AM,Open,Erin Wamsley,In-Person,13/18
+PSY 328,01L,Sensation and Perception,JHN-207,MWF,1:30 PM - 2:20 PM,Closed,Veronica Flores,In-Person,24/24
+PSY 418,01,Eating Disorders,JHN-216,M,2:30 PM - 5:30 PM,Closed,Veronica Flores,In-Person,24/24
+PSY 418,01L,Eating Disorders,JHN-201,T,2:30 PM - 5:20 PM,Closed,Kerstin Blomquist,In-Person,12/12
+PSY 485,01,Memory & Metacognition of Learning,JHN-201,R,2:30 PM - 5:20 PM,Closed,Kerstin Blomquist,In-Person,12/12
+PSY 505,01,Structured Internship,JHN-206H,T,2:30 PM - 5:20 PM,Open,Adam Putnam,In-Person,8/12
+PSY 505,02,Structured Internship,PSY 505-01 - Structured Internship,,,Open,Kerstin Blomquist,In-Person,3/0
+PSY 509,01,Supervised Research,PSY 505-02 - Structured Internship,,,Open,Kerstin Blomquist,In-Person,4/0
+PSY 509,02,Supervised Research,PSY 509-01 - Supervised Research,,,Open,Amanda Burkholder,In-Person,6/0
+PSY 509,03,Supervised Research,PSY 509-02 - Supervised Research,,,Open,Veronica Flores,In-Person,1/0
+PSY 509,04,Supervised Research,PSY 509-03 - Supervised Research,,,Open,Adam Putnam,In-Person,4/0
+PSY 509,05,Supervised Research,PSY 509-04 - Supervised Research,,,Open,Grace Binion,In-Person,1/0
+PSY 509,06,Supervised Research,PSY 509-05 - Supervised Research,,,Open,Onarae Rice,In-Person,1/0
+PSY 509,07,Supervised Research,PSY 509-06 - Supervised Research,,,Open,Kerstin Blomquist,In-Person,4/0
+PSY 509,08,Supervised Research,PSY 509-07 - Supervised Research,,,Open,Riley McCallus,In-Person,1/0
+PSY 510,01,Thesis,PSY 509-08 - Supervised Research,,,Open,Grace Binion,In-Person,1/0
+PSY 510,02,Thesis,PSY 510-01 - Thesis,,,Closed,Erin Hahn,In-Person,1/0
+PSY 510,03,Thesis,PSY 510-02 - Thesis,,,Closed,Riley McCallus,In-Person,1/0
+PSY 510,04,Thesis,PSY 510-03 - Thesis,,,Closed,Adam Putnam,In-Person,1/0
+PTH 102,AB,Pathways 102,PSY 510-04 - Thesis,,,Closed,Erin Wamsley,In-Person,1/0
+PTH 102,AC,Pathways 102,JHN-212,W,12:30 PM - 1:20 PM,Open,Amanda Burkholder,In-Person,14/15
+PTH 102,AD,Pathways 102,FUR-108,W,12:30 PM - 1:20 PM,Closed,Andy Coe,In-Person,15/15
+PTH 102,ANR,Pathways 102,HIP-106,M,12:30 PM - 1:20 PM,Closed,Allison Diaz,In-Person,16/15
+PTH 102,BB,Pathways 102,HIP-204,W,12:30 PM - 1:20 PM,Closed,Anna Notation-Rhoades,In-Person,15/15
+PTH 102,BH,Pathways 102,FUR-208,M,12:30 PM - 1:20 PM,Closed,Bryan Bibb,In-Person,15/15
+PTH 102,BI,Pathways 102,FUR-207,W,12:30 PM - 1:20 PM,Closed,Brad Harmon,In-Person,15/15
+PTH 102,CD,Pathways 102,FUR-121,W,12:30 PM - 1:20 PM,Closed,Brandon Inabinet,In-Person,15/15
+PTH 102,CFW,Pathways 102,FUR-106,M,12:30 PM - 1:20 PM,Open,Caroline Davis,In-Person,13/15
+PTH 102,CM,Pathways 102,FUR-209,W,12:30 PM - 1:20 PM,Closed,Courtney Firman-Watkins,In-Person,16/15
+PTH 102,CS,Pathways 102,HIP-202,M,12:30 PM - 1:20 PM,Open,Charmaine Moore,In-Person,13/15
+PTH 102,DH,Pathways 102,JHN-106G,M,12:30 PM - 1:20 PM,Closed,Cathy Stevens,In-Person,15/15
+PTH 102,DS,Pathways 102,PYR-143,W,12:30 PM - 1:20 PM,Closed,Dennis Haney,In-Person,15/15
+PTH 102,DV,Pathways 102,HMP-121,W,12:30 PM - 1:20 PM,Closed,David Stanley,In-Person,15/15
+PTH 102,GB,Pathways 102,JHN-111I,M,12:30 PM - 1:20 PM,Closed,Danielle Vinson,In-Person,15/15
+PTH 102,HP,Pathways 102,JHN-206H,W,12:30 PM - 1:20 PM,Open,Grace Binion,In-Person,13/15
+PTH 102,IB,Pathways 102,FUR-201,M,12:30 PM - 1:20 PM,Open,Holly Pinheiro,In-Person,14/15
+PTH 102,JB,Pathways 102,PAC-113,M,12:30 PM - 1:20 PM,Open,Ian Brown,In-Person,14/15
+PTH 102,JH,Pathways 102,HIP-104,M,12:30 PM - 1:20 PM,Open,Judy Bagley,In-Person,14/15
+PTH 102,JK,Pathways 102,RLY-103,W,12:30 PM - 1:20 PM,Closed,Jessica Hennessey,In-Person,15/15
+PTH 102,JM,Pathways 102,JHN-212,M,12:30 PM - 1:20 PM,Open,Jessica Koenig,In-Person,12/15
+PTH 102,KA,Pathways 102,JHN-105,W,12:30 PM - 1:20 PM,Closed,Joseph Merry,In-Person,16/15
+PTH 102,KB,Pathways 102,PYR-103,M,12:30 PM - 1:20 PM,Closed,Karen Allen,In-Person,15/15
+PTH 102,KF,Pathways 102,FUR-126,M,12:30 PM - 1:20 PM,Closed,Katie Beeson,In-Person,16/15
+PTH 102,KK1,Pathways 102,PAC-114,W,12:30 PM - 1:20 PM,Open,Kelly Frazier,In-Person,14/15
+PTH 102,LF,Pathways 102,RAB-LLR,M,12:30 PM - 1:20 PM,Closed,Kevin Kao,In-Person,15/15
+PTH 102,LJ,Pathways 102,JHN-101,W,12:30 PM - 1:20 PM,Closed,Leo Fackler,In-Person,15/15
+PTH 102,LP,Pathways 102,HIP-202,W,12:30 PM - 1:20 PM,Open,Lexie Johnson,In-Person,14/15
+PTH 102,LS,Pathways 102,FUR-118,W,12:30 PM - 1:20 PM,Open,Lauren Pollino,In-Person,14/15
+PTH 102,ME,Pathways 102,JHN-109,W,12:30 PM - 1:20 PM,Closed,Liz Smith,In-Person,15/15
+PTH 102,MF,Pathways 102,FUR-230,W,12:30 PM - 1:20 PM,Open,Mahan Ellison,In-Person,14/15
+PTH 102,MHH,Pathways 102,HIP-209,W,12:30 PM - 1:20 PM,Closed,Melissa Fair,In-Person,15/15
+PTH 102,PD,Pathways 102,FUR-201,W,12:30 PM - 1:20 PM,Open,Magdelyn Hammond Helwig,In-Person,11/15
+PTH 102,RR,Pathways 102,PYR-028,M,12:30 PM - 1:20 PM,Open,Paige Dhyne,In-Person,14/15
+PTH 102,SC,Pathways 102,HIP-209,M,12:30 PM - 1:20 PM,Closed,Rolyn Rollins,In-Person,15/15
+PTH 102,SC1,Pathways 102,PYR-143,M,12:30 PM - 1:20 PM,Closed,Sri Chandrasekaran,In-Person,15/15
+PTH 102,SH,Pathways 102,FUR-107,M,12:30 PM - 1:20 PM,Closed,Sarah Cochran,In-Person,15/15
+PTH 102,SM,Pathways 102,HIP-107,M,12:30 PM - 1:20 PM,Open,Scott Henderson,In-Person,14/15
+PTH 102,SM1,Pathways 102,PAC-116,W,12:30 PM - 1:20 PM,Closed,Scott Murr,In-Person,15/15
+PTH 102,ST,Pathways 102,PYR-026,M,12:30 PM - 1:20 PM,Closed,Sheila Montenat,In-Person,15/15
+PTH 102,WB,Pathways 102,HIP-204,M,12:30 PM - 1:20 PM,Closed,Sarah Tobin,In-Person,15/15
+PTH 103,BH,Pathways 103,LIB-043,W,12:30 PM - 1:20 PM,Closed,Whitney Brown,In-Person,15/15
+PTH 202,AC,Pathways 202,FUR-111,T,11:30 AM - 12:20 PM,Open,Brad Harmon,In-Person,6/12
+PTH 202,AL,Pathways 202,DMB-104,M,12:30 PM - 1:20 PM,Open,Anastasia Christofakis,In-Person,14/15
+PTH 202,BC,Pathways 202,RLY-204,M,12:30 PM - 1:20 PM,Open,Andy Lecture,In-Person,11/15
+PTH 202,BC1,Pathways 202,RLY-105,W,12:30 PM - 1:20 PM,Open,Kylie Fisher,In-Person,13/15
+PTH 202,BH,Pathways 202,JHN-111I,W,12:30 PM - 1:20 PM,Open,Brooke Culclasure,In-Person,13/15
+PTH 202,BS,Pathways 202,FUR-207,M,12:30 PM - 1:20 PM,Open,Brad Harmon,In-Person,12/15
+PTH 202,CFW,Pathways 202,LIB-041,M,12:30 PM - 1:20 PM,Open,Brooke Schifano,In-Person,14/15
+PTH 202,CK,Pathways 202,FUR-209,M,12:30 PM - 1:20 PM,Closed,Courtney Firman-Watkins,In-Person,15/15
+PTH 202,CQ,Pathways 202,FUR-110,W,12:30 PM - 1:20 PM,Open,Cynthia King,In-Person,14/15
+PTH 202,DF,Pathways 202,RNK-152,M,12:30 PM - 1:20 PM,Open,Courtney Quinn,In-Person,12/15
+PTH 202,DG,Pathways 202,JHN-107,W,12:30 PM - 1:20 PM,Open,David Fleming,In-Person,11/15
+PTH 202,EC,Pathways 202,FUR-109,W,12:30 PM - 1:20 PM,Open,David Gandolfo,In-Person,11/15
+PTH 202,HLT,Pathways 202,FUR-108,M,12:30 PM - 1:20 PM,Open,Erik Ching,In-Person,12/15
+PTH 202,JA,Pathways 202,FUR-127,M,12:30 PM - 1:20 PM,Open,Helen Lee Turner,In-Person,12/15
+PTH 202,JB,Pathways 202,TPH-STR,W,12:30 PM - 1:20 PM,Open,Jason Adkins,In-Person,13/15
+PTH 202,JB1,Pathways 202,HIP-107,W,12:30 PM - 1:20 PM,Open,Judy Bagley,In-Person,13/15
+PTH 202,JBB,Pathways 202,FUR-111,W,12:30 PM - 1:20 PM,Closed,Julie Birello,In-Person,15/15
+PTH 202,JC,Pathways 202,JHN-109,M,12:30 PM - 1:20 PM,Open,"Jessica Berkey-Barnes, Libby Young",In-Person,13/15
+PTH 202,JJ,Pathways 202,RLY-103,M,12:30 PM - 1:20 PM,Open,Jason Cassidy,In-Person,14/15
+PTH 202,JM,Pathways 202,RLY-109E,W,12:30 PM - 1:20 PM,Open,Jason Jones,In-Person,11/15
+PTH 202,KBS,Pathways 202,FUR-111,M,12:30 PM - 1:20 PM,Open,Jane McBride,In-Person,13/15
+PTH 202,KH,Pathways 202,FUR-109,M,12:30 PM - 1:20 PM,Open,Katlyn Bagley-Sepsey,In-Person,13/15
+PTH 202,KK,Pathways 202,FUR-121,M,12:30 PM - 1:20 PM,Open,Kelsey Hample,In-Person,10/15
+PTH 202,KM,Pathways 202,JHN-106G,W,12:30 PM - 1:20 PM,Open,Kenneth Kolb,In-Person,14/15
+PTH 202,KP,Pathways 202,RLY-105,M,12:30 PM - 1:20 PM,Open,Katie Maxwell,In-Person,14/15
+PTH 202,LC,Pathways 202,RLY-102,M,12:30 PM - 1:20 PM,Open,Ken Peterson,In-Person,14/15
+PTH 202,MB,Pathways 202,HIP-205,W,12:30 PM - 1:20 PM,Open,Loretta Crowley,In-Person,13/15
+PTH 202,MC,Pathways 202,DMB-003,W,12:30 PM - 1:20 PM,Open,Mark Britt,In-Person,11/15
+PTH 202,ME,Pathways 202,RNK-152,W,12:30 PM - 1:20 PM,Open,Matthew Cohen,In-Person,12/15
+PTH 202,MF,Pathways 202,LIB-041,W,12:30 PM - 1:20 PM,Open,Madeline Eastergard,In-Person,14/15
+PTH 202,ML,Pathways 202,FUR-126,W,12:30 PM - 1:20 PM,Open,Maelee Fleming,In-Person,13/15
+PTH 202,MR,Pathways 202,DMB-104,W,12:30 PM - 1:20 PM,Closed,Megan Lyons,In-Person,15/15
+PTH 202,PT,Pathways 202,RNK-151,M,12:30 PM - 1:20 PM,Open,Melissa Ranhofer,In-Person,14/15
+PTH 202,RA,Pathways 202,HIP-104,W,12:30 PM - 1:20 PM,Open,Paul Thomas,In-Person,13/15
+PTH 202,RK,Pathways 202,LIB-043,M,12:30 PM - 1:20 PM,Open,Robyn Andrews,In-Person,12/15
+PTH 202,RR,Pathways 202,JHN-105,M,12:30 PM - 1:20 PM,Closed,Rod Kelley,In-Person,15/15
+PTH 202,TB,Pathways 202,JHN-201,W,12:30 PM - 1:20 PM,Open,Rebecca Haffen,In-Person,11/15
+PTH 202,TL,Pathways 202,HIP-106,W,12:30 PM - 1:20 PM,Open,Temi Bidjerano,In-Person,13/15
+PTH 202,VK,Pathways 202,RLY-107,W,12:30 PM - 1:20 PM,Open,Tracy Landrith,In-Person,14/15
+PTH 202,VM,Pathways 202,FUR-230,M,12:30 PM - 1:20 PM,Open,Veena Khandke,In-Person,13/15
+PTH 203,MH1a,Pathways 203,FUR-229,M,12:30 PM - 1:20 PM,Open,Victoria Montrose,In-Person,14/15
+PTH 203,MH1b,Pathways 203,JHN-107,M,12:30 PM - 1:20 PM,Open,Michelle Horhota,In-Person,11/12
+PTH 203,MH1c,Pathways 203,FUR-106,W,12:30 PM - 1:20 PM,Closed,Michelle Horhota,In-Person,13/12
+PVS 101,01,Introduction to Poverty Studies,JHN-107 | T | 11:30 AM - 12:20 PM | 01/13/2025 - 04/29/2025,,,Closed,Michelle Horhota,In-Person,16/12
+REL 110,01,Religions of the World,HIP-107,MWF,1:30 PM - 2:20 PM,Open,Michael Jennings,In-Person,19/20
+REL 111,01,Bible and Ultimate Meaning,FUR-204,MWF,10:30 AM - 11:20 AM,Open,Claude Stulting,In-Person,19/24
+REL 111,02,Bible and Ultimate Meaning,FUR-208,MWF,10:30 AM - 11:20 AM,Open,Helen Lee Turner,In-Person,22/24
+REL 111,03,Bible and Ultimate Meaning,CHP-GAR,MWF,11:30 AM - 12:20 PM,Open,Vaughn CroweTipton,In-Person,22/24
+REL 210,02,Introduction to the Old Testament,FUR-207,MWF,1:30 PM - 2:20 PM,Open,David Fink,In-Person,23/24
+REL 218,01,The Bible and Popular Culture,FUR-208,TR,8:30 AM - 9:45 AM,Open,Bryan Bibb,In-Person,23/24
+REL 224,01,Introduction to Buddhism,FUR-208,TR,11:30 AM - 12:45 PM,Closed,Bryan Bibb,In-Person,25/24
+REL 229,01,Sufi Islam,FUR-208,TR,1:00 PM - 2:15 PM,Closed,Victoria Montrose,In-Person,27/24
+REL 230,01,Religion in America,FUR-208,MWF,11:30 AM - 12:20 PM,Open,Ed Yazijian,In-Person,23/24
+REL 236,01,History of Christianity in the Middle Ages,FUR-208,MWF,9:30 AM - 10:20 AM,Open,Helen Lee Turner,In-Person,19/24
+REL 238,01,Material Religion in Medieval Christendom,FUR-107,MWF,10:30 AM - 11:20 AM,Closed,David Fink,In-Person,25/24
+REL 269,01,Art and Religion in Turkey,FUR-207,R,6:00 PM - 7:15 PM,Closed,David Fink,In-Person,20/4
+REL 310,01,Old Testament Prophets,FUR-208,R,6:30 PM - 8:00 PM,Closed,Claude Stulting,In-Person,12/4
+REL 328,02,Religions in Japan,FUR-207,MWF,11:30 AM - 12:20 PM,Open,Bryan Bibb,In-Person,18/20
+REL 333,01,Middle Eastern Christianity: History and Worship,FUR-208,TR,10:00 AM - 11:15 AM,Closed,Victoria Montrose,In-Person,16/15
+REL 370,01,Navajo Views of Body  Medicine  and Health,FUR-204,MWF,9:30 AM - 10:20 AM,Open,Claude Stulting,In-Person,10/20
+REL 376,01,Christian Theology and Disability,FUR-204,R,8:30 AM - 9:45 AM,Open,Helen Lee Turner,In-Person,13/20
+SCI 201,01,Microbes and Society,FUR-209,T,8:30 AM - 9:45 AM,Open,Helen Lee Turner,In-Person,8/18
+SCI 201,01L,Microbes and Society,PYR-026,TR,8:30 AM - 9:45 AM,Open,Min-Ken Liao,In-Person,10/16
+SCI 220,01,Biochemistry: Macromolecules and Metabolism,TNS-162,W,2:30 PM - 5:20 PM,Open,Min-Ken Liao,In-Person,10/16
+SCI 220,01L,Biochemistry: Macromolecules and Metabolism,PYR-249,MWF,10:30 AM - 11:20 AM,Open,Meghan Breen,In-Person,12/16
+SOC 101,01,Introduction to Sociology,PYR-231,M,2:30 PM - 5:30 PM,Open,Meghan Breen,In-Person,12/16
+SOC 101,03,Introduction to Sociology,JHN-105,TR,8:30 AM - 9:45 AM,Open,Joseph Merry,In-Person,23/24
+SOC 101,04,Introduction to Sociology,JHN-107,TR,1:00 PM - 2:15 PM,Closed,Claire Whitlinger,In-Person,24/24
+SOC 101,05,Introduction to Sociology,JHN-105,TR,10:00 AM - 11:15 AM,Open,Yang Gao,In-Person,23/24
+SOC 101,06,Introduction to Sociology,JHN-105,TR,2:30 PM - 3:45 PM,Closed,Yang Gao,In-Person,24/24
+SOC 101,07,Introduction to Sociology,JHN-105,MWF,10:30 AM - 11:20 AM,Open,Geniece Monde,In-Person,23/24
+SOC 201,01,Social Problems,JHN-105,MWF,11:30 AM - 12:20 PM,Open,Geniece Monde,In-Person,22/24
+SOC 211,01,Introduction to Criminology,JHN-107,TR,10:00 AM - 11:15 AM,Closed,Kristy Maher,In-Person,18/18
+SOC 233,01,Sociology of Religion,JHN-107,MWF,1:30 PM - 2:20 PM,Closed,Geniece Monde,In-Person,18/18
+SOC 242,01,Sociology of Gender and Sexuality,JHN-107,MWF,9:30 AM - 10:20 AM,Open,Claire Gilliland,In-Person,16/18
+SOC 280,01,Global Sociology,JHN-107,MWF,10:30 AM - 11:20 AM,Closed,Kenneth Kolb,In-Person,20/18
+SOC 303,01,Quantitative Research Seminar,JHN-201,TR,1:00 PM - 2:15 PM,Open,Yang Gao,In-Person,15/18
+SOC 465,01,Capstone Seminar,JHN-105,TR,11:30 AM - 12:45 PM,Open,Joseph Merry,In-Person,10/18
+SPN 120,01,Elementary Spanish II,JHN-106G,W,2:30 PM - 5:20 PM,Open,Kristy Maher,In-Person,8/18
+SPN 120,02,Elementary Spanish II,FUR-118,MWF,8:30 AM - 9:20 AM,Closed,Angeli Leal,In-Person,19/19
+SPN 120,03,Elementary Spanish II,FUR-118,MWF,9:30 AM - 10:20 AM,Closed,Angeli Leal,In-Person,19/19
+SPN 120,04,Elementary Spanish II,JHN-212,MWF,10:30 AM - 11:20 AM,Open,Santiago Quintero Ayarza,In-Person,16/19
+SPN 120,05,Elementary Spanish II,FUR-111,MWF,11:30 AM - 12:20 PM,Open,Eunice Rojas,In-Person,17/19
+SPN 201,01,Intermediate Spanish I,FUR-111,MWF,1:30 PM - 2:20 PM,Open,Eunice Rojas,In-Person,18/19
+SPN 201,02,Intermediate Spanish I,FUR-230,MWF,8:30 AM - 9:20 AM,Closed,Juan Garrido,In-Person,20/20
+SPN 201,03,Intermediate Spanish I,FUR-230,MWF,9:30 AM - 10:20 AM,Closed,Juan Garrido,In-Person,20/20
+SPN 201,04,Intermediate Spanish I,FUR-201,MWF,10:30 AM - 11:20 AM,Closed,Stephanie Knouse,In-Person,20/20
+SPN 201,05,Intermediate Spanish I,JHN-107,MWF,11:30 AM - 12:20 PM,Open,Lourdes Manye,In-Person,19/20
+SPN 201,06,Intermediate Spanish I,FUR-209,MWF,1:30 PM - 2:20 PM,Open,Stephanie Knouse,In-Person,18/20
+SPN 201,07,Intermediate Spanish I,FUR-229,MWF,1:30 PM - 2:20 PM,Open,Jeffrey Michno,In-Person,19/20
+SPN 208,01,Spanish Language House,FUR-229,MWF,2:30 PM - 3:20 PM,Open,Jeffrey Michno,In-Person,18/20
+SPN 215,01,Composition and Conversation,SPN 208-01 - Spanish Language House,,,Open,Mahan Ellison,In-Person,3/24
+SPN 215,02,Composition and Conversation,FUR-229,MWF,9:30 AM - 10:20 AM,Closed,Ron Friis,In-Person,15/15
+SPN 220,01,Spanish Civilization,MWF | 10:30 AM - 11:20 AM,,,Open,Angelica Lozano-Alonso,In-Person,10/15
+SPN 270,01,Introduction to Literary Analysis,FUR-107,MWF,11:30 AM - 12:20 PM,Open,Maria Rippon,In-Person,19/24
+SPN 270,02,Introduction to Literary Analysis,FUR-109,MWF,9:30 AM - 10:20 AM,Closed,Santiago Quintero Ayarza,In-Person,15/15
+SPN 302,01,Medical Spanish,FUR-201,MWF,1:30 PM - 2:20 PM,Open,Mahan Ellison,In-Person,11/15
+SPN 304,01,The Sounds of Spanish,FUR-226,TR,10:00 AM - 11:15 AM,Closed,Maria Rippon,In-Person,16/15
+SPN 401,01,Studies in Hispanic Civilization (History Change and Memory in Contemporary Spain),FUR-118,MWF,11:30 AM - 12:20 PM,Closed,Jeffrey Michno,In-Person,15/15
+SPN 430,01,"Readings in Spanish Literature (Race, Gender, and Activism in Contemporary Spain)",FUR-207,TR,11:30 AM - 12:45 PM,Open,"Linda Bartlett, Lourdes Manye",In-Person,16/24
+SPN 503,01,Individualized Internship,FUR-207,TR,1:00 PM - 2:15 PM,Open,Mahan Ellison,In-Person,16/24
+SPN 504,01,Directed Independent Study,SPN 503-01 - Individualized Internship,,,Open,Maria Rippon,In-Person,1/0
+SUS 120,01,Principles of Sustainability Science,SPN 504-01 - Directed Independent Study,,,Closed,Santiago Quintero Ayarza,In-Person,1/0
+SUS 120,01L,Principles of Sustainability Science,RNK-152,MWF,10:30 AM - 11:20 AM,Closed,Matthew Cohen,In-Person,24/24
+SUS 120,02,Principles of Sustainability Science,RNK-152,W,2:30 PM - 5:20 PM,Closed,Matthew Cohen,In-Person,24/24
+SUS 120,02L,Principles of Sustainability Science,RNK-152,MWF,1:30 PM - 2:20 PM,Closed,Matthew Cohen,In-Person,24/24
+SUS 120,03,Principles of Sustainability Science,RNK-152,T,2:30 PM - 5:20 PM,Closed,Matthew Cohen,In-Person,24/24
+SUS 120,03L,Principles of Sustainability Science,RNK-151,TR,1:00 PM - 2:15 PM,Open,Courtney Quinn,In-Person,23/24
+SUS 201,01,Making Change Happen,RNK-151,R,2:30 PM - 5:20 PM,Open,Courtney Quinn,In-Person,23/24
+SUS 216,01,Sustainability Reporting,SHI-COM,F,2:30 PM - 3:20 PM,Closed,Joy Baker,In-Person,15/12
+SUS 216,01L,Sustainability Reporting,RNK-152,MWF,11:30 AM - 12:20 PM,Closed,Courtney Quinn,In-Person,19/18
+SUS 220,01,Mineral Resources and Sustainable Development,W | 2:30 PM - 5:20 PM,,,Closed,Courtney Quinn,In-Person,19/18
+SUS 220,01L,Mineral Resources and Sustainable Development,PYR-108,MWF,9:30 AM - 10:20 AM,Closed,Emma Hunt,In-Person,16/16
+SUS 242,01,Dynamic System Modeling,PYR-108,T,2:30 PM - 5:30 PM,Closed,Emma Hunt,In-Person,16/16
+SUS 242,01L,Dynamic System Modeling,PYR-118,M,2:30 PM - 5:20 PM,Closed,Brannon Andersen,In-Person,18/16
+SUS 474,01,Senior Capstone,PYR-118,R,2:30 PM - 5:20 PM,Closed,Brannon Andersen,In-Person,18/16
+THA 101,01,Introduction to Theatre,RNK-152,TR,10:00 AM - 11:15 AM,Closed,Melissa Ranhofer,In-Person,10/8
+THA 101,02,Introduction to Theatre,TPH-MTR,MWF,9:30 AM - 10:20 AM,Open,Jason Adkins,In-Person,16/19
+THA 111,01,Introduction to Acting,TPH-MTR,MWF,10:30 AM - 11:20 AM,Closed,Aaron Ballard,In-Person,21/19
+THA 116,01,Costume Crafts,TPH-STR,TR,2:30 PM - 3:45 PM,Closed,Jason Adkins,In-Person,16/16
+THA 116,01L,Costume Crafts,TPH-CST,TR,11:30 AM - 12:45 PM,Closed,Margaret Caterisano,In-Person,12/12
+THA 215,01,Theatrical Scenic Painting,TPH-CST,T,2:30 PM - 5:20 PM,Closed,Margaret Caterisano,In-Person,12/12
+THA 310,01,Directing,TPH-CST,MWF,1:30 PM - 2:20 PM,Open,Alan Bryson,In-Person,0/12
+THA 310,01L,Directing,TPH-STR,TR,1:00 PM - 2:15 PM,Open,Jason Tromsness,In-Person,8/12
+THA 315,01,Scene Design,TPH-STR,M,2:30 PM - 5:20 PM,Open,Jason Tromsness,In-Person,8/12
+THA 330,01,Foundations of Musical Theatre (Foundations of Musical Theatre),TPH-ANX,MWF,11:30 AM - 12:20 PM,Open,Rhett Bryson,In-Person,5/12
+THA 430,01,Senior Synthesis,TPH-STR,TR,9:15 AM - 11:15 AM,Open,Erica Lustig,In-Person,6/12
+THA 501,01,Independent Study,TPH-MTR,R,2:30 PM - 3:45 PM,Open,Maegan Azar,In-Person,7/12
+THA 510,01,Theatre Practicum,THA 501-01 - Independent Study,,,Open,Helen Joy,In-Person,1/0
+THA 510,02,Theatre Practicum,THA 510-01 - Theatre Practicum,,,Closed,Maegan Azar,In-Person,15/12
+THA 510,03,Theatre Practicum,THA 510-02 - Theatre Practicum,,,Closed,Maegan Azar,In-Person,14/12
+UNV EXKG-01 - Kansai Gadai University-Japan,,,THA 510-03 - Theatre Practicum,,,Open,Maegan Azar,In-Person,6/12
+UNV EXSG-01 - Seinan Gakuin University-Japan,,,UNV EXKG-01 - Kansai Gadai University-Japan,,,Open   |   In-Person   |   2/0,,,
+UNV SAAG,01,College Year in Athens,UNV EXSG-01 - Seinan Gakuin University-Japan,,,Open   |   In-Person   |   2/0,,,
+UNV SABU-01 - Arcadia Abroad - Australia Bond University,,,UNV SAAG-01 - College Year in Athens,,,Open   |   In-Person   |   2/0,,,
+UNV SACI-01 - CIMBA-Northern Italy,,,UNV SABU-01 - Arcadia Abroad - Australia Bond University,,,Open   |   In-Person   |   1/0,,,
+UNV SADN-01 - Danish Institute for Study Abroad - Denmark,,,UNV SACI-01 - CIMBA-Northern Italy,,,Open   |   In-Person   |   1/0,,,
+UNV SASW-01 - Danish Institute for Study Abroad - Sweden,,,UNV SADN-01 - Danish Institute for Study Abroad - Denmark,,,Open   |   In-Person   |   5/0,,,
+UNV SAUO,01,Arcadia Abroad: New Zealand University of Otago,UNV SASW-01 - Danish Institute for Study Abroad - Sweden,,,Open   |   In-Person   |   1/0,,,
+UNV TSBZ-01 - Belize-Travel Study,,,UNV SAUO-01 - Arcadia Abroad: New Zealand University of Otago,,,Open   |   In-Person   |   6/0,,,
+UNV TSGR-01 - Germany-Travel Study,,,UNV TSBZ-01 - Belize-Travel Study,,,Open,"Ashley Morris, Dennis Haney",In-Person,0/0
+UNV TSIT-01 - Italy-Travel Study,,,UNV TSGR-01 - Germany-Travel Study,,,Open   |   In-Person   |   17/0,,,
+UNV TSLN-01 - England - Furman in London,,,UNV TSIT-01 - Italy-Travel Study,,,Open   |   In-Person   |   0/0,,,
+WGS 101,01,Issues in Women's  Gender and Sexuality Studies,UNV TSLN-01 - England - Furman in London,,,Open   |   In-Person   |   16/0,,,
+WGS 250,01,Introduction to Queer Theory and Sexuality Studies,FUR-108,TR,1:00 PM - 2:15 PM,Closed,Kathleen Casey,In-Person,15/15
