@@ -1,0 +1,1066 @@
+,CourseCode,Section,CourseTitle,CourseTags,Prerequisites,CourseCluster,InstructionalFormat
+0,ACC 111,01,Principles of Financial Accounting,empty,First Year or Sophomore Class Standing,empty,Lecture
+1,ACC 111,03,Principles of Financial Accounting,empty,empty,empty,Lecture
+2,ACC 111,04,Principles of Financial Accounting,empty,empty,empty,Lecture
+3,ACC 301,BLK,Principles of Managerial Accounting,empty,ACC 111 AND ECN 111 AND (ECN 120 OR MTH 120) AND (MTH 145 OR MTH 150),empty,Lecture
+4,ACC 311,01,Intermediate Accounting I,empty,ACC 111 Principles of Financial Accounting,empty,Lecture
+5,ACC 320,01,Cost Accounting,empty,ACC 111 Principles of Financial Accounting,empty,Lecture
+6,ACC 330,01,Auditing,empty,ACC 312 Intermediate Financial Accounting II,empty,Lecture
+7,ACC 370,01,Intermediate Accounting III,empty,ACC 312 Intermediate Financial Accounting II,empty,Lecture
+8,AFS 100,01,Introduction to Africana Studies,IDS :: Africana Studies,empty,empty,Lecture
+9,ANT 101,01,Introduction to Anthropology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: WC (World Cultures), IDS :: Anthropology",empty,empty,Lecture
+10,ANT 101,02,Introduction to Anthropology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: WC (World Cultures), IDS :: Anthropology",empty,empty,Lecture
+11,ANT 101,03,Introduction to Anthropology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: WC (World Cultures), IDS :: Anthropology",empty,empty,Lecture
+12,ANT 205,01,Japanese Popular Culture,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), GER - Global Awareness :: WC (World Cultures)",empty,empty,Lecture
+13,ANT 205,02,Japanese Popular Culture,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), GER - Global Awareness :: WC (World Cultures)",empty,empty,Lecture
+14,ANT 205,03,Japanese Popular Culture,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), GER - Global Awareness :: WC (World Cultures)",empty,empty,Lecture
+15,ANT 258,01,Women in Africa and the African Diaspora,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Africana Studies, IDS :: Anthropology, IDS :: Womenâ€™s, Gender, and Sexuality Studies",empty,empty,Lecture
+16,ANT 262,01,Magic and Religion,"GER - Global Awareness :: WC (World Cultures), IDS :: Anthropology",empty,empty,Lecture
+17,ANT 304,01,Archaeology Method and Theory,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Anthropology",ANT 101 or ANT 105,ANT 304-01L - Archaeology Method and Theory,Lecture
+18,ANT 304,01L,Archaeology Method and Theory,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Anthropology",ANT 101 or ANT 105,ANT 304-01 - Archaeology Method and Theory,Laboratory
+19,ANT 401,01,Anthropological Theory,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Africana Studies, IDS :: Anthropology",SOC 101 OR ANT 101,empty,Lecture
+20,ART 111,01,Introduction to Design,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Visual Strategy",empty,empty,Studio
+21,ART 111,02,Introduction to Design,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Visual Strategy",empty,empty,Studio
+22,ART 111,03,Introduction to Design,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Visual Strategy",empty,empty,Studio
+23,ART 111,04,Introduction to Design,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Visual Strategy",empty,empty,Studio
+24,ART 112,01,Introduction to Sculpture,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+25,ART 112,02,Introduction to Sculpture,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+26,ART 113,01,Introduction to Painting,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+27,ART 124,02,Drawing,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+28,ART 132,01,Histories of Art I,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+29,ART 133,01,Histories of Art II,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+30,ART 200,01,Ceramics I,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+31,ART 200,02,Ceramics I,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+32,ART 204,01,Painting II,empty,empty,empty,Studio
+33,ART 205,01,Darkroom Photography,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+34,ART 206,01,Color and Digital Photography,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Studio
+35,ART 221,01,Graphic Design II,empty,ART 111 Visual Language I,empty,Studio
+36,ART 259,01,History of Design,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Visual Strategy",empty,empty,Lecture
+37,ART 265,01,Museums Are Not Neutral,GER - Writing :: WR (Writing-Research Intensive),empty,empty,Lecture
+38,ART 303,01,Photographic Essay,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),ART 205 or ART 206 or instructor permission,empty,Studio
+39,ART 320,01,Brand Design,empty,empty,empty,Studio
+40,ART 330,01,Art Criticism,empty,empty,empty,Lecture
+41,ART 501,01,Independent Study,empty,Instructor permission required,empty,Independent Study
+42,ART 501,02,Independent Study,empty,Instructor permission required,empty,Independent Study
+43,ART 503,01,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+44,ART 503,02,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+45,AST 240,01,Archaeology of the Silk Road,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures), IDS :: Anthropology",empty,empty,Lecture
+46,AST 470,01,Seminar in Asian Studies,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Asian Studies, IDS :: Chinese Studies, IDS :: Japanese Studies",Instructor Permission Required,empty,Seminar
+47,BIO 075,01,Seminar in Biology,empty,empty,empty,Seminar
+48,BIO 075,02,Seminar in Biology,empty,empty,empty,Seminar
+49,BIO 111,01,Foundations of Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,BIO 111-01L - Foundations of Biology,Lecture
+50,BIO 111,01L,Foundations of Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,BIO 111-01 - Foundations of Biology,Laboratory
+51,BIO 111,02,Foundations of Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,BIO 111-02L - Foundations of Biology,Lecture
+52,BIO 111,02L,Foundations of Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,BIO 111-02 - Foundations of Biology,Laboratory
+53,BIO 111,04,Foundations of Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,BIO 111-04L - Foundations of Biology,Lecture
+54,BIO 111,04L,Foundations of Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,BIO 111-04 - Foundations of Biology,Laboratory
+55,BIO 210,01,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-01L - Genetics,Lecture
+56,BIO 210,01L,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-01 - Genetics,Laboratory
+57,BIO 210,02,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-02L - Genetics,Lecture
+58,BIO 210,02L,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-02 - Genetics,Laboratory
+59,BIO 210,03,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-03L - Genetics,Lecture
+60,BIO 210,03L,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-03 - Genetics,Laboratory
+61,BIO 210,04,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-04L - Genetics,Lecture
+62,BIO 210,04L,Genetics,IDS :: Neuroscience,BIO 101 OR BIO 102 OR BIO 111,BIO 210-04 - Genetics,Laboratory
+63,BIO 222,01,Research and Analysis,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Data Analytics, IDS :: Neuroscience",(1 FYW course) AND (1 Biology course) and instructor permission,BIO 222-01L - Research and Analysis,Lecture
+64,BIO 222,01L,Research and Analysis,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Data Analytics, IDS :: Neuroscience",(1 FYW course) AND (1 Biology course) and instructor permission,BIO 222-01 - Research and Analysis,Laboratory
+65,BIO 222,02,Research and Analysis,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Data Analytics, IDS :: Neuroscience",(1 FYW course) AND (1 Biology course),BIO 222-02L - Research and Analysis,Lecture
+66,BIO 222,02L,Research and Analysis,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Data Analytics, IDS :: Neuroscience",(1 FYW course) AND (1 Biology course),BIO 222-02 - Research and Analysis,Laboratory
+67,BIO 300,01,Cell Biology,IDS :: Neuroscience,CHM 110 AND (PSY 201 OR CHM 240 OR OR BIO 222),BIO 300-01L - Cell Biology,Lecture
+68,BIO 300,01L,Cell Biology,IDS :: Neuroscience,CHM 110 AND (PSY 201 OR CHM 240 OR OR BIO 222),BIO 300-01 - Cell Biology,Laboratory
+69,BIO 303,01,Biochemistry of the Cell,IDS :: Neuroscience,CHM 120 AND (BIO 222 OR PSY 201) AND Department Chair Permission Required,BIO 303-01L - Biochemistry of the Cell,Lecture
+70,BIO 303,01L,Biochemistry of the Cell,IDS :: Neuroscience,CHM 120 AND (BIO 222 OR PSY 201) AND Department Chair Permission Required,BIO 303-01 - Biochemistry of the Cell,Laboratory
+71,BIO 320,01,Animal Physiology,IDS :: Neuroscience,BIO 222 Research and Analysis,empty,Lecture
+72,BIO 320,01L,Animal Physiology,IDS :: Neuroscience,BIO 222 Research and Analysis,empty,Laboratory
+73,BIO 322,01,Human Physiology,IDS :: Neuroscience,BIO 111 Foundations of Biology,BIO 322-01L - Human Physiology,Lecture
+74,BIO 322,01L,Human Physiology,IDS :: Neuroscience,BIO 111 Foundations of Biology,BIO 322-01 - Human Physiology,Laboratory
+75,BIO 340,01,Ecology,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",BIO 222 Research and Analysis,BIO 340-01L - Ecology,Lecture
+76,BIO 340,01L,Ecology,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",BIO 222 Research and Analysis,BIO 340-01 - Ecology,Laboratory
+77,BIO 340,02,Ecology,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",BIO 222 Research and Analysis,BIO 340-02L - Ecology,Lecture
+78,BIO 340,02L,Ecology,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",BIO 222 Research and Analysis,BIO 340-02 - Ecology,Laboratory
+79,BIO 401,01,Economic Botany,GER - Global Awareness :: NE (Humans and the Natural Environment),BIO 101 OR BIO 102 OR BIO 111,BIO 401-01L - Economic Botany,Lecture
+80,BIO 401,01L,Economic Botany,GER - Global Awareness :: NE (Humans and the Natural Environment),BIO 101 OR BIO 102 OR BIO 111,BIO 401-01 - Economic Botany,Laboratory
+81,BIO 402,01,Ethnobiology,"GER - CORE :: NW - Natural World, GER - Global Awareness :: WC (World Cultures)",BIO 101 OR BIO 102 OR BIO 111,BIO 402-01L - Ethnobiology,Lecture
+82,BIO 402,01L,Ethnobiology,"GER - CORE :: NW - Natural World, GER - Global Awareness :: WC (World Cultures)",BIO 101 OR BIO 102 OR BIO 111,BIO 402-01 - Ethnobiology,Laboratory
+83,BIO 420,01,Comparative Anatomy and Embryology,IDS :: Neuroscience,BIO 111 Foundations of Biology,BIO 420-01L - Comparative Anatomy and Embryology,Lecture
+84,BIO 420,01L,Comparative Anatomy and Embryology,IDS :: Neuroscience,BIO 111 Foundations of Biology,BIO 420-01 - Comparative Anatomy and Embryology,Laboratory
+85,BIO 423,01,Marine Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only), GER - Global Awareness :: NE (Humans and the Natural Environment)",Instructor permission required,BIO 423-01L - Marine Biology,Lecture
+86,BIO 423,01L,Marine Biology,"GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only), GER - Global Awareness :: NE (Humans and the Natural Environment)",Instructor permission required,BIO 423-01 - Marine Biology,Laboratory
+87,BIO 425,01,Developmental Biology,empty,(BIO 222) AND (BIO 210 OR BIO 211 OR BIO 212 OR BIO 213),BIO 425-01L - Developmental Biology,Lecture
+88,BIO 425,01L,Developmental Biology,empty,(BIO 222) AND (BIO 210 OR BIO 211 OR BIO 212 OR BIO 213),BIO 425-01 - Developmental Biology,Laboratory
+89,BIO 460,01,Neurobiology,IDS :: Neuroscience,PSY 202 OR BIO 222,BIO 460-01L - Neurobiology,Lecture
+90,BIO 460,01L,Neurobiology,IDS :: Neuroscience,PSY 202 OR BIO 222,BIO 460-01 - Neurobiology,Laboratory
+91,BIO 501,01,Independent Study,empty,Instructor permission required,empty,Lecture
+92,BIO 501,06,Independent Study,empty,Instructor permission required,empty,Lecture
+93,BIO 502,01,Research,empty,Instructor permission required,empty,Independent Study
+94,BIO 502,02,Research,empty,Instructor permission required,empty,Independent Study
+95,BIO 502,03,Research,empty,Instructor permission required,empty,Independent Study
+96,BIO 502,04,Research,empty,Instructor permission required,empty,Independent Study
+97,BIO 502,05,Research,empty,Instructor permission required,empty,Independent Study
+98,BIO 502,06,Research,empty,Instructor permission required,empty,Independent Study
+99,BIO 502,07,Research,empty,Instructor permission required,empty,Independent Study
+100,BIO 502,08,Research,empty,Instructor permission required,empty,Independent Study
+101,BIO 503,01,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+102,BIO 503,02,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+103,BIO 503,03,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+104,BIO 509,01,Experience in Research,empty,Instructor permission required,empty,Independent Study
+105,BIO 509,08,Experience in Research,empty,Instructor permission required,empty,Independent Study
+106,BUS 100,01,Personal Finance,empty,empty,empty,Lecture
+107,BUS 100,02,Personal Finance,empty,empty,empty,Lecture
+108,BUS 150,01,Perspectives on Business,empty,empty,empty,Lecture
+109,BUS 230,01,Introduction to Data Analysis,IDS :: Data Analytics,ECN 111 Introduction to Economics,empty,Lecture
+110,BUS 280,BLK,Data Visualization and Storytelling,empty,Instructor Permission Required,empty,Lecture
+111,BUS 310,01,Business  Government  & Society,empty,empty,empty,Lecture
+112,BUS 311,01,International Business,empty,ECN 111 Introduction to Economics,empty,Lecture
+113,BUS 311,02,International Business,empty,ECN 111 Introduction to Economics,empty,Lecture
+114,BUS 321,BLK,Marketing Strategy,empty,ACC 111 AND ECN 111 AND (ECN 120 OR MTH 120) AND (MTH 145 OR MTH 150),empty,Lecture
+115,BUS 341,BLK,Introduction to Coporate Finance,empty,ACC 111 AND ECN 111 AND (ECN 120 OR MTH 120) AND (MTH 145 OR MTH 150),empty,Lecture
+116,BUS 411,01,Entrepreneurship and New Venture Development,empty,empty,empty,Lecture
+117,BUS 440,01,Investments Management,empty,BUS 340 OR BUS 341,empty,Lecture
+118,BUS 450,01,Strategic Management,GER - Writing :: WR (Writing-Research Intensive),ACC 301 AND BUS 321 AND BUS 341,empty,Seminar
+119,BUS 450,02,Strategic Management,GER - Writing :: WR (Writing-Research Intensive),ACC 301 AND BUS 321 AND BUS 341,empty,Seminar
+120,BUS 501,01,Independent Study,empty,Instructor permission required,empty,Independent Study
+121,BUS 501,02,Independent Study,empty,Instructor permission required,empty,Independent Study
+122,BUS 501,03,Independent Study,empty,Instructor permission required,empty,Independent Study
+123,BUS 501,04,Independent Study,empty,Instructor permission required,empty,Independent Study
+124,BUS 503,01,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+125,BUS 503,02,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+126,CHM 075,01,Seminar in Chemistry,empty,empty,empty,Seminar
+127,CHM 101,01,Chemistry and Global Awareness,"GER - CORE :: NW - Natural World, GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",No CHM 101 Equivalencies,empty,Lecture
+128,CHM 101,02,Chemistry and Global Awareness,"GER - CORE :: NW - Natural World, GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",No CHM 101 Equivalencies,empty,Lecture
+129,CHM 101,03,Chemistry and Global Awareness,"GER - CORE :: NW - Natural World, GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",No CHM 101 Equivalencies,empty,Lecture
+130,CHM 101,04,Chemistry and Global Awareness,"GER - CORE :: NW - Natural World, GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",No CHM 101 Equivalencies,empty,Lecture
+131,CHM 110,01,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-01A - Foundations of Chemistry, CHM 110-01L - Foundations of Chemistry",Lecture
+132,CHM 110,01A,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-01 - Foundations of Chemistry, CHM 110-01L - Foundations of Chemistry",Combination
+133,CHM 110,01L,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-01A - Foundations of Chemistry, CHM 110-01 - Foundations of Chemistry",Laboratory
+134,CHM 110,02,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-02A - Foundations of Chemistry, CHM 110-02L - Foundations of Chemistry",Lecture
+135,CHM 110,02A,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-02 - Foundations of Chemistry, CHM 110-02L - Foundations of Chemistry",Combination
+136,CHM 110,02L,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-02A - Foundations of Chemistry, CHM 110-02 - Foundations of Chemistry",Laboratory
+137,CHM 110,03,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-03A - Foundations of Chemistry, CHM 110-03L - Foundations of Chemistry",Lecture
+138,CHM 110,03A,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-03 - Foundations of Chemistry, CHM 110-03L - Foundations of Chemistry",Combination
+139,CHM 110,03L,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-03A - Foundations of Chemistry, CHM 110-03 - Foundations of Chemistry",Laboratory
+140,CHM 110,04,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-04A - Foundations of Chemistry, CHM 110-04L - Foundations of Chemistry",Lecture
+141,CHM 110,04A,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-04 - Foundations of Chemistry, CHM 110-04L - Foundations of Chemistry",Combination
+142,CHM 110,04L,Foundations of Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",empty,"CHM 110-04A - Foundations of Chemistry, CHM 110-04 - Foundations of Chemistry",Laboratory
+143,CHM 115,02,Kinetics Thermodynamics and the Environment,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Neuroscience",CHM 110 Foundations of Chemistry,"CHM 115-02A - Kinetics Thermodynamics and the Environment, CHM 115-02L - Kinetics Thermodynamics and the Environment",Lecture
+144,CHM 115,02A,Kinetics Thermodynamics and the Environment,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Neuroscience",CHM 110 Foundations of Chemistry,"CHM 115-02 - Kinetics Thermodynamics and the Environment, CHM 115-02L - Kinetics Thermodynamics and the Environment",Combination
+145,CHM 115,02L,Kinetics Thermodynamics and the Environment,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Neuroscience",CHM 110 Foundations of Chemistry,"CHM 115-02A - Kinetics Thermodynamics and the Environment, CHM 115-02 - Kinetics Thermodynamics and the Environment",Laboratory
+146,CHM 115,03,Kinetics Thermodynamics and the Environment,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Neuroscience",CHM 110 Foundations of Chemistry,"CHM 115-03A - Kinetics Thermodynamics and the Environment, CHM 115-03L - Kinetics Thermodynamics and the Environment",Lecture
+147,CHM 115,03A,Kinetics Thermodynamics and the Environment,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Neuroscience",CHM 110 Foundations of Chemistry,"CHM 115-03 - Kinetics Thermodynamics and the Environment, CHM 115-03L - Kinetics Thermodynamics and the Environment",Combination
+148,CHM 115,03L,Kinetics Thermodynamics and the Environment,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Neuroscience",CHM 110 Foundations of Chemistry,"CHM 115-03A - Kinetics Thermodynamics and the Environment, CHM 115-03 - Kinetics Thermodynamics and the Environment",Laboratory
+149,CHM 120,01,Organic Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience","CHM 115 Kinetics, Thermodynamics and the Environment",CHM 120-01L - Organic Chemistry,Lecture
+150,CHM 120,01L,Organic Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience","CHM 115 Kinetics, Thermodynamics and the Environment",CHM 120-01 - Organic Chemistry,Laboratory
+151,CHM 120,02,Organic Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience","CHM 115 Kinetics, Thermodynamics and the Environment",CHM 120-02L - Organic Chemistry,Lecture
+152,CHM 120,02L,Organic Chemistry,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience","CHM 115 Kinetics, Thermodynamics and the Environment",CHM 120-02 - Organic Chemistry,Laboratory
+153,CHM 220,01,Bio-Organic Chemistry,IDS :: Neuroscience,CHM 120 Organic Chemistry,empty,Lecture
+154,CHM 220,02,Bio-Organic Chemistry,IDS :: Neuroscience,CHM 120 Organic Chemistry,empty,Lecture
+155,CHM 230,01,Inorganic Chemistry,empty,CHM 120 Organic Chemistry,empty,Lecture
+156,CHM 230,01L,Inorganic Chemistry,empty,CHM 120 Organic Chemistry,empty,Laboratory
+157,CHM 240,01,Experimental Techniques,empty,CHM 120 Organic Chemistry,CHM 240-01L - Experimental Techniques,Lecture
+158,CHM 240,01L,Experimental Techniques,empty,CHM 120 Organic Chemistry,CHM 240-01 - Experimental Techniques,Laboratory
+159,CHM 240,02,Experimental Techniques,empty,CHM 120 Organic Chemistry,CHM 240-02L - Experimental Techniques,Lecture
+160,CHM 240,02L,Experimental Techniques,empty,CHM 120 Organic Chemistry,CHM 240-02 - Experimental Techniques,Laboratory
+161,CHM 330,01,Analytical Chemistry,empty,CHM 310 AND Instructor Permission Required,CHM 330-01L - Analytical Chemistry,Lecture
+162,CHM 330,01L,Analytical Chemistry,empty,CHM 310 AND Instructor Permission Required,CHM 330-01 - Analytical Chemistry,Laboratory
+163,CHM 330,02,Analytical Chemistry,empty,CHM 310 Physical Chemistry I,CHM 330-02L - Analytical Chemistry,Lecture
+164,CHM 330,02L,Analytical Chemistry,empty,CHM 310 Physical Chemistry I,CHM 330-02 - Analytical Chemistry,Laboratory
+165,CHM 340,01,Physical Chemistry II,empty,CHM  310 AND MTH 160 AND PHY 112,CHM 340-01L - Physical Chemistry II,Lecture
+166,CHM 340,01L,Physical Chemistry II,empty,CHM  310 AND MTH 160 AND PHY 112,CHM 340-01 - Physical Chemistry II,Laboratory
+167,CHM 430,01,Advanced Topics in Inorganic Chemistry,empty,CHM 240 Experimental Techniques,empty,Lecture
+168,CHM 445,01,Advanced Topics in Physical Chemistry (Astrochemistry),empty,CHM 310 Physical Chemistry I,empty,Lecture
+169,CHM 465,01,Advanced Biological Chemistry,empty,CHM 460 Biological Chemistry,CHM 465-01L - Advanced Biological Chemistry,Lecture
+170,CHM 465,01L,Advanced Biological Chemistry,empty,CHM 460 Biological Chemistry,CHM 465-01 - Advanced Biological Chemistry,Laboratory
+171,CHM 502,01,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+172,CHM 502,02,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+173,CHM 502,03,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+174,CHM 502,04,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+175,CHM 502,05,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+176,CHM 502,06,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+177,CHM 502,07,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+178,CHM 502,08,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+179,CHM 502,09,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+180,CHM 502,10,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+181,CHM 502,11,Undergraduate Research,empty,Instructor permission required,empty,Independent Study
+182,CHM 511,01,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+183,CHM 511,02,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+184,CHM 511,03,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+185,CHM 511,04,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+186,CHM 511,05,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+187,CHM 511,06,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+188,CHM 511,07,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+189,CHM 511,08,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+190,CHM 511,09,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+191,CHM 511,10,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+192,CHM 511,11,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+193,CHM 511,12,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+194,CHM 511,13,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+195,CHM 511,14,Undergraduate Thesis II,GER - Writing :: WR (Writing-Research Intensive),CHM 510 Undergraduate Thesis I,empty,Independent Study
+196,CHN 120,01,Elementary Chinese II,"IDS :: Asian Studies, IDS :: Chinese Studies",CHN 110 OR CHN PL 120,empty,Lecture
+197,CHN 202,01,Intermediate Chinese II,"GER - CORE :: FL (Foreign Language), IDS :: Asian Studies, IDS :: Chinese Studies",CHN 201 OR CHN PL 202,empty,Lecture
+198,CHN 302,01,Intermediate Chinese IV,"IDS :: Asian Studies, IDS :: Chinese Studies",CHN 301,empty,Lecture
+199,CHN 402,01,Advanced Chinese II,"IDS :: Asian Studies, IDS :: Chinese Studies",CHN 401,empty,Lecture
+200,CHN 504,01,Directed Independent Study,IDS :: Linguistics,Instructor permission required,empty,Independent Study
+201,CLS 214,01,Law and Order: Greece & Rome,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+202,CLS 232,01,Guide to the Good Life,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+203,CLS 331,01,Constructing Identities,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+204,CLS 401,01,Seminar in Classics,GER - Writing :: WR (Writing-Research Intensive),Instructor permission required,empty,Lecture
+205,COM 101,01,Public Speaking,IDS :: Science Education,empty,empty,Lecture
+206,COM 101,02,Public Speaking,IDS :: Science Education,empty,empty,Lecture
+207,COM 101,03,Public Speaking,IDS :: Science Education,empty,empty,Lecture
+208,COM 101,04,Public Speaking,IDS :: Science Education,empty,empty,Lecture
+209,COM 101,05,Public Speaking,IDS :: Science Education,empty,empty,Lecture
+210,COM 102,01,Media & Society,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Science Education",No COM 102 equivalent,empty,Lecture
+211,COM 102,02,Media & Society,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Science Education",No COM 102 equivalent,empty,Lecture
+212,COM 201,01,Rhetoric & Strategy,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Ancient Greek and Roman Studies",empty,empty,Lecture
+213,COM 201,02,Rhetoric & Strategy,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Ancient Greek and Roman Studies",COM 101 (Prerequisite or Corequisite),empty,Lecture
+214,COM 202,01,Digital Storytelling,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),COM 101 OR COM 102 OR ART 111,empty,Lecture
+215,COM 202,02,Digital Storytelling,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),COM 101 OR COM 102 OR ART 111,empty,Lecture
+216,COM 202,03,Digital Storytelling,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),COM 101 OR COM 102 OR ART 111,empty,Lecture
+217,COM 302,01,Media Criticism,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), GER - Writing :: WR (Writing-Research Intensive), IDS :: Film Studies",empty,empty,Lecture
+218,COM 302,01L,Media Criticism,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), GER - Writing :: WR (Writing-Research Intensive), IDS :: Film Studies",empty,empty,Laboratory
+219,COM 303,01,Communication Research Methods,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",COM 102 OR COM 201,empty,Lecture
+220,COM 304,01,Broadcast Communication,IDS :: Journalism,COM 202 Digital Storytelling,empty,Lecture
+221,COM 314,01,Social Media Strategy,"IDS :: Journalism, IDS :: Visual Strategy",COM 202 Digital Storytelling,empty,Lecture
+222,COM 341,01,Interpersonal Communication,empty,COM 101 Public Speaking,empty,Lecture
+223,COM 351,01,Advocacy,"IDS :: Science Education, IDS :: Visual Strategy",COM 201 AND COM 202,empty,Lecture
+224,COM 353,01,Political Communication,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+225,COM 421,01,Studies in Mass Media (Media Management),"IDS :: Film Studies, IDS :: Journalism",COM 202 Digital Storytelling,empty,Lecture
+226,COM 460,01,Communication Ethics,GER - CORE :: UQ (Ultimate Questions),COM 201 Rhetoric and Strategy,empty,Lecture
+227,COM 461,01,Media Law,empty,COM 102 Media and Society,empty,Lecture
+228,COM 503,01,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+229,COM 505,01,Structured Internship,IDS :: Journalism,Instructor permission required,empty,Independent Study
+230,CSC 105,01,Intro to Computer Science (Man vs. Machine),GER - CORE :: MR (Mathematical and Formal Reasoning),empty,CSC 105-01L - Intro to Computer Science (Man vs. Machine),Lecture
+231,CSC 105,01L,Intro to Computer Science (Man vs. Machine),GER - CORE :: MR (Mathematical and Formal Reasoning),empty,CSC 105-01 - Intro to Computer Science (Man vs. Machine),Laboratory
+232,CSC 105,02,Intro to Computer Science (Social Media),GER - CORE :: MR (Mathematical and Formal Reasoning),empty,CSC 105-02L - Intro to Computer Science (Social Media),Lecture
+233,CSC 105,02L,Intro to Computer Science (Social Media),GER - CORE :: MR (Mathematical and Formal Reasoning),empty,CSC 105-02 - Intro to Computer Science (Social Media),Laboratory
+234,CSC 121,01,Intro to Computer Programming,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Data Analytics",CSC 105 OR BIO 111 OR CHM 110 OR EES 112 OR EES 113 OR EES 115 OR MTH 145 OR MTH 150 OR PHY 111,CSC 121-01L - Intro to Computer Programming,Lecture
+235,CSC 121,01L,Intro to Computer Programming,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Data Analytics",CSC 105 OR BIO 111 OR CHM 110 OR EES 112 OR EES 113 OR EES 115 OR MTH 145 OR MTH 150 OR PHY 111,CSC 121-01 - Intro to Computer Programming,Laboratory
+236,CSC 121,02,Intro to Computer Programming,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Data Analytics",CSC 105 OR BIO 111 OR CHM 110 OR EES 112 OR EES 113 OR EES 115 OR MTH 145 OR MTH 150 OR PHY 111,CSC 121-02L - Intro to Computer Programming,Lecture
+237,CSC 121,02L,Intro to Computer Programming,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Data Analytics",CSC 105 OR BIO 111 OR CHM 110 OR EES 112 OR EES 113 OR EES 115 OR MTH 145 OR MTH 150 OR PHY 111,CSC 121-02 - Intro to Computer Programming,Laboratory
+238,CSC 122,01,Data Structures and Algorithms,empty,CSC 121 Intro to Computer Programming,CSC 122-01L - Data Structures and Algorithms,Lecture
+239,CSC 122,01L,Data Structures and Algorithms,empty,CSC 121 Intro to Computer Programming,CSC 122-01 - Data Structures and Algorithms,Laboratory
+240,CSC 122,02,Data Structures and Algorithms,empty,CSC 121 Intro to Computer Programming,CSC 122-02L - Data Structures and Algorithms,Lecture
+241,CSC 122,02L,Data Structures and Algorithms,empty,CSC 121 Intro to Computer Programming,CSC 122-02 - Data Structures and Algorithms,Laboratory
+242,CSC 223,01,Advanced Data Structures and Software Development,IDS :: Linguistics,CSC 122 Data Structures and Algorithms,empty,Lecture
+243,CSC 223,01L,Advanced Data Structures and Software Development,IDS :: Linguistics,CSC 122 Data Structures and Algorithms,empty,Laboratory
+244,CSC 231,01,Computer Organization,empty,CSC 105 AND CSC 121,empty,Lecture
+245,CSC 231,01L,Computer Organization,empty,CSC 105 AND CSC 121,empty,Laboratory
+246,CSC 271,01,Morals  Law and Society in the Digital Age,"GER - CORE :: UQ (Ultimate Questions), IDS :: Science Education",empty,empty,Lecture
+247,CSC 341,01,Database Management Systems,IDS :: Data Analytics,CSC 122 Data Structures and Algorithms,empty,Lecture
+248,CSC 341,01L,Database Management Systems,IDS :: Data Analytics,CSC 122 Data Structures and Algorithms,empty,Laboratory
+249,CSC 343,01,Artificial Intelligence,"IDS :: Data Analytics, IDS :: Linguistics",CSC 122 AND (CSC 261 OR MTH 260),empty,Lecture
+250,CSC 343,01L,Artificial Intelligence,"IDS :: Data Analytics, IDS :: Linguistics",CSC 122 AND (CSC 261 OR MTH 260),empty,Laboratory
+251,CSC 475,01,Seminar in Computer Science,GER - Writing :: WR (Writing-Research Intensive),(any FYW course) AND CSC 122 AND (1 course in CSC numbered 300 or greater),empty,Seminar
+252,CSC 501,01,Independent Study,empty,Instructor permission required,empty,Independent Study
+253,CSC 501,02,Independent Study,empty,Instructor permission required,empty,Independent Study
+254,CSC 502,01,Research,GER - Writing :: WR (Writing-Research Intensive),Instructor permission required,empty,Independent Study
+255,DAN 220,01,Dance Techniques II,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Musical Theatre",PRQ â€“ DAN 120 Foundations of Dance,empty,Lecture
+256,ECN 111,01,Introduction to Economics,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Urban Studies",empty,empty,Lecture
+257,ECN 111,02,Introduction to Economics,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Urban Studies",empty,empty,Lecture
+258,ECN 111,03,Introduction to Economics,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Urban Studies",empty,empty,Lecture
+259,ECN 111,04,Introduction to Economics,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Urban Studies",empty,empty,Lecture
+260,ECN 224,01,Law and Economics,GER - CORE :: HB (Empirical Study of Human Behavior),ECN 111 Introduction to Economics,empty,Lecture
+261,ECN 233,01,Economics of Gender,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Poverty Studies, IDS :: Womenâ€™s, Gender, and Sexuality Studies",ECN 111 Introduction to Economics,empty,Lecture
+262,ECN 234,01,Urban Economics,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Environmental Studies, IDS :: Poverty Studies, IDS :: Urban Studies",ECN 111 Introduction to Economics,empty,Lecture
+263,ECN 241,01,Money and Banking,GER - CORE :: HB (Empirical Study of Human Behavior),ECN 111 Introduction to Economics,empty,Lecture
+264,ECN 245,01,Development Economics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies",ECN 111 Introduction to Economics,empty,Lecture
+265,ECN 252,01,International Trade Theory and Policy,GER - CORE :: HB (Empirical Study of Human Behavior),ECN 111 Introduction to Economics,empty,Lecture
+266,ECN 331,02,Empirical Methods in Economics,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Data Analytics",(1 FYW course) AND (ECN 111) AND (MTH 145 OR MTH 150) AND (ECN 120 or MTH 120 or MTH 340),ECN 331-02L - Empirical Methods in Economics,Lecture
+267,ECN 331,02L,Empirical Methods in Economics,"GER - Writing :: WR (Writing-Research Intensive), IDS :: Data Analytics",(1 FYW course) AND (ECN 111) AND (MTH 145 OR MTH 150) AND (ECN 120 or MTH 120 or MTH 340),ECN 331-02 - Empirical Methods in Economics,Laboratory
+268,ECN 345,01,Intermediate Macroeconomics Analysis,empty,ECN 111 AND (MTH 145 OR MTH 150) AND (1 Economics course numbered 201 or higher excluding ECN 503),empty,Lecture
+269,ECN 475,01,Senior Seminar in Economics (Natural Resources),IDS :: Data Analytics,ECN 331 AND ECN 345 AND ECN 346,empty,Seminar
+270,ECN 475,02,Senior Seminar in Economics (Economic Forecasting),IDS :: Data Analytics,ECN 331 AND ECN 345 AND ECN 346,empty,Seminar
+271,EDU 001,01,Education Laboratory I,empty,empty,empty,Laboratory
+272,EDU 001,02,Education Laboratory I,empty,empty,empty,Laboratory
+273,EDU 111,01,Perspectives on American Education,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Poverty Studies",empty,empty,Lecture
+274,EDU 111,02,Perspectives on American Education,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Poverty Studies",empty,empty,Lecture
+275,EDU 120,01,Human Development,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Science Education",empty,empty,Lecture
+276,EDU 120,02,Human Development,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Science Education",empty,empty,Lecture
+277,EDU 221,01,Students with Exceptionalities,IDS :: Science Education,EDU 111 AND EDU 120,empty,Lecture
+278,EDU 222,01,Nature of Learning Disabilities,empty,EDU 221 Students with Exceptionalities,empty,Lecture
+279,EDU 223,01,Nature of Emotional and Behavioral Disorders,empty,EDU 221 Students with Exceptionalities,empty,Lecture
+280,EDU 235,01,Comparative International Education,empty,EDU 111 Perspectives on American Education,empty,Lecture
+281,EDU 250,01,Scholarly Reading and Writing in Education,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), GER - Writing :: WR (Writing-Research Intensive)",FYW (First Year Writing Seminar),empty,Lecture
+282,EDU 280,01,"Diversity, Equity & Inclusion in Education",empty,empty,empty,Lecture
+283,EDU 305,01,Arts Integration in Elementary Grades,empty,EDU 111 AND EDU 120,empty,Lecture
+284,EDU 331,01,Literacy Processes and Instruction in Grades 2-6,empty,EDU 111 AND EDU 120,empty,Lecture
+285,EDU 332,01,Social Studies in Grades PK-6,empty,EDU 111 AND EDU 120,empty,Lecture
+286,EDU 337,01,Early Childhood Curriculum: Content and Resources,empty,EDU 111 AND EDU 120,empty,Lecture
+287,EDU 430,01,Assessment for Instructional Planning,empty,EDU 221 Students with Exceptionalities,empty,Lecture
+288,EDU 431,01,Diverse School Cultures: Teaching  Learning and Managment,empty,EDU 221 Students with Exceptionalities,empty,Lecture
+289,EDU 432,01,Integrating Curriculum and Technology,empty,EDU 221 Students with Exceptionalities,empty,Lecture
+290,EDU 434,01,Content Literacy Strategies and Modifications for Diverse Learners,empty,Education or Music Education only,empty,Lecture
+291,EDU 434,02,Content Literacy Strategies and Modifications for Diverse Learners,empty,Education or Music Education only,empty,Lecture
+292,EDU 464,TU,Critique of Science Education Literature,IDS :: Science Education,empty,empty,Lecture
+293,EDU 470,01,Practicum in Teaching,empty,EDU 221 Students with Exceptionalities,empty,Internship
+294,EDU 470,02,Practicum in Teaching,empty,EDU 221 Students with Exceptionalities,empty,Internship
+295,EDU 470,03,Practicum in Teaching,empty,EDU 221 Students with Exceptionalities,empty,Internship
+296,EDU 470,04,Practicum in Teaching,empty,EDU 221 Students with Exceptionalities,empty,Internship
+297,EDU 470,05,Practicum in Teaching,empty,EDU 221 Students with Exceptionalities,empty,Internship
+298,EDU 503,01,Individualized Internship,empty,Instructor permission required,empty,Internship
+299,EDU 505,01,Teaching Internship,empty,Instructor permission required,empty,Internship
+300,EDU 506,01,Internship in Human Service Non-Profits,empty,Instructor permission required,empty,Internship
+301,EES 112,01,Environmental Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,EES 112-01L - Environmental Science,Lecture
+302,EES 112,01L,Environmental Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,EES 112-01 - Environmental Science,Laboratory
+303,EES 112,02,Environmental Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,EES 112-02L - Environmental Science,Lecture
+304,EES 112,02L,Environmental Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,EES 112-02 - Environmental Science,Laboratory
+305,EES 112,03,Environmental Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,EES 112-03L - Environmental Science,Lecture
+306,EES 112,03L,Environmental Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,EES 112-03 - Environmental Science,Laboratory
+307,EES 113,01,Natural Hazards and Natural Disasters,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment)",empty,EES 113-01L - Natural Hazards and Natural Disasters,Lecture
+308,EES 113,01L,Natural Hazards and Natural Disasters,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment)",empty,EES 113-01 - Natural Hazards and Natural Disasters,Laboratory
+309,EES 113,02,Natural Hazards and Natural Disasters,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment)",empty,EES 113-02L - Natural Hazards and Natural Disasters,Lecture
+310,EES 113,02L,Natural Hazards and Natural Disasters,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment)",empty,EES 113-02 - Natural Hazards and Natural Disasters,Laboratory
+311,EES 115,01,Earth Systems,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment)",empty,empty,Lecture
+312,EES 115,01L,Earth Systems,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment)",empty,empty,Laboratory
+313,EES 201,01,Geographic Information Systems,"IDS :: Data Analytics, IDS :: Environmental Studies, IDS :: Urban Studies",empty,empty,Lecture
+314,EES 201,01L,Geographic Information Systems,"IDS :: Data Analytics, IDS :: Environmental Studies, IDS :: Urban Studies",empty,empty,Laboratory
+315,EES 218,01,Plate Tectonics and Earthquakes,empty,EES 111 OR EES 112 OR EES 113 OR EES 115,empty,Lecture
+316,EES 218,01L,Plate Tectonics and Earthquakes,empty,EES 111 OR EES 112 OR EES 113 OR EES 115,empty,Laboratory
+317,EES 230,01,Watershed Hydrology,IDS :: Environmental Studies,EES 111 OR EES 112 OR EES 113 OR EES 115 OR BIO 111 OR CHM 110,empty,Lecture
+318,EES 230,01L,Watershed Hydrology,IDS :: Environmental Studies,EES 111 OR EES 112 OR EES 113 OR EES 115 OR BIO 111 OR CHM 110,empty,Laboratory
+319,EES 301,01,Remote Sensing,IDS :: Data Analytics,empty,empty,Lecture
+320,EES 301,01L,Remote Sensing,IDS :: Data Analytics,empty,empty,Laboratory
+321,EES 402,01,Geochemistry,empty,EES 220 Mineralogy and Petrology I,empty,Lecture
+322,EES 402,01L,Geochemistry,empty,EES 220 Mineralogy and Petrology I,empty,Laboratory
+323,EES 474,01,Senior Capstone,empty,EES 472 OR SUS 472 OR SUS 473,empty,Lecture
+324,ENG 111,01,Texts and Meaning (Modern Poetry),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+325,ENG 111,02,Texts and Meaning (Modern Poetry),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+326,ENG 111,03,Texts and Meaning (British Literature Since 1798),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+327,ENG 111,05,Texts and Meaning (Disorderly Conduct: Law and Literature),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+328,ENG 200,01,Introduction to Creative Writing,empty,FYW (First Year Writing Seminar),empty,Lecture
+329,ENG 200,02,Introduction to Creative Writing,empty,FYW (First Year Writing Seminar),empty,Lecture
+330,ENG 212,01,Journalism Principles and Practice,IDS :: Journalism,FYW (First Year Writing Seminar),empty,Lecture
+331,ENG 220,01,Writing Poems,empty,FYW (First Year Writing Seminar),empty,Lecture
+332,ENG 221,01,Writing Fiction,empty,FYW (First Year Writing Seminar),empty,Lecture
+333,ENG 223,01,Writing Nonfiction,IDS :: Science Education,FYW (First Year Writing Seminar),empty,Lecture
+334,ENG 230,01,Digital Writing,"IDS :: Journalism, IDS :: Visual Strategy",FYW (First Year Writing Seminar),empty,Lecture
+335,ENG 281,01,Food Writing,empty,FYW (First Year Writing Seminar),empty,Lecture
+336,ENG 293,01,Literature of the South,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Africana Studies",empty,empty,Lecture
+337,ENG 338,01,Victorian Novel,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+338,ENG 350A,01,American Novel to World War I,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+339,ENG 399,03,Upper Level Pathways,empty,FYW - First Year Writing,empty,Experiential
+340,ENG 475,01,Senior Seminar in English,GER - Writing :: WR (Writing-Research Intensive),FYW (First Year Writing Seminar),empty,Seminar
+341,ENG 501,01,Independent Study,IDS :: Linguistics,Instructor permission required,empty,Independent Study
+342,ENG 501,02,Independent Study,IDS :: Linguistics,Instructor permission required,empty,Independent Study
+343,EST 301,01,Environment and Society,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,empty,Lecture
+344,EST 301,01L,Environment and Society,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,empty,Laboratory
+345,FRN 120,01,Elementary French II,empty,FRN 110,empty,Lecture
+346,FRN 120,02,Elementary French II,empty,FRN 110,empty,Lecture
+347,FRN 201,01,Intermediate French I,GER - CORE :: FL (Foreign Language),FRN 115 OR FRN 120 OR FRN-PL 201,empty,Lecture
+348,FRN 201,02,Intermediate French I,GER - CORE :: FL (Foreign Language),FRN 115 OR FRN 120 OR FRN-PL 201,empty,Lecture
+349,FRN 214,01,French Conversation,GER - CORE :: FL (Foreign Language),FRN 201 OR FRN-PL 214 or 215,empty,Lecture
+350,FRN 323,01,"Quebec Language, Civilization & Culture",IDS :: Linguistics,1 course in FRN numbered 214 or higher OR FRN PL.300+,empty,Lecture
+351,FRN 435,01,Literatures in French: Writing Across Worlds,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), GER - Global Awareness :: WC (World Cultures), GER - Writing :: WR (Writing-Research Intensive)",(1 FYW course) AND ((1 course in French numbered 300 or higher) OR (FRN PL.300+)),empty,Lecture
+352,FYW 1111,01,Haunted Mansions,"FYW topics :: AE (Artistic Expression), FYW topics :: LT (Literature), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+353,FYW 1111,02,Haunted Mansions,"FYW topics :: AE (Artistic Expression), FYW topics :: LT (Literature), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+354,FYW 1116,01,Language  Argument and Culture,"FYW topics :: EL (Education and Learning), FYW topics :: VC (Visual Culture), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+355,FYW 1127,01,To Walk the Land,"FYW topics :: PE (Physical Environment), FYW topics :: SP (Sustainable Practices), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+356,FYW 1133,01,Can We Make Sense of the 60s?,"FYW topics :: GP (Government and Politics), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: PH (People and Issues in History), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+357,FYW 1140,01,History of Detective Fiction,"FYW topics :: LT (Literature), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: RE (Race, Ethnicity, and Social Class), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+358,FYW 1141,01,Homer and History,"FYW topics :: LT (Literature), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+359,FYW 1151,01,American Dream Ideal and Reality,"FYW topics :: LT (Literature), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: RE (Race, Ethnicity, and Social Class), FYW topics :: SG (Sexuality and Gender), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+360,FYW 1154,01,The Wealth of Nations: the Life  Ideas  and influence of Adam Smith,"FYW topics :: BW (Business World), FYW topics :: PT (Philosophical Thought), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+361,FYW 1154,02,The Wealth of Nations: the Life  Ideas  and influence of Adam Smith,"FYW topics :: BW (Business World), FYW topics :: PT (Philosophical Thought), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+362,FYW 1178,01,Academic Autobiography,"FYW topics :: PH (People and Issues in History), FYW topics :: SR (Self-Reflection and Identity), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+363,FYW 1178,02,Academic Autobiography,"FYW topics :: PH (People and Issues in History), FYW topics :: SR (Self-Reflection and Identity), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+364,FYW 1191,01,Neil Gaiman and the Mythology of Life and Death,"FYW topics :: PT (Philosophical Thought), FYW topics :: RS (Religion and Spirituality), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+365,FYW 1193,01,Reading Flannery O'Connor,"FYW topics :: LT (Literature), FYW topics :: RS (Religion and Spirituality), FYW topics :: SR (Self-Reflection and Identity), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+366,FYW 1202,01,Medieval Forests in Literature and Law,"FYW topics :: LT (Literature), FYW topics :: PH (People and Issues in History), FYW topics :: SP (Sustainable Practices), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+367,FYW 1234,01,Bird by Bird: Interactions in Nature and Society,"FYW topics :: LT (Literature), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: PE (Physical Environment), FYW topics :: SI (Scientific Inquiry), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+368,FYW 1259,01,Reconsidering James Baldwin in an Era of #BlackLivesMatter,"FYW topics :: CE (Current Events), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: PH (People and Issues in History), FYW topics :: RE (Race, Ethnicity, and Social Class), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+369,FYW 1263,01,Representations of Prison in Print and Film,"FYW topics :: DF (Drama and Film), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: RE (Race, Ethnicity, and Social Class), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+370,FYW 1263,02,Representations of Prison in Print and Film,"FYW topics :: DF (Drama and Film), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: RE (Race, Ethnicity, and Social Class), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+371,FYW 1267,01,Fairy Tales and Childhood,"FYW topics :: LT (Literature), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+372,FYW 1268,01,France. Friend or Frenemy?,"FYW topics :: CE (Current Events), FYW topics :: GP (Government and Politics), FYW topics :: SR (Self-Reflection and Identity), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+373,FYW 1280,01,A Funny Business: Humor and Politics,"FYW topics :: CE (Current Events), FYW topics :: GP (Government and Politics), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: RE (Race, Ethnicity, and Social Class), FYW topics :: VC (Visual Culture), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+374,FYW 1303,01,Ethical  Social  and Political Issues in Star Wars,"FYW topics :: DF (Drama and Film), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: PT (Philosophical Thought), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+375,FYW 1309,01,Artificial Intelligence in Media and Pop Culture,"FYW topics :: IT (Information Technology), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: PT (Philosophical Thought), FYW topics :: SI (Scientific Inquiry), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+376,FYW 1310,01,Sustainable Furman,"FYW topics :: PE (Physical Environment), FYW topics :: SP (Sustainable Practices), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+377,FYW 1311,01,Game On! Tabletop Play and Contemporary Culture,"FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: VC (Visual Culture), GER - Writing :: FYW (First Year Writing Seminar)",empty,empty,Seminar
+378,FYW 1312,01,Technofeminism,"FYW topics :: IT (Information Technology), FYW topics :: MM (Mass Media and Popular Culture), FYW topics :: SG (Sexuality and Gender), FYW topics :: SR (Self-Reflection and Identity), GER - Writing :: FYW (First Year Writing Seminar), IDS :: Womenâ€™s, Gender, and Sexuality Studies",empty,empty,Seminar
+379,GRK 120,01,Elementary Greek II,empty,GRK 110 OR GRK-PL 120,empty,Lecture
+380,GRK 325,01,"Ancient Greek: Intensive Readings (Euripides, Bacchae)","GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",GRK 201 Intermediate Greek,empty,Lecture
+381,GRM 120,01,Elementary German II,empty,GRM 110 OR GRM-PL 120,empty,Lecture
+382,GRM 120,02,Elementary German II,empty,GRM 110 OR GRM-PL 120,empty,Lecture
+383,GRM 120,03,Elementary German II,empty,GRM 110 OR GRM-PL 120,empty,Lecture
+384,GRM 260,01,German for the Professions,empty,2 courses in GRM numbered 201 or higher,empty,Lecture
+385,GRM 337,TS,German Theater,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),2 courses in GRM numbered 201 or higher,empty,Lecture
+386,GRM 430,TS,Readings in German Language (German Theater in Berlin),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",2 courses in GRM numbered 201 or higher,empty,Lecture
+387,HSC 075,01,Seminar in Public Health,empty,Declared Public Health Majors only,empty,Lecture
+388,HSC 075,02,Seminar in Public Health,empty,Declared Public Health Majors only,empty,Lecture
+389,HSC 101,01,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-01L - Wellness Concepts,Lecture
+390,HSC 101,01L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-01 - Wellness Concepts,Laboratory
+391,HSC 101,02,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-02L - Wellness Concepts,Lecture
+392,HSC 101,02L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-02 - Wellness Concepts,Laboratory
+393,HSC 101,03,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-03L - Wellness Concepts,Lecture
+394,HSC 101,03L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-03 - Wellness Concepts,Laboratory
+395,HSC 101,04,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-04L - Wellness Concepts,Lecture
+396,HSC 101,04L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-04 - Wellness Concepts,Laboratory
+397,HSC 101,06,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-06L - Wellness Concepts,Lecture
+398,HSC 101,06L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-06 - Wellness Concepts,Laboratory
+399,HSC 101,08,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-08L - Wellness Concepts,Lecture
+400,HSC 101,08L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-08 - Wellness Concepts,Laboratory
+401,HSC 101,09,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-09L - Wellness Concepts,Lecture
+402,HSC 101,09L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-09 - Wellness Concepts,Laboratory
+403,HSC 101,10,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-10L - Wellness Concepts,Lecture
+404,HSC 101,10L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-10 - Wellness Concepts,Laboratory
+405,HSC 101,11,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-11L - Wellness Concepts,Lecture
+406,HSC 101,11L,Wellness Concepts,GER - CORE :: MB (Mind and Body),empty,HSC 101-11 - Wellness Concepts,Laboratory
+407,HSC 201,01,Research and Evaluation in Health Sciences,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Data Analytics",HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 201-01L - Research and Evaluation in Health Sciences,Lecture
+408,HSC 201,01L,Research and Evaluation in Health Sciences,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Data Analytics",HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 201-01 - Research and Evaluation in Health Sciences,Laboratory
+409,HSC 201,02,Research and Evaluation in Health Sciences,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Data Analytics",HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 201-02L - Research and Evaluation in Health Sciences,Lecture
+410,HSC 201,02L,Research and Evaluation in Health Sciences,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Data Analytics",HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 201-02 - Research and Evaluation in Health Sciences,Laboratory
+411,HSC 205,01,Fundamentals of Public Health,"IDS :: Medicine, Health and Culture",(First Year or Sophomore Class Standing) OR (Declared Health Science or Public Health Majors),empty,Lecture
+412,HSC 205,02,Fundamentals of Public Health,"IDS :: Medicine, Health and Culture",(First Year or Sophomore Class Standing) OR (Declared Health Science or Public Health Majors),empty,Lecture
+413,HSC 205,03,Fundamentals of Public Health,"IDS :: Medicine, Health and Culture",(First Year or Sophomore Class Standing) OR (Declared Health Science or Public Health Majors),empty,Lecture
+414,HSC 210,01,Anatomy and Physiology I,empty,HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 210-01L - Anatomy and Physiology I,Lecture
+415,HSC 210,01L,Anatomy and Physiology I,empty,HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 210-01 - Anatomy and Physiology I,Laboratory
+416,HSC 210,02,Anatomy and Physiology I,empty,HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 210-02L - Anatomy and Physiology I,Lecture
+417,HSC 210,02L,Anatomy and Physiology I,empty,HSC 101 AND (Declared Health Science or Public Health Majors only),HSC 210-02 - Anatomy and Physiology I,Laboratory
+418,HSC 211,01,Anatomy and Physiology II,empty,HSC 210 AND (Declared Health Science or Public Health Majors only),HSC 211-01L - Anatomy and Physiology II,Lecture
+419,HSC 211,01L,Anatomy and Physiology II,empty,HSC 210 AND (Declared Health Science or Public Health Majors only),HSC 211-01 - Anatomy and Physiology II,Laboratory
+420,HSC 211,02,Anatomy and Physiology II,empty,HSC 210 AND (Declared Health Science or Public Health Majors only),HSC 211-02L - Anatomy and Physiology II,Lecture
+421,HSC 211,02L,Anatomy and Physiology II,empty,HSC 210 AND (Declared Health Science or Public Health Majors only),HSC 211-02 - Anatomy and Physiology II,Laboratory
+422,HSC 211,03,Anatomy and Physiology II,empty,HSC 210 AND (Declared Health Science or Public Health Majors only),HSC 211-03L - Anatomy and Physiology II,Lecture
+423,HSC 211,03L,Anatomy and Physiology II,empty,HSC 210 AND (Declared Health Science or Public Health Majors only),HSC 211-03 - Anatomy and Physiology II,Laboratory
+424,HSC 305,01,Global Public Health (Survey in Global Public Health),"GER - Global Awareness :: WC (World Cultures), GER - Writing :: WR (Writing-Research Intensive), IDS :: Medicine, Health and Culture, IDS :: Poverty Studies",HSC 201 AND HSC 205 AND (any First Year Writing Seminar) AND Declared Health Science or Public Health Majors only,empty,Lecture
+425,HSC 305,02,Global Public Health (Survey in Global Public Health),"GER - Global Awareness :: WC (World Cultures), GER - Writing :: WR (Writing-Research Intensive), IDS :: Medicine, Health and Culture, IDS :: Poverty Studies",HSC 201 AND HSC 205 AND (any First Year Writing Seminar) AND Declared Health Science or Public Health Majors only,empty,Lecture
+426,HSC 311,01,Physiology of Exercise,GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only),HSC 201 AND (Declared Health Science or Public Health Majors only),HSC 311-01L - Physiology of Exercise,Lecture
+427,HSC 311,01L,Physiology of Exercise,GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only),HSC 201 AND (Declared Health Science or Public Health Majors only),HSC 311-01 - Physiology of Exercise,Laboratory
+428,HSC 313,01,Fundamentals of Physical Rehabilitation,"IDS :: Medicine, Health and Culture",HSC 210 Anatomy and Physiology I,empty,Lecture
+429,HSC 315,01,Fundamentals of Nutrition,"IDS :: Medicine, Health and Culture",HSC 101 AND (Declared Health Science or Public Health Majors only),empty,Lecture
+430,HSC 323,01,Kinesiology,GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only),HSC 210 AND (Any course eligible for the MR GER) AND Declared Health Science or Public Health Majors only,HSC 323-01L - Kinesiology,Lecture
+431,HSC 323,01L,Kinesiology,GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only),HSC 210 AND (Any course eligible for the MR GER) AND Declared Health Science or Public Health Majors only,HSC 323-01 - Kinesiology,Laboratory
+432,HSC 323,02,Kinesiology,GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only),HSC 210 AND (Any course eligible for the MR GER) AND Declared Health Science or Public Health Majors only,HSC 323-02L - Kinesiology,Lecture
+433,HSC 323,02L,Kinesiology,GER - CORE :: NWL - Natural World with Lab (meets requirements for BA/BM only),HSC 210 AND (Any course eligible for the MR GER) AND Declared Health Science or Public Health Majors only,HSC 323-02 - Kinesiology,Laboratory
+434,HSC 332,01,Graded Exercise Test Practicum,empty,HSC 201 AND MTH 120 AND Declared Health Science or Public Health Majors only,empty,Lecture
+435,HSC 342,01,Pathophysiology of Chronic Diseases,"IDS :: Medicine, Health and Culture",HSC 211 Anatomy and Physiology II,empty,Lecture
+436,HSC 342,01L,Pathophysiology of Chronic Diseases,"IDS :: Medicine, Health and Culture",HSC 211 Anatomy and Physiology II,empty,Laboratory
+437,HSC 401,01,Epidemiology,"IDS :: Data Analytics, IDS :: Medicine, Health and Culture",HSC 201 AND MTH 120 AND Declared Health Science or Public Health Majors only,empty,Lecture
+438,HSC 401,01L,Epidemiology,"IDS :: Data Analytics, IDS :: Medicine, Health and Culture",HSC 201 AND MTH 120 AND Declared Health Science or Public Health Majors only,empty,Laboratory
+439,HSC 441,01,Sport in Modern Society,empty,HSC 101 AND (Declared Health Science or Public Health Majors only),empty,Lecture
+440,HSC 451,01,Biomechanics,GER - Writing :: WR (Writing-Research Intensive),(HSC 210 or HSC 311) AND (any course eligible for the MR GER) AND Declared HSC or PBH major,empty,Lecture
+441,HSC 501,01,Independent Study,empty,Instructor permission required,empty,Independent Study
+442,HSC 501,02,Independent Study,empty,Instructor permission required,empty,Independent Study
+443,HSC 501,03,Independent Study,empty,Instructor permission required,empty,Independent Study
+444,HSC 501,04,Independent Study,empty,Instructor permission required,empty,Independent Study
+445,HSC 502,01,Research,empty,Instructor permission required,empty,Independent Study
+446,HSC 502,02,Research,empty,Instructor permission required,empty,Independent Study
+447,HSC 502,03,Research,empty,Instructor permission required,empty,Independent Study
+448,HSC 503,01,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+449,HSC 503,02,Individualized Internship,empty,Instructor permission required,empty,Independent Study
+450,HSC 505,01,Structured Internship,empty,Instructor permission required,empty,Independent Study
+451,HSC 505,02,Structured Internship,empty,Instructor permission required,empty,Independent Study
+452,HST 102,01,Europe in the Medieval World,"GER - CORE :: HA (Historical Analysis), IDS :: Medieval & Early Modern Studies",empty,empty,Lecture
+453,HST 104,01,Europe in the Modern World,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+454,HST 104,02,Europe in the Modern World,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+455,HST 104,03,Europe in the Modern World,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+456,HST 112,01,Passages in the Early Modern World,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+457,HST 121,01,Early North America to 1877,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+458,HST 122,01,United States and the World since 1877,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+459,HST 122,02,United States and the World since 1877,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+460,HST 122,03,United States and the World since 1877,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+461,HST 141,01,Latin America in the Early Modern World,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures), IDS :: Latin American and Latinx Studies",empty,empty,Lecture
+462,HST 153_,01,Middle East in the Modern World,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures), IDS :: Middle East and Islamic Studies",empty,empty,Lecture
+463,HST 162,01,Japan in the Modern World,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies, IDS :: Japanese Studies",empty,empty,Lecture
+464,HST 162,02,Japan in the Modern World,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies, IDS :: Japanese Studies",empty,empty,Lecture
+465,HST 166,01,China in the Modern World,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies, IDS :: Chinese Studies",empty,empty,Lecture
+466,HST 203,01,The Crusades,empty,1 course in HST numbered HST 100 through HST 166,empty,Lecture
+467,HST 208,01,Tudor-Stuart England,empty,1 course in HST numbered HST 100 through HST 166,empty,Lecture
+468,HST 221,01,The American Revolution,GER - Writing :: WR (Writing-Research Intensive),FYW (First Year Writing Seminar) AND (1 course in History numbered HST 100 through HST 166),empty,Lecture
+469,HST 275,01,Movements in History (History of Baseball),IDS :: Medieval & Early Modern Studies,Instructor Permission Required,empty,Lecture
+470,HST 275,02,Movements in History (History of Soccer),IDS :: Medieval & Early Modern Studies,Instructor Permission Required,empty,Lecture
+471,HST 330,01,The Frontier and the American West,GER - Writing :: WR (Writing-Research Intensive),FYW (First Year Writing Seminar) AND (1 course in History numbered HST 100 through HST 166),empty,Lecture
+472,HST 359,TS,Travel Study in the United Kingdom and Ireland,"GER - CORE :: HA (Historical Analysis), GER - Global Awareness :: WC (World Cultures)",empty,empty,Lecture
+473,HST 475,01,Senior Seminar in History (Microhistories of Asia),IDS :: Africana Studies,empty,empty,Seminar
+474,HST 501,01,Independent Study,empty,Instructor permission required,empty,Independent Study
+475,HST 501,02,Independent Study,empty,Instructor permission required,empty,Independent Study
+476,HUM 102,01,Studies in Humanities II,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), GER - Global Awareness :: IEJ (Identities, Equity, and Justice), GER - Global Awareness :: WC (World Cultures), IDS :: Humanities",empty,empty,Lecture
+477,HUM 502,01,Humanities Lab,IDS :: Linguistics,Instructor Permission Required,empty,Lecture
+478,HUM 502,02,Humanities Lab,IDS :: Linguistics,empty,empty,Lecture
+479,IDS 507,TS,International Internship,IDS :: Journalism,empty,empty,Lecture
+480,IGD 101,01,Introduction to Intergroup Dialogue (Race and Ethnicity),empty,Instructor Permission Required,empty,Lecture
+481,IGD 101,02,Introduction to Intergroup Dialogue ((Dis)ability Culture),empty,empty,empty,Lecture
+482,JPN 120,01,Elementary Japanese II,"IDS :: Asian Studies, IDS :: Japanese Studies",JPN 110 OR JPN-PL 120,empty,Lecture
+483,JPN 120,02,Elementary Japanese II,"IDS :: Asian Studies, IDS :: Japanese Studies",JPN 110 OR JPN-PL 120,empty,Lecture
+484,JPN 120,03,Elementary Japanese II,"IDS :: Asian Studies, IDS :: Japanese Studies",JPN 110 OR JPN-PL 120,empty,Lecture
+485,JPN 202,01,Intermediate Japanese II,"GER - CORE :: FL (Foreign Language), IDS :: Asian Studies, IDS :: Japanese Studies",JPN 201 OR JPN-PL 202,empty,Lecture
+486,JPN 302,01,Intermediate Japanese IV,"IDS :: Asian Studies, IDS :: Japanese Studies",JPN 301,empty,Lecture
+487,JPN 402,01,Advanced Japanese II,"IDS :: Asian Studies, IDS :: Japanese Studies",JPN 302,empty,Lecture
+488,JPN 403,TU,Advanced Japanese III,"IDS :: Asian Studies, IDS :: Japanese Studies",JPN 402,empty,Lecture
+489,JPN 470,TU,Japanese Studies Thesis,empty,Instructor permission required,empty,Seminar
+490,LAS 470,01,Issues in Latin America,IDS :: Latin American and Latinx Studies,empty,empty,Seminar
+491,LNG 210,01,General Linguistics,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Anthropology, IDS :: Linguistics",empty,empty,Lecture
+492,LNG 250,01,Second Language Learning and Acquisition,IDS :: Linguistics,empty,empty,Lecture
+493,LNG 504,01,Directed Independent Study,IDS :: Linguistics,Instructor permission required,empty,Independent Study
+494,LTN 120,01,Elementary Latin II,empty,LTN 110,empty,Lecture
+495,LTN 325,01,Latin: Intensive Readings (Horace and Propertius),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",LTN 201 OR LTN 202 OR LTN PL UL,empty,Lecture
+496,MES 401,01,Middle Eastern and Islamic Studies Capstone Seminar,IDS :: Middle East and Islamic Studies,1 course that counts for the MES minor,empty,Seminar
+497,MLL 236,01,Nazi Cinema and Culture,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Film Studies",FYW (First Year Writing Seminar),empty,Lecture
+498,MSL 102,01,Foundations of Agile and Adaptive Leadership,empty,empty,empty,Lecture
+499,MSL 102,01L,Foundations of Agile and Adaptive Leadership,empty,empty,empty,Laboratory
+500,MSL 202,01,Foundations of Leaderships II,empty,empty,empty,Lecture
+501,MSL 202,01L,Foundations of Leaderships II,empty,empty,empty,Laboratory
+502,MSL 302,01,Applied Leadership,empty,empty,empty,Lecture
+503,MSL 302,01L,Applied Leadership,empty,empty,empty,Laboratory
+504,MSL 402,01,Adaptive Leadership,empty,empty,empty,Lecture
+505,MSL 402,01L,Adaptive Leadership,empty,empty,empty,Laboratory
+506,MTH 120,01,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+507,MTH 120,02,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+508,MTH 120,03,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+509,MTH 120,04,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+510,MTH 120,05,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+511,MTH 120,06,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+512,MTH 120,07,Introduction to Statistics,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Urban Studies",No MTH 120 Equivalencies,empty,Lecture
+513,MTH 145,01,Calculus for Management  Life and Social Sciences,GER - CORE :: MR (Mathematical and Formal Reasoning),No credit for MTH 150,empty,Lecture
+514,MTH 145,02,Calculus for Management  Life and Social Sciences,GER - CORE :: MR (Mathematical and Formal Reasoning),No credit for MTH 150,empty,Lecture
+515,MTH 145,03,Calculus for Management  Life and Social Sciences,GER - CORE :: MR (Mathematical and Formal Reasoning),No credit for MTH 150,empty,Lecture
+516,MTH 145,04,Calculus for Management  Life and Social Sciences,GER - CORE :: MR (Mathematical and Formal Reasoning),No credit for MTH 150,empty,Lecture
+517,MTH 150,01,Analytic Geometry and Calculus I,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Neuroscience",empty,empty,Lecture
+518,MTH 150,02,Analytic Geometry and Calculus I,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Neuroscience",empty,empty,Lecture
+519,MTH 150,03,Analytic Geometry and Calculus I,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Neuroscience",empty,empty,Lecture
+520,MTH 151,01,Analytic Geometry and Calculus II,empty,MTH 150 Analytic Geometry and Calculus I,empty,Lecture
+521,MTH 151,02,Analytic Geometry and Calculus II,empty,MTH 150 Analytic Geometry and Calculus I,empty,Lecture
+522,MTH 160,01,Vectors and Matrices,empty,MTH 150 Analytic Geometry and Calculus I,empty,Lecture
+523,MTH 245,01,Statistics and Data Analysis in R,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Data Analytics",BIO 222 OR ECN 120 OR HSC 201 OR MTH 120 OR PSY 202 OR SOC 302,empty,Lecture
+524,MTH 245,02,Statistics and Data Analysis in R,"GER - CORE :: MR (Mathematical and Formal Reasoning), IDS :: Data Analytics",BIO 222 OR ECN 120 OR HSC 201 OR MTH 120 OR PSY 202 OR SOC 302,empty,Lecture
+525,MTH 250,01,Vector Calculus,empty,MTH 151 AND MTH 160,empty,Lecture
+526,MTH 255,01,Differential Equations,empty,MTH 151 AND MTH 160,empty,Lecture
+527,MTH 260,01,Transition to Higher Mathematics,GER - Writing :: WR (Writing-Research Intensive),FYW (First Year Writing Seminar) AND MTH 150,empty,Lecture
+528,MTH 301,01,Mathematics for Elementary School Teachers I,empty,empty,empty,Lecture
+529,MTH 330,01,Combinatorics and Graph Theory,empty,MTH 160 and MTH 260,empty,Lecture
+530,MTH 345,01,Statistical Modeling in R,IDS :: Data Analytics,MTH 160 AND MTH 245,empty,Lecture
+531,MTH 465,01,Linear Algebra and Matrix Theory,empty,MTH 151 AND MTH 160 AND MTH 260,empty,Lecture
+532,MTH 504,01,Directed Independent Study,empty,Instructor permission required,empty,Independent Study
+533,MUS 050,01,Recital Attendance,empty,empty,empty,Experiential
+534,MUS 060,01,Symphony Orchestra,empty,empty,empty,Experiential
+535,MUS 061,01,Furman Bands,empty,empty,empty,Experiential
+536,MUS 062,01,Furman Singers,empty,empty,empty,Experiential
+537,MUS 064,01,Women's Chorale (Belle Voci),empty,empty,empty,Experiential
+538,MUS 065,01,Chamber Choir,empty,empty,empty,Experiential
+539,MUS 067,01,Jazz Ensemble,empty,empty,empty,Experiential
+540,MUS 068,01,Jazz Combo,empty,empty,empty,Experiential
+541,MUS 068,02,Jazz Combo,empty,empty,empty,Experiential
+542,MUS 068,03,Jazz Combo,empty,empty,empty,Experiential
+543,MUS 069,01,Brass Ensemble,empty,empty,empty,Experiential
+544,MUS 070,01,Woodwind Ensemble,empty,empty,empty,Experiential
+545,MUS 071,01,Percussion Ensemble,empty,empty,empty,Experiential
+546,MUS 072,01,String Chamber Music,empty,empty,empty,Experiential
+547,MUS 073,01,String Quartet,empty,empty,empty,Experiential
+548,MUS 074,01,Saxophone Quartet,empty,empty,empty,Experiential
+549,MUS 076,01,Guitar Ensemble,empty,empty,empty,Experiential
+550,MUS 101,01,Introduction to Music,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+551,MUS 101,02,Introduction to Music,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+552,MUS 101,03,Introduction to Music,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+553,MUS 102,01,Introduction to Jazz,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), IDS :: Africana Studies",empty,empty,Lecture
+554,MUS 104,01,Voice Class I,empty,empty,empty,Lecture
+555,MUS 106,01,Piano Class I,empty,empty,empty,Lecture
+556,MUS 108,01,Guitar Class I,empty,empty,empty,Lecture
+557,MUS 112A,01,Basic Musicianship II: Written & Analytical,empty,MUS 111A AND MUS 111B AND MUS 111C,empty,Lecture
+558,MUS 112A,02,Basic Musicianship II: Written & Analytical,empty,MUS 111A AND MUS 111B AND MUS 111C,empty,Lecture
+559,MUS 112B,01,Basic Musicianship II: Aural,empty,MUS 111A AND MUS 111B AND MUS 111C,empty,Lecture
+560,MUS 112B,02,Basic Musicianship II: Aural,empty,MUS 111A AND MUS 111B AND MUS 111C,empty,Lecture
+561,MUS 112C,01,Basic Musicianship II: Keyboard,empty,empty,empty,Lecture
+562,MUS 112C,02,Basic Musicianship II: Keyboard,empty,empty,empty,Lecture
+563,MUS 112C,03,Basic Musicianship II: Keyboard,empty,empty,empty,Lecture
+564,MUS 112C,04,Basic Musicianship II: Keyboard,empty,empty,empty,Lecture
+565,MUS 120,01,Introductory Music Literature,empty,MUS 111A AND MUS 111B AND MUS 111C,empty,Lecture
+566,MUS 212A,01,Basic Musicianship IV: Written & Analysis,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+567,MUS 212A,02,Basic Musicianship IV: Written & Analysis,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+568,MUS 212B,01,Basic Musicianship IV: Aural,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+569,MUS 212B,02,Basic Musicianship IV: Aural,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+570,MUS 212C,01,Basic Musicianship IV: Keyboard,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+571,MUS 212C,02,Basic Musicianship IV: Keyboard,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+572,MUS 212C,03,Basic Musicianship IV: Keyboard,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+573,MUS 212C,04,Basic Musicianship IV: Keyboard,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+574,MUS 220,01,World Music,"GER - Global Awareness :: WC (World Cultures), IDS :: Africana Studies",MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+575,MUS 310,01,Form and Analysis,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+576,MUS 312,01,Orchestration,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+577,MUS 321,01,Music History III,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+578,MUS 321,02,Music History III,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+579,MUS 327,01,The Alexander Technique and Body Mapping,"IDS :: Medicine, Health and Culture",empty,empty,Lecture
+580,MUS 330A,01,String Methods,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+581,MUS 331A,01,Woodwind Methods,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+582,MUS 332,01,Brass Methods,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+583,MUS 333,01,Percussion Methods,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+584,MUS 340,01,Church Music Ministry,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+585,MUS 341,TU,Hymnology,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+586,MUS 350,01,Fundamentals of Jazz Improvisation,empty,empty,empty,Lecture
+587,MUS 351,01,Applied Jazz Improvisation,empty,MUS 350,empty,Lecture
+588,MUS 351,02,Applied Jazz Improvisation,empty,MUS 350,empty,Lecture
+589,MUS 351,03,Applied Jazz Improvisation,empty,MUS 350,empty,Lecture
+590,MUS 351A,01,Applied Jazz Improvisation,empty,MUS 350,empty,Lecture
+591,MUS 351D,01,Applied Jazz Improvisation,empty,empty,empty,Lecture
+592,MUS 351E,01,Applied Jazz Improvisation,empty,empty,empty,Lecture
+593,MUS 352,01,Basic Conducting,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+594,MUS 352,02,Basic Conducting,empty,MUS 211A AND MUS 211B AND MUS 211C,empty,Lecture
+595,MUS 356,01,Lyric Diction I,IDS :: Linguistics, MUS 511,empty,Lecture
+596,MUS 412,01,Senior Project,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+597,MUS 420G,01,Literature of Voice,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+598,MUS 420H,01,Literature of the Violin,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+599,MUS 421A,01,History and Literature of Piano,empty,empty,empty,Lecture
+600,MUS 422,01,Music History and Literature Topics (American Music),empty,empty,empty,Lecture
+601,MUS 423,01,Survey of Choral Literature,empty,MUS 212A AND MUS 212B AND MUS 212C,empty,Lecture
+602,MUS 501,01,Independent Study,empty,empty,empty,Independent Study
+603,MUS 501,02,Independent Study,empty,empty,empty,Independent Study
+604,MUS 501,03,Independent Study,empty,empty,empty,Independent Study
+605,MUS 501,04,Independent Study,empty,empty,empty,Independent Study
+606,MUS 501,05,Independent Study,empty,empty,empty,Independent Study
+607,MUS 501,06,Independent Study,empty,empty,empty,Independent Study
+608,MUS 501,07,Independent Study,empty,empty,empty,Independent Study
+609,MUS 501,08,Independent Study,empty,empty,empty,Independent Study
+610,MUS 501,09,Independent Study,empty,empty,empty,Independent Study
+611,MUS 505,01,Chamber Music for Winds & Percussion,empty,empty,empty,Independent Study
+612,MUS 511,01,Voice,IDS :: Musical Theatre,empty,empty,Studio
+613,MUS 511,02,Voice,IDS :: Musical Theatre,empty,empty,Studio
+614,MUS 511,03,Voice,IDS :: Musical Theatre,empty,empty,Studio
+615,MUS 511,04,Voice,IDS :: Musical Theatre,empty,empty,Studio
+616,MUS 511,05,Voice,IDS :: Musical Theatre,empty,empty,Studio
+617,MUS 511,06,Voice,IDS :: Musical Theatre,empty,empty,Studio
+618,MUS 511,07,Voice,IDS :: Musical Theatre,empty,empty,Studio
+619,MUS 511A,01,Voice,IDS :: Musical Theatre,empty,empty,Studio
+620,MUS 511A,02,Voice,IDS :: Musical Theatre,empty,empty,Studio
+621,MUS 511A,03,Voice,IDS :: Musical Theatre,empty,empty,Studio
+622,MUS 511A,04,Voice,IDS :: Musical Theatre,empty,empty,Studio
+623,MUS 511A,05,Voice,IDS :: Musical Theatre,empty,empty,Studio
+624,MUS 511A,06,Voice,IDS :: Musical Theatre,empty,empty,Studio
+625,MUS 511C,01,Voice,IDS :: Musical Theatre,empty,empty,Studio
+626,MUS 511C,02,Voice,IDS :: Musical Theatre,empty,empty,Studio
+627,MUS 511C,03,Voice,IDS :: Musical Theatre,empty,empty,Studio
+628,MUS 511C,04,Voice,IDS :: Musical Theatre,empty,empty,Studio
+629,MUS 511C,05,Voice,IDS :: Musical Theatre,empty,empty,Studio
+630,MUS 511C,06,Voice,IDS :: Musical Theatre,empty,empty,Studio
+631,MUS 511D,01,Voice,IDS :: Musical Theatre,empty,empty,Studio
+632,MUS 511D,02,Voice,IDS :: Musical Theatre,empty,empty,Studio
+633,MUS 511D,03,Voice,IDS :: Musical Theatre,empty,empty,Studio
+634,MUS 511D,04,Voice,IDS :: Musical Theatre,empty,empty,Studio
+635,MUS 511D,05,Voice,IDS :: Musical Theatre,empty,empty,Studio
+636,MUS 511D,06,Voice,IDS :: Musical Theatre,empty,empty,Studio
+637,MUS 511E,01,Voice,IDS :: Musical Theatre,empty,empty,Studio
+638,MUS 511E,02,Voice,IDS :: Musical Theatre,empty,empty,Studio
+639,MUS 511E,03,Voice,IDS :: Musical Theatre,empty,empty,Studio
+640,MUS 511E,04,Voice,IDS :: Musical Theatre,empty,empty,Studio
+641,MUS 511E,05,Voice,IDS :: Musical Theatre,empty,empty,Studio
+642,MUS 511E,06,Voice,IDS :: Musical Theatre,empty,empty,Studio
+643,MUS 512D,01,Opera,empty,empty,empty,Studio
+644,MUS 521,01,Violin,empty,empty,empty,Studio
+645,MUS 521A_,01,Violin,empty,empty,empty,Studio
+646,MUS 521C_,01,Violin,empty,empty,empty,Studio
+647,MUS 521D,01,Violin,empty,empty,empty,Studio
+648,MUS 521D,02,Violin,empty,empty,empty,Studio
+649,MUS 521E,01,Violin,empty,empty,empty,Studio
+650,MUS 522,01,Viola,empty,empty,empty,Studio
+651,MUS 522A_,01,Viola,empty,empty,empty,Studio
+652,MUS 522C,01,Viola,empty,empty,empty,Studio
+653,MUS 522D,01,Viola,empty,empty,empty,Studio
+654,MUS 522E,01,Viola,empty,empty,empty,Studio
+655,MUS 523A,01,Cello,empty,empty,empty,Studio
+656,MUS 523C,01,Cello,empty,empty,empty,Studio
+657,MUS 523D,01,Cello,empty,empty,empty,Studio
+658,MUS 523E,01,Cello,empty,empty,empty,Studio
+659,MUS 523_,01,Cello,empty,empty,empty,Studio
+660,MUS 524,01,Double Bass,empty,empty,empty,Studio
+661,MUS 524A,01,Double Bass,empty,empty,empty,Studio
+662,MUS 524C,01,Double Bass,empty,empty,empty,Studio
+663,MUS 524D,01,Double Bass,empty,empty,empty,Studio
+664,MUS 524E,01,Double Bass,empty,empty,empty,Studio
+665,MUS 525,01,Classical Guitar,empty,empty,empty,Studio
+666,MUS 525A,01,Classical Guitar,empty,empty,empty,Studio
+667,MUS 525C,01,Classical Guitar,empty,empty,empty,Studio
+668,MUS 525D,01,Classical Guitar,empty,empty,empty,Studio
+669,MUS 525E,01,Classical Guitar,empty,empty,empty,Studio
+670,MUS 526,01,Jazz Guitar,empty,empty,empty,Studio
+671,MUS 526A,01,Jazz Guitar,empty,empty,empty,Studio
+672,MUS 526C,01,Jazz Guitar,empty,empty,empty,Studio
+673,MUS 526D,01,Jazz Guitar,empty,empty,empty,Studio
+674,MUS 526E,01,Jazz Guitar,empty,empty,empty,Studio
+675,MUS 527,01,Harp,empty,empty,empty,Studio
+676,MUS 527A,01,Harp,empty,empty,empty,Studio
+677,MUS 527C,01,Harp,empty,empty,empty,Studio
+678,MUS 527D,01,Harp,empty,empty,empty,Studio
+679,MUS 527E,01,Harp,empty,empty,empty,Studio
+680,MUS 528,01,Jazz Bass,empty,empty,empty,Studio
+681,MUS 528A,01,Jazz Bass,empty,empty,empty,Studio
+682,MUS 528C,01,Jazz Bass,empty,empty,empty,Studio
+683,MUS 528D,01,Jazz Bass,empty,empty,empty,Studio
+684,MUS 528E,01,Jazz Bass,empty,empty,empty,Studio
+685,MUS 531,01,Trumpet,empty,empty,empty,Studio
+686,MUS 531A,01,Trumpet,empty,empty,empty,Studio
+687,MUS 531B,01,Trumpet,empty,empty,empty,Studio
+688,MUS 531C,01,Trumpet,empty,empty,empty,Studio
+689,MUS 531D,01,Trumpet,empty,empty,empty,Studio
+690,MUS 531E,01,Trumpet,empty,empty,empty,Studio
+691,MUS 532,01,Horn,empty,empty,empty,Studio
+692,MUS 532A,01,Horn,empty,empty,empty,Studio
+693,MUS 532B,01,Horn,empty,empty,empty,Studio
+694,MUS 532C,01,Horn,empty,empty,empty,Studio
+695,MUS 532D,01,Horn,empty,empty,empty,Studio
+696,MUS 532E,01,Horn,empty,empty,empty,Studio
+697,MUS 533,01,Trombone,empty,empty,empty,Studio
+698,MUS 533A,01,Trombone,empty,empty,empty,Studio
+699,MUS 533B,01,Trombone,empty,empty,empty,Studio
+700,MUS 533D,01,Trombone,empty,empty,empty,Studio
+701,MUS 533E,01,Trombone,empty,empty,empty,Studio
+702,MUS 534,01,Euphonium,empty,empty,empty,Studio
+703,MUS 534A,01,Euphonium,empty,empty,empty,Studio
+704,MUS 534B,01,Euphonium,empty,empty,empty,Studio
+705,MUS 534C,01,Euphonium,empty,empty,empty,Studio
+706,MUS 534D,01,Euphonium,empty,empty,empty,Studio
+707,MUS 534E,01,Euphonium,empty,empty,empty,Studio
+708,MUS 535,01,Tuba,empty,empty,empty,Studio
+709,MUS 535A,01,Tuba,empty,empty,empty,Studio
+710,MUS 535B,01,Tuba,empty,empty,empty,Studio
+711,MUS 535C,01,Tuba,empty,empty,empty,Studio
+712,MUS 535D,01,Tuba,empty,empty,empty,Studio
+713,MUS 535E,01,Tuba,empty,empty,empty,Studio
+714,MUS 541,01,Flute,empty,empty,empty,Studio
+715,MUS 541A,01,Flute,empty,empty,empty,Studio
+716,MUS 541B,01,Flute,empty,empty,empty,Studio
+717,MUS 541C,01,Flute,empty,empty,empty,Studio
+718,MUS 541D,01,Flute,empty,empty,empty,Studio
+719,MUS 541E,01,Flute,empty,empty,empty,Studio
+720,MUS 542,01,Oboe,empty,empty,empty,Studio
+721,MUS 542A,01,Oboe,empty,empty,empty,Studio
+722,MUS 542B,01,Oboe,empty,empty,empty,Studio
+723,MUS 542C,01,Oboe,empty,empty,empty,Studio
+724,MUS 542D,01,Oboe,empty,empty,empty,Studio
+725,MUS 542E,01,Oboe,empty,empty,empty,Studio
+726,MUS 543,01,Clarinet,empty,empty,empty,Studio
+727,MUS 543A,01,Clarinet,empty,empty,empty,Studio
+728,MUS 543B,01,Clarinet,empty,empty,empty,Studio
+729,MUS 543C,01,Clarinet,empty,empty,empty,Studio
+730,MUS 543D,01,Clarinet,empty,empty,empty,Studio
+731,MUS 543E,01,Clarinet,empty,empty,empty,Studio
+732,MUS 544,01,Bassoon,empty,empty,empty,Studio
+733,MUS 544A,01,Bassoon,empty,empty,empty,Studio
+734,MUS 544B,01,Bassoon,empty,empty,empty,Studio
+735,MUS 544C,01,Bassoon,empty,empty,empty,Studio
+736,MUS 544D,01,Bassoon,empty,empty,empty,Studio
+737,MUS 544E,01,Bassoon,empty,empty,empty,Studio
+738,MUS 545,01,Saxophone,empty,empty,empty,Studio
+739,MUS 545A,01,Saxophone,empty,empty,empty,Lecture
+740,MUS 545B,01,Saxophone,empty,empty,empty,Lecture
+741,MUS 545C,01,Saxophone,empty,empty,empty,Lecture
+742,MUS 545D,01,Saxophone,empty,empty,empty,Lecture
+743,MUS 545E,01,Saxophone,empty,empty,empty,Lecture
+744,MUS 546,01,Contra-Bassoon,empty,empty,empty,Studio
+745,MUS 546A,01,Contra-Bassoon,empty,empty,empty,Studio
+746,MUS 546B,01,Contra-Bassoon,empty,empty,empty,Studio
+747,MUS 546C,01,Contra-Bassoon,empty,empty,empty,Studio
+748,MUS 546D,01,Contra-Bassoon,empty,empty,empty,Studio
+749,MUS 546E,01,Contra-Bassoon,empty,empty,empty,Studio
+750,MUS 547,01,Bass Clarinet,empty,empty,empty,Studio
+751,MUS 547A,01,Bass-Clarinet,empty,empty,empty,Studio
+752,MUS 547B,01,Bass-Clarinet,empty,empty,empty,Studio
+753,MUS 547C,01,Bass-Clarinet,empty,empty,empty,Studio
+754,MUS 547D,01,Bass-Clarinet,empty,empty,empty,Studio
+755,MUS 547E,01,Bass-Clarinet,empty,empty,empty,Studio
+756,MUS 548,01,Piccolo,empty,empty,empty,Studio
+757,MUS 548A,01,Piccolo,empty,empty,empty,Studio
+758,MUS 548B,01,Piccolo,empty,empty,empty,Studio
+759,MUS 548C,01,Piccolo,empty,empty,empty,Studio
+760,MUS 548D,01,Piccolo,empty,empty,empty,Studio
+761,MUS 548E,01,Piccolo,empty,empty,empty,Studio
+762,MUS 549,01,English Horn,empty,empty,empty,Studio
+763,MUS 549A,01,English Horn,empty,empty,empty,Studio
+764,MUS 549B,01,English Horn,empty,empty,empty,Studio
+765,MUS 549C,01,English Horn,empty,empty,empty,Studio
+766,MUS 549D,01,English Horn,empty,empty,empty,Studio
+767,MUS 549E,01,English Horn,empty,empty,empty,Studio
+768,MUS 551,01,Percussion,empty,empty,empty,Studio
+769,MUS 551A,01,Percussion,empty,empty,empty,Studio
+770,MUS 551B,01,Percussion,empty,empty,empty,Studio
+771,MUS 551C,01,Percussion,empty,empty,empty,Studio
+772,MUS 551D,01,Percussion,empty,empty,empty,Studio
+773,MUS 551E,01,Percussion,empty,empty,empty,Studio
+774,MUS 552,01,Drum Set,empty,empty,empty,Studio
+775,MUS 552A,01,Drum Set,empty,empty,empty,Studio
+776,MUS 552B,01,Drum Set,empty,empty,empty,Studio
+777,MUS 552C,01,Drum Set,empty,empty,empty,Studio
+778,MUS 552D,01,Drum Set,empty,empty,empty,Studio
+779,MUS 552E,01,Drum Set,empty,empty,empty,Studio
+780,MUS 561,01,Piano,empty,empty,empty,Studio
+781,MUS 561,02,Piano,empty,empty,empty,Studio
+782,MUS 561A,01,Piano,empty,empty,empty,Studio
+783,MUS 561A,02,Piano,empty,empty,empty,Studio
+784,MUS 561C,01,Piano,empty,empty,empty,Studio
+785,MUS 561C,02,Piano,empty,empty,empty,Studio
+786,MUS 561D,01,Piano,empty,empty,empty,Studio
+787,MUS 561D,02,Piano,empty,empty,empty,Studio
+788,MUS 561E,01,Piano,empty,empty,empty,Studio
+789,MUS 561E,02,Piano,empty,empty,empty,Studio
+790,MUS 562,01,Organ,empty,empty,empty,Studio
+791,MUS 562A,01,Organ,empty,empty,empty,Studio
+792,MUS 562C,01,Organ,empty,empty,empty,Studio
+793,MUS 562D,01,Organ,empty,empty,empty,Studio
+794,MUS 562E,01,Organ,empty,empty,empty,Studio
+795,MUS 563,01,Harpsichord,empty,empty,empty,Studio
+796,MUS 563A,01,Harpsichord,empty,empty,empty,Studio
+797,MUS 563C,01,Harpsichord,empty,empty,empty,Studio
+798,MUS 563D,01,Harpsichord,empty,empty,empty,Studio
+799,MUS 563E,01,Harpsichord,empty,empty,empty,Studio
+800,MUS 569,01,Jazz Piano,empty,empty,empty,Studio
+801,MUS 569,02,Jazz Piano,empty,empty,empty,Studio
+802,MUS 569A,01,Jazz Piano,empty,empty,empty,Studio
+803,MUS 569C,01,Jazz Piano,empty,empty,empty,Studio
+804,MUS 569D,01,Jazz Piano,empty,empty,empty,Studio
+805,MUS 569E,01,Jazz Piano,empty,empty,empty,Studio
+806,MUS 569E,02,Jazz Piano,empty,empty,empty,Studio
+807,NSC 401,01,Current Topics in Neuroscience,IDS :: Neuroscience,empty,empty,Seminar
+808,PHL 101,01,Introduction to Philosophy,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+809,PHL 101,02,Introduction to Philosophy,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+810,PHL 101,04,Introduction to Philosophy,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+811,PHL 101,05,Introduction to Philosophy,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+812,PHL 101,06,Introduction to Philosophy,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+813,PHL 101,07,Introduction to Philosophy,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+814,PHL 208,01,Ethics,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Environmental Studies",PHL 101 AND instructor permission,empty,Lecture
+815,PHL 230,01,Indian Philosophy,"GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies",PHL 101 Introduction to Philosophy,empty,Lecture
+816,PHL 240,01,Chinese Philosophy,"GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies, IDS :: Chinese Studies",PHL 101 Introduction to Philosophy,empty,Lecture
+817,PHL 317,01,Twentieth Century Philosophy,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",PHL 101 Introduction to Philosophy,empty,Lecture
+818,PHL 320,01,Critical Philosophy of Race,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Africana Studies",PHL 101 Introduction to Philosophy,empty,Lecture
+819,PHL 321,01,Philosophy of Psychology,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",PHL 101 Introduction to Philosophy,empty,Lecture
+820,PHL 370,01,"Philosophers  Movements and Problems (Ethics, the Media, and Mental Illness)",empty,PHL 101 Introduction to Philosophy,empty,Lecture
+821,PHL 410,01,Knowledge  Truth and Power,empty,PHL 101 Introduction to Philosophy,empty,Lecture
+822,PHL 501,01,Independent Study,empty,PHL 101 Introduction to Philosophy,empty,Independent Study
+823,PHL 501,02,Independent Study,empty,PHL 101 Introduction to Philosophy,empty,Independent Study
+824,PHL 501,03,Independent Study,empty,PHL 101 Introduction to Philosophy,empty,Independent Study
+825,PHL 507,01,Senior Honor Thesis II,empty,Instructor permission required,empty,Independent Study
+826,PHL 507,02,Senior Honor Thesis II,empty,Instructor permission required,empty,Independent Study
+827,PHL 507,03,Senior Honor Thesis II,empty,Instructor permission required,empty,Independent Study
+828,PHL 507,04,Senior Honor Thesis II,empty,Instructor permission required,empty,Independent Study
+829,PHY 111,01,General Physics I,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),empty,empty,Lecture
+830,PHY 111,01L,General Physics I,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),empty,empty,Laboratory
+831,PHY 111,02L,General Physics I,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),empty,empty,Laboratory
+832,PHY 111,03,General Physics I,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),empty,empty,Lecture
+833,PHY 111,03L,General Physics I,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),empty,empty,Laboratory
+834,PHY 111,04L,General Physics I,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),empty,empty,Laboratory
+835,PHY 112,01,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Lecture
+836,PHY 112,01L,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Laboratory
+837,PHY 112,02,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Lecture
+838,PHY 112,02L,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Laboratory
+839,PHY 112,03,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Lecture
+840,PHY 112,03L,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Laboratory
+841,PHY 112,04L,General Physics II,GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types),PHY 111 AND (MTH 145 OR MTH 150),empty,Laboratory
+842,PHY 312,01,Classical Mechanics II,empty,PHY 311 Classical Mechanics I,empty,Lecture
+843,PHY 322,01,Electromagnetic Theory II,empty,PHY 321 Electromagnetic Theory I,empty,Lecture
+844,PHY 331,01,Thermodynamics,empty,PHY 112 General Physics II,empty,Lecture
+845,PHY 441,01,Quantum Mechanics I,empty,PHY 241 Introduction to Modern Physics,empty,Lecture
+846,PHY 451,01,Astrophysics,GER - Writing :: WR (Writing-Research Intensive),MTH 160 and PHY 241,empty,Lecture
+847,POL 101,01,Introduction to American Government,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Journalism, IDS :: Urban Studies",empty,empty,Lecture
+848,POL 101,02,Introduction to American Government,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Journalism, IDS :: Urban Studies",empty,empty,Lecture
+849,POL 101,03,Introduction to American Government,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Journalism, IDS :: Urban Studies",empty,empty,Lecture
+850,POL 102,02,Introduction to World Politics,GER - CORE :: HB (Empirical Study of Human Behavior),empty,empty,Lecture
+851,POL 102,03,Introduction to World Politics,GER - CORE :: HB (Empirical Study of Human Behavior),empty,empty,Lecture
+852,POL 102,04,Introduction to World Politics,GER - CORE :: HB (Empirical Study of Human Behavior),empty,empty,Lecture
+853,POL 103,01,Introduction to Political Thought,"GER - CORE :: UQ (Ultimate Questions), IDS :: Ancient Greek and Roman Studies, IDS :: Medieval & Early Modern Studies",empty,empty,Lecture
+854,POL 103,02,Introduction to Political Thought,"GER - CORE :: UQ (Ultimate Questions), IDS :: Ancient Greek and Roman Studies, IDS :: Medieval & Early Modern Studies",empty,empty,Lecture
+855,POL 103,EL,Introduction to Political Thought,"GER - CORE :: UQ (Ultimate Questions), IDS :: Ancient Greek and Roman Studies, IDS :: Medieval & Early Modern Studies",Instructor Permission Required,empty,Lecture
+856,POL 150,01,Introduction to Political Analysis,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive), IDS :: Africana Studies, IDS :: Urban Studies",FYW (First Year Writing Seminar) AND (POL 101 OR POL 102),empty,Lecture
+857,POL 150,02,Introduction to Political Analysis,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive), IDS :: Africana Studies, IDS :: Urban Studies",FYW (First Year Writing Seminar) AND (POL 101 OR POL 102),empty,Lecture
+858,POL 205,01,Public Policy in the United States,"IDS :: Environmental Studies, IDS :: Medicine, Health and Culture, IDS :: Poverty Studies, IDS :: Urban Studies",POL 101 Introduction to American Government,empty,Lecture
+859,POL 208,01,Urban Politics,"IDS :: Africana Studies, IDS :: Poverty Studies, IDS :: Urban Studies",POL 101 Introduction to American Government,empty,Lecture
+860,POL 214,01,Environmental Law,"GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,empty,Lecture
+861,POL 223,01,Politics of Developing Nations,"GER - Global Awareness :: WC (World Cultures), IDS :: Poverty Studies",POL 102 Introduction to World Politics,empty,Lecture
+862,POL 226,01,Politics of China,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies, IDS :: Chinese Studies, IDS :: Poverty Studies",empty,empty,Lecture
+863,POL 228,01,Politics of Europe,empty,empty,empty,Lecture
+864,POL 231,TS,Democratization in the Mediterranean,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Middle East and Islamic Studies",POL 102 Introduction to World Politics,empty,Lecture
+865,POL 250,01,International Relations,empty,POL 102 Introduction to World Politics,empty,Lecture
+866,POL 252,01,American Foreign Policy,empty,POL 102 Introduction to World Politics,empty,Lecture
+867,POL 253,01,Great Power Conflict,empty,POL 102 Introduction to World Politics,empty,Lecture
+868,POL 283,TS,Islam in European Politics,empty,empty,empty,Lecture
+869,POL 360,01,Black Political Traditions,IDS :: Africana Studies,empty,empty,Lecture
+870,POL 375,01,Issues in Political Thought (The Revolutionary Spirit and the Human Future),"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",PHL 101 OR POL 103,empty,Lecture
+871,POL 406,01,Fieldwork in State and Local Public Affairs,"IDS :: Journalism, IDS :: Urban Studies",POL 101 AND Instructor Permission Required,empty,Internship
+872,POL 504,01,Directed Independent Study,empty,Instructor permission required,empty,Independent Study
+873,POL 504,02,Directed Independent Study,empty,Instructor permission required,empty,Independent Study
+874,POL 504,03,Directed Independent Study,empty,Instructor permission required,empty,Independent Study
+875,PSY 111,01,General Psychology,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Neuroscience",empty,empty,Lecture
+876,PSY 111,02,General Psychology,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Neuroscience",empty,empty,Lecture
+877,PSY 111,03,General Psychology,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Neuroscience",empty,empty,Lecture
+878,PSY 111,04,General Psychology,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Neuroscience",empty,empty,Lecture
+879,PSY 211,01,Childhood and Adolescence,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Neuroscience, IDS :: Science Education",PSY 111 General Psychology,empty,Lecture
+880,PSY 214,01,Health Psychology,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",PSY 111 General Psychology,empty,Lecture
+881,PSY 214,02,Health Psychology,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",PSY 111 General Psychology,empty,Lecture
+882,PSY 217,01,Child Psychopathology,"IDS :: Medicine, Health and Culture",PSY 111 General Psychology,empty,Lecture
+883,PSY 218,01,Adult Psychopathology,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",PSY 111 General Psychology,empty,Lecture
+884,PSY 218,02,Adult Psychopathology,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",PSY 111 General Psychology,empty,Lecture
+885,PSY 219,01,"Stereotyping, Prejudice, & Discrimination",IDS :: Africana Studies,PSY 111 General Psychology,empty,Lecture
+886,PSY 320,01,Introduction to Biopsychology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",PSY 202 OR BIO 222,empty,Lecture
+887,PSY 320,01L,Introduction to Biopsychology,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), IDS :: Neuroscience",PSY 202 OR BIO 222,empty,Laboratory
+888,PSY 324,01,Learning,"IDS :: Linguistics, IDS :: Neuroscience, IDS :: Science Education",PSY 202 OR BIO 222,empty,Lecture
+889,PSY 327,01,Functional Neuroanatomy,IDS :: Neuroscience,(PSY 202 OR BIO 222) AND PSY 320,empty,Lecture
+890,PSY 404,01,Autism,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",(PSY 202 OR BIO 222) AND PSY 211 AND (instructor permission required),empty,Lecture
+891,PSY 404,01L,Autism,"IDS :: Medicine, Health and Culture, IDS :: Neuroscience",(PSY 202 OR BIO 222) AND PSY 211 AND (instructor permission required),empty,Laboratory
+892,PSY 421,01,Intergroup Relations,empty,PSY 202 OR BIO 222,empty,Lecture
+893,PSY 505,01,Structured Internship,empty,Instructor permission required,empty,Independent Study
+894,PSY 505,02,Structured Internship,empty,Instructor permission required,empty,Independent Study
+895,PSY 509,01,Supervised Research,empty,Instructor permission required,empty,Independent Study
+896,PSY 509,02,Supervised Research,empty,Instructor permission required,empty,Independent Study
+897,PSY 509,03,Supervised Research,empty,Instructor permission required,empty,Independent Study
+898,PSY 509,04,Supervised Research,empty,Instructor permission required,empty,Independent Study
+899,PSY 509,11,Supervised Research,empty,Instructor permission required,empty,Independent Study
+900,PSY 510,01,Thesis,empty,Instructor permission required,empty,Independent Study
+901,PSY 510,02,Thesis,empty,Instructor permission required,empty,Independent Study
+902,PSY 510,03,Thesis,empty,Instructor permission required,empty,Independent Study
+903,PSY RSRCH,01,Research Methods and Statistics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",PSY 111 General Psychology,PSY RSRCH-01L - Research Methods and Statistics,Lecture
+904,PSY RSRCH,01L,Research Methods and Statistics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",PSY 111 General Psychology,PSY RSRCH-01 - Research Methods and Statistics,Laboratory
+905,PSY RSRCH,02,Research Methods and Statistics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",PSY 111 General Psychology,PSY RSRCH-02L - Research Methods and Statistics,Lecture
+906,PSY RSRCH,02L,Research Methods and Statistics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",PSY 111 General Psychology,PSY RSRCH-02 - Research Methods and Statistics,Laboratory
+907,PSY RSRCH,03,Research Methods and Statistics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",PSY 111 General Psychology,PSY RSRCH-03L - Research Methods and Statistics,Lecture
+908,PSY RSRCH,03L,Research Methods and Statistics,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Writing :: WR (Writing-Research Intensive)",PSY 111 General Psychology,PSY RSRCH-03 - Research Methods and Statistics,Laboratory
+909,PTH 102,AFP,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+910,PTH 102,AL,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+911,PTH 102,ANR,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+912,PTH 102,AR,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+913,PTH 102,AR2,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+914,PTH 102,AT,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+915,PTH 102,BA,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+916,PTH 102,BF,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+917,PTH 102,BH,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+918,PTH 102,CFW,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+919,PTH 102,EP,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+920,PTH 102,IR,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+921,PTH 102,JB,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+922,PTH 102,JE,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+923,PTH 102,JL,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+924,PTH 102,JM,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+925,PTH 102,JQ,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+926,PTH 102,KF,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+927,PTH 102,KH,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+928,PTH 102,KK,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+929,PTH 102,KK2,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+930,PTH 102,KL,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+931,PTH 102,LB,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+932,PTH 102,LF,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+933,PTH 102,LF2,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+934,PTH 102,LS,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+935,PTH 102,LS2,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+936,PTH 102,LY,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+937,PTH 102,MEA,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+938,PTH 102,MH,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+939,PTH 102,MKL,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+940,PTH 102,MW,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+941,PTH 102,NC,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+942,PTH 102,NK,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+943,PTH 102,NM,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+944,PTH 102,PD,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+945,PTH 102,RL,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+946,PTH 102,RU,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+947,PTH 102,SH,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+948,PTH 102,SM,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+949,PTH 102,SS,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+950,PTH 102,TF,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+951,PTH 102,TK,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+952,PTH 102,WB,Pathways 102,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+953,PTH 103,PG,Pathways 103,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+954,PTH 202,AC,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+955,PTH 202,AT,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+956,PTH 202,BH,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+957,PTH 202,CD,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+958,PTH 202,CH,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+959,PTH 202,CQ,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+960,PTH 202,GL,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+961,PTH 202,JH,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+962,PTH 202,JJ,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+963,PTH 202,KF,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+964,PTH 202,LE,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+965,PTH 202,MR,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+966,PTH 202,PG,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+967,PTH 202,RA,Pathways 202,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+968,PTH 203,MH,Pathways 203,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+969,PTH 203,MH1,Pathways 203,Special Course :: Pathways,Instructor Permission Required,empty,Lecture
+970,PVS 101,01,Introduction to Poverty Studies,IDS :: Poverty Studies,empty,empty,Lecture
+971,REL 111,01,Bible and Ultimate Meaning,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+972,REL 111,02,Bible and Ultimate Meaning,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+973,REL 111,03,Bible and Ultimate Meaning,GER - CORE :: UQ (Ultimate Questions),empty,empty,Lecture
+974,REL 125,01,Religions of the World,GER - Global Awareness :: WC (World Cultures),Instructor Permission Required,empty,Lecture
+975,REL 125,02,Religions of the World,GER - Global Awareness :: WC (World Cultures),empty,empty,Lecture
+976,REL 125,03,Religions of the World,GER - Global Awareness :: WC (World Cultures),Instructor Permission Required,empty,Lecture
+977,REL 210,01,Introduction to the Old Testament,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+978,REL 210,02,Introduction to the Old Testament,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+979,REL 222,01,Introduction to Islam,"GER - CORE :: UQ (Ultimate Questions), GER - Global Awareness :: WC (World Cultures), IDS :: Middle East and Islamic Studies",Instructor Permission Required,empty,Lecture
+980,REL 237,01,Reformation and Modernity,GER - CORE :: HA (Historical Analysis),empty,empty,Lecture
+981,REL 248,01,Religion and the Environment,"GER - CORE :: UQ (Ultimate Questions), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies, IDS :: Science Education",empty,empty,Lecture
+982,REL 251,01,Jerusalem: One City  Three Faiths,"GER - CORE :: HA (Historical Analysis), IDS :: Middle East and Islamic Studies",empty,empty,Lecture
+983,REL 269,01,Art and Religion in Turkey,"IDS :: Ancient Greek and Roman Studies, Special Course :: Study Away",Instructor Permission Required,empty,Lecture
+984,REL 317,01,History of Bible Translation,GER - Writing :: WR (Writing-Research Intensive),FYW (First Year Writing Seminar),empty,Lecture
+985,REL 319,01,Paul's Life and Thought,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Ancient Greek and Roman Studies",empty,empty,Lecture
+986,REL 328,01,Religions in Japan,"GER - CORE :: UQ (Ultimate Questions), GER - Global Awareness :: WC (World Cultures), IDS :: Asian Studies, IDS :: Japanese Studies",empty,empty,Lecture
+987,REL 351,TS,Encountering Texts on Travel Study,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+988,REL 364,TS,Religion and Art in Christianity  Judaism and Islam,"GER - CORE :: VP (Human Cultures - Visual and Performing Arts), GER - Global Awareness :: WC (World Cultures)",empty,empty,Lecture
+989,SCI 201,01,Microbes and Society,empty,(BIO 210 AND CHM 115) AND Permission of the Department Chair,SCI 201-01L - Microbes and Society,Lecture
+990,SCI 201,01L,Microbes and Society,empty,(BIO 210 AND CHM 115) AND Permission of the Department Chair,SCI 201-01 - Microbes and Society,Laboratory
+991,SCI 220,01,Biochemistry: Macromolecules and Metabolism,empty,(BIO 210 OR BIO 211 OR BIO 212 OR BIO 213) AND CHM 120 AND Department Chair Permission Required,empty,Lecture
+992,SCI 220,01L,Biochemistry: Macromolecules and Metabolism,empty,(BIO 210 OR BIO 211 OR BIO 212 OR BIO 213) AND CHM 120 AND Department Chair Permission Required,empty,Laboratory
+993,SOC 101,02,Introduction to Sociology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: IEJ (Identities, Equity, and Justice), IDS :: Urban Studies",empty,empty,Lecture
+994,SOC 101,03,Introduction to Sociology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: IEJ (Identities, Equity, and Justice), IDS :: Urban Studies",empty,empty,Lecture
+995,SOC 101,04,Introduction to Sociology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: IEJ (Identities, Equity, and Justice), IDS :: Urban Studies",empty,empty,Lecture
+996,SOC 101,05,Introduction to Sociology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: IEJ (Identities, Equity, and Justice), IDS :: Urban Studies",empty,empty,Lecture
+997,SOC 101,06,Introduction to Sociology,"GER - CORE :: HB (Empirical Study of Human Behavior), GER - Global Awareness :: IEJ (Identities, Equity, and Justice), IDS :: Urban Studies",empty,empty,Lecture
+998,SOC 201,01,Social Problems,GER - CORE :: HB (Empirical Study of Human Behavior),empty,empty,Lecture
+999,SOC 201,02,Social Problems,GER - CORE :: HB (Empirical Study of Human Behavior),empty,empty,Lecture
+1000,SOC 231,01,Media  Culture and Society,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Journalism",SOC 101 Introduction to Sociology,empty,Lecture
+1001,SOC 241,01,Social Class in America,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Poverty Studies, IDS :: Urban Studies",SOC 101 Introduction to Sociology,empty,Lecture
+1002,SOC 242,01,Sociology of Gender and Sexuality,"GER - CORE :: HB (Empirical Study of Human Behavior), IDS :: Womenâ€™s, Gender, and Sexuality Studies",SOC 101 Introduction to Sociology,empty,Lecture
+1003,SOC 303,01,Quantitative Research Seminar,"IDS :: Africana Studies, IDS :: Data Analytics, IDS :: Urban Studies",SOC 302 Methods of Social Research,empty,Lecture
+1004,SOC 470,01,Qualitative Research Seminar (The Sociology of the South),"GER - Writing :: WR (Writing-Research Intensive), IDS :: Africana Studies, IDS :: Data Analytics",(1 FYW course) AND (SOC 101 AND SOC 302) AND (1 course in Sociology numbered 200 or higher),empty,Seminar
+1005,SOC 475,01,Sociology Seminar (Comparative Social Policy),empty,SOC 101 AND (1 course in Sociology numbered 200 or higher),empty,Seminar
+1006,SPN 120,01,Elementary Spanish II,empty,SPN 110 Elementary Spanish I,empty,Lecture
+1007,SPN 120,02,Elementary Spanish II,empty,SPN 110 Elementary Spanish I,empty,Lecture
+1008,SPN 120,03,Elementary Spanish II,empty,SPN 110 Elementary Spanish I,empty,Lecture
+1009,SPN 120,04,Elementary Spanish II,empty,SPN 110 Elementary Spanish I,empty,Lecture
+1010,SPN 120,05,Elementary Spanish II,empty,SPN 110 Elementary Spanish I,empty,Lecture
+1011,SPN 120,06,Elementary Spanish II,empty,SPN 110 Elementary Spanish I,empty,Lecture
+1012,SPN 201,01,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1013,SPN 201,02,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1014,SPN 201,03,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1015,SPN 201,04,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1016,SPN 201,05,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1017,SPN 201,06,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1018,SPN 201,07,Intermediate Spanish I,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 120 OR SPN 115 OR SPN-PL 201,empty,Lecture
+1019,SPN 215,01,Composition and Conversation,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 201 OR SPN 210 OR SPN PL.210+ OR SPN PL.215 OR SPN PL.220+,empty,Lecture
+1020,SPN 215,02,Composition and Conversation,"GER - CORE :: FL (Foreign Language), IDS :: Latin American and Latinx Studies",SPN 201 OR SPN 210 OR SPN PL.210+ OR SPN PL.215 OR SPN PL.220+,empty,Lecture
+1021,SPN 220,01,Spanish Civilization,GER - CORE :: FL (Foreign Language),SPN 215 OR SPN 305 OR PL.220+,empty,Lecture
+1022,SPN 270,01,Introduction to Literary Analysis,"GER - CORE :: FL (Foreign Language), GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Latin American and Latinx Studies",(SPN 215 OR SPN 305 OR OR SPN PL.210+ OR SPN PL.215 OR PL.220+) AND Instructor Permission Required,empty,Lecture
+1023,SPN 270,02,Introduction to Literary Analysis,"GER - CORE :: FL (Foreign Language), GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Latin American and Latinx Studies",(SPN 215 OR SPN 305 OR OR SPN PL.210+ OR SPN PL.215 OR PL.220+) AND Instructor Permission Required,empty,Lecture
+1024,SPN 302,01,Medical Spanish,"GER - CORE :: FL (Foreign Language), IDS :: Medicine, Health and Culture",SPN 215 OR SPN 220 OR SPN 240 OR SPN 260 OR SPN 270 OR SPN PL.220+,empty,Lecture
+1025,SPN 330,01,Reading and Writing the Hispanic World,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), GER - Writing :: WR (Writing-Research Intensive)",SPN 270 AND 1 FYW,empty,Lecture
+1026,SPN 445,01,Latin American Women's Literature,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts), IDS :: Latin American and Latinx Studies, IDS :: Womenâ€™s, Gender, and Sexuality Studies",SPN 310 OR SPN 330 OR SPN 331 OR SPN 332 OR SPN 340 OR SPN 361,empty,Lecture
+1027,SPN 466,01,United States Latino/a Studies,empty,SPN 310 OR SPN 330 OR SPN 331 OR SPN 332 OR SPN 340 OR SPN 361,empty,Lecture
+1028,SPN 503,01,Individualized Internship,IDS :: Linguistics,Instructor permission required,empty,Independent Study
+1029,SPN 503,02,Individualized Internship,IDS :: Linguistics,Instructor permission required,empty,Independent Study
+1030,SUS 120,01,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-01L - Principles of Sustainability Science,Lecture
+1031,SUS 120,01L,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-01 - Principles of Sustainability Science,Laboratory
+1032,SUS 120,02,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-02L - Principles of Sustainability Science,Lecture
+1033,SUS 120,02L,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-02 - Principles of Sustainability Science,Laboratory
+1034,SUS 120,03,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-03L - Principles of Sustainability Science,Lecture
+1035,SUS 120,03L,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-03 - Principles of Sustainability Science,Laboratory
+1036,SUS 120,04,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-04L - Principles of Sustainability Science,Lecture
+1037,SUS 120,04L,Principles of Sustainability Science,"GER - CORE :: NWL - Natural World with Lab (meets requirement for BS and all other degree types), GER - Global Awareness :: NE (Humans and the Natural Environment), IDS :: Environmental Studies",empty,SUS 120-04 - Principles of Sustainability Science,Laboratory
+1038,SUS 201,EL,Making Change Happen,empty,Instructor permission required,empty,Seminar
+1039,SUS 220,01,Mineral Resources and Sustainable Development,GER - Writing :: WR (Writing-Research Intensive),(any FYW course) AND (EES 111 OR EES 112 OR EES 113 OR EES 115 OR SUS 120),empty,Lecture
+1040,SUS 220,01L,Mineral Resources and Sustainable Development,GER - Writing :: WR (Writing-Research Intensive),(any FYW course) AND (EES 111 OR EES 112 OR EES 113 OR EES 115 OR SUS 120),empty,Laboratory
+1041,SUS 241,01,Social Systems,empty,EES 112 OR SUS 120,empty,Lecture
+1042,SUS 241,01L,Social Systems,empty,EES 112 OR SUS 120,empty,Laboratory
+1043,SUS 320,01,Consumption & Culture,IDS :: Anthropology,ANT 101 OR (EES 112 OR SUS 120),empty,Lecture
+1044,SUS 320,01L,Consumption & Culture,IDS :: Anthropology,ANT 101 OR (EES 112 OR SUS 120),empty,Laboratory
+1045,SUS 345,01,Resilience and Adaptation,empty,EES 112 OR EES 113 OR EES 115 OR SUS 120,empty,Lecture
+1046,SUS 345,01L,Resilience and Adaptation,empty,EES 112 OR EES 113 OR EES 115 OR SUS 120,empty,Laboratory
+1047,SUS 474,01,Senior Capstone,empty,empty,empty,Lecture
+1048,THA 101,01,Introduction to Theatre,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+1049,THA 101,02,Introduction to Theatre,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+1050,THA 111,01,Introduction to Acting,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Lecture
+1051,THA 116,01,Costume Crafts,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),Instructor Permission Required,empty,Lecture
+1052,THA 116,01L,Costume Crafts,GER - CORE :: VP (Human Cultures - Visual and Performing Arts),empty,empty,Laboratory
+1053,THA 230,01,Readings in Dramatic Literature,"GER - CORE :: TA (Critical, Analytical Interpretation of Texts)",empty,empty,Lecture
+1054,THA 310,01,Directing,empty,THA 120 Acting,empty,Lecture
+1055,THA 315,01,Scene Design,empty,THA 101 OR THA 115 OR THA 116 OR THA 120,empty,Lecture
+1056,THA 330,01,Foundations of Musical Theatre (Foundations of Musical Theatre),IDS :: Musical Theatre,THA 111 or THA 120 or MUS 101 or MUS 111C or MUS 115 or MUS 511,empty,Lecture
+1057,THA 430,TU,Senior Synthesis,empty,empty,empty,Seminar
+1058,THA 503,01,Individualized Internship,empty,Instructor permission required,empty,Internship
+1059,UNV EXSG,EXC,Seinan Gakuin University-Japan,empty,empty,empty,Lecture
+1060,UNV TSGR,TS12,Germany-Travel Study,empty,empty,empty,Lecture
+1061,UNV TSLN,TS8,England-Furman in London,empty,empty,empty,Experiential
+1062,UST 501,01,Independent Study,empty,empty,empty,Independent Study
+1063,WGS 230,01,Issues in Women's  Gender and Sexuality Studies,"IDS :: Womenâ€™s, Gender, and Sexuality Studies",empty,empty,Lecture
+1064,WGS 503,01,Supervised Internship,"IDS :: Womenâ€™s, Gender, and Sexuality Studies",Instructor permission required,empty,Independent Study

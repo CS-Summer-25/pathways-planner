@@ -70,7 +70,7 @@ function constructCourses() {
 }
 
 // -----------------------------------------------------------
-function addInputRow(tableId, firstCol) {//, att) {
+function addInputRow(tableId, firstCol) {
     var table = document.getElementById(tableId.concat("-table"));
     console.log(table)
 
