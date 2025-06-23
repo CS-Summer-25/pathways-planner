@@ -1,34 +1,116 @@
-body{
-    background-color:lightgray;
+
+#header{
+    background-color: black;
+    color: white;
+    padding: 1%;
+    position: fixed;    
+    width: 100%;
+    height: 7%;
+    border: rgb(35, 35, 35) solid 1px;
 }
+
+#logo {
+    float: left;
+    width: 15%;
+    filter:invert(0.25);
+    margin-right: 20px;
+}
+
+#heading{
+    padding-top: 0.5%;
+    margin: 0px;
+    color: lightgray;
+    /* float: right; */
+    /* margin-bottom: 5%; */
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:black;
+    margin: 0px;
+    font-size: small;
+}
+
+#controlPanel{
+    padding-left: 1px;
+    float: left;
+    padding-top: 10%;
+    background-color: black;
+    border: rgb(35, 35, 35) solid 1px;
+    color: silver;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 20%;
+    height: 100%;
+    
+}
+
+select{
+    margin-top: 1%;
+    width: 90%;
+    margin-left: 1%;
+    position: relative;
+}
+
+
+#mainBody{
+
+    padding-top: 8%;
+    background-color: black;
+    width: 79%;
+    float: right;
+    /* position: fixed; */
+    /* Temp fix for table appearing behind footer*/ 
+    z-index: 1;
+
+}
+
+#tableHeader{
+    background-color: black;
+    font-weight: bold;
+    color: silver;
+    margin: 0px;
+}
+
+input{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+input:disabled{
+    background-color:rgba(255, 255, 255, 0.25);
+    width: 100%;
+}
+
+
+table{
+    /* border: 1px solid rgb(246, 255, 0); */
+    
+    /* padding-top: 10%; */
+}
+
 td{
      border: 1px solid black; 
-
+     font-size: small;
 }
 
 tr{
     border-bottom: 1px solid black;
 }
 
-table{
-    border: 1px solid rgb(246, 255, 0);
-}
-
-#tableHeader{
-    background-color: lightblue;
-    font-weight: bold;
-}
-
 #headerRow{
-    background-color: yellow;
+    background-color: silver;
     font-weight: bold;
+    font-size: small;
 }
 
 .firstCol{
-    background-color: rgb(255, 0, 0);
+    background-color: rgb(199, 2, 2);
     color: white;
     /*font-size-adjust: 0.8em;   */
-    width:120px;
+    width:10%;
+    /* text-align: center; */
     overflow:auto;
 }
 
@@ -37,63 +119,7 @@ table{
     
 }
 
-#heading{
-    padding: 0px;
-    margin: 0px;
-    font-size: 30px;
-    font-weight: bold;
-}
 
-#header{
-    background-color: purple;
-    color: white;
-    padding: 10px;
-}
-
-#controlPanel{
-    background-color: rgb(0, 255, 0);
-    width: 20%;
-    height: auto;
-    float: left;
-    padding-bottom: 20px;
-    /*position: fixed;*/
-    
-}
-
-#mainBody{
-
-    background-color: lightblue;
-    width: 80%;
-    float: right;
-    /* position: fixed; */
-    /* Temp fix for table appearing behind footer*/ 
-    z-index: 1;
-
-}
-
-input{
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.75);
-}
-input:disabled{
-    background-color:rgba(255, 255, 255, 0.25)
-}
-
-select{
-    margin-top: 20px;
-}
-
-/* Not utilized - no videos on site (other than example)
-iframe{
-    width: 40%;
-}
-*/
-
-#logo {
-    width: 200px;
-    filter:invert(0.25);
-    margin-right: 20px;
-}
 
 #footer{
 

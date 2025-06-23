@@ -14,7 +14,7 @@
     <body onload="initialize()">
         <div id="header">
             <img src="logo.png" alt="Pathways Planner Logo" id="logo">
-            <span id="heading">Pathways Planner</span>
+            <h1 id="heading">Pathways Planner</span>
         </div>
         <div id="controlPanel">
             <label for="courseSelect">Select Major:</label>
@@ -54,6 +54,9 @@
 
             <button id="removeGER" onclick="removeTable('GERS')">Remove GERs table (TEST)</button>
 
+            <hr/>
+            <input type="text" id="courseInput" placeholder="Search for course" oninput="filterCourses('courseInput')">
+            
 
             <!-- <a href="https://furman.edu">Give up? Go to Furman website</a>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/Q57_iaGrxLg?si=Doe0GEgVDqG2lX5e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
@@ -61,9 +64,9 @@
         <div id="mainBody">
             <!-- This is where the schedule tables get created -->
         </div>
-        <div id="footer">
+        <!-- <div id="footer">
             <p>Pathways Planner © 2023</p>
-        </div>
+        </div> -->
 
     </body>
 </html>
