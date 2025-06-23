@@ -8,10 +8,6 @@ let MINORS = [];
 async function assignCourses(type) {
     // must wait to ensure that data is properly loaded into global var MAJORS
     const data = await d3.csv("csv-files/programs.csv")
-<<<<<<< HEAD
-
-=======
->>>>>>> fc7400a18e6e5ee84a879b26e6ae9e825283275a
     for (i = 0; i < data.length; i++) {
         if (!data[i]["Program"].startsWith("#")) {
             var type = data[i]["Type"];
@@ -149,6 +145,7 @@ function addInputRow(tableId, firstCol) {
                         }
                     }                        
                     else{
+
                         var currentSemester = document.getElementById("semesterLabel");
                         currentSemester = parseInt(currentSemester.innerHTML);
                         console.log(currentSemester, j);
