@@ -17,14 +17,14 @@
             <span id="heading">Pathways Planner</span>
         </div>
         <div id="controlPanel">
-            <label for="courseSelect">Select Major:</label>
-            <select id="courseSelect" onchange="filterCourses(id)">
+            <label for="mainMajorSelect">Select Major:</label>
+            <select id="mainMajorSelect" onchange="filterCourses(id)">
             </select>
 
             <br/>
             <!-- For Double Major Selection -->
-            <label for="courseSelect2">Select 2nd Major:</label>
-            <select id="courseSelect2" onchange="filterCourses(id)">       
+            <label for="doubleMajorSelect">Select 2nd Major:</label>
+            <select id="doubleMajorSelect" onchange="filterCourses(id)">       
             </select> 
 
             <br/>
@@ -37,8 +37,9 @@
             <br/>
             <label for="semesterSlider">Select Current Semester:</label>
             <span id="semesterLabel"> 1</span>
-            <center><input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()"></center>
-            
+            <center><input type="range" id="semesterSlider" min="1" max="8" value="1" onchange="updateSemesterLabel()"></center>
+            <!-- Changed "oninput" to "onchange" so that info doesn't operate until user makes choice -->
+
             <hr/>
             <!-- text field -->
             <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>
@@ -52,7 +53,7 @@
 
             <br/><br/>
 
-            <button id="removeGER" onclick="removeTable('GERS')">Remove GERs table (TEST)</button>
+            <!-- <button id="removeGER" onclick="removeTable('GERS')">Remove GERs table (TEST)</button> -->
 
 
             <!-- <a href="https://furman.edu">Give up? Go to Furman website</a>
