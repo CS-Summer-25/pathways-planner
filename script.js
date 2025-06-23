@@ -8,7 +8,10 @@ let MINORS = [];
 async function assignCourses(type) {
     // must wait to ensure that data is properly loaded into global var MAJORS
     const data = await d3.csv("csv-files/programs.csv")
+<<<<<<< HEAD
 
+=======
+>>>>>>> fc7400a18e6e5ee84a879b26e6ae9e825283275a
     for (i = 0; i < data.length; i++) {
         if (!data[i]["Program"].startsWith("#")) {
             var type = data[i]["Type"];
@@ -140,7 +143,7 @@ function addInputRow(tableId, firstCol) {
                     
                     // if val is empty, reset background to red and enable all input slots in row
                     if(this.value == "") {
-                        firstCell.setAttribute("style", "background-color: #ff0000;");
+                        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
                         for (let k = 0; k < relevantRowInputs.length; k++) {
                             relevantRowInputs[k].disabled = false;
                         }
@@ -161,10 +164,10 @@ function addInputRow(tableId, firstCol) {
                                     firstCell.setAttribute("style", "background-color: green;");
                                 }
                                 else if (total < 32 && total > 0) {
-                                    firstCell.setAttribute("style", "background-color: khaki;");
+                                    firstCell.setAttribute("style", "background-color: #FFC000;");
                                 }
                                 else {
-                                    firstCell.setAttribute("style", "background-color: #ff0000;");
+                                    firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
                                 }
                             }
                         }
@@ -183,7 +186,7 @@ function addInputRow(tableId, firstCol) {
                                 firstCell.setAttribute("style", "background-color: green;");
                             }
                             else {
-                                firstCell.setAttribute("style", "background-color: khaki;");
+                                firstCell.setAttribute("style", "background-color: #FFC000;");
                             }
                         }
                         
@@ -193,7 +196,7 @@ function addInputRow(tableId, firstCol) {
                         }
                         // If semester is current, set to ongoing
                         else if (currentSemester == j) { 
-                            firstCell.setAttribute("style", "background-color: khaki;");
+                            firstCell.setAttribute("style", "background-color: #FFC000;");
                         }
                         // Else, set to planned
                         else {
@@ -261,7 +264,7 @@ function createTable(tableName, tableId, data) {
     headerRow.setAttribute("tableClass", tableId.concat("-rows"));
     for (let i = 0; i < 9; i++){
         if (i === 0) {
-            headerRow.insertCell(i).innerHTML = `<th>Requirements</th>`;
+            headerRow.insertCell(i).innerHTML = `<th>Reqs</th>`;
         }
         else {
             headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
