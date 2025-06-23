@@ -1,0 +1,12 @@
+"Type","Program","Name","Reqs"
+# "major","CLS1","Classics, Historical Language and Literature Track, B.A.","",
+"major","CLS2","Classics, Information, Tradition, and Text Track, B.A.","201+ GRK | LTN, cls ele, cls ele, cls ele, cls ele, cls ele, cls ele, cls ele, cls-401",
+"major","CSBS","Computer Science, B.S.","csc-105, csc-121, csc-122, csc-223, csc-231, csc-261, csc-461, mth-150, 300+ from A or B, 300+ from A, 300+ from A, LLE, CAP, CE1, CE2, PP1, PP2, NEE1, NEE2",
+"major","CSBA","Computer Science, B.A.","csc-105, csc-121, csc-122, csc-223, csc-231, csc-261, csc-461, mth-120 or 150, 300+ from A or B, 300+ from B, 300+ from B, LLE, CAP, CE1, CE2, PP1, PP2, NEE1, NEE2",
+"major","ITBS","Information Technology, B.S.","csc-105, csc-121, csc-122, CAP, 300+ csc, 200+ csc, 300+ cog, 200+ cog, 200+ cog, CE1, CE2, PP1, PP2, NEE1, NEE2",
+"major","PHL","Philosophy, B.A.","phl-101, HoP, NWP, VT, LME, 300+ phl, 300+ phl, 300+ phl, 200+ phl"
+"minor","DANm","Data Analytics Minor","csc-121, csc-272, mth-245, FE project, ele, non-mth/csc ele",
+"minor","DETHm","Digital Ethics Minor","csc-121, csc-271, phl-208, CAP, ele, non csc/phl ele"
+# "major","CHMST","Chemisty, Standard Track B.S.","Foundational GenChem: (chm110 & chm-115) | (chm-111 & chm-115) | (chm-118), chm-075, chm-120, chm-220, chm-230, chm-240, chm-310, chm-340, chm-502, chm-510, chm-511, mth-150, mth-151, mth-120 | mth-160, phy-111, phy-112,"
+# plan to add more majors and reqs
+# should we add a column for conflicts? can't double major in CS, B.S. and CS, B.A. logically.

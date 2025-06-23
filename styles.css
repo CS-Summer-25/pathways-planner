@@ -1,5 +1,5 @@
 body{
-    background-color:lightgray
+    background-color:lightgray;
 }
 td{
      border: 1px solid black; 
@@ -12,6 +12,11 @@ tr{
 
 table{
     border: 1px solid rgb(246, 255, 0);
+}
+
+#tableHeader{
+    background-color: lightblue;
+    font-weight: bold;
 }
 
 #headerRow{
@@ -78,7 +83,7 @@ select{
     margin-top: 20px;
 }
 
-/* Not utilized - no vidoes on site (other than example)
+/* Not utilized - no videos on site (other than example)
 iframe{
     width: 40%;
 }
