@@ -8,9 +8,11 @@
 
         <!-- import d3.js -->
         <script src="https://d3js.org/d3.v7.min.js"></script>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <script src="script.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.9/dist/autoComplete.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tarekraafat/autocomplete.js@10.2.9/dist/css/autoComplete.min.css">
+        
     </head>
     <body onload="initialize()">
         <div id="header">
@@ -18,10 +20,6 @@
             <h1 id="heading">Pathways Planner</span>
         </div>
         <div id="controlPanel">
-            <div class="autoComplete_wrapper">
-                <input id="autoComplete" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-                <input id="autoComplete2" type="search" dir="ltr" spellcheck=false autocorrect="off" autocomplete="off" autocapitalize="off">
-            </div>
             <label for="courseSelect">Select Major:</label>
             <select id="courseSelect" onchange="filterCourses(id)">
             </select>
