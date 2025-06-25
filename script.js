@@ -34,7 +34,34 @@ async function initialize() {
     console.log("MAJORS/MINORS Initialized: ");
     console.log(MAJORS, MINORS);
     constructCourses();
-    console.log("Initialization complete!");
+    setAutocomplete();
+    console.log("Initialization complete!")
+}
+
+function setAutocomplete() {
+    $( function() {
+
+        gers = {
+            'wc': ['Persian Empire', 'Greek Civilization'],
+            'mr': ['CSC-105', 'MTH-120']
+        }
+
+        // d3.csv
+
+        // Loop over gers dictionary to set up autocomplete for all GER fields
+        for (let gerKey in gers) {
+            if (gers.hasOwnProperty(gerKey)) {
+                const gerElements = document.getElementsByClassName(gerKey);
+                for (let i = 0; i < gerElements.length; i++) {
+                    const gerElement = gerElements[i];
+                    $(gerElement).autocomplete({
+                        source: gers[gerKey]
+                    });
+                }
+            }
+        }
+      } 
+    );
 }
 
 
@@ -77,6 +104,7 @@ function addInputRow(tableId, firstCol) {
     // Populate table with GER column vals, input fields
     for (let i = 0; i < firstCol.length; i++){
         var newRow = table.insertRow(-1);
+        var rowLabel = firstCol[i];
         for (let j = 0; j < 9; j++){
             if(j === 0){
                 cell = newRow.insertCell(j);
@@ -89,10 +117,12 @@ function addInputRow(tableId, firstCol) {
                 var cell = newRow.insertCell(j);
                 var newInput = document.createElement("input");
 
+                newInput.setAttribute("id", i+"-"+j);
                 newInput.setAttribute("class", "courseTitle");
+                newInput.classList.add(rowLabel.toLowerCase());
 
                 newInput.setAttribute("tableClass", tableId.concat("-rows"));
-                
+                newInput.setAttribute("value", "-");
                 // if row is CLPs, set to number inputs, string otherwise
                 if (firstCol[i] == "CLPs") {
                     newInput.setAttribute("type", "number");
