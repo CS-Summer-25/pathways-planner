@@ -17,10 +17,10 @@ async function assignCourses(type) {
             var vals = data[i]["Reqs"].split(',');
             // console.log(vals)
             if (type == "major") {
-                MAJORS.push([program, name, vals])
+                MAJORS.push([program, name, vals]);
             }
             else if (type == "minor") {
-                MINORS.push([program, name, vals])
+                MINORS.push([program, name, vals]);
             }
         }
     }
@@ -67,7 +67,7 @@ function setAutocomplete() {
 
 // We should assign majors list based on what majors.csv has in the list
 function constructCourses() {
-    var progId = ["courseSelect", "courseSelect2", "minorSelect"];
+    var progId = ["mainMajorSelect", "doubleMajorSelect", "minorSelect"];
 
     for (i = 0; i < progId.length; i++) {
         console.log(`constructCourses running. ID: ${progId[i]}`);
@@ -91,7 +91,7 @@ function constructCourses() {
             var courseOption = document.createElement("option");
             courseOption.setAttribute("value", courses[courseidx][0]);
             courseOption.setAttribute("label", courses[courseidx][1]);
-            selectLoc.appendChild(courseOption)
+            selectLoc.appendChild(courseOption);
         }
     }
 }
@@ -99,7 +99,7 @@ function constructCourses() {
 // -----------------------------------------------------------
 function addInputRow(tableId, firstCol) {
     var table = document.getElementById(tableId.concat("-table"));
-    console.log(table)
+    console.log(table);
 
     // Populate table with GER column vals, input fields
     for (let i = 0; i < firstCol.length; i++){
@@ -107,7 +107,7 @@ function addInputRow(tableId, firstCol) {
         var rowLabel = firstCol[i];
         for (let j = 0; j < 9; j++){
             if(j === 0){
-                cell = newRow.insertCell(j)
+                cell = newRow.insertCell(j);
                 cell.setAttribute("class", "firstCol");
                 
                 cell.innerHTML = `<td>${firstCol[i]}</td>`;
@@ -153,28 +153,28 @@ function addInputRow(tableId, firstCol) {
                 // Can Event Listener go outside of function?
                 newInput.addEventListener("input", function() {
 
-                    // Get value of the input
+                    // Get value of the input - not utilized yet
                     var inputValue = this.value;
 
 
                     // Handle input change if necessary
                     console.log(`Input changed for ${firstCol[i]} in Semester ${j}`);
                     // Get rows 
-                    var idx = i
                     var rows = table.rows;
-                    var relevantRow = rows[idx+1]
+                    var relevantRow = rows[i+1];
 
                     var firstCell = relevantRow.cells[0];
                     var relevantRowInputs = relevantRow.getElementsByTagName("input");
                     
                     // if val is empty, reset background to red and enable all input slots in row
-                    if(this.value == "") {
+                    if(inputValue == "") {
                         firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
                         for (let k = 0; k < relevantRowInputs.length; k++) {
                             relevantRowInputs[k].disabled = false;
                         }
                     }                        
                     else{
+
                         var currentSemester = document.getElementById("semesterLabel");
                         currentSemester = parseInt(currentSemester.innerHTML);
                         console.log(currentSemester, j);
@@ -203,11 +203,12 @@ function addInputRow(tableId, firstCol) {
                             // thus relying on current semester to determine if ongoing or done.
                             // Do we want validation (i.e. specific course names) for pathways in the planner?
                         else if (firstCol[i] == "Pathways") {
-                            if (currentSemester > 4 &&
-                            relevantRowInputs[0].value.toLowerCase().replace("-", "") == "pth101" &&
-                            relevantRowInputs[1].value.toLowerCase().replace("-", "") == "pth102" &&
-                            relevantRowInputs[2].value.toLowerCase().replace("-", "") == "pth201" &&
-                            relevantRowInputs[3].value.toLowerCase().replace("-", "") == "pth210") {
+                            if (currentSemester > 4) // &&
+                            // relevantRowInputs[0].value.toLowerCase().replace("-", "") == "pth101" &&
+                            // relevantRowInputs[1].value.toLowerCase().replace("-", "") == "pth102" &&
+                            // relevantRowInputs[2].value.toLowerCase().replace("-", "") == "pth201" &&
+                            // relevantRowInputs[3].value.toLowerCase().replace("-", "") == "pth210") 
+                            {
                                 firstCell.setAttribute("style", "background-color: green;");
                             }
                             else {
@@ -253,16 +254,18 @@ function removeTable(tableId) {
     var oldTable = document.getElementById(tableId.concat("-table"));
     // Ensures that the <h1> tag also gets removed
     var oldRows = document.querySelectorAll(`[tableClass=${tableId}-rows]`);
-    console.log(`table ${oldTable}`);
-    console.log(`rows ${oldRows}`);
+    // console.log(`table ${oldTable}`);
+    // console.log(`rows ${oldRows}`);
     if (oldTable) {
+
         oldTable.remove()
         oldRows.forEach(function(row) {
             row.parentNode.removeChild(row);
         });
     }
-    console.log(`Previous rows of type: ${tableId} removed.`)
+    console.log(`Previous rows of type: ${tableId} removed.`);
 }
+
 
 // Remember to add HB and NW validation
 function createTable(tableName, tableId, data) {
@@ -272,13 +275,14 @@ function createTable(tableName, tableId, data) {
     var name = document.createElement("h2");
     
     name.innerHTML = `${tableName}`;
-    name.setAttribute("id", "tableHeader")
-    name.setAttribute("tableClass", tableId.concat("-rows"))
-    loc.appendChild(name);
+    name.setAttribute("id", "tableHeader");
+    name.setAttribute("tableClass", tableId.concat("-rows"));
 
     var table = document.createElement("table");
     // DON't CHANGE - NEED THIS TO ACCESS TABLE IN JS
     table.setAttribute("id", tableId.concat("-table"));
+
+    loc.appendChild(name);
     loc.appendChild(table);
 
     // Create header row
@@ -293,29 +297,29 @@ function createTable(tableName, tableId, data) {
             headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
         }
     }
-    addInputRow(tableId, data)
+    addInputRow(tableId, data);
 }
 
 function filterCourses(selectId) {
     var courses;
     var tableId = "";
     console.log(`SelectID = ${selectId}`);
-    // var coursesAtt = """
-    if (selectId == "courseSelect") {
+    
+    if (selectId == "mainMajorSelect") {
+        tableId += "mainMajor";
         courses = MAJORS;   
-        tableId = "mainMajor"
     }
-    else if (selectId == "courseSelect2") {
-        tableId = "doubleMajor";
+    else if (selectId == "doubleMajorSelect") {
+        tableId += "doubleMajor";
         courses = MAJORS;   
     }
     else {
         tableId += "minor";
         courses = MINORS;
-        // coursesAtt = "minors".concat(id)
+        
     }
-    // coursesAtt = id.concat("-rows")
-    console.log(`filterCourses(${selectId}) running.`);// ${coursesAtt}: `);
+
+    console.log(`filterCourses(${selectId}) running.`);
     console.log(courses);
     
     var filter = document.getElementById(selectId).value;
@@ -324,14 +328,12 @@ function filterCourses(selectId) {
     if (filter != "None") {
         // find selected program, csv file compliant
         console.log(`Selected: ${filter}`);
-        var i = 0;
-        while (i < courses.length && filter != courses[i][0]) {
-            i++;
-            // console.log(courses[i][0]);
+        var programidx = 0;
+        while (programidx < courses.length && filter != courses[programidx][0]) {
+            programidx++;
         }
-        // tableId += courses[i][0];
-        var tableName = courses[i][1];
-        var reqs = courses[i][2];
+        var tableName = courses[programidx][1];
+        var reqs = courses[programidx][2];
         console.log(tableId, tableName, reqs);
         createTable(tableName, tableId, reqs)
     }
@@ -346,6 +348,7 @@ function updateSemesterLabel() {
     var semesterLabel = document.getElementById("semesterLabel");
     var slider = document.getElementById("semesterSlider");
     semesterLabel.innerHTML = `${slider.value}`;
+    console.log(`Semester Val is ${slider.value}`);
 }
 
 // Make sure that savePlan and loadPlan save the programs as well
