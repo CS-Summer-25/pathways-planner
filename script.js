@@ -35,6 +35,44 @@ async function initialize() {
     console.log(MAJORS, MINORS);
     constructCourses();
     console.log("Initialization complete!")
+    const autoCompleteJS = new autoComplete({
+        selector: "#autoComplete",
+        placeHolder: "Search for Food...",
+        data: {
+            src: ["Fahad Sultan", "Wild Boar - Tenderloin", "Goat - Whole Cut"],
+            cache: true,
+        },
+        resultItem: {
+            highlight: true
+        },
+        events: {
+            input: {
+                selection: (event) => {
+                    const selection = event.detail.selection.value;
+                    autoCompleteJS.input.value = selection;
+                }
+            }
+        }
+    });
+    const autoCompleteJS2 = new autoComplete({
+        selector: "#autoComplete2",
+        placeHolder: "Search for Food...",
+        data: {
+            src: ["Will Zoeller", "Wild Boar - Tenderloin", "Goat - Whole Cut"],
+            cache: true,
+        },
+        resultItem: {
+            highlight: true
+        },
+        events: {
+            input: {
+                selection: (event) => {
+                    const selection = event.detail.selection.value;
+                    autoCompleteJS.input.value = selection;
+                }
+            }
+        }
+    });
 }
 
 
