@@ -130,7 +130,6 @@ function addInputRow(tableId, firstCol) {
                     // Handle input change if necessary
                     console.log(`Input changed for ${firstCol[i]} in Semester ${j}`);
                     // Get rows 
-                    // var idx = i;
                     var rows = table.rows;
                     var relevantRow = rows[i+1];
 
@@ -138,7 +137,7 @@ function addInputRow(tableId, firstCol) {
                     var relevantRowInputs = relevantRow.getElementsByTagName("input");
                     
                     // if val is empty, reset background to red and enable all input slots in row
-                    if(this.value == "") {
+                    if(inputValue == "") {
                         firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
                         for (let k = 0; k < relevantRowInputs.length; k++) {
                             relevantRowInputs[k].disabled = false;
@@ -236,6 +235,7 @@ function removeTable(tableId) {
     }
     console.log(`Previous rows of type: ${tableId} removed.`);
 }
+
 
 // Remember to add HB and NW validation
 function createTable(tableName, tableId, data) {
