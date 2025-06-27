@@ -7,9 +7,9 @@ let MINORS = [];
 
 GER_COURSES = null;
 
-async function assignCourses(type) {
+async function assignCourses() {
     // must wait to ensure that data is properly loaded into global var MAJORS
-    const data = await d3.csv(`csv-files/${type}`)
+    const data = await d3.csv(`csv-files/programs.csv`)
     for (i = 0; i < data.length; i++) {
         if (!data[i]["Program"].startsWith("#")) {
             var type = data[i]["Type"];

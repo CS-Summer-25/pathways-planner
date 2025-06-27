@@ -84,6 +84,7 @@ input:disabled{
     width: 100%;
 }
 
+/* for the autocompletes */
 .ui-autocomplete {
     background-color: rgba(255, 255, 255, 0.75);
     max-height: 15%;
