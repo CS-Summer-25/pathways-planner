@@ -7,9 +7,10 @@ let MINORS = [];
 
 GER_COURSES = null;
 
-async function assignCourses() {
+async function assignCourses(url) {
     // must wait to ensure that data is properly loaded into global var MAJORS
-    const data = await d3.csv(`csv-files/programs.csv`)
+    const data = await d3.csv(url)
+
     for (i = 0; i < data.length; i++) {
         if (!data[i]["Program"].startsWith("#")) {
             var type = data[i]["Type"];
@@ -31,7 +32,7 @@ async function assignCourses() {
 
 async function initialize() {
     // Recall, waiting so that MAJORS assigned properly
-    await assignCourses("programs.csv");
+    await assignCourses("csv-files/programs.csv");
     console.log("Starting Table Population");
     createTable("GERS", "GERS", GERS);    
     console.log("MAJORS/MINORS Initialized: ");
