@@ -168,120 +168,131 @@ function addInputRow(tableId, firstCol) {
 
                 // Add event listener to handle input changes
                 // Can Event Listener go outside of function?
-                newInput.addEventListener("change", function() {
-
-                    // Get value of the input - not utilized yet
-                    var inputValue = this.value;
-
-
-                    // Handle input change if necessary
-                    console.log(`Input changed for ${firstCol[i]} in Semester ${j}`);
-                    // Get rows 
-                    var rows = table.rows;
-                    var relevantRow = rows[i+1];
-
-                    var firstCell = relevantRow.cells[0];
-                    var relevantRowInputs = relevantRow.getElementsByTagName("input");
-                    var rowLabel = firstCol[i].toLowerCase();
-                    if (firstCol[i] != "CLPs") {
-                        var isValidGER = GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
-                    }
-                    // console.log(inputValue);
-                    // console.log(GER_COURSES[rowLabel]);
-                    // console.log(isValidGER);
-
-                    // if val is empty, reset background to red and enable all input slots in row
-                    if(inputValue == "") {
-                        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
-                        relevantRow.cells[j].setAttribute("style", "background-color:255, 255, 255, 0.75")
-                        for (let k = 0; k < relevantRowInputs.length; k++) {
-                            relevantRowInputs[k].disabled = false;
-                            relevantRowInputs[k].setAttribute("style", "background-color: 255, 255, 255, 0.75;");
-                            // relevantRow.cells[j].setAttribute("style", "background-color:yellow"); //TODO: Fix shade of gray here 
-                        }
-                    }                        
-                    else{
-                        
-                        var currentSemester = document.getElementById("semesterLabel");
-                        currentSemester = parseInt(currentSemester.innerHTML);
-                        console.log(currentSemester, j);
-                        // console.log(relevantRow.cells[j])
-                        console.log(relevantRowInputs)
-                        if (isValidGER == false) {// && firstCol[i] != "CLPs"){
-                            relevantRow.cells[j].setAttribute("style", "background-color: crimson;");
-                            firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
-                            
-                        }
-                        else {
-                            relevantRow.cells[j].setAttribute("style", "background-color:255, 255, 255, 0.75;");
-                            // CLP Check, check sum of all semester, if input is CLPs, check if sum of all inputs >= 32, if so, set to green (done), otherwise, set to yellow (ongoing). 
-                            // Follows different logic than other GERS - all inputs are enabled
-                            if (firstCol[i] == "CLPs") {
-                                var total = 0;
-                                
-                                for (let k = 0; k < relevantRowInputs.length; k++) {
-                                    if (relevantRowInputs[k].value != "") {
-                                        total += parseInt(relevantRowInputs[k].value);
-                                    }
-                                    if (total >= 32) {
-                                        firstCell.setAttribute("style", "background-color: green;");
-                                    }
-                                    else if (total < 32 && total > 0) {
-                                        firstCell.setAttribute("style", "background-color: #FFC000;");
-                                    }
-                                    else {
-                                        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
-                                    }
-                                }
-                            }
-
-                            // Pathways check, If all 4 semesters are filled, set to green, otherwise, set to yellow
-                                // In all honesty, probably should just disable all inputs except for first 4 on startup, as well as populate info
-                                // thus relying on current semester to determine if ongoing or done.
-                                // Do we want validation (i.e. specific course names) for pathways in the planner?
-                            else if (firstCol[i] == "Pathways") {
-                                if (currentSemester > 4 &&
-                                relevantRowInputs[0].value.toLowerCase().split("-")[0].trim() == "pth 101" &&
-                                relevantRowInputs[1].value.toLowerCase().split("-")[0].trim() == "pth 102" &&
-                                relevantRowInputs[2].value.toLowerCase().split("-")[0].trim() == "pth 201" &&
-                                relevantRowInputs[3].value.toLowerCase().split("-")[0].trim() == "pth 202") 
-                                {
-                                    firstCell.setAttribute("style", "background-color: green;");
-                                }
-                                else {
-                                    firstCell.setAttribute("style", "background-color: #FFC000;");
-                                }
-                            }
-                            
-                            else if (currentSemester > j) {
-                            // Get first cell of the relevant row
-                                firstCell.setAttribute("style", "background-color: green;");
-                            }
-                            // If semester is current, set to ongoing
-                            else if (currentSemester == j) { 
-                                firstCell.setAttribute("style", "background-color: #FFC000;");
-                            }
-                            // Else, set to planned
-                            else {
-                                firstCell.setAttribute("style", "background-color: #0000ff;");
-                            }
-                        }
-                        // Make sure to add validation for special cases NW and HB - they need at least 2 credits
-                        // if you have multiple slots (you need to have two NWs and HBs)
-                        // if (GERS[i] == "NW" || GERS[i] == "HB") {
-                        //     var total = 0;
-                            
-                        // Disable all other inputs in row except input semester
-                         if (firstCol[i] != "CLPs" && firstCol[i] != "Pathways") {
-                            for (let k = 0; k < relevantRowInputs.length; k++) {
-                                if (k+1!=j) {
-                                    relevantRowInputs[k].disabled = true;
-                                }
-                            }
-                        }
-                    }
-                });
+                newInput.addEventListener("change", updateFirstCol.bind(newInput, i, j, table, firstCol));
                 cell.appendChild(newInput);
+            }
+        }
+    }
+}
+
+// The following line of code 
+// updateFirstCol.bind(newInput, i, j)
+
+function updateFirstCol(i, j, table, firstCol) {
+
+    console.log(this);
+    console.log(i);
+    console.log(j);
+    console.log(table);
+    console.log(firstCol);
+
+    // Get value of the input - not utilized yet
+    var inputValue = this.value;
+
+
+    // Handle input change if necessary
+    console.log(`Input changed for ${firstCol[i]} in Semester ${j}`);
+    // Get rows 
+    var rows = table.rows;
+    var relevantRow = rows[i+1];
+
+    var firstCell = relevantRow.cells[0];
+    var relevantRowInputs = relevantRow.getElementsByTagName("input");
+    var rowLabel = firstCol[i].toLowerCase();
+    if (firstCol[i] != "CLPs") {
+        var isValidGER = GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
+    }
+    // console.log(inputValue);
+    // console.log(GER_COURSES[rowLabel]);
+    // console.log(isValidGER);
+
+    // if val is empty, reset background to red and enable all input slots in row
+    if(inputValue == "") {
+        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+        relevantRow.cells[j].setAttribute("style", "background-color:255, 255, 255, 0.75")
+        for (let k = 0; k < relevantRowInputs.length; k++) {
+            relevantRowInputs[k].disabled = false;
+            relevantRowInputs[k].setAttribute("style", "background-color: 255, 255, 255, 0.75;");
+            // relevantRow.cells[j].setAttribute("style", "background-color:yellow"); //TODO: Fix shade of gray here 
+        }
+    }                        
+    else{
+        
+        var currentSemester = document.getElementById("semesterLabel");
+        currentSemester = parseInt(currentSemester.innerHTML);
+        console.log(currentSemester, j);
+        // console.log(relevantRow.cells[j])
+        console.log(relevantRowInputs)
+        if (isValidGER == false) {// && firstCol[i] != "CLPs"){
+            relevantRow.cells[j].setAttribute("style", "background-color: crimson;");
+            firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+            
+        }
+        else {
+            relevantRow.cells[j].setAttribute("style", "background-color:255, 255, 255, 0.75;");
+            // CLP Check, check sum of all semester, if input is CLPs, check if sum of all inputs >= 32, if so, set to green (done), otherwise, set to yellow (ongoing). 
+            // Follows different logic than other GERS - all inputs are enabled
+            if (firstCol[i] == "CLPs") {
+                var total = 0;
+                
+                for (let k = 0; k < relevantRowInputs.length; k++) {
+                    if (relevantRowInputs[k].value != "") {
+                        total += parseInt(relevantRowInputs[k].value);
+                    }
+                    if (total >= 32) {
+                        firstCell.setAttribute("style", "background-color: green;");
+                    }
+                    else if (total < 32 && total > 0) {
+                        firstCell.setAttribute("style", "background-color: #FFC000;");
+                    }
+                    else {
+                        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+                    }
+                }
+            }
+
+            // Pathways check, If all 4 semesters are filled, set to green, otherwise, set to yellow
+                // In all honesty, probably should just disable all inputs except for first 4 on startup, as well as populate info
+                // thus relying on current semester to determine if ongoing or done.
+                // Do we want validation (i.e. specific course names) for pathways in the planner?
+            else if (firstCol[i] == "Pathways") {
+                if (currentSemester > 4 &&
+                relevantRowInputs[0].value.toLowerCase().split("-")[0].trim() == "pth 101" &&
+                relevantRowInputs[1].value.toLowerCase().split("-")[0].trim() == "pth 102" &&
+                relevantRowInputs[2].value.toLowerCase().split("-")[0].trim() == "pth 201" &&
+                relevantRowInputs[3].value.toLowerCase().split("-")[0].trim() == "pth 202") 
+                {
+                    firstCell.setAttribute("style", "background-color: green;");
+                }
+                else {
+                    firstCell.setAttribute("style", "background-color: #FFC000;");
+                }
+            }
+            
+            else if (currentSemester > j) {
+            // Get first cell of the relevant row
+                firstCell.setAttribute("style", "background-color: green;");
+            }
+            // If semester is current, set to ongoing
+            else if (currentSemester == j) { 
+                firstCell.setAttribute("style", "background-color: #FFC000;");
+            }
+            // Else, set to planned
+            else {
+                firstCell.setAttribute("style", "background-color: #0000ff;");
+            }
+        }
+        // Make sure to add validation for special cases NW and HB - they need at least 2 credits
+        // if you have multiple slots (you need to have two NWs and HBs)
+        // if (GERS[i] == "NW" || GERS[i] == "HB") {
+        //     var total = 0;
+            
+        // Disable all other inputs in row except input semester
+         if (firstCol[i] != "CLPs" && firstCol[i] != "Pathways") {
+            for (let k = 0; k < relevantRowInputs.length; k++) {
+                if (k+1!=j) {
+                    relevantRowInputs[k].disabled = true;
+                }
             }
         }
     }
@@ -386,6 +397,58 @@ function updateSemesterLabel() {
     var slider = document.getElementById("semesterSlider");
     semesterLabel.innerHTML = `${slider.value}`;
     console.log(`Semester Val is ${slider.value}`);
+
+    updateTableColorsOnSlider(slider.value);
+
+}
+
+function updateTableColorsOnSlider(semester) {
+    // Get all tables GER and Major 
+    var tables = document.querySelectorAll("table");
+    
+    
+
+    // Loop through each table
+    tables.forEach(function(table) {
+        // Get all rows in the table
+        var rows = table.rows;
+        console.log(rows);
+        // Loop through each row, except the header row
+        for (let i = 1; i < rows.length; i++) {
+            var relevantRow = rows[i];
+            var firstCell = relevantRow.cells[0];
+            var relevantRowInputs = relevantRow.getElementsByTagName("input");
+            
+            // Set all inputs to enabled
+            for (let j = 0; j < relevantRowInputs.length; j++) {
+                if(relevantRowInputs[j].value != ""){
+                    
+                    if (semester-1 == j) {
+                        // If semester is current, set to ongoing
+                        firstCell.setAttribute("style", "background-color: yellow;");
+                    }
+                    else if (semester-1 > j) {
+                        // If semester is past current semester, set to green
+                        firstCell.setAttribute("style", "background-color: green;");
+                    }
+                    else {
+                        // If semester is before current semester, set to planned
+                        firstCell.setAttribute("style", "background-color: blue;");
+                    }
+                }
+
+                if ((j == semester-1) && (relevantRowInputs[j].disabled == false) && (relevantRowInputs[j].value == "")) {
+                    relevantRowInputs[j].setAttribute("style", "background-color: rgb(196, 83, 196);");
+                }
+                else if (relevantRowInputs[j].disabled == false && relevantRowInputs[j].value == "") {
+                    relevantRowInputs[j].setAttribute("style", "background-color: rgb(255, 255, 255, 0.75);");
+                }
+                else if (relevantRowInputs[j].disabled == true && relevantRowInputs[j].value == "") {
+                    relevantRowInputs[j].setAttribute("style", "background-color: rgb(255, 255, 255, 0.25);");
+                }
+            }
+        }
+    });
 }
 
 // Make sure that savePlan and loadPlan save the programs as well
