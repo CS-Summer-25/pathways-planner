@@ -35,32 +35,39 @@ body{
 }
 
 #controlPanel{
-    padding-left: 1px;
-    float: left;
-    padding-top: 10%;
+    /* padding-left: 1px; */
+    float: top;
+    padding-top: 7%;
     background-color: black;
+    /* background-color: purple; */
     border: rgb(35, 35, 35) solid 1px;
     color: silver;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 20%;
-    height: 100%;
-    
+    width: 100%;
+    height: 10%;
+    /* position: fixed; */
+
 }
 
 select{
     margin-top: 1%;
-    width: 90%;
+    width: 15%;
     margin-left: 1%;
     /* position: relative; */
-    position: static;
+    /* position: static; */
 }
 
+#semesterSlider{
+    width: 50%;
+    accent-color: rgb(196, 83, 196);
+}
 
 #mainBody{
 
-    padding-top: 8%;
+    padding-top: 1%;
     background-color: black;
-    width: 79%;
+    width: 100%;
+    height: 80%;
     float: right;
     /* position: fixed; */
     /* Temp fix for table appearing behind footer*/ 
@@ -122,14 +129,6 @@ tr{
     /* text-align: center; */
     overflow:auto;
 }
-
-#semesterSlider{
-    width: 80%;
-    accent-color: rgb(196, 83, 196);
-    
-}
-
-
 
 #footer{
 

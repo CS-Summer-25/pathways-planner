@@ -20,46 +20,46 @@
             <h1 id="heading">Pathways Planner</span>
         </div>
         <div id="controlPanel">
-            <label for="mainMajorSelect">Select Major:</label>
+            <center><label for="mainMajorSelect">Select Major:</label>
             <select id="mainMajorSelect" onchange="filterCourses(id)">
             </select>
 
-            <br/>
+            <!-- <br/> -->
             <!-- For Double Major Selection -->
             <label for="doubleMajorSelect">Select 2nd Major:</label>
             <select id="doubleMajorSelect" onchange="filterCourses(id)">       
             </select> 
 
-            <br/>
+            <!-- <br/> -->
             <!-- For Minor Selection -->
             <label for="minorSelect">Select Minor:</label>
             <select id="minorSelect" onchange="filterCourses(id)">
             </select>
 
-            <br/>
-            <br/>
+            <br/><br/>
             <label for="semesterSlider">Select Current Semester:</label>
             <span id="semesterLabel"> 1</span>
-            <center><input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()"></center>
+            <input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()">
+            </center>
             <!-- Changed "oninput" to "onchange" so that info doesn't operate until user makes choice -->
 
-            <hr/>
+            <!-- <hr/> -->
             <!-- text field -->
-            <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>
-            <br/><br/>
+            <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label> -->
+            <!-- <br/><br/> -->
             <!--Should we add a username/passcode system instead?-->
-            <input type="text" id="password" placeholder="Type in password here" >
+            <!-- <input type="text" id="password" placeholder="Type in password here" >
             
             <br/><br/>
             <button id="saveBtn" onclick="savePlan()">Save</button>
-            <button id="loadBtn" onclick="loadPlan()">Load</button>
+            <button id="loadBtn" onclick="loadPlan()">Load</button> -->
 
-            <br/><br/>
+            <!-- <br/><br/> -->
 
             <!-- <button id="removeGER" onclick="removeTable('GERS')">Remove GERs table (TEST)</button> -->
 
-            <hr/>
-            <input type="text" id="courseInput" placeholder="Search for course">
+            <!-- <hr/> -->
+            <!-- <input type="text" id="courseInput" placeholder="Search for course"> -->
              <!-- oninput="filterCourses('courseInput')"> -->
 
             </div>
