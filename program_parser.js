@@ -1,5 +1,7 @@
 let majors = {};
 let minors = {};
+let GER_COURSES = null;
+GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "HB", "NW", "NWL"];
 
 
 async function assignCourses(path) {
@@ -7,54 +9,177 @@ async function assignCourses(path) {
     const data = JSON.parse(await fetch(path).then(response => response.text()));
     console.log("assignCourses called with data:", data);
     // console.log("Data length:", data.());
+// "Type","Program","Name","Reqs"
+// "Code", "Title", "Reqs""
 
     // loop through the data and assign majors and minors
     for (let programTitle in data) {
-        console.log("Processing Titles:", programTitle);
+        console.log("Program:", programTitle);
+        let program = {programTitle: {"code" : "", "reqs": []}};
+        // console.log("Program Title:", programTitle);
+        // program.programTitle.reqs = [];
         for (let pattern in data[programTitle]) {
-            if (pattern.startsWith("choose")) {
-                // this is a choice pattern
-                // the number in the pattern indicates how many rows to create
-                let numRows = parseInt(pattern.split("_")[1]);
-                let options = data[programTitle][pattern];
-                // last index is the name
-                let rowName = pattern.split("_")[2];
-                // let rowName = pattern.split("_")[-1];
-                // console.log("Processing Choice Pattern:", pattern, "Num Rows:", numRows, "Row Name:", rowName, "Options:", options);
+            if (pattern === "key") {
+                let key = data[programTitle][pattern];
+                // console.log("Key:", key);
+                // this is the key for the program, we can use it to identify the program
+                // e.g. "CSBS" for Computer Science, B.S.
+                // we can also use it to identify the type of program (major or minor)
+                // console.log(`Program Key: ${key}`);
+                program.programTitle.code = key;
+                console.log("Program Key:", program.programTitle.code);
+                continue; // skip to next pattern
             }
-            else if (pattern === "required") {
+            else if (pattern.startsWith("required")) {
                 // this is a required course pattern
                 // each course will be a row, 
                 let numRows = data[programTitle][pattern].length;
                 let options = data[programTitle][pattern];
                 // create row names
-                let rowName = [];
-            for (let i = 0; i < numRows; i++) {
-                // the course code is the first part of the string
-                rowName.push(options[i].split(" ")[0]);
+                let reqs = [];
+                if (numRows > 1) {
+                    for (let i = 0; i < numRows; i++) {
+                        // the course code is the first part of the string
+                        reqs.push(options[i].split(" ")[0]);
+                    }
+                }
+                else {
+                    reqs.push(options[0].split(" ")[0]);
+                }
+                reqs = reqs.join(", ");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programTitle.reqs.push(reqs);
+                console.log("Processing Required: ", pattern, "\n", program.programTitle.reqs);
             }
-            console.log(`Type = ${programTitle.split(", ").slice(-1)}`);
+            else if (pattern.startsWith("choose")) {
+                // this is a choice pattern
+                // the number in the pattern indicates how many rows to create
+                let numRows = parseInt(pattern.split("_")[1]);
+                // options will be used for autocomplete down the line
+                // let options = data[programTitle][pattern];
+                // last index is the name
+                let rowName = pattern.split("_")[2];
+                let reqs = [];
+                if (numRows > 1) {
+                    for (let i = 1; i < numRows+1; i++) {
+                        reqs.push(rowName + " " + i);
+                    }
+                }
+                else {
+                    reqs.push(rowName);
+                }
+                // console.log(reqs.trim().split(","));
+                // if (reqs.trim().split(",").length == 1) {
+                //     reqs = reqs.slice(0, -1); // remove trailing comma
+                // }
+                reqs = reqs.join(", ");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programTitle.reqs.push(reqs);
 
-            console.log("Processing Choice Pattern:", pattern, "Num Rows:", numRows, "Row Name:", rowName, "Options:", options);     
+                // let rowName = pattern.split("_")[-1];
+                // console.log("Processing Choice Pattern:", pattern, "Num Rows:", numRows, "Row Name:", rowName, "Options:", options);
+                console.log("Processing choose: ", pattern, "\n", program.programTitle.reqs);
+            }
+            else if (pattern.startsWith("condchoose")) {
+                // this is a conditional choice pattern
+                // i.e. there is least, most, or range condition in the pattern
+                let numRows = parseInt(pattern.split("_")[1]);
+                let reqs = [];
+                let store = 0;
+                for (let x = 0; x < data[programTitle][pattern].length; x++) {
+                    if (data[programTitle][pattern][x].startsWith("least") || data[programTitle][pattern][x].startsWith("range")) {
+                        // this is a least or range pattern - make that number of rows with that given pattern's name
+                        let rowName = data[programTitle][pattern][x].split(" ")[1];
+                        for (let i = 0; i < numRows; i++) {
+                            reqs.push(rowName + " " + i);
+                        }
+                    }
+                    store = x;
+                }
+                let rowName = pattern.split("_")[2];
+                for (let i = store+1; i < numRows; i++) {
+                    // this is a regular choice pattern, so we can just add the row name
+                    reqs.push(rowName + " " + i);
+                }
+                reqs = reqs.join(", ");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programTitle.reqs.push(reqs);
+                console.log("Processing choose: ", pattern, "\n", program.programTitle.reqs);
+            }
+            // else if (pattern.startsWith("either")) {
+            // }
+            else if (pattern.startsWith("credit")) {
+                // this is a credit pattern
+                let numRows = parseInt(pattern.split("_")[1]) / 4; 
+                let options = data[programTitle][pattern];
+                // rowName is the pattern name
+                let rowName = pattern.split("_")[2];
+                let reqs = [];
+                if (numRows > 4) {
+                    for (let i = 1; i < numRows+1; i++) {
+                        reqs.push(rowName + " " + i);
+                    }
+                }
+                else {
+                    reqs.push(rowName);
+                }
+                reqs = reqs.join(", ");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programTitle.reqs.push(reqs);
+                console.log("Processing credit: ", pattern, "\n", program.programTitle.reqs);
+            }
+            else if (pattern.startsWith("condcredit")) {
+                // this is a conditional credit pattern
+                let numRows = parseInt(pattern.split("_")[1]) / 4;
+                let options = data[programTitle][pattern];
+                let reqs = [];
+                for (let x = 0; x < data[programTitle][pattern].length; x++) {
+                    if (data[programTitle][pattern][x].startsWith("least") || data[programTitle][pattern][x].startsWith("range")) {
+                        // this is a least or range pattern - make that number of rows with that given pattern's name
+                        let rowName = data[programTitle][pattern][x].split(" ")[1];
+                        for (let i = 0; i < numRows; i++) {
+                            reqs.push(rowName + " " + i);
+                        }
+                    }
+                }
+                let rowName = pattern.split("_")[2];
+                for (let i = 0; i < numRows; i++) {
+                    reqs.push(rowName + " " + i);
+                }
+                reqs = reqs.join(", ");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programTitle.reqs.push(reqs);
+                console.log("Processing credit: ", pattern, "\n", program.programTitle.reqs);
+            }
 
-            if (programTitle.split(",").slice(-1).toString().trim() == "B.A." ||
-                programTitle.split(",").slice(-1).toString().trim() == "B.S." || 
-                programTitle.split(",").slice(-1).toString().trim() == "B.M.") {
-                // assign majors a key of programTitle
-                // majors.push(programTitle);
-                // majors.push({programTitle : rowName, options});
-                majors[programTitle] = {"rowName": rowName, "options": options};
-                console.log("Assigned Major:", programTitle, "Row Name:", rowName, "Options:", options);
-            }
-            else {
-                // minors.keys.push(programTitle);
-                // minors.push({programTitle : [rowName, options]});
-                minors[programTitle] = {"rowName": rowName, "options": options};
-            }
+            // console.log(`Type = ${programTitle.split(", ").slice(-1)}`);
+
+            // console.log("Processing Choice Pattern:", pattern, "Num Rows:", numRows, "Row Name:", rowName, "Options:", options);     
+            // console.log("Processing Pattern:", pattern, "Row Name:", reqs);
             // console.log("Processing Pattern:", pattern);
-            }
-        
         }
+        program.programTitle.reqs = program.programTitle.reqs.join(", ");
+        if (programTitle.endsWith("Minor")) {
+            // minors.keys.push(programTitle);
+            // minors.push({programTitle : [rowName, options]});
+            // minors[programTitle] = {"rowName": rowName, "options": options};
+            minors[programTitle] = [program.programTitle.code, program.programTitle.reqs]
+            console.log("REQS: ", minors[programTitle]);
+        }
+        else {
+            // (programTitle.split(",").slice(-1).toString().trim() == "B.A." ||
+            // programTitle.split(",").slice(-1).toString().trim() == "B.S." || 
+            // programTitle.split(",").slice(-1).toString().trim() == "B.M.") {
+            // assign majors a key of programTitle
+            // majors.push(programTitle);
+            // majors.push({programTitle : rowName, options});
+            // majors[programTitle] = {"rowName": rowName, "options": options};
+            majors[programTitle] = [program.programTitle.code, program.programTitle.reqs]
+            console.log("REQS: ", majors[programTitle]);
+            // majors.push(programTitle);
+            // console.log("Assigned Major:", programTitle, "Row Name:", rowName, "Options:", options);
+        }
+        console.log("");
     }
 
     // for (i = 0; i < data.length; i++) {
@@ -77,32 +202,30 @@ async function assignCourses(path) {
 }
 async function initialize() {
     // Recall, waiting so that MAJORS assigned properly
-    // await assignCourses("csv-files/programs.csv");
     await assignCourses("acalog_programs.json");
+    console.log("Starting Table Population");
+    createTable("GERS", "GERS", GERS);  
     console.log("MAJORS/MINORS Initialized: ");
-    // console.log(majors, minors);
-    console.log(majors, majors);
+    console.log(majors, minors);
+    // sort the majors and minors by their keys
+    majors = Object.fromEntries(Object.entries(majors).sort());
+    minors = Object.fromEntries(Object.entries(minors).sort());
 
     constructCourses();
     console.log("Initialization complete!")
 }
 
-
 // We should assign majors list based on what majors.csv has in the list
 function constructCourses() {
-    var progId = ["mainMajorSelect"];//, "doubleMajorSelect", "minorSelect"];
+    var progId = ["mainMajorSelect", "doubleMajorSelect", "minorSelect"];
 
     for (i = 0; i < progId.length; i++) {
         console.log(`constructCourses running. ID: ${progId[i]}`);
         var courses;
         if (progId[i] == "minorSelect") {
-            // courses = Object.keys(minors);
-            // courses = Object.keys(minors);//.map(key => [key, minors[key].rowName, minors[key].options]);
             courses = minors;
         }
         else {
-            // 
-            // courses = Object.keys(majors);
             courses = majors;
         }
         console.log(`FOUND : `+Object.entries(courses));
@@ -114,20 +237,9 @@ function constructCourses() {
         noneOption.setAttribute("label", "");
         selectLoc.appendChild(noneOption);
 
-        // for (courseidx=0; courseidx < courses.length; courseidx++) {
-        //     var courseOption = document.createElement("option");
-        //     courseOption.setAttribute("value", courses[courseidx][0]);
-        //     courseOption.setAttribute("label", courses[courseidx][1]);
-        //     selectLoc.appendChild(courseOption);
-        // }
         for (const [key, value] of Object.entries(courses)) {
-            // console.log(`${key}: ${value}`);
-            var courseOption = document.createElement("option");
-            // grab only the capital letters for the value, do not uppercase the key
-            // that is, if the key is "Computer Science, B.S.", the value should be "CSBS"
-            
-            courseOption.setAttribute("value", key.replace(".", " ").split(" ").map(word => word[0].toUpperCase()).join(""));
-            // courseOption.setAttribute("value", key);
+            var courseOption = document.createElement("option");            
+            courseOption.setAttribute("value", value[0]);
             courseOption.setAttribute("label", key);
             selectLoc.appendChild(courseOption);
         }
@@ -157,25 +269,19 @@ function grabCourses(selectId) {
     console.log(courses);
     
     var filter = document.getElementById(selectId).value;
-    // removeTable(tableId);
+    removeTable(tableId);
     
     if (filter != "None") {
         // find selected program, csv file compliant
         console.log(`Selected: ${filter}`);
-        var programidx = 0;
-        // while (programidx < courses.length && filter != courses[programidx][0]) {
-        //     programidx++;
-        // }
-        // remember, filter now is a shortened version of the program name
-
-        while (programidx < Object.keys(courses).length && filter != (Object.keys(courses)[programidx]).replace(".", " ").split(" ").map(word => word[0].toUpperCase()).join("")) {
-            programidx++;
-        }
-        // var tableName = courses[programidx][1];
-        // var reqs = courses[programidx][2];
-        // console.log(tableId, tableName, reqs);
+        
+        var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == filter);
+        
+        console.log(`Program Index: ${programidx}`, `Program Name: ${Object.keys(courses)[programidx]}`);
+        
         var tableName = Object.keys(courses)[programidx];
-        var reqs = courses[Object.keys(courses)[programidx]].rowName;
+        
+        var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(", ");
         console.log(tableId, tableName, reqs);
         createTable(tableName, tableId, reqs)
     }
@@ -242,9 +348,6 @@ function addInputRow(tableId, firstCol) {
     }
 }
 
-// The following line of code 
-// updateFirstCol.bind(newInput, i, j)
-
 function updateFirstCol(i, j, table, firstCol) {
 
     console.log(this);
@@ -253,7 +356,6 @@ function updateFirstCol(i, j, table, firstCol) {
     console.log(table);
     console.log(firstCol);
 
-    // Get value of the input - not utilized yet
     var inputValue = this.value;
 
 
@@ -414,44 +516,3 @@ function createTable(tableName, tableId, data) {
     }
     addInputRow(tableId, data);
 }
-
-// function retrieveAcalogPrograms() {
-
-//     $( function() {        
-//         fetch('acalog_progrrams.json')
-//         .then(response => response.json())
-//         .then(programsDict => {
-//             // loop over the programs in ProgramsDict
-//             // each program will store the name, its groupings, and the courses that fullfill those groupings
-//             // # this will be used to create a table when called
-//                 // the program name will be the table header
-//                 // the table rows will be the "requirements" and "electives" - that is, the keys in the program object 
-//             // "Type","Program","Name","Reqs"
-//             for (let programName in programsDict) {
-//                 let program = programsDict[programName];
-//                 if (program.split(",")[-1] == "B.A." || program.split(",")[-1] == "B.S." || program.split(",")[-1] == "B.M.") {
-//                     let programType = "major";
-//                 }
-//                 else {
-//                     let programType = "minor";
-//                 }
-//                 // for (let requirement in program) {
-//                 //     if (requirement.startsWith("choose")) {
-//                 //         num_rows = parseInt(requirement.split("_")[1]);
-//                 //         row_name = requirement.split("_")[-1];
-//                 //         options = program[requirement];
-
-//                 //     }
-//                 //     else if ("required" in requirement) {
-//                 //         // this is a required course
-//                 //         // row names consist of the course code itself (validated by course code and course name)
-//                 //         let requiredCourses = program[requirement];
-//                 //    }
-
-//                 //}
-
-//             }
-
-//         });
-//     })
-// }

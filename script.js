@@ -199,7 +199,7 @@ function updateFirstCol(i, j, table, firstCol) {
     var firstCell = relevantRow.cells[0];
     var relevantRowInputs = relevantRow.getElementsByTagName("input");
     var rowLabel = firstCol[i].toLowerCase();
-    if (firstCol[i] != "CLPs") {
+    if (firstCol[i] != "CLPs" && table == "GERS-table") {
         var isValidGER = GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
     }
     // console.log(inputValue);
@@ -405,8 +405,6 @@ function updateSemesterLabel() {
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
     var tables = document.querySelectorAll("table");
-    
-    
 
     // Loop through each table
     tables.forEach(function(table) {
