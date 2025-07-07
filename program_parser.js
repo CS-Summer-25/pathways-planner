@@ -8,9 +8,6 @@ async function assignCourses(path) {
     // must wait to ensure that data is properly loaded into global var MAJORS
     const data = JSON.parse(await fetch(path).then(response => response.text()));
     console.log("assignCourses called with data:", data);
-    // console.log("Data length:", data.());
-// "Type","Program","Name","Reqs"
-// "Code", "Title", "Reqs""
 
     // loop through the data and assign majors and minors
     for (let programTitle in data) {
