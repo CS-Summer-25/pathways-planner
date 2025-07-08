@@ -11,30 +11,30 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-        <script src="script.js" defer></script>
-        <!-- <script src="program_parser.js" defer></script> -->
+        <!-- <script src="script.js" defer></script> -->
+        <script src="program_parser.js" defer></script>
         
     </head>
     <body onload="initialize()">
         <div id="header">
             <img src="logo.png" alt="Pathways Planner Logo" id="logo">
-            <h1 id="heading">Pathways Planner</span>
+            <h1 id="heading">Pathways Planner</h1>
         </div>
         <div id="controlPanel">
             <center><label for="mainMajorSelect">Select Major:</label>
-            <select id="mainMajorSelect" onchange="filterCourses(id)">
+            <select id="mainMajorSelect" onchange="grabCourses(id)">
             </select>
 
             <!-- <br/> -->
             <!-- For Double Major Selection -->
             <label for="doubleMajorSelect">Select 2nd Major:</label>
-            <select id="doubleMajorSelect" onchange="filterCourses(id)">       
+            <select id="doubleMajorSelect" onchange="grabCourses(id)">       
             </select> 
 
             <!-- <br/> -->
             <!-- For Minor Selection -->
             <label for="minorSelect">Select Minor:</label>
-            <select id="minorSelect" onchange="filterCourses(id)">
+            <select id="minorSelect" onchange="grabCourses(id)">
             </select>
 
             <br/><br/>
