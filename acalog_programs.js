@@ -277,285 +277,285 @@ abc = {
         ]
     },
     // parse separately, both prefix and region-based, and a least ()
-    // "Asian Studies, B.A." : {
-    //     "key" : "ASTBA",
-    //     "required" : [
-    //         "AST-470 Seminar in Asian Studies",
-    //         "AST-200 Introduction to Asian Studies"
-    //     ],
-    //     "credit_40_Electives" : [
-    //         {"CHN-110 Elementary Chinese I" : 4},
-    //         {"CHN-120 Elementary Chinese II" : 4},
-    //         {"CHN-201 Intermediate Chinese I" : 4},
-    //         {"CHN-202 Intermediate Chinese II" : 4},
-    //         {"CHN-301 Intermediate Chinese III" : 4},
-    //         {"CHN-302 Intermediate Chinese IV" : 4},
-    //         {"CHN-401 Advanced Chinese I" : 4},
-    //         {"CHN-402 Advanced Chinese II" : 4},
-    //         {"CHN-403 Chinese through Film and Media" : 4},
-    //         {"CHN-404 Classical Chinese" : 4},
-    //         {"JPN-110 Elementary Japanese I" : 4},
-    //         {"JPN-120 Elementary Japanese II" : 4},
-    //         {"JPN-201 Intermediate Japanese I" : 4},
-    //         {"JPN-202 Intermediate Japanese II" : 4},
-    //         {"JPN-301 Intermediate Japanese III" : 4},
-    //         {"JPN-302 Intermediate Japanese IV" : 4},
-    //         {"JPN-401 Advanced Japanese I" : 4},
-    //         {"JPN-402 Advanced Japanese II" : 4},
-    //         {"JPN-403 Advanced Japanese III" : 4},
-    //         {"JPN-404 Advanced Japanese IV" : 4},
-    //         {"ANT-204 Modern Japanese Society through Films" : 4},
-    //         {"ANT-205 Japanese Popular Culture" : 4},
-    //         {"ANT-209 Gender in East Asia" : 4},
-    //         {"ART-263 Arts of Japan" : 4},
-    //         {"AST-215 Archaeology of East Asia" : 4},
-    //         {"AST-220 Ramayana" : 4},
-    //         {"AST-221 South Asian Music and Popular Culture" : 4},
-    //         {"AST-225 Premodern Literature of India" : 4},
-    //         {"AST-240 Archaeology of the Silk Road" : 4},
-    //         {"AST-250 Human Development in Contemporary Asia" : 4},
-    //         {"AST-255 Poverty, Gender and Development in India" : 4},
-    //         {"AST-260 Environment and Health in India" : 4},
-    //         {"AST-270 Languages of Asia" : 4},
-    //         {"CHN-225 Chinese Film" : 4},
-    //         {"CHN-230 Survey of Chinese Literature" : 4},
-    //         {"CHN-235 Classic Chinese Fiction" : 4},
-    //         {"CHN-240 Chinese Civilization" : 4},
-    //         {"CHN-245 Twentieth Century Chinese Literature" : 4},
-    //         {"CHN-246 Twentieth Century Chinese Popular Fiction" : 4},
-    //         {"CHN-320 Travel Study in Chinese Culture" : 4},
-    //         {"ECN-245 Development Economics" : 4},
-    //         {"HST-155 South Asia in the Ancient and Early Modern World" : 4},
-    //         {"HST-156 India in the Modern World" : 4},
-    //         {"HST-161 Japan in the Ancient and Early Modern World" : 4},
-    //         {"HST-162 Japan in the Modern World" : 4},
-    //         {"HST-165 China in the Ancient and Early Modern World" : 4},
-    //         {"HST-166 China in the Modern World" : 4},
-    //         {"HST-256 Women and Gender in India" : 4},
-    //         {"HST-27X Special Topics in Chinese History" : 2},
-    //         {"HST-275 Movements in History" : 2},
-    //         {"HST-276 Urban History" : 2},
-    //         {"HST-277 Wars, Rebellions, and Revolutions" : 2},
-    //         {"HST-278 Empire and Imperialism" : 2},
-    //         {"HST-279 Historical Lives" : 2},
-    //         {"HST-268 Twentieth Century China" : 4},
-    //         {"HST-350 Travel Study in China" : 4},
-    //         {"HST-355 Travel Study in India" : 4},
-    //         {"JPN-225 Japanese Cinema" : 4},
-    //         {"JPN-235 Classical Japanese Literature" : 4},
-    //         {"JPN-245 Modern Japanese Literature" : 4},
-    //         {"PHL-220 Realizing Bodymind" : 4},
-    //         {"PHL-230 Indian Philosophy" : 4},
-    //         {"PHL-240 Chinese Philosophy" : 4},
-    //         {"PHL-250 Japanese Philosophy" : 4},
-    //         {"POL-226 Politics of China" : 4},
-    //         {"POL-229 Politics of Asia" : 4},
-    //         {"REL-223 Hindu Cultures and Religious Worlds" : 4},
-    //         {"REL-224 Introduction to Buddhism" : 4},
-    //         {"REL-227 Religions of South Asia" : 4},
-    //         {"REL-320 Sexuality and Gender in Buddhism" : 4},
-    //         {"REL-325 Women and Power in Hinduism" : 4},
-    //         {"REL-328 Religions in Japan" : 4}
-    //     ]
-    // },
+    "Asian Studies, B.A." : {
+        "key" : "ASTBA",
+        "required" : [
+            "AST-470 Seminar in Asian Studies",
+            "AST-200 Introduction to Asian Studies"
+        ],
+        "credit_40_Electives" : [
+            {"CHN-110 Elementary Chinese I" : 4},
+            {"CHN-120 Elementary Chinese II" : 4},
+            {"CHN-201 Intermediate Chinese I" : 4},
+            {"CHN-202 Intermediate Chinese II" : 4},
+            {"CHN-301 Intermediate Chinese III" : 4},
+            {"CHN-302 Intermediate Chinese IV" : 4},
+            {"CHN-401 Advanced Chinese I" : 4},
+            {"CHN-402 Advanced Chinese II" : 4},
+            {"CHN-403 Chinese through Film and Media" : 4},
+            {"CHN-404 Classical Chinese" : 4},
+            {"JPN-110 Elementary Japanese I" : 4},
+            {"JPN-120 Elementary Japanese II" : 4},
+            {"JPN-201 Intermediate Japanese I" : 4},
+            {"JPN-202 Intermediate Japanese II" : 4},
+            {"JPN-301 Intermediate Japanese III" : 4},
+            {"JPN-302 Intermediate Japanese IV" : 4},
+            {"JPN-401 Advanced Japanese I" : 4},
+            {"JPN-402 Advanced Japanese II" : 4},
+            {"JPN-403 Advanced Japanese III" : 4},
+            {"JPN-404 Advanced Japanese IV" : 4},
+            {"ANT-204 Modern Japanese Society through Films" : 4},
+            {"ANT-205 Japanese Popular Culture" : 4},
+            {"ANT-209 Gender in East Asia" : 4},
+            {"ART-263 Arts of Japan" : 4},
+            {"AST-215 Archaeology of East Asia" : 4},
+            {"AST-220 Ramayana" : 4},
+            {"AST-221 South Asian Music and Popular Culture" : 4},
+            {"AST-225 Premodern Literature of India" : 4},
+            {"AST-240 Archaeology of the Silk Road" : 4},
+            {"AST-250 Human Development in Contemporary Asia" : 4},
+            {"AST-255 Poverty, Gender and Development in India" : 4},
+            {"AST-260 Environment and Health in India" : 4},
+            {"AST-270 Languages of Asia" : 4},
+            {"CHN-225 Chinese Film" : 4},
+            {"CHN-230 Survey of Chinese Literature" : 4},
+            {"CHN-235 Classic Chinese Fiction" : 4},
+            {"CHN-240 Chinese Civilization" : 4},
+            {"CHN-245 Twentieth Century Chinese Literature" : 4},
+            {"CHN-246 Twentieth Century Chinese Popular Fiction" : 4},
+            {"CHN-320 Travel Study in Chinese Culture" : 4},
+            {"ECN-245 Development Economics" : 4},
+            {"HST-155 South Asia in the Ancient and Early Modern World" : 4},
+            {"HST-156 India in the Modern World" : 4},
+            {"HST-161 Japan in the Ancient and Early Modern World" : 4},
+            {"HST-162 Japan in the Modern World" : 4},
+            {"HST-165 China in the Ancient and Early Modern World" : 4},
+            {"HST-166 China in the Modern World" : 4},
+            {"HST-256 Women and Gender in India" : 4},
+            {"HST-27X Special Topics in Chinese History" : 2},
+            {"HST-275 Movements in History" : 2},
+            {"HST-276 Urban History" : 2},
+            {"HST-277 Wars, Rebellions, and Revolutions" : 2},
+            {"HST-278 Empire and Imperialism" : 2},
+            {"HST-279 Historical Lives" : 2},
+            {"HST-268 Twentieth Century China" : 4},
+            {"HST-350 Travel Study in China" : 4},
+            {"HST-355 Travel Study in India" : 4},
+            {"JPN-225 Japanese Cinema" : 4},
+            {"JPN-235 Classical Japanese Literature" : 4},
+            {"JPN-245 Modern Japanese Literature" : 4},
+            {"PHL-220 Realizing Bodymind" : 4},
+            {"PHL-230 Indian Philosophy" : 4},
+            {"PHL-240 Chinese Philosophy" : 4},
+            {"PHL-250 Japanese Philosophy" : 4},
+            {"POL-226 Politics of China" : 4},
+            {"POL-229 Politics of Asia" : 4},
+            {"REL-223 Hindu Cultures and Religious Worlds" : 4},
+            {"REL-224 Introduction to Buddhism" : 4},
+            {"REL-227 Religions of South Asia" : 4},
+            {"REL-320 Sexuality and Gender in Buddhism" : 4},
+            {"REL-325 Women and Power in Hinduism" : 4},
+            {"REL-328 Religions in Japan" : 4}
+        ]
+    },
     // this will need to be parsed separately for prefixes
-    // "Chinese Studies, B.A." : {
-    //     "key" : "CHNBA",
-    //     "required" : [
-    //         "AST-200 Introduction to Asian Studies",
-    //         "AST-470 Seminar in Asian Studies",
-    //         "CHN-110 Elementary Chinese I",
-    //         "CHN-120 Elementary Chinese II",
-    //         "CHN-201 Intermediate Chinese I"
-    //     ],
-    //     "choose_3_Chinese Language" : [
-    //         "CHN-202 Intermediate Chinese II",
-    //         "CHN-301 Intermediate Chinese III",
-    //         "CHN-302 Intermediate Chinese IV",
-    //         "CHN-401 Advanced Chinese I",
-    //         "CHN-402 Advanced Chinese II"
-    //     ],
-    //     // should be pcredit
-    //     "pcredit_12_Culture of China" : {
-    //         "option_CHN" : {
-    //             "CHN" : [
-    //                 {"CHN-225 Chinese Film" : 4},
-    //                 {"CHN-230 Survey of Chinese Literature" : 4},
-    //                 {"CHN-235 Classic Chinese Fiction" : 4},
-    //                 {"CHN-240 Chinese Civilization" : 4},
-    //                 {"CHN-245 Twentieth Century Chinese Literature" : 4},
-    //                 {"CHN-246 Twentieth Century Chinese Popular Fiction" : 4},
-    //                 {"CHN-320 Travel Study in Chinese Culture" : 4},
-    //                 {"CHN-403 Chinese through Film and Media" : 4},
-    //                 {"CHN-404 Classical Chinese" : 4}
-    //             ],
-    //         },
-    //         "least_2_Other" : {
-    //             "AST" : [
-    //                 {"AST-215 Archaeology of East Asia" : 4},
-    //                 {"AST-240 Archaeology of the Silk Road" : 4}
-    //             ],
-    //             "FYW" : [],
-    //             "HST" : [
-    //                 {"HST-165 China in the Ancient and Early Modern World" : 4},
-    //                 {"HST-166 China in the Modern World" : 4},
-    //                 {"HST-268 Twentieth Century China" : 4},
-    //                 {"HST-275 Movements in History" : 2},
-    //                 {"HST-276 Urban History" : 2},
-    //                 {"HST-277 Wars, Rebellions, and Revolutions" : 2},
-    //                 {"HST-278 Empire and Imperialism" : 2},
-    //                 {"HST-279 Historical Lives" : 2},
-    //                 {"HST-350 Travel Study in China" : 4}
-    //             ],
-    //             "PHL" : [
-    //                 {"PHL-240 Chinese Philosophy" : 4}
-    //             ],
-    //             "POL" : [
-    //                 {"POL-226 Politics of China" : 4},
-    //                 {"POL-443 Issues in Chinese Politics" : 4}
-    //             ]
-    //         },
-    //     },
-    //     "choose_1_Pan-Asia" : [
-    //         "ANT-209 Gender in East Asia",
-    //         "AST-250 Human Development in Contemporary Asia",
-    //         "AST-270 Languages of Asia",
-    //         "POL-229 Politics of Asia",
-    //         "REL-320 Sexuality and Gender in Buddhism",
-    //         "REL-224 Introduction to Buddhism"
-    //     ],
-    // },
-    // "Japanese Studies, B.A." : {
-    //     "key" : "JPNBA",
-    //     "required" : [
-    //         "AST-200 Introduction to Asian Studies",
-    //         "AST-470 Seminar in Asian Studies",
-    //         "JPN-110 Elementary Japanese I",
-    //         "JPN-120 Elementary Japanese II",
-    //         "JPN-201 Intermediate Japanese I"
-    //     ],
-    //     "choose_3_Japanese Language" : [
-    //         "JPN-202 Intermediate Japanese II",
-    //         "JPN-301 Intermediate Japanese III",
-    //         "JPN-302 Intermediate Japanese IV",
-    //         "JPN-401 Advanced Japanese I",
-    //         "JPN-402 Advanced Japanese II",
-    //         "JPN-403 Advanced Japanese III",
-    //         "JPN-404 Advanced Japanese IV"
-    //     ],
-    //     // should be pcredit
-    //     "credit_12_Culture of Japan" : {
-    //         "JPN" : [
-    //             {"JPN-225 Japanese Cinema" : 4},
-    //             {"JPN-235 Classical Japanese Literature" : 4},
-    //             {"JPN-245 Modern Japanese Literature" : 4}
-    //         ],
-    //         "least_2_Other" : {
-    //             "ANT" : [
-    //                 {"ANT-204 Modern Japanese Society through Films" : 4},
-    //                 {"ANT-205 Japanese Popular Culture" : 4}
-    //             ],
-    //             "ART" : [
-    //                 {"ART-263 Arts of Japan" : 4}
-    //             ],
-    //             "FYW" : [],
-    //             "HST" : [
-    //                 {"HST-161 Japan in the Ancient and Early Modern World" : 4},
-    //                 {"HST-162 Japan in the Modern World" : 4}
-    //             ],
-    //             "PHL" : [
-    //                 {"PHL-220 Realizing Bodymind" : 4},
-    //                 {"PHL-250 Japanese Philosophy" : 4}
-    //             ],
-    //             "REL" : [
-    //                 {"REL-328 Religions in Japan" : 4}
-    //             ]
-    //         },
-    //     },
-    //     "choose_1_Pan-Asia" : [
-    //         "ANT-209 Gender in East Asia",
-    //         "AST-250 Human Development in Contemporary Asia",
-    //         "AST-270 Languages of Asia",
-    //         "POL-229 Politics of Asia",
-    //         "REL-224 Introduction to Buddhism",
-    //         "REL-320 Sexuality and Gender in Buddhism"
-    //     ]
-    // },
-    // "Biology, B.A." : {
-    //     // you will be parsed separately
-    //     "key" : "BIOBA",
-    //     "required" : [
-    //         "BIO-111 Foundations of Biology",
-    //         "BIO-222 Research and Analysis",
-    //         "BIO-075 Seminar in Biology"
-    //     ],
-    //     "choose_1_Genetics Intro" : [
-    //         "BIO-210 Genetics",
-    //         "BIO-211 Molecular Genetics",
-    //         "BIO-212 Human Genetics",
-    //         "BIO-213 Population Genetics and Evolution"
-    //     ],
-    //     "choose_1_Research Methods" : [
-    //         "BIO-501 Independent Study",
-    //         "BIO-510 Thesis",
-    //         "BIO-503 Individualized Internship"
-    //     ],
-    //     "groups_2_Electives" : [
-    //         {"choose_1_Cell and Molecular Biology" : [
-    //             "BIO-300 Cell Biology",
-    //             "BIO-301 Microbiology",
-    //             "BIO-303 Biochemistry of the Cell",
-    //             "BIO-425 Developmental Biology",
-    //             "BIO-445 Genomics and Bioinformatics",
-    //             "BIO-450 Microanatomy",
-    //             "BIO-455 Neurochemistry",
-    //             "BIO-460 Neurobiology",
-    //             "BIO-470 Immunology"
-    //         ]},
-    //         {"choose_1_Physiology" : [
-    //             "BIO-320 Animal Physiology",
-    //             "BIO-321 Plant Physiology",
-    //             "BIO-322 Human Physiology"
-    //         ]},
-    //         {"choose_1_Ecology and Enviromental Biology" : [
-    //             "BIO-340 Ecology",
-    //             "BIO-343 Environmental Systems",
-    //             "BIO-344 African Biodiversity and Conservation",
-    //             "BIO-345 Field Ecology",
-    //             "BIO-346 Forest Ecology",
-    //             "BIO-430 Conservation Biology",
-    //             "BIO-431 Landscape Ecology and Conservation",
-    //             "BIO-434 Ecology and Management of Great Smoky Mountains",
-    //             "BIO-435 Agroecology"
-    //         ]}
-    //     ],
-    //     // manually constructed from department page
-    //     "choose_4_BIO 200+ Electives" : [
-    //         "BIO-230 Nature of Diversity",
-    //         "BIO-250 Biology of Ecuador",
-    //         "BIO-252 Oceans and Human Health",
-    //         "BIO-255 Insect Diversity",
-    //         "BIO-260 Introduction to Biomaterials",
-    //         "BIO-275 Wilderness",
-    //         "BIO-308 Molecular Biotechniques",
-    //         "BIO-330 Public Health Biology",
-    //         "BIO-350 Infectious Disease Ecology",
-    //         "BIO-360 Infectious Disease in Movies: Fact and Fiction",
-    //         "BIO-365 Superhero Genetic Disorders",
-    //         "BIO-400 Field Botany",
-    //         "BIO-401 Economic Botany",
-    //         "BIO-402 Ethnobiology",
-    //         "BIO-420 Comparative Anatomy and Embryology",
-    //         "BIO-421 Invertebrate Zoology",
-    //         "BIO-422 Field Zoology",
-    //         "BIO-423 Marine Biology",
-    //         "BIO-426 Human Anatomical Systems",
-    //         "BIO-432 Field Studies in Biology",
-    //         "BIO-444 Pharmacology and Toxicology",
-    //         "BIO-461 Teaching Methods and Materials in Biology",
-    //         "BIO-475 Nutrition"
-    //     ],
-    // },
+    "Chinese Studies, B.A." : {
+        "key" : "CHNBA",
+        "required" : [
+            "AST-200 Introduction to Asian Studies",
+            "AST-470 Seminar in Asian Studies",
+            "CHN-110 Elementary Chinese I",
+            "CHN-120 Elementary Chinese II",
+            "CHN-201 Intermediate Chinese I"
+        ],
+        "choose_3_Chinese Language" : [
+            "CHN-202 Intermediate Chinese II",
+            "CHN-301 Intermediate Chinese III",
+            "CHN-302 Intermediate Chinese IV",
+            "CHN-401 Advanced Chinese I",
+            "CHN-402 Advanced Chinese II"
+        ],
+        // should be pcredit
+        "pcredit_12_Culture of China" : {
+            "option_CHN" : {
+                "CHN" : [
+                    {"CHN-225 Chinese Film" : 4},
+                    {"CHN-230 Survey of Chinese Literature" : 4},
+                    {"CHN-235 Classic Chinese Fiction" : 4},
+                    {"CHN-240 Chinese Civilization" : 4},
+                    {"CHN-245 Twentieth Century Chinese Literature" : 4},
+                    {"CHN-246 Twentieth Century Chinese Popular Fiction" : 4},
+                    {"CHN-320 Travel Study in Chinese Culture" : 4},
+                    {"CHN-403 Chinese through Film and Media" : 4},
+                    {"CHN-404 Classical Chinese" : 4}
+                ],
+            },
+            "least_2_Other" : {
+                "AST" : [
+                    {"AST-215 Archaeology of East Asia" : 4},
+                    {"AST-240 Archaeology of the Silk Road" : 4}
+                ],
+                "FYW" : [],
+                "HST" : [
+                    {"HST-165 China in the Ancient and Early Modern World" : 4},
+                    {"HST-166 China in the Modern World" : 4},
+                    {"HST-268 Twentieth Century China" : 4},
+                    {"HST-275 Movements in History" : 2},
+                    {"HST-276 Urban History" : 2},
+                    {"HST-277 Wars, Rebellions, and Revolutions" : 2},
+                    {"HST-278 Empire and Imperialism" : 2},
+                    {"HST-279 Historical Lives" : 2},
+                    {"HST-350 Travel Study in China" : 4}
+                ],
+                "PHL" : [
+                    {"PHL-240 Chinese Philosophy" : 4}
+                ],
+                "POL" : [
+                    {"POL-226 Politics of China" : 4},
+                    {"POL-443 Issues in Chinese Politics" : 4}
+                ]
+            },
+        },
+        "choose_1_Pan-Asia" : [
+            "ANT-209 Gender in East Asia",
+            "AST-250 Human Development in Contemporary Asia",
+            "AST-270 Languages of Asia",
+            "POL-229 Politics of Asia",
+            "REL-320 Sexuality and Gender in Buddhism",
+            "REL-224 Introduction to Buddhism"
+        ],
+    },
+    "Japanese Studies, B.A." : {
+        "key" : "JPNBA",
+        "required" : [
+            "AST-200 Introduction to Asian Studies",
+            "AST-470 Seminar in Asian Studies",
+            "JPN-110 Elementary Japanese I",
+            "JPN-120 Elementary Japanese II",
+            "JPN-201 Intermediate Japanese I"
+        ],
+        "choose_3_Japanese Language" : [
+            "JPN-202 Intermediate Japanese II",
+            "JPN-301 Intermediate Japanese III",
+            "JPN-302 Intermediate Japanese IV",
+            "JPN-401 Advanced Japanese I",
+            "JPN-402 Advanced Japanese II",
+            "JPN-403 Advanced Japanese III",
+            "JPN-404 Advanced Japanese IV"
+        ],
+        // should be pcredit
+        "credit_12_Culture of Japan" : {
+            "JPN" : [
+                {"JPN-225 Japanese Cinema" : 4},
+                {"JPN-235 Classical Japanese Literature" : 4},
+                {"JPN-245 Modern Japanese Literature" : 4}
+            ],
+            "least_2_Other" : {
+                "ANT" : [
+                    {"ANT-204 Modern Japanese Society through Films" : 4},
+                    {"ANT-205 Japanese Popular Culture" : 4}
+                ],
+                "ART" : [
+                    {"ART-263 Arts of Japan" : 4}
+                ],
+                "FYW" : [],
+                "HST" : [
+                    {"HST-161 Japan in the Ancient and Early Modern World" : 4},
+                    {"HST-162 Japan in the Modern World" : 4}
+                ],
+                "PHL" : [
+                    {"PHL-220 Realizing Bodymind" : 4},
+                    {"PHL-250 Japanese Philosophy" : 4}
+                ],
+                "REL" : [
+                    {"REL-328 Religions in Japan" : 4}
+                ]
+            },
+        },
+        "choose_1_Pan-Asia" : [
+            "ANT-209 Gender in East Asia",
+            "AST-250 Human Development in Contemporary Asia",
+            "AST-270 Languages of Asia",
+            "POL-229 Politics of Asia",
+            "REL-224 Introduction to Buddhism",
+            "REL-320 Sexuality and Gender in Buddhism"
+        ]
+    },
+    "Biology, B.A." : {
+        // you will be parsed separately
+        "key" : "BIOBA",
+        "required" : [
+            "BIO-111 Foundations of Biology",
+            "BIO-222 Research and Analysis",
+            "BIO-075 Seminar in Biology"
+        ],
+        "choose_1_Genetics Intro" : [
+            "BIO-210 Genetics",
+            "BIO-211 Molecular Genetics",
+            "BIO-212 Human Genetics",
+            "BIO-213 Population Genetics and Evolution"
+        ],
+        "choose_1_Research Methods" : [
+            "BIO-501 Independent Study",
+            "BIO-510 Thesis",
+            "BIO-503 Individualized Internship"
+        ],
+        "groups_2_Electives" : [
+            {"choose_1_Cell and Molecular Biology" : [
+                "BIO-300 Cell Biology",
+                "BIO-301 Microbiology",
+                "BIO-303 Biochemistry of the Cell",
+                "BIO-425 Developmental Biology",
+                "BIO-445 Genomics and Bioinformatics",
+                "BIO-450 Microanatomy",
+                "BIO-455 Neurochemistry",
+                "BIO-460 Neurobiology",
+                "BIO-470 Immunology"
+            ]},
+            {"choose_1_Physiology" : [
+                "BIO-320 Animal Physiology",
+                "BIO-321 Plant Physiology",
+                "BIO-322 Human Physiology"
+            ]},
+            {"choose_1_Ecology and Enviromental Biology" : [
+                "BIO-340 Ecology",
+                "BIO-343 Environmental Systems",
+                "BIO-344 African Biodiversity and Conservation",
+                "BIO-345 Field Ecology",
+                "BIO-346 Forest Ecology",
+                "BIO-430 Conservation Biology",
+                "BIO-431 Landscape Ecology and Conservation",
+                "BIO-434 Ecology and Management of Great Smoky Mountains",
+                "BIO-435 Agroecology"
+            ]}
+        ],
+        // manually constructed from department page
+        "choose_4_BIO 200+ Electives" : [
+            "BIO-230 Nature of Diversity",
+            "BIO-250 Biology of Ecuador",
+            "BIO-252 Oceans and Human Health",
+            "BIO-255 Insect Diversity",
+            "BIO-260 Introduction to Biomaterials",
+            "BIO-275 Wilderness",
+            "BIO-308 Molecular Biotechniques",
+            "BIO-330 Public Health Biology",
+            "BIO-350 Infectious Disease Ecology",
+            "BIO-360 Infectious Disease in Movies: Fact and Fiction",
+            "BIO-365 Superhero Genetic Disorders",
+            "BIO-400 Field Botany",
+            "BIO-401 Economic Botany",
+            "BIO-402 Ethnobiology",
+            "BIO-420 Comparative Anatomy and Embryology",
+            "BIO-421 Invertebrate Zoology",
+            "BIO-422 Field Zoology",
+            "BIO-423 Marine Biology",
+            "BIO-426 Human Anatomical Systems",
+            "BIO-432 Field Studies in Biology",
+            "BIO-444 Pharmacology and Toxicology",
+            "BIO-461 Teaching Methods and Materials in Biology",
+            "BIO-475 Nutrition"
+        ],
+    },
     "Biology, B.S., Biomedical Sciences Track" : {
         "key" : "BIOBSBS",
         "required" : [
@@ -4213,598 +4213,644 @@ abc = {
         "choose_1_Additional 400+" : []
     },
     // all of the music ones have strange requirements - parse separately
-    // "Church Music, B.M." : {
-    //     "key" : "CHURMUSBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "MUS-312 Orchestration",
-    //         "MUS-340 Church Music Ministry",
-    //         "MUS-341 Hymnology",
-    //         "MUS-354 Choral Conducting",
-    //         "MUS-423 Survey of Choral Literature",
-    //         "MUS-431 Vocal and Choral Methods",
-    //         "MUS-434 Elementary Music Methods",
-    //         "MUS-440 Practicum in Church Music",
-    //         "MUS-450 Vocal Pedagogy"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "credit_16_Performance Studies" : [
-    //         // at least one course each in Strings, Brass, Percussion, and Woodwinds
-    //         // Includes min 12 credits on principal instruent
-    //             // no less than 4 credits on a single secondary instrument
-    //     ],
-    //     "count_8_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_2_MUS Electives 300-499" : [],
-    //     "choose_1_REL Prefix" : []
+    "Church Music, B.M." : {
+        "key" : "CHURMUSBM",
+        "required1" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "count_8_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "required2" : [
+            "MUS-312 Orchestration",
+            "MUS-340 Church Music Ministry",
+            "MUS-341 Hymnology",
+            "MUS-354 Choral Conducting",
+            "MUS-423 Survey of Choral Literature",
+            "MUS-431 Vocal and Choral Methods",
+            "MUS-434 Elementary Music Methods",
+            "MUS-440 Practicum in Church Music",
+            "MUS-450 Vocal Pedagogy"
+        ],
+        "credit_2_MUS Electives 300-499" : [
+            {"MUS-310 Form and Analysis" : 4},
+            {"MUS-311 Composition Seminar" : 2},
+            {"MUS-314 Projects in Music Technology" : 2},
+            {"MUS-325 Italian Arts and Culture" : 2},
+            {"MUS-326 Italian Arts and Culture" : 4},
+            {"MUS-327 The Alexander Technique and Body Mapping" : 2},
+            {"MUS-328 Introduction to Music Research" : 2},
+            {"MUS-330 String Methods" : 2},
+            {"MUS-331 Woodwind Methods" : 2},
+            {"MUS-332 Brass Methods" : 2},
+            {"MUS-333 Percussion Methods" : 2},
+            {"MUS-334 Guitar Methods" : 2},
+            {"MUS-350 Fundamentals of Jazz Improvisation" : 2},
+            {"MUS-351 Applied Jazz Improvisation" : 2},
+            {"MUS-353 Instrumental Conducting" : 2},
+            {"MUS-355 Opera Performance Studies" : 2},
+            {"MUS-356 Lyric Diction I" : 2},
+            {"MUS-410 Counterpoint" : 4},
+            {"MUS-411 Contemporary Styles and Techniques" : 4},
+            {"MUS-412 Senior Project" : 2},
+            {"MUS-420 Literature of the Instrument" : 2},
+            {"MUS-421 History and Literature of the Instrument" : 4},
+            {"MUS-421A History and Literature of Piano" : 4},
+            {"MUS-421B History and Literature of Organ" : 4},
+            {"MUS-422 Music History and Literature Topics" : 2},
+            {"MUS-424 Beethoven’s Ninth: Before and After" : 2},
+            {"MUS-425 Tuning Systems and the Aural Experience" : 2},
+            {"MUS-426 Symphonic Sojourn" : 2},
+            {"MUS-427 Opera Overload" : 2},
+            {"MUS-428 Impressionism in France" : 2},
+            {"MUS-429 The Music of John Coltrane" : 2},
+            {"MUS-430 Music for Elementary Classroom Teachers" : 4},
+            {"MUS-432 Instrumental Music Methods" : 4},
+            {"MUS-433 Music Education Methods" : 4},
+            {"MUS-435 Jazz Performance Methods" : 2},
+            {"MUS-451 Piano Pedagogy" : 2},
+            {"MUS-452 Service Playing" : 2},
+            {"MUS-453 Analytical Encounters" : 2},
+            {"MUS-456 Lyric Diction II" : 2},
+            {"MUS-457 Rites of Spring: the Ballets Russes in Paris" : 2},
+            {"MUS-458 Engaging Music" : 2}
+        ],
+        "condcredit_16_Performance Studies" : {
+            "least_12_Principal Instrument" : [],
+            "least_4_Secondary Instrument" : []
+            // at least one course each in Strings, Brass, Percussion, and Woodwinds
+            // Includes min 12 credits on principal instruent
+                // no less than 4 credits on a single secondary instrument
+        },
+        "choose_1_REL Prefix" : []
 
-    // },
+    },
     
-    // "Composition, B.M." : {
-    //     "key" : "COMPBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting"
-    //         // "two credits of performance topics" - not sure what this means, but it is in the original
-    //     ],
-    //     // participation in at least one ensemble each semester\
-    //     "count_8_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_16_Performance Studies" : [
-    //         // at least one course each in Strings, Brass, Percussion, and Woodwinds
-    //     ],
-    //     "credit_6_Composition Studies" : [
-    //         //Must include acoustic and electro-acoustic music
-    //         // Also allowed: independent study
-    //     ],
-    //     "credit_4_Music Electives" : [
-    //     ],
-    //     "additional requirements" : [
-    //         "MUS-310 Form and Analysis",
-    //         "MUS-311 Composition Seminar",
-    //         "MUS-312 Orchestration",
-    //         "MUS-314 Projects in Music Technology",
-    //         "MUS-410 Counterpoint",
-    //         "MUS-411 Contemporary Styles and Techniques",
-    //         "MUS-412 Senior Project"
-    //     ]
-    // },
+    "Composition, B.M." : {
+        "key" : "COMPBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting"
+            // "two credits of performance topics" - not sure what this means, but it is in the original
+        ],
+        // participation in at least one ensemble each semester\
+        "count_8_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_16_Performance Studies" : [
+            // at least one course each in Strings, Brass, Percussion, and Woodwinds
+        ],
+        "credit_6_Composition Studies" : [
+            //Must include acoustic and electro-acoustic music
+            // Also allowed: independent study
+        ],
+        "credit_4_Music Electives" : [
+        ],
+        "additional requirements" : [
+            "MUS-310 Form and Analysis",
+            "MUS-311 Composition Seminar",
+            "MUS-312 Orchestration",
+            "MUS-314 Projects in Music Technology",
+            "MUS-410 Counterpoint",
+            "MUS-411 Contemporary Styles and Techniques",
+            "MUS-412 Senior Project"
+        ]
+    },
     // Music Education has some confusing requirements, so parse separately
 
-    // "Music Education, Choral Music Emphasis, B.M." : {
-    //     "key" : "MUEDCHORBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "EDU-120 Human Development",
-    //         "EDU-221 Students with Exceptionalities",
-    //         "EDU-434 Content Literacy Strategies and Modifications for Diverse Learners",
-    //         "EDU-505 Teaching Internship",
-    //         "MUS-312 Orchestration",
-    //         "MUS-431 Vocal and Choral Methods",
-    //         "MUS-334 Guitar Methods",
-    //         "MUS-423 Survey of Choral Literature",
-    //         "MUS-433 Music Education Methods",
-    //         "MUS-434 Elementary Music Methods",
-    //         "MUS-450 Vocal Pedagogy"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "choose_1_EDU Intro" : [
-    //         "EDU-111 Perspectives on American Education",
-    //         "EDU-112 History of Education in America",
-    //         "EDU-113 Introduction to Educational Philosophy",
-    //         "EDU-114 Culture, Identity, and Schooling"
-    //     ],
-    //     "choose_1_Conducting" : [
-    //         "MUS-353 Instrumental Conducting",
-    //         "MUS-354 Choral Conducting"
-    //     ],
+    "Music Education, Choral Music Emphasis, B.M." : {
+        "key" : "MUEDCHORBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "EDU-120 Human Development",
+            "EDU-221 Students with Exceptionalities",
+            "EDU-434 Content Literacy Strategies and Modifications for Diverse Learners",
+            "EDU-505 Teaching Internship",
+            "MUS-312 Orchestration",
+            "MUS-431 Vocal and Choral Methods",
+            "MUS-334 Guitar Methods",
+            "MUS-423 Survey of Choral Literature",
+            "MUS-433 Music Education Methods",
+            "MUS-434 Elementary Music Methods",
+            "MUS-450 Vocal Pedagogy"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "choose_1_EDU Intro" : [
+            "EDU-111 Perspectives on American Education",
+            "EDU-112 History of Education in America",
+            "EDU-113 Introduction to Educational Philosophy",
+            "EDU-114 Culture, Identity, and Schooling"
+        ],
+        "choose_1_Conducting" : [
+            "MUS-353 Instrumental Conducting",
+            "MUS-354 Choral Conducting"
+        ],
 
-    // },
+    },
     
     // This major's methods req is confusing
-    // "Music Education, Instrumental, B.M." : {
-    //     "key" : "MUEDINSTBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "EDU-120 Human Development",
-    //         "EDU-221 Students with Exceptionalities",
-    //         "EDU-434 Content Literacy Strategies and Modifications for Diverse Learners",
-    //         "EDU-505 Teaching Internship",
-    //         "MUS-312 Orchestration",
-    //         "MUS-431 Vocal and Choral Methods"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "choose_1_EDU Intro" : [
-    //         "EDU-111 Perspectives on American Education",
-    //         "EDU-112 History of Education in America",
-    //         "EDU-113 Introduction to Educational Philosophy",
-    //         "EDU-114 Culture, Identity, and Schooling"
-    //     ],
-    //     "choose_1_Conducting" : [
-    //         "MUS-353 Instrumental Conducting",
-    //         "MUS-354 Choral Conducting"
-    //     ],
-    //     "credit_14_Performance Studies" : [
-    //         // on single instrument
-    //     ],
-    //     "choose_1_Methods" : [
-    //         "MUS-330 String Methods",
-    //         "MUS-331 Woodwind Methods",
-    //         "MUS-332 Brass Methods",
-    //         "MUS-333 Percussion Methods",
-    //         "MUS-334 Guitar Methods",
-    //         "MUS-432 Instrumental Music Methods"
-    //     ]
-    // },
+    "Music Education, Instrumental, B.M." : {
+        "key" : "MUEDINSTBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "EDU-120 Human Development",
+            "EDU-221 Students with Exceptionalities",
+            "EDU-434 Content Literacy Strategies and Modifications for Diverse Learners",
+            "EDU-505 Teaching Internship",
+            "MUS-312 Orchestration",
+            "MUS-431 Vocal and Choral Methods"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "choose_1_EDU Intro" : [
+            "EDU-111 Perspectives on American Education",
+            "EDU-112 History of Education in America",
+            "EDU-113 Introduction to Educational Philosophy",
+            "EDU-114 Culture, Identity, and Schooling"
+        ],
+        "choose_1_Conducting" : [
+            "MUS-353 Instrumental Conducting",
+            "MUS-354 Choral Conducting"
+        ],
+        "credit_14_Performance Studies" : [
+            // on single instrument
+        ],
+        "choose_1_Methods" : [
+            "MUS-330 String Methods",
+            "MUS-331 Woodwind Methods",
+            "MUS-332 Brass Methods",
+            "MUS-333 Percussion Methods",
+            "MUS-334 Guitar Methods",
+            "MUS-432 Instrumental Music Methods"
+        ]
+    },
 
-    // "Music Theory, B.M." : {
-    //     "key" : "MUSMTBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "MUS-310 Form and Analysis",
-    //         "MUS-311 Composition Seminar",
-    //         "MUS-312 Orchestration",
-    //         "MUS-410 Counterpoint",
-    //         "MUS-411 Contemporary Styles and Techniques",
-    //         "MUS-412 Senior Project"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "count_8_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_16_Performance Studies" : [
-    //         // at least one course each in Strings, Brass, Percussion, and Woodwinds
-    //     ],
-    //     "credit_8_Music Electives" : {
-    //         "least_4_300-499" : [
-    //         ],
-    //         "Other" : [
-    //         ],
-    //     }
-    // },
+    "Music Theory, B.M." : {
+        "key" : "MUSMTBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "MUS-310 Form and Analysis",
+            "MUS-311 Composition Seminar",
+            "MUS-312 Orchestration",
+            "MUS-410 Counterpoint",
+            "MUS-411 Contemporary Styles and Techniques",
+            "MUS-412 Senior Project"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "count_8_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_16_Performance Studies" : [
+            // at least one course each in Strings, Brass, Percussion, and Woodwinds
+        ],
+        "credit_8_Music Electives" : {
+            "least_4_300-499" : [
+            ],
+            "Other" : [
+            ],
+        }
+    },
 
-    // "Music, B.A." : {
-    //     "key" : "MUSBA",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_4_Other" : [
-    //         {"PHL-275 Aesthetics" : 4},
-    //         {"ART-105 Art and the Community" : 2},
-    //         {"ART-111 Introduction to Design" : 4},
-    //         {"ART-112 Introduction to Sculpture" : 4},
-    //         {"ART-113 Introduction to Painting" : 4},
-    //         {"ART-124 Drawing" : 4},
-    //         {"ART-125 Drawing II" : 4},
-    //         {"ART-132 Histories of Art I" : 4},
-    //         {"ART-133 Histories of Art II" : 4},
-    //         {"ART-200 Introduction to Ceramics" : 4},
-    //         {"ART-201 Themes in Ceramics" : 4},
-    //         {"ART-202 Book Arts" : 4},
-    //         {"ART-204 Themes in Painting" : 4},
-    //         {"ART-205 Darkroom Photography" : 4},
-    //         {"ART-206 Digital Photography" : 4},
-    //         {"ART-207 Printmaking" : 4},
-    //         {"ART-210 Themes in Sculpture" : 4},
-    //         {"ART-215 Study Away Photography" : 4},
-    //         {"ART-221 Editorial Layout and Design" : 4},
-    //         {"ART-222 Media Art" : 4},
-    //         {"ART-225 Digital Illustration" : 4},
-    //         {"ART-236 Renaissance Art" : 4},
-    //         {"ART-237 Arts of Baroque & Rococo" : 4},
-    //         {"ART-245 Nineteenth Century Art" : 4},
-    //         {"ART-246 Twentieth Century Art" : 4},
-    //         {"ART-251 Contemporary Art Since 1960" : 4},
-    //         {"ART-252 Women and the Arts" : 4},
-    //         {"ART-253 Art & Death" : 4},
-    //         {"ART-254 History of Photography" : 4},
-    //         {"ART-255 Living in a Material World: Unexpected Art Objects" : 4},
-    //         {"ART-256 Art & Politics" : 4},
-    //         {"ART-257 The Revolution of Print" : 4},
-    //         {"ART-258 Embodied Representations: Art, Bodies, & Identities" : 4},
-    //         {"ART-259 History of Design" : 4},
-    //         {"ART-260 Arts of Pre-Columbian Society" : 4},
-    //         {"ART-261 Arts of African Societies" : 4},
-    //         {"ART-263 Arts of Japan" : 4},
-    //         {"ART-265 Museums Are Not Neutral" : 4},
-    //         {"ART-270 Art Conservation" : 2},
-    //         {"ART-271 Art and the Science of Observation" : 2},
-    //         {"ART-272 Success in the Arts" : 4},
-    //         {"ART-275 Art and Architecture of Spanish America 1492 - 1820" : 4},
-    //         {"ART-276 Conceptual Ideation" : 2},
-    //         {"ART-277 Fantastic Beasts and How to Draw them in Photoshop" : 2},
-    //         {"ART-300 Sculpture Studio" : 4},
-    //         {"ART-301 Life Studies" : 4},
-    //         {"ART-302 Painting Portfolio" : 4},
-    //         {"ART-303 Photographic Essay" : 4},
-    //         {"ART-304 Commercial Photography" : 4},
-    //         {"ART-320 Brand Design" : 4},
-    //         {"ART-321 Logos and Symbols" : 4},
-    //         {"ART-322 Typography" : 4},
-    //         {"ART-330 Art Theory and Criticism" : 4},
-    //         {"ART-340 Curatorial Issues and Practices" : 4},
-    //         {"ART-350 Methodologies of Art History" : 4},
-    //         {"THA-101 Introduction to Theatre" : 4},
-    //         {"THA-111 Introduction to Acting" : 4},
-    //         {"THA-112 Make-Up" : 2},
-    //         {"THA-113 Sound Design" : 2},
-    //         {"THA-115 Stagecraft" : 4},
-    //         {"THA-116 Costume Crafts" : 4},
-    //         {"THA-120 Foundations of Acting" : 4},
-    //         {"THA-140 Digital Technology for the Theatre" : 4},
-    //         {"THA-150 Clothing as Self Expression" : 4},
-    //         {"THA-210 Theatre History I" : 4},
-    //         {"THA-211 Theatre History II" : 4},
-    //         {"THA-215 Theatrical Scenic Painting" : 2},
-    //         {"THA-220 Acting II: Characterization & Storytelling" : 4},
-    //         {"THA-223 Actor’s Voice" : 4},
-    //         {"THA-224 Movement for the Actor" : 4},
-    //         {"THA-230 Readings in Dramatic Literature" : 4},
-    //         {"THA-240 Playwriting" : 4},
-    //         {"THA-260 Theatre Production Laboratory" : 2},
-    //         {"THA-310 Directing" : 4},
-    //         {"THA-315 Scene Design" : 4},
-    //         {"THA-316 Costume Design" : 4},
-    //         {"THA-317 Lighting Design" : 4},
-    //         {"THA-320 Acting III: Period Styles" : 4},
-    //         {"THA-330 Foundations of Musical Theatre" : 4},
-    //         {"THA-350 Travel Study in United Kingdom" : 4},
-    //         {"THA-410 Theatrical Criticism" : 4},
-    //         {"THA-420 Acting IV: Advanced Topics" : 4},
-    //         {"THA-421 Advanced Topics in Acting" : 2},
-    //         {"THA-430 Senior Synthesis" : 2},
-    //         {"THA-440 Creative Dramatics & Classroom Technique" : 4}            
-    //     ],
-    //     "credit_8_Performance Studies" : [
-    //     ],
-    //     "credit_2_Music Electives" : [
-    //     ]
-    // },
+    "Music, B.A." : {
+        "key" : "MUSBA",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_4_Other" : [
+            {"PHL-275 Aesthetics" : 4},
+            {"ART-105 Art and the Community" : 2},
+            {"ART-111 Introduction to Design" : 4},
+            {"ART-112 Introduction to Sculpture" : 4},
+            {"ART-113 Introduction to Painting" : 4},
+            {"ART-124 Drawing" : 4},
+            {"ART-125 Drawing II" : 4},
+            {"ART-132 Histories of Art I" : 4},
+            {"ART-133 Histories of Art II" : 4},
+            {"ART-200 Introduction to Ceramics" : 4},
+            {"ART-201 Themes in Ceramics" : 4},
+            {"ART-202 Book Arts" : 4},
+            {"ART-204 Themes in Painting" : 4},
+            {"ART-205 Darkroom Photography" : 4},
+            {"ART-206 Digital Photography" : 4},
+            {"ART-207 Printmaking" : 4},
+            {"ART-210 Themes in Sculpture" : 4},
+            {"ART-215 Study Away Photography" : 4},
+            {"ART-221 Editorial Layout and Design" : 4},
+            {"ART-222 Media Art" : 4},
+            {"ART-225 Digital Illustration" : 4},
+            {"ART-236 Renaissance Art" : 4},
+            {"ART-237 Arts of Baroque & Rococo" : 4},
+            {"ART-245 Nineteenth Century Art" : 4},
+            {"ART-246 Twentieth Century Art" : 4},
+            {"ART-251 Contemporary Art Since 1960" : 4},
+            {"ART-252 Women and the Arts" : 4},
+            {"ART-253 Art & Death" : 4},
+            {"ART-254 History of Photography" : 4},
+            {"ART-255 Living in a Material World: Unexpected Art Objects" : 4},
+            {"ART-256 Art & Politics" : 4},
+            {"ART-257 The Revolution of Print" : 4},
+            {"ART-258 Embodied Representations: Art, Bodies, & Identities" : 4},
+            {"ART-259 History of Design" : 4},
+            {"ART-260 Arts of Pre-Columbian Society" : 4},
+            {"ART-261 Arts of African Societies" : 4},
+            {"ART-263 Arts of Japan" : 4},
+            {"ART-265 Museums Are Not Neutral" : 4},
+            {"ART-270 Art Conservation" : 2},
+            {"ART-271 Art and the Science of Observation" : 2},
+            {"ART-272 Success in the Arts" : 4},
+            {"ART-275 Art and Architecture of Spanish America 1492 - 1820" : 4},
+            {"ART-276 Conceptual Ideation" : 2},
+            {"ART-277 Fantastic Beasts and How to Draw them in Photoshop" : 2},
+            {"ART-300 Sculpture Studio" : 4},
+            {"ART-301 Life Studies" : 4},
+            {"ART-302 Painting Portfolio" : 4},
+            {"ART-303 Photographic Essay" : 4},
+            {"ART-304 Commercial Photography" : 4},
+            {"ART-320 Brand Design" : 4},
+            {"ART-321 Logos and Symbols" : 4},
+            {"ART-322 Typography" : 4},
+            {"ART-330 Art Theory and Criticism" : 4},
+            {"ART-340 Curatorial Issues and Practices" : 4},
+            {"ART-350 Methodologies of Art History" : 4},
+            {"THA-101 Introduction to Theatre" : 4},
+            {"THA-111 Introduction to Acting" : 4},
+            {"THA-112 Make-Up" : 2},
+            {"THA-113 Sound Design" : 2},
+            {"THA-115 Stagecraft" : 4},
+            {"THA-116 Costume Crafts" : 4},
+            {"THA-120 Foundations of Acting" : 4},
+            {"THA-140 Digital Technology for the Theatre" : 4},
+            {"THA-150 Clothing as Self Expression" : 4},
+            {"THA-210 Theatre History I" : 4},
+            {"THA-211 Theatre History II" : 4},
+            {"THA-215 Theatrical Scenic Painting" : 2},
+            {"THA-220 Acting II: Characterization & Storytelling" : 4},
+            {"THA-223 Actor’s Voice" : 4},
+            {"THA-224 Movement for the Actor" : 4},
+            {"THA-230 Readings in Dramatic Literature" : 4},
+            {"THA-240 Playwriting" : 4},
+            {"THA-260 Theatre Production Laboratory" : 2},
+            {"THA-310 Directing" : 4},
+            {"THA-315 Scene Design" : 4},
+            {"THA-316 Costume Design" : 4},
+            {"THA-317 Lighting Design" : 4},
+            {"THA-320 Acting III: Period Styles" : 4},
+            {"THA-330 Foundations of Musical Theatre" : 4},
+            {"THA-350 Travel Study in United Kingdom" : 4},
+            {"THA-410 Theatrical Criticism" : 4},
+            {"THA-420 Acting IV: Advanced Topics" : 4},
+            {"THA-421 Advanced Topics in Acting" : 2},
+            {"THA-430 Senior Synthesis" : 2},
+            {"THA-440 Creative Dramatics & Classroom Technique" : 4}            
+        ],
+        "credit_8_Performance Studies" : [
+        ],
+        "credit_2_Music Electives" : [
+        ]
+    },
 
-    // "Performance, Organ Emphasis, B.M." : {
-    //     "key" : "PEROBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "MUS-421B History and Literature of Organ",
-    //         "MUS-451 Piano Pedagogy",
-    //         "MUS-452 Service Playing",
-    //         "MUS-563 Harpsichord"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_24_Performance Studies" : [
-    //     ],
-    //     "credit_8_Music Electives" : {
-    //         "least_6_300-499" : [],
-    //         "200+ Electives" : []
-    //     }
-    // },
+    "Performance, Organ Emphasis, B.M." : {
+        "key" : "PEROBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "MUS-421B History and Literature of Organ",
+            "MUS-451 Piano Pedagogy",
+            "MUS-452 Service Playing",
+            "MUS-563 Harpsichord"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_24_Performance Studies" : [
+        ],
+        "credit_8_Music Electives" : {
+            "least_6_300-499" : [],
+            "200+ Electives" : []
+        }
+    },
 
-    // "Performance, Piano Emphasis, B.M." : {
-    //     "key" : "PERPBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "MUS-421A History and Literature of Piano",
-    //         "MUS-451 Piano Pedagogy",
-    //         "MUS-564 Advanced Collaborative Piano"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_2_Instrument" : [
-    //         {"MUS-562 Organ" : 2},
-    //         {"MUS-563 Harpsichord" : 2}
-    //     ],
-    //     "credit_24_Performance Studies" : [
-    //     ], 
-    //     // should be pcredit?
-    //     "credit_8_Music Electives" : {
-    //         "least_6_300-499" : [],
-    //         "200+ Electives" : []
-    //     }
-    // },
+    "Performance, Piano Emphasis, B.M." : {
+        "key" : "PERPBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "MUS-421A History and Literature of Piano",
+            "MUS-451 Piano Pedagogy",
+            "MUS-564 Advanced Collaborative Piano"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_2_Instrument" : [
+            {"MUS-562 Organ" : 2},
+            {"MUS-563 Harpsichord" : 2}
+        ],
+        "credit_24_Performance Studies" : [
+        ], 
+        // should be pcredit?
+        "credit_8_Music Electives" : {
+            "least_6_300-499" : [],
+            "200+ Electives" : []
+        }
+    },
 
     // I don't understand the structure of this one
-    // "Performance, Strings Emphasis, B.M." : {
-    //     "key" : "PERSTBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-078 Guitar Ensemble"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "choose_1_Electives" : [
-    //         ["MUS-072 String Chamber Music", "MUS-330-String Methods"]  
-    //         ["MUS-073 String Quartet", "MUS-334 Guitar Methods"],
-    //         "MUS-420 Literature of the Instrument"
-    //     ],
-    //     "credit_24_Performance Studies" : [
-    //     ],
-    //      // should be pcredit?
-    //     "credit_10_Music Electives" : {
-    //         "least_8_300-499" : [],
-    //         "200+ Electives" : []
-    //     }
-    // },
+    "Performance, Strings Emphasis, B.M." : {
+        "key" : "PERSTBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-078 Guitar Ensemble"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "choose_1_Electives" : [
+            ["MUS-072 String Chamber Music", "MUS-330-String Methods"]  
+            ["MUS-073 String Quartet", "MUS-334 Guitar Methods"],
+            "MUS-420 Literature of the Instrument"
+        ],
+        "credit_24_Performance Studies" : [
+        ],
+         // should be pcredit?
+        "credit_10_Music Electives" : {
+            "least_8_300-499" : [],
+            "200+ Electives" : []
+        }
+    },
     
-    // "Performance, Vocal Emphasis, B.M." : {
-    //     "key" : "PERVBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "MUS-355 Opera Performance Studies",
-    //         "MUS-356 Lyric Diction I",
-    //         "MUS-420 Literature of the Instrument",
-    //         "MUS-450 Vocal Pedagogy",
-    //         "MUS-456 Lyric Diction II"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_23_Performance Studies" : [
-    //     ],
-    //     // should be pcredit?
-    //     "credit_8_Music Electives" : {
-    //         "least_6_300-499" : [],
-    //         "200+ Electives" : []
-    //     }
-    // },
+    "Performance, Vocal Emphasis, B.M." : {
+        "key" : "PERVBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "MUS-355 Opera Performance Studies",
+            "MUS-356 Lyric Diction I",
+            "MUS-420 Literature of the Instrument",
+            "MUS-450 Vocal Pedagogy",
+            "MUS-456 Lyric Diction II"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_23_Performance Studies" : [
+        ],
+        // should be pcredit?
+        "credit_8_Music Electives" : {
+            "least_6_300-499" : [],
+            "200+ Electives" : []
+        }
+    },
 
-    // "Performance, Wind or Percussion Emphasis, B.M." : {
-    //     "key" : "PERWPBM",
-    //     "required" : [
-    //         "MUS-051 Freshman Music Colloquium",
-    //         "MUS-111 Basic Musicianship I",
-    //         "MUS-112 Basic Musicianship II",
-    //         "MUS-120 Introductory Music Literature",
-    //         "MUS-211 Basic Musicianship III",
-    //         "MUS-212 Basic Musicianship IV",
-    //         "MUS-220 Music and Culture",
-    //         "MUS-221 Music History I",
-    //         "MUS-320 Music History II",
-    //         "MUS-321 Music History III",
-    //         "MUS-352 Basic Conducting",
-    //         "MUS-312 Orchestration",
-    //         "MUS-331 Woodwind Methods or",
-    //         "MUS-332 Brass Methods or",
-    //         "MUS-333 Percussion Methods dependent on primary instrument",
-    //         "MUS-420 Literature of the Instrument",
-    //         "MUS-505 Chamber Music for Winds & Percussion"
-    //     ],
-    //     "credit_2_Performance Topic" : [
-    //     ],
-    //     "choose_1_Ensemble" : [
-    //         "MUS-060 Symphony Orchestra",
-    //         "MUS-061 Furman Band",
-    //         "MUS-062 Furman Singers",
-    //         "MUS-063 Men's Chorale",
-    //         "MUS-064 Women's Chorale",
-    //         "MUS-076 Guitar Ensemble"
-    //     ],
-    //     "credit_23_Performance Studies" : [
-    //     ],
-    //     // should be pcredit?
-    //     "credit_8_Music Electives" : {
-    //         "least_6_300-499" : [],
-    //         "200+ Electives" : []
-    //     },
+    "Performance, Wind or Percussion Emphasis, B.M." : {
+        "key" : "PERWPBM",
+        "required" : [
+            "MUS-051 Freshman Music Colloquium",
+            "MUS-111 Basic Musicianship I",
+            "MUS-112 Basic Musicianship II",
+            "MUS-120 Introductory Music Literature",
+            "MUS-211 Basic Musicianship III",
+            "MUS-212 Basic Musicianship IV",
+            "MUS-220 Music and Culture",
+            "MUS-221 Music History I",
+            "MUS-320 Music History II",
+            "MUS-321 Music History III",
+            "MUS-352 Basic Conducting",
+            "MUS-312 Orchestration",
+            "MUS-331 Woodwind Methods or",
+            "MUS-332 Brass Methods or",
+            "MUS-333 Percussion Methods dependent on primary instrument",
+            "MUS-420 Literature of the Instrument",
+            "MUS-505 Chamber Music for Winds & Percussion"
+        ],
+        "credit_2_Performance Topic" : [
+        ],
+        "choose_1_Ensemble" : [
+            "MUS-060 Symphony Orchestra",
+            "MUS-061 Furman Band",
+            "MUS-062 Furman Singers",
+            "MUS-063 Men's Chorale",
+            "MUS-064 Women's Chorale",
+            "MUS-076 Guitar Ensemble"
+        ],
+        "credit_23_Performance Studies" : [
+        ],
+        // should be pcredit?
+        "credit_8_Music Electives" : {
+            "least_6_300-499" : [],
+            "200+ Electives" : []
+        },
 
-    // },
+    },
 
     "Neuroscience, B.S." : {
         "key" : "NEUBS",
-        "required" : [
+        "required1" : [
             "BIO-111 Foundations of Biology",
-            "PSY-111 Introduction to Psychology",
-            "BIO-460 Neurobiology",
-            "CHM-120 Organic Chemistry I",
-            "NSC-401 Current Topics in Neuroscience",
-            "NSC-502 Research",
-            "PSY-320 Introduction to Biopsychology",
-            "PSY-327 Functional Neuroanatomy"
+            "PSY-111 Introduction to Psychology"
         ],
         "choose_1_Methods" : [
             "BIO-222 Research and Analysis",
             "PSY-202 Research Methods and Statistics II"
         ],
+        "required2" : [
+            "BIO-460 Neurobiology"
+        ],
         "choose_1_Gen. Chem." : [
             ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
         ],
-        // this is probably the weirdest condition all night
+        "required3" : [
+            "CHM-120 Organic Chemistry I"
+        ],
         "choose_1_Math" : [
             "MTH-150 Analytic Geometry and Calculus I",
-            [
-            {"choose_1_Statistics" : [
-                "MTH-120 Statistics",
-                "MTH-245 Statistical Methods I with R"
-            ]},
-            "MTH-145 Calculus for Management, Life and Social Sciences"
-            ]
+            ["MTH-120 Introduction to Statistics" ,"MTH-145 Calculus for Management, Life and Social Sciences"],
+            ["MTH-245 Statistical Methods I with R", "MTH-145 Calculus for Management, Life and Social Sciences"]
+        ],
+        "required4" : [
+            "NSC-401 Current Topics in Neuroscience",
+            "NSC-502 Research",
+            "PSY-320 Introduction to Biopsychology",
+            "PSY-327 Functional Neuroanatomy"
         ],
         "choose_1_Group A" : [
             "BIO-455 Neurochemistry",

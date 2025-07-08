@@ -3810,6 +3810,59 @@
             "SPN-505 Structured Internship"
         ]
     },
+    "Neuroscience, B.S." : {
+        "key" : "NEUBS",
+        "required1" : [
+            "BIO-111 Foundations of Biology",
+            "PSY-111 Introduction to Psychology"
+        ],
+        "choose_1_Methods" : [
+            "BIO-222 Research and Analysis",
+            "PSY-202 Research Methods and Statistics II"
+        ],
+        "required2" : [
+            "BIO-460 Neurobiology"
+        ],
+        "choose_1_Gen. Chem." : [
+            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
+            "CHM-118 Principles of Chemistry: Theory and Applications"
+        ],
+        "required3" : [
+            "CHM-120 Organic Chemistry I"
+        ],
+        "choose_1_Math" : [
+            "MTH-150 Analytic Geometry and Calculus I",
+            ["MTH-120 Introduction to Statistics" ,"MTH-145 Calculus for Management, Life and Social Sciences"],
+            ["MTH-245 Statistical Methods I with R", "MTH-145 Calculus for Management, Life and Social Sciences"]
+        ],
+        "required4" : [
+            "NSC-401 Current Topics in Neuroscience",
+            "NSC-502 Research",
+            "PSY-320 Introduction to Biopsychology",
+            "PSY-327 Functional Neuroanatomy"
+        ],
+        "choose_1_Group A" : [
+            "BIO-455 Neurochemistry",
+            "PSY-321 Psychopharmacology",
+            "PSY-328 Sensation and Perception",
+            "PSY-414 The Sleeping Brain"
+        ],
+        "choose_1_Group B" : [
+            "PSY-214 Health Psychology",
+            "PSY-217 Child Psychopathology",
+            "PSY-218 Adult Psychopathology",
+            "PSY-322 Memory and Cognition",
+            "PSY-323 Animal Behavior",
+            "PSY-404 Autism"
+        ],
+        "choose_1_Group C" : [
+            "BIO-322 Human Physiology",
+            "BIO-420 Comparative Anatomy and Embryology",
+            "BIO-426 Human Anatomical Systems",
+            "PSY-324 Learning",
+            "PSY-416 Brain Imaging"
+        ]
+    },
     "Philosophy, B.A." : {
         "key" : "PHLBA",
         "required" : [
