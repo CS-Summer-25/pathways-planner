@@ -1,6 +1,4 @@
-// GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "NW1", "NW2", "HB1", "HB2"];
-GERS = ["CLPs", "FYW", "WR", "Pathways", "NE", "IEJ", "WC", "HA", "TA", "VP", "UQ", "FL", "MB", "MR", "HB", "NW", "NWL"];
-// make sure to have NW and HB be given two slots
+let GERS = null;
 
 let MAJORS = [];
 let MINORS = [];
@@ -9,30 +7,37 @@ GER_COURSES = null;
 
 async function assignCourses(url) {
     // must wait to ensure that data is properly loaded into global var MAJORS
-    const data = await d3.csv(url)
+    if (url.endsWith(".csv")) {
+        const data = await d3.csv(url)
 
-    for (i = 0; i < data.length; i++) {
-        if (!data[i]["Program"].startsWith("#")) {
-            var type = data[i]["Type"];
-            var program = data[i]["Program"];
-            var name = data[i]["Name"];
-            // this was more painful than I initially anticipated
-            var vals = data[i]["Reqs"].split(',');
-            // console.log(vals)
+        for (i = 0; i < data.length; i++) {
+            if (!data[i]["Program"].startsWith("#")) {
+                var type = data[i]["Type"];
+                var program = data[i]["Program"];
+                var name = data[i]["Name"];
+                // this was more painful than I initially anticipated
+                var vals = data[i]["Reqs"].split(',');
+                // console.log(vals)
 
-            if (type == "major") {
-                MAJORS.push([program, name, vals]);
-            }
-            else if (type == "minor") {
-                MINORS.push([program, name, vals]);
+                if (type == "major") {
+                    MAJORS.push([program, name, vals]);
+                }
+                else if (type == "minor") {
+                    MINORS.push([program, name, vals]);
+                }
             }
         }
+    }
+    else if (url == "gers.json") {
+        const data = JSON.parse(await fetch(url).then(response => response.text()));
+        GERS = Object.keys(data);
     }
 }
 
 async function initialize() {
     // Recall, waiting so that MAJORS assigned properly
     await assignCourses("csv-files/programs.csv");
+    await assignCourses("gers.json");
     console.log("Starting Table Population");
     createTable("GERS", "GERS", GERS);    
     console.log("MAJORS/MINORS Initialized: ");
@@ -48,6 +53,7 @@ function setGERSAutocomplete() {
         .then(response => response.json())
         .then(gers => {
             GER_COURSES = gers;
+            GERS = Object.keys(gers);
             // Loop over gers dictionary to set up autocomplete for all GER fields
             for (let gerKey in gers) {
                 if (gers.hasOwnProperty(gerKey)) {
@@ -58,18 +64,20 @@ function setGERSAutocomplete() {
                             source: gers[gerKey],
                             select: function(event, ui) {
                                 inputValue = ui.item.label;
-                                rowLabel = event.target.getAttribute('class').split(' ')[1];
-                                console.log(event.target)
-                                
-                                var isValidGER = GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
-                                
-                                if (isValidGER == false){
-                                    event.target.setAttribute("style", "background-color: red;");
-                                }
-                                else{
-                                    event.target.setAttribute("style", "background-color: lightgreen;");
-                                }
+                                rowLabel = event.target.classList[1];
+                                // firstCol = 
+                                console.log("LABEL: ", rowLabel);
 
+                                if (Object.values(event.target.classList).indexOf("CLPs") == -1) {
+                                    var isValidGER = GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
+                        
+                                    if (isValidGER == false){
+                                        event.target.setAttribute("style", "background-color: red;");
+                                    }
+                                    else {
+                                        event.target.setAttribute("style", "background-color: lightgreen;");
+                                    }
+                                }
                             }
                         });
                     }
@@ -121,7 +129,7 @@ function addInputRow(tableId, firstCol) {
     // Populate table with GER column vals, input fields
     for (let i = 0; i < firstCol.length; i++){
         var newRow = table.insertRow(-1);
-        var rowLabel = firstCol[i].toLowerCase().replaceAll(" ", "");
+        var rowLabel = firstCol[i].replaceAll(" ", "");
         for (let j = 0; j < 9; j++){
             if(j === 0){
                 cell = newRow.insertCell(j);
@@ -197,10 +205,12 @@ function updateFirstCol(i, j, table, firstCol) {
     var relevantRow = rows[i+1];
 
     var firstCell = relevantRow.cells[0];
+    console.log("firstCell: ", firstCell.classList);
     var relevantRowInputs = relevantRow.getElementsByTagName("input");
     var rowLabel = firstCol[i].toLowerCase();
-    if (firstCol[i] != "CLPs") {
-        var isValidGER = GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
+    if (Object.values(firstCell.classList).indexOf("CLPs") <= 0) {//} && table.id == "GERS-table") {
+        console.log(rowLabel, inputValue, GER_COURSES[rowLabel]);
+        var isValidGER = Object.values(GER_COURSES[rowLabel]).indexOf(inputValue) >= 0;
     }
     // console.log(inputValue);
     // console.log(GER_COURSES[rowLabel]);
@@ -234,6 +244,7 @@ function updateFirstCol(i, j, table, firstCol) {
             // Follows different logic than other GERS - all inputs are enabled
             if (firstCol[i] == "CLPs") {
                 var total = 0;
+                // check up to the current semester
                 
                 for (let k = 0; k < relevantRowInputs.length; k++) {
                     if (relevantRowInputs[k].value != "") {
@@ -405,8 +416,6 @@ function updateSemesterLabel() {
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
     var tables = document.querySelectorAll("table");
-    
-    
 
     // Loop through each table
     tables.forEach(function(table) {
@@ -421,8 +430,8 @@ function updateTableColorsOnSlider(semester) {
             
             // Set all inputs to enabled
             for (let j = 0; j < relevantRowInputs.length; j++) {
-                if(relevantRowInputs[j].value != ""){
-                    
+                if(relevantRowInputs[j].value != "" && Object.values(firstCell.classList).indexOf("CLPs") == -1){
+
                     if (semester-1 == j) {
                         // If semester is current, set to ongoing
                         firstCell.setAttribute("style", "background-color: yellow;");
