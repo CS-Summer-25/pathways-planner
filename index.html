@@ -11,17 +11,28 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-        <!-- <script src="script.js" defer></script> -->
+        
         <script src="program_parser.js" defer></script>
         
     </head>
     <body onload="initialize()">
         <div id="header">
+            <div id="switchContainer">
+                <span id="switchLabel">Toggle Panel</span>
+                <label class="switch">
+                    <input type="checkbox" onclick="togglePanel()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <!-- <button id="hidePanel" class="headerBtns" onclick="hidePanel()">Hide Panel</button>
+            <button id="showPanel" class="headerBtns" onclick="showPanel()">Show Panel</button> -->
             <img src="logo.png" alt="Pathways Planner Logo" id="logo">
             <h1 id="heading">Pathways Planner</h1>
+
         </div>
         <div id="controlPanel">
-            <center><label for="mainMajorSelect">Select Major:</label>
+            <!-- <center> -->
+                <label for="mainMajorSelect">Select Major:</label>
             <select id="mainMajorSelect" onchange="grabCourses(id)">
             </select>
 
@@ -41,29 +52,22 @@
             <label for="semesterSlider">Select Current Semester:</label>
             <span id="semesterLabel"> 1</span>
             <input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()">
-            </center>
-            <!-- Changed "oninput" to "onchange" so that info doesn't operate until user makes choice -->
-
-            <!-- <hr/> -->
-            <!-- text field -->
-            <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label> -->
-            <!-- <br/><br/> -->
-            <!--Should we add a username/passcode system instead?-->
-            <!-- <input type="text" id="password" placeholder="Type in password here" >
+             <br/><br/>
+            <label for="searchInput">Type in your secret password to retrieve your previous plan:</label> 
             
-            <br/><br/>
-            <button id="saveBtn" onclick="savePlan()">Save</button>
-            <button id="loadBtn" onclick="loadPlan()">Load</button> -->
-
-            <!-- <br/><br/> -->
-
+             <input type="text" id="password" placeholder="Type in password here" style="width: 30%;">
+            
+            <button id="loadBtn" class="headerBtns" onclick="loadPlan()">Load Plan</button>
+            <button id="saveBtn" class="headerBtns" onclick="savePlan()">Save Plan</button>
+            
+            <hr/>
             <!-- <button id="removeGER" onclick="removeTable('GERS')">Remove GERs table (TEST)</button> -->
 
             <!-- <hr/> -->
             <!-- <input type="text" id="courseInput" placeholder="Search for course"> -->
              <!-- oninput="filterCourses('courseInput')"> -->
 
-            </div>
+        </div>
         <div id="mainBody">
             <!-- This is where the schedule tables get created -->
         </div>

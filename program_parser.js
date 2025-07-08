@@ -729,3 +729,15 @@ function loadPlan() {
         });
     });
 }
+
+function togglePanel(){
+    var panel = document.getElementById("controlPanel");
+    var mainBody = document.getElementById("mainBody");
+    if (panel.style.display === "none") {
+        panel.style.display = "block";
+        mainBody.style.paddingTop = "1%";
+    } else {
+        panel.style.display = "none";
+        mainBody.style.paddingTop = "6%";
+    }
+}
