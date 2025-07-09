@@ -1,5 +1,5 @@
+<!DOCTYPE html>
 <html lang='en-US'>
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="styles.css">
 
         <!-- import d3.js -->
-        <script src="https://d3js.org/d3.v7.min.js"></script>
+        <!-- <script src="https://d3js.org/d3.v7.min.js"></script> -->
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
@@ -20,7 +20,7 @@
             <div id="switchContainer">
                 <span id="switchLabel">Toggle Panel</span>
                 <label class="switch">
-                    <input type="checkbox" onclick="togglePanel()">
+                    <input id="switchBox" type="checkbox" onclick="togglePanel()">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -53,9 +53,9 @@
             <span id="semesterLabel"> 1</span>
             <input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()">
              <br/><br/>
-            <label for="searchInput">Type in your secret password to retrieve your previous plan:</label> 
-            
-             <input type="text" id="password" placeholder="Type in password here" style="width: 30%;">
+            <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>  -->
+            Tpye in your secret password to retrieve your previous plan:
+             <input type="text" id="passwordfield" placeholder="Type in password here">
             
             <button id="loadBtn" class="headerBtns" onclick="loadPlan()">Load Plan</button>
             <button id="saveBtn" class="headerBtns" onclick="savePlan()">Save Plan</button>

@@ -27,145 +27,6 @@
     text-align: center;
 }
 
-body{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color:black;
-    margin: 0px;
-    font-size: large;
-}
-
-#controlPanel{
-    padding-left: 5px;
-    float: top;
-    padding-top: 7%;
-    background-color: black;
-    /* background-color: purple; */
-    border: rgb(35, 35, 35) solid 1px;
-    color: silver;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    width: 100%;
-    height: 20%;
-    /* position: fixed; */
-
-}
-
-select{
-    margin-top: 1%;
-    width: 15%;
-    margin-left: 1%;
-    /* position: relative; */
-    /* position: static; */
-}
-
-#semesterSlider{
-    width: 50%;
-    accent-color: rgb(196, 83, 196);
-}
-
-#mainBody{
-
-    padding-top: 1%;
-    background-color: black;
-    width: 100%;
-    height: 80%;
-    float: right;
-    /* position: fixed; */
-    /* Temp fix for table appearing behind footer*/ 
-    z-index: 1;
-
-}
-
-#tableHeader{
-    background-color: black;
-    font-weight: bold;
-    color: silver;
-    margin: 0px;
-}
-
-.courseInput{
-    height: 100%;
-}
-
-input{
-    height: auto;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.75);
-}
-input:disabled{
-    background-color:rgba(255, 255, 255, 0.25);
-    width: 100%;
-}
-
-/* for the autocompletes */
-.ui-autocomplete {
-    background-color: rgba(255, 255, 255, 0.75);
-    max-height: 15%;
-    overflow-y: auto;
-    overflow-x: hidden;
-}
-
-
-table{
-    /* border: 1px solid rgb(246, 255, 0); */
-    width: 100%;
-    /* padding-top: 10%; */
-} 
-
-td{
-     border: 1px solid black;
-     height: auto; 
-     /* font-size: small; */
-}
-
-tr{
-    width: 100%;
-    border-bottom: 1px solid black;
-}
-
-#headerRow{
-    background-color: silver;
-    font-weight: bold;
-    /* font-size: small; */
-}
-
-.firstCol{
-    background-color: rgb(199, 2, 2);
-    color: white;
-    /*font-size-adjust: 0.8em;   */
-    width:10%;
-    /* text-align: center; */
-    overflow:auto;
-}
-
-#footer{
-
-    background-color: rgb(255, 0, 255);
-    color: white;
-    text-align: center;
-    /* float: bottom; */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    /*need to find fix for table appearing behind footer after majors reqs added */
-    z-index:0;
-} 
-
-.headerBtns{
-    position: float;
-    float: right;
-    margin-right: 2%;
-    /* margin-top: 1%; */
-    background-color: rgb(158, 83, 196);
-    color: whitesmoke;
-    border: none;
-    /* padding: 0.1%; */
-    font-size: large;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
 #switchContainer{
     float: right;
     width: 20%;
@@ -183,22 +44,7 @@ tr{
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-
-
-#hideBtn{
-    position: float;
-    float: right;
-    background-color: rgb(158, 83, 196);
-    color: whitesmoke;
-    border: none;
-    padding: 0.5%;
-    font-size: large;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
+/* These go with the switch button */
 .switch {
     position: relative;
     display: inline-block;
@@ -258,3 +104,168 @@ tr{
   .slider.round:before {
     border-radius: 50%;
   }
+
+/* -------------------------------- */
+
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color:black;
+    margin: 0px;
+    font-size: large;
+}
+
+#controlPanel{
+    padding-left: 5px;
+    float: top;
+    padding-top: 7%;
+    background-color: black;
+    /* background-color: purple; */
+    border: rgb(35, 35, 35) solid 1px;
+    color: silver;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 100%;
+    height: 20%;
+    /* position: fixed; */
+
+}
+
+select{
+    margin-top: 1%;
+    width: 15%;
+    margin-left: 1%;
+    /* position: relative; */
+    /* position: static; */
+}
+
+#passwordfield {
+    width: 30%;
+}
+
+#semesterSlider{
+    width: 62%;
+    accent-color: rgb(196, 83, 196);
+    cursor: ew-resize;
+}
+
+.headerBtns{
+    position: float;
+    float: right;
+    margin-right: 2%;
+    /* margin-top: 1%; */
+    background-color: rgb(158, 83, 196);
+    color: whitesmoke;
+    border: none;
+    /* padding: 0.1%; */
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* -------------------------------- */
+
+#mainBody{
+
+    padding-top: 1%;
+    background-color: black;
+    width: 100%;
+    height: 80%;
+    float: right;
+    /* position: fixed; */
+    /* Temp fix for table appearing behind footer*/ 
+    z-index: 1;
+
+}
+
+#tableHeader{
+    background-color: black;
+    font-weight: bold;
+    color: silver;
+    margin: 0px;
+}
+
+.courseInput{
+    height: 100%;
+}
+
+input{
+    height: auto;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+input:disabled{
+    background-color:rgba(255, 255, 255, 0.25);
+    width: 100%;
+    cursor: not-allowed;
+}
+
+/* for the autocompletes */
+.ui-autocomplete {
+    background-color: rgba(255, 255, 255, 0.75);
+    max-height: 15%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+table{
+    /* border: 1px solid rgb(246, 255, 0); */
+    width: 100%;
+    /* padding-bottom: 5%; */
+    /* padding-top: 10%; */
+} 
+
+td{
+     border: 1px solid black;
+     height: auto; 
+     width: auto;
+     /* font-size: small; */
+}
+
+tr{
+    width: 100%;
+    border-bottom: 1px solid black;
+}
+
+#headerRow{
+    background-color: silver;
+    font-weight: bold;
+    /* font-size: small; */
+}
+
+.firstCol{
+    background-color: rgb(199, 2, 2);
+    color: white;
+    /*font-size-adjust: 0.8em;   */
+    /* width:10%; */
+    /* text-align: center; */
+    overflow:auto;
+}
+
+#footer{
+
+    background-color: rgb(255, 0, 255);
+    color: white;
+    text-align: center;
+    /* float: bottom; */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    /*need to find fix for table appearing behind footer after majors reqs added */
+    z-index:0;
+} 
+
+/* #hideBtn{
+    position: float;
+    float: right;
+    background-color: rgb(158, 83, 196);
+    color: whitesmoke;
+    border: none;
+    padding: 0.5%;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+} */

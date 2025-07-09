@@ -1,7 +1,7 @@
 
 # TODO: 
 
-* [ ] Current semester column highlight on page load and new major selection
+* [X] Current semester column highlight on page load and new major selection
 
 * [ ] Convert input boxes to checkboxes, when relevant: for XXX-XXX first col values 
 
