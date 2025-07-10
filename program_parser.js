@@ -362,20 +362,6 @@ function addInputRow(tableId, firstCol) {
                     newInput.setAttribute("type", "number");
                     newInput.setAttribute("min", "0");
                 }
-                // Pathways is constant, so set to text with values in first 4 accordingly,  last 4 disabled
-                // <!-- disabled because there are more than 4 pth classes
-                // else if (firstCol[i] == "Pathways") {                    
-                //     // newInput.setAttribute("value", ["PTH-101", "PTH-102", "PTH-201", "PTH-210", "", "", "", ""][j-1]);
-                //     if (j > 4) {
-                //         newInput.setAttribute("disabled", "true");
-                //     }
-                //     // else {
-                //     //     // This ensures that this info still gets sent, but can't be edited
-                //     //     // Now, let's hope semester slider updates table correclty
-                //     //     newInput.setAttribute("readonly", "true");
-                //     // }
-                // }
-                // Can only take an FYW in freshman year
                 else if (firstCol[i] === "FYW" && j > 2) {
                     newInput.setAttribute("disabled", "true");
                 }
@@ -384,7 +370,7 @@ function addInputRow(tableId, firstCol) {
                 }
                 var semester = document.getElementById("semesterLabel").innerHTML;
                 // Add event listener to handle input changes
-                newInput.addEventListener("change", updateFirstCol.bind(newInput, table.rows[i+1], j, table));
+                newInput.addEventListener("change", updateFirstCol.bind(newInput, table.rows[i+1], j));
                 // newInput.addEventListener("change", updateTableColorsOnSlider.bind(newInput, semester));
                 cell.appendChild(newInput);
             }
@@ -708,6 +694,29 @@ function updateTableColorsOnSlider(semester) {
     });
 }
 
+function editTable() {
+    var modal = document.getElementById("tableModal");
+    var btn = document.getElementById("editTableBtn");
+    var span = document.getElementsByClassName("close")[0];
+    console.log("Edit Table Modal: ", modal);
+    console.log("Edit Table Button: ", btn);
+    console.log("Close Button: ", span);
+
+    // when user clicks btn, open modal form
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    // when user clicks on <span> (x) or outside modal popup, close modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+}
+
 // Make sure that savePlan and loadPlan save the programs as well
 function savePlan() {
 
@@ -818,7 +827,7 @@ function togglePanel(){
     var mainBody = document.getElementById("mainBody");
     if (panel.style.display === "none") {
         panel.style.display = "block";
-        mainBody.style.paddingTop = "1%";
+        mainBody.style.paddingTop = "18%";
     } else {
         panel.style.display = "none";
         mainBody.style.paddingTop = "6%";

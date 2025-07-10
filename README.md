@@ -9,6 +9,6 @@
 
 * [ ] Status color for first column should not update for CLPs unless sum == 32? 
 
-* [ ] Styling things 
+* [X] Styling things 
 
-* [ ] Buttons to Save and Load data
+* [X] Buttons to Save and Load data
