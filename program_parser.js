@@ -802,11 +802,21 @@ function isValidCredit(inputValue, creditType) {
     }
 }
 
+// --------------------------------------------------------
+
 function createTable(tableName, tableId, data) {
     // expected table IDs: GERS, mainMajor, doubleMajor, minor
     // How to implement table order? (i.e. GERS, main, double, always in that order)
-    var loc = document.getElementById("mainBody");
-    var controlPanel = document.getElementById("controlPanel");
+    if (!document.getElementById(tableId.concat("-wrapper"))) {
+        var tableDiv = document.createElement("div");
+        tableDiv.setAttribute("id", tableId.concat("-wrapper"));
+        tableDiv.setAttribute("class", "tableGroup");
+        document.getElementById("mainBody").appendChild(tableDiv);
+    }
+    else {
+        var tableDiv = document.getElementById(tableId.concat("-wrapper"));
+    }
+
     var name = document.createElement("h2");
     var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
     console.log("tableId: ", tableId);
@@ -819,9 +829,9 @@ function createTable(tableName, tableId, data) {
     var table = document.createElement("table");
     // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
     table.setAttribute("id", tableId.concat("-table"));
-
-    loc.appendChild(name);
-    loc.appendChild(table);
+    
+    tableDiv.appendChild(name);
+    tableDiv.appendChild(table);
 
     // Create header row
     var headerRow = table.insertRow(0);
@@ -845,7 +855,7 @@ function createTable(tableName, tableId, data) {
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
-    loc.appendChild(addRowBtn);
+    tableDiv.appendChild(addRowBtn);
 
     // add a toggle span to header
     var toggleSpan = document.createElement("span");
@@ -859,16 +869,22 @@ function createTable(tableName, tableId, data) {
 }
 
 function removeTable(tableId) {
-    var oldTable = document.getElementById(tableId.concat("-table"));
-    // Ensures that the <h1> tag also gets removed
-    var oldHeader = document.querySelectorAll(`[class=${tableId}]`);
-    if (oldTable) {
-
-        oldTable.remove()
-        oldHeader.forEach(function(row) {
-            row.parentNode.removeChild(row);
-        });
+    var oldGroup = document.getElementById(tableId.concat("-wrapper"));
+    if (oldGroup) {
+        for (let i = oldGroup.children.length - 1; i >= 0; i--) {
+            oldGroup.children[i].remove();
+        }
     }
+    // var oldTable = document.getElementById(tableId.concat("-table"));
+    // // Ensures that the <h1> tag also gets removed
+    // var oldHeader = document.querySelectorAll(`[class=${tableId}]`);
+    // if (oldTable) {
+
+    //     oldTable.remove()
+    //     oldHeader.forEach(function(row) {
+    //         row.parentNode.removeChild(row);
+    //     });
+    // }
     console.log(`Previous rows of type: ${tableId} removed.`);
 }
 
@@ -896,7 +912,6 @@ function customAddRow(tableId) {
 function customAddColumn() {
     // adds a new column to all tables with incremented column number
     var tables = document.querySelectorAll("table");
-    // var mainBody = document.getElementById("mainBody");
     var semesterSlider = document.getElementById("semesterSlider");
     semesterSlider.max++;
     tables.forEach(function(table) {
