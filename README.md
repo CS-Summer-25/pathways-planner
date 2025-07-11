@@ -9,6 +9,17 @@
 
 * [ ] Status color for first column should not update for CLPs unless sum == 32? 
 
-* [X] Styling things 
-
 * [X] Buttons to Save and Load data
+
+* [ ] Add a Toggle panel onto the tables themselves
+
+* [ ] Change general CSS styling (hard on the eyes)
+    * [ ] Preferably, Page styling based on system preferences (dark/light mode)
+
+* [ ] Change toggle panel to be an up/down arrow span
+
+* [ ] Change save/Load plan to have magic link functionality
+
+* [ ] Add tick marks on semester slider for visual appeal/convenience
+
+* [ ] Slight bug with new Row Button being adding when tables are changed

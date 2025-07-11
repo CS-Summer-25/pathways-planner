@@ -377,6 +377,18 @@ function togglePanel(){
     }
 }
 
+function toggleTable(tableId) {
+    var table = document.getElementById(tableId.concat("-table"));
+    var rowBtn = document.getElementById(tableId.concat(" RowBtn"));
+    if (table.style.display === "none") {
+        table.style.display = "table-row-group";
+        rowBtn.setAttribute("style", "display: block;");
+    } else {
+        table.style.display = "none";
+        rowBtn.setAttribute("style", "display: none;");
+    }
+}
+
 // We should assign majors list based on what majors.csv has in the list
 function constructCourses() {
     var progId = ["mainMajorSelect", "doubleMajorSelect", "minorSelect"];
@@ -706,7 +718,6 @@ function updateSemesterLabel() {
     var slider = document.getElementById("semesterSlider");
     semesterLabel.innerHTML = `${slider.value}`;
     console.log(`Semester Val is ${slider.value}`);
-
     updateTableColorsOnSlider(slider.value);
 
 }
@@ -823,8 +834,9 @@ function createTable(tableName, tableId, data) {
         else {
             headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
         }
-    }
+    }        
     addInputRow(tableId, data);
+
     // add a custom - add row button below existing rows
     var addRowBtn = document.createElement("button");
     addRowBtn.innerHTML = "Add Row";
@@ -835,17 +847,15 @@ function createTable(tableName, tableId, data) {
     };
     loc.appendChild(addRowBtn);
 
-    // add a custom - add column button next to existing columns
-    // if (!document.getElementById("ColBtn")) {
-    //     var addColBtn = document.createElement("button");
-    //     addColBtn.innerHTML = "Add Column";
-    //     addColBtn.setAttribute("id", "ColBtn");
-    //     addColBtn.setAttribute("class", "headerBtns");
-    //     addColBtn.onclick = function() {
-    //         customAddColumn();
-    //     };
-    //     loc.insertBefore(addColBtn, loc.firstChild);
-    // }
+    // add a toggle span to header
+    var toggleSpan = document.createElement("span");
+    toggleSpan.setAttribute("id", tableId.concat("-toggle"));
+    toggleSpan.setAttribute("class", "tableToggle");
+    toggleSpan.innerHTML = `<span>Toggle</span>`;
+    toggleSpan.onclick = function() {
+        toggleTable(tableId);
+    };
+    name.appendChild(toggleSpan);
 }
 
 function removeTable(tableId) {

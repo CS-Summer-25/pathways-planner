@@ -187,6 +187,20 @@ select{
     color: silver;
     margin: auto;
     padding-left: 0.5%;
+    padding-top: 1%;
+}
+
+.tableToggle{
+    float: right;
+    background-color: rgb(158, 83, 196);
+    color: whitesmoke;
+    border: none;
+    padding: 0.5%;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .courseInput{
