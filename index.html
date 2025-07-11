@@ -6,7 +6,6 @@
         <title>Pathways Planner</title>
         <link rel="stylesheet" href="styles.css">
 
-        <!-- import d3.js -->
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
@@ -56,27 +55,10 @@
             Type in your secret password to retrieve your previous plan:
              <input type="text" id="passwordfield" placeholder="Type in password here">
             
-            <button id="loadBtn" class="headerBtns" onclick="loadPlan()">Load Plan</button>
             <button id="saveBtn" class="headerBtns" onclick="savePlan()">Save Plan</button>
+            <button id="loadBtn" class="headerBtns" onclick="loadPlan()">Load Plan</button>
+            <button id="addColBtn" class="headerBtns" onclick="customAddColumn()">Add Column</button>
 
-            <!-- button for an input form for the row/column add -->
-            <!-- <button id="editTableBtn" class="headerBtns" onclick="editTable()">Edit Table</button>
-            <div id="tableModal" class="modal">
-
-                <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h2>Edit Table</h2>
-                    <form id="editTableForm">
-                        <label for="row">Row:</label>
-                        <input type="number" id="row" name="row" min="1" required>
-                        <label for="col">Column:</label>
-                        <input type="number" id="col" name="col" min="1" required>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
-                
-            </div> -->
-            <!-- maybe some form of modal for the add row/column functionality? -->
             <hr/>
 
         </div>
@@ -86,7 +68,7 @@
         
         <!-- removed till functionality is improved-->
         <div id="footer">
-            <p>Pathways Planner © 2023</p>
+            <p>Pathways Planner © 2025</p>
         </div>
     </body>
 </html>

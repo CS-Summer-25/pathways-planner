@@ -210,6 +210,111 @@ async function initialize() {
     console.log("Initialization complete!")
 }
 
+// Make sure that savePlan and loadPlan save the programs as well
+function savePlan() {
+
+    var currentSemester = document.getElementById("semesterLabel").innerHTML;
+
+    var password = document.getElementById("passwordfield").value;
+    console.log(password);
+    var table = document.getElementById("courses");
+    var countGers = GERS.length;
+    var plan = {};
+
+    // Saving plan in compressed form for GET requests 
+    var compressed = "";
+    for (let i = 0; i < countGers; i++){
+        var relevantRow = table.rows[i+1];
+        var inputs = relevantRow.getElementsByTagName("input");
+        var courses = [];
+        for (let j = 0; j < inputs.length; j++) {
+            if (inputs[j].value !== "") {
+                courses.push(inputs[j].value);
+                compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
+            }
+        }
+    }
+
+    // Make get request and pass password and plan as query parameters
+    // var xhr = new XMLHttpRequest();
+    plan = "Abc"; // Placeholder for plan, replace with actual plan data
+    var constructedUrl = `https://furmancs.com/tabot/savePlan?password=${encodeURIComponent(password)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
+    console.log(constructedUrl);
+    // xhr.open("GET", constructedUrl, true);
+    // xhr.onreadystatechange = function() {
+    //     if (xhr.readyState === 4 && xhr.status === 200) {
+    //         alert("Plan saved successfully!");
+    //     } else if (xhr.readyState === 4) {
+    //         alert("Failed to save plan. Please try again.");
+    //     }
+    //     else{
+    //         console.log("Request in progress...");
+    //     }
+    // };
+
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return response.json();
+    });
+
+}
+
+function loadPlan() {
+
+    var password = document.getElementById("passwordfield").value;
+
+    console.log(password);
+    console.log("Load Plan");
+    var constructedUrl = `https://furmancs.com/tabot/loadPlan?password=${encodeURIComponent(password)}`;
+
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        var coursesInfo = response.json();
+
+        coursesInfo.then(data => {
+
+            for(i = 0; i<data.length; i++){
+                console.log(data[i]);
+                let course = data[i];
+                let ger = course.ger;
+                let semester = parseInt(course.sem);
+                let courseName = course.title;
+
+                console.log(ger);
+
+                // Find the row corresponding to the GER
+                let gerIndex = GERS.indexOf(ger);
+                console.log(gerIndex);
+                let table = document.getElementById("courses");
+                let relevantRow = table.rows[gerIndex + 1];
+                let inputs = relevantRow.getElementsByTagName("input");
+                console.log(semester);
+                // Find the input corresponding to the semester
+                if (semester >= 1 && semester <= 8) {
+                    let inputIndex = semester - 1; // Adjust for zero-based index
+                    console.log(inputs[inputIndex]);
+                    if (inputs[inputIndex]) {
+                        inputs[inputIndex].value = courseName;
+                        inputs[inputIndex].dispatchEvent(new Event('input')); // Trigger input event to update styles
+                    }
+                }
+            }
+            
+        }).catch(error => {
+            console.error("There was a problem with the fetch operation:", error);
+            alert("Failed to load plan. Please check your password and try again.");
+
+        
+        });
+    });
+}
+
 function setGERSAutocomplete() {
     $( function() {        
         fetch('gers.json')
@@ -217,7 +322,9 @@ function setGERSAutocomplete() {
         .then(gers => {
             GERS = Object.keys(gers);
             console.log("GERS: ", GERS);
-            createTable("GERS", "GERS", GERS);
+            if (!document.getElementById("GERS-table")) {
+                createTable("GERS", "GERS", GERS);
+            }
             // convert all keys to lowercase
             GER_COURSES = Object.fromEntries(Object.entries(gers).map(([key, value]) => [key.toLowerCase(), value]));
             // GER_COURSES = Object.fromEntries(
@@ -258,6 +365,17 @@ function setGERSAutocomplete() {
     );
 }
 
+function togglePanel(){
+    var panel = document.getElementById("controlPanel");
+    var mainBody = document.getElementById("mainBody");
+    if (panel.style.display === "none") {
+        panel.style.display = "block";
+        mainBody.style.paddingTop = "18%";
+    } else {
+        panel.style.display = "none";
+        mainBody.style.paddingTop = "6%";
+    }
+}
 
 // We should assign majors list based on what majors.csv has in the list
 function constructCourses() {
@@ -331,61 +449,85 @@ function grabCourses(selectId) {
     }
 }
 
+// --------------------------------------------------------
+
 function addInputRow(tableId, firstCol) {
+    // firstCol is a list of elements to become the first column of the table - can be of length 1 (just make a list of [element])
     var table = document.getElementById(tableId.concat("-table"));
     console.log(table);
+    var tableLength = parseInt(document.getElementById("semesterSlider").max);
+    console.log("tableLength: ", tableLength);
+    
 
     // Populate table with GER column vals, input fields
+    var tableHeight = table.rows.length;
+    console.log("table height: ", tableHeight);
     for (let i = 0; i < firstCol.length; i++){
+        var tableIdx = i + tableHeight
         var newRow = table.insertRow(-1);
+        // if (firstCol[i] == "custom") {
         var rowLabel = firstCol[i].toLowerCase().replaceAll(" ", "");
-        for (let j = 0; j < 9; j++){
+        if (firstCol[i] == "custom") {
+            rowLabel += String(tableIdx);
+        }
+        console.log(tableIdx, firstCol[i], rowLabel)
+        // for (let j = 0; j < table.rows[0].cells.length; j++){
+        for (let j = 0; j < tableLength+1; j++) {
             if(j === 0){
                 cell = newRow.insertCell(j);
                 cell.setAttribute("class", "firstCol");
-                
-                cell.innerHTML = `<td>${firstCol[i]}</td>`;
+
+                if (rowLabel.startsWith("custom")) {
+                    cell.innerHTML = `<td>Custom ${tableIdx}</td>`;
+                }
+                else {
+                    cell.innerHTML = `<td>${firstCol[i]}</td>`;
+                }
                 cell.classList.add(rowLabel);
-                cell.setAttribute("id", tableId+"_"+i+"-"+j);
+                cell.setAttribute("id", tableId+"_"+tableIdx+"-"+j);
             }
             else{
                 var cell = newRow.insertCell(j);
                 var newInput = document.createElement("input");
 
-                newInput.setAttribute("id", tableId+"_"+i+"-"+j);
+                newInput.setAttribute("id", tableId+"_"+tableIdx+"-"+j);
                 newInput.setAttribute("class", "courseInput");
                 newInput.classList.add(rowLabel);
 
                 // newInput.setAttribute("value", "-");
                 // if row is CLPs, set to number inputs, string otherwise
-                if (firstCol[i] == "CLPs") {
+                if (rowLabel == "clps") {
                     newInput.setAttribute("type", "number");
                     newInput.setAttribute("min", "0");
                 }
-                else if (firstCol[i] === "FYW" && j > 2) {
+                else if (rowLabel === "fyw" && j > 2) {
                     newInput.setAttribute("disabled", "true");
                 }
                 else {
                     newInput.setAttribute("type", "text");
                 }
-                var semester = document.getElementById("semesterLabel").innerHTML;
                 // Add event listener to handle input changes
-                newInput.addEventListener("change", updateFirstCol.bind(newInput, table.rows[i+1], j));
+                // console.log("EVENT LISTENER ADDED:", table.rows[tableIdx], j);
+                // we simply have no validation for custom rows - maybe a future feature
+                // if (!rowLabel.startsWith("custom")) {
+                newInput.addEventListener("change", updateFirstCol.bind(newInput, table.rows[tableIdx], j));
+                // }
                 // newInput.addEventListener("change", updateTableColorsOnSlider.bind(newInput, semester));
                 cell.appendChild(newInput);
             }
-        }
+        }        
     }
+    updateSemesterLabel();
 }
 
 function updateFirstCol(relevantRow, j) {
 
     // console.log(this);
-    // console.log(relevantRow);
-    // console.log(j);
+    console.log("Updating First Column: ");
+    console.log(relevantRow);
+    console.log(j);
 
     var inputValue = this.value;
-
 
     // Handle input change if necessary
     console.log(`Input changed (${inputValue}) for ${relevantRow.cells[0].innerHTML} in Semester ${j}`);
@@ -559,68 +701,6 @@ function updateFirstCol(relevantRow, j) {
     updateTableColorsOnSlider(currentSemester);
 }
 
-function isValidCredit(inputValue, creditType) {
-    console.log(`isValidCredit called with inputValue: ${inputValue}, creditType: ${creditType}`, creditType.length);
-    if (Object.keys(GER_COURSES).indexOf(creditType) >= 0 && creditType != "clps") {
-        return GER_COURSES[creditType].indexOf(inputValue) >= 0;
-    }
-    else if (creditType == "clps") {
-        return parseInt(inputValue) >= 0;
-    }
-    else {
-        return false
-    }
-}
-
-function removeTable(tableId) {
-    var oldTable = document.getElementById(tableId.concat("-table"));
-    // Ensures that the <h1> tag also gets removed
-    var oldHeader = document.querySelectorAll(`[class=${tableId}]`);
-    if (oldTable) {
-
-        oldTable.remove()
-        oldHeader.forEach(function(row) {
-            row.parentNode.removeChild(row);
-        });
-    }
-    console.log(`Previous rows of type: ${tableId} removed.`);
-}
-// Remember to add HB and NW validation
-function createTable(tableName, tableId, data) {
-    // expected table IDs: GERS, mainMajor, doubleMajor, minor
-    // How to implement table order? (i.e. GERS, main, double, always in that order)
-    var loc = document.getElementById("mainBody");
-    var name = document.createElement("h2");
-    console.log("tableId: ", tableId);
-
-    
-    name.innerHTML = `${tableName}`;
-    name.setAttribute("id", "tableHeader");
-    name.classList.add(tableId);
-
-    var table = document.createElement("table");
-    // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
-    table.setAttribute("id", tableId.concat("-table"));
-
-    loc.appendChild(name);
-    loc.appendChild(table);
-
-    // Create header row
-    var headerRow = table.insertRow(0);
-    headerRow.setAttribute("id", "headerRow");
-    headerRow.classList.add(tableId);
-    for (let i = 0; i < 9; i++){
-        if (i === 0) {
-            headerRow.insertCell(i).innerHTML = `<th>Reqs</th>`;
-        }
-        else {
-            headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
-        }
-    }
-    addInputRow(tableId, data);
-    updateSemesterLabel();
-}
-   
 function updateSemesterLabel() {
     var semesterLabel = document.getElementById("semesterLabel");
     var slider = document.getElementById("semesterSlider");
@@ -645,6 +725,7 @@ function compareLabelSemestersJ(j, semester) {
         return "background-color: blue;";
     }
 }
+
 function compareInputSemestersJ(input, j, semester) {
     if (j == semester && input.disabled == false) {
         return "background-color: rgb(196, 83, 196);";
@@ -669,13 +750,16 @@ function updateTableColorsOnSlider(semester) {
     tables.forEach(function(table) {
         // Get all rows in the table
         var rows = table.rows;
-        console.log(rows);
+        console.log("ROWS: ", rows);
         // Loop through each row, except the header row
         for (let i = 1; i < rows.length; i++) {
             var relevantRow = rows[i];
             var firstCell = relevantRow.cells[0];
             var relevantRowInputs = relevantRow.getElementsByTagName("input");
-            
+            // if (Array.from(firstCell.classList).some(cls => cls.match(/custom/))) {
+            //     break;
+            // }
+
             // Set all inputs to enabled
             for (let j = 0; j < relevantRowInputs.length; j++) {
                 if(relevantRowInputs[j].value != "" && Object.values(firstCell.classList).indexOf("clps") == -1 && isValidCredit(relevantRowInputs[j].value, firstCell.classList[1])) {
@@ -694,142 +778,158 @@ function updateTableColorsOnSlider(semester) {
     });
 }
 
-function editTable() {
-    var modal = document.getElementById("tableModal");
-    var btn = document.getElementById("editTableBtn");
-    var span = document.getElementsByClassName("close")[0];
-    console.log("Edit Table Modal: ", modal);
-    console.log("Edit Table Button: ", btn);
-    console.log("Close Button: ", span);
-
-    // when user clicks btn, open modal form
-    btn.onclick = function() {
-        modal.style.display = "block";
+function isValidCredit(inputValue, creditType) {
+    console.log(`isValidCredit called with inputValue: ${inputValue}, creditType: ${creditType}`, creditType.length);
+    if (Object.keys(GER_COURSES).indexOf(creditType) >= 0 && creditType != "clps") {
+        return GER_COURSES[creditType].indexOf(inputValue) >= 0;
     }
-    // when user clicks on <span> (x) or outside modal popup, close modal
-    span.onclick = function() {
-        modal.style.display = "none";
+    else if (creditType == "clps") {
+        return parseInt(inputValue) >= 0;
     }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+    else {
+        return false
     }
 }
 
-// Make sure that savePlan and loadPlan save the programs as well
-function savePlan() {
+function createTable(tableName, tableId, data) {
+    // expected table IDs: GERS, mainMajor, doubleMajor, minor
+    // How to implement table order? (i.e. GERS, main, double, always in that order)
+    var loc = document.getElementById("mainBody");
+    var controlPanel = document.getElementById("controlPanel");
+    var name = document.createElement("h2");
+    var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
+    console.log("tableId: ", tableId);
 
-    var currentSemester = document.getElementById("semesterLabel").innerHTML;
+    
+    name.innerHTML = `${tableName}`;
+    name.setAttribute("id", "tableHeader");
+    name.classList.add(tableId);
 
-    var password = document.getElementById("passwordfield").value;
-    console.log(password);
-    var table = document.getElementById("courses");
-    var countGers = GERS.length;
-    var plan = {};
+    var table = document.createElement("table");
+    // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
+    table.setAttribute("id", tableId.concat("-table"));
 
-    // Saving plan in compressed form for GET requests 
-    var compressed = "";
-    for (let i = 0; i < countGers; i++){
-        var relevantRow = table.rows[i+1];
-        var inputs = relevantRow.getElementsByTagName("input");
-        var courses = [];
-        for (let j = 0; j < inputs.length; j++) {
-            if (inputs[j].value !== "") {
-                courses.push(inputs[j].value);
-                compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
-            }
+    loc.appendChild(name);
+    loc.appendChild(table);
+
+    // Create header row
+    var headerRow = table.insertRow(0);
+    headerRow.setAttribute("id", "headerRow");
+    headerRow.classList.add(tableId);
+    for (let i = 0; i < semesterMax; i++){
+        if (i === 0) {
+            headerRow.insertCell(i).innerHTML = `<th>Reqs</th>`;
+        }
+        else {
+            headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
         }
     }
+    addInputRow(tableId, data);
+    // add a custom - add row button below existing rows
+    var addRowBtn = document.createElement("button");
+    addRowBtn.innerHTML = "Add Row";
+    addRowBtn.setAttribute("id", tableId+" RowBtn");
+    addRowBtn.setAttribute("class", "headerBtns");
+    addRowBtn.onclick = function() {
+        customAddRow(tableId);
+    };
+    loc.appendChild(addRowBtn);
 
-    // Make get request and pass password and plan as query parameters
-    // var xhr = new XMLHttpRequest();
-    plan = "Abc"; // Placeholder for plan, replace with actual plan data
-    var constructedUrl = `https://furmancs.com/tabot/savePlan?password=${encodeURIComponent(password)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
-    console.log(constructedUrl);
-    // xhr.open("GET", constructedUrl, true);
-    // xhr.onreadystatechange = function() {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         alert("Plan saved successfully!");
-    //     } else if (xhr.readyState === 4) {
-    //         alert("Failed to save plan. Please try again.");
-    //     }
-    //     else{
-    //         console.log("Request in progress...");
-    //     }
-    // };
-
-    fetch(constructedUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        return response.json();
-    });
-
+    // add a custom - add column button next to existing columns
+    // if (!document.getElementById("ColBtn")) {
+    //     var addColBtn = document.createElement("button");
+    //     addColBtn.innerHTML = "Add Column";
+    //     addColBtn.setAttribute("id", "ColBtn");
+    //     addColBtn.setAttribute("class", "headerBtns");
+    //     addColBtn.onclick = function() {
+    //         customAddColumn();
+    //     };
+    //     loc.insertBefore(addColBtn, loc.firstChild);
+    // }
 }
 
-function loadPlan() {
+function removeTable(tableId) {
+    var oldTable = document.getElementById(tableId.concat("-table"));
+    // Ensures that the <h1> tag also gets removed
+    var oldHeader = document.querySelectorAll(`[class=${tableId}]`);
+    if (oldTable) {
 
-    var password = document.getElementById("passwordfield").value;
-
-    console.log(password);
-    console.log("Load Plan");
-    var constructedUrl = `https://furmancs.com/tabot/loadPlan?password=${encodeURIComponent(password)}`;
-
-    fetch(constructedUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        var coursesInfo = response.json();
-
-        coursesInfo.then(data => {
-
-            for(i = 0; i<data.length; i++){
-                console.log(data[i]);
-                let course = data[i];
-                let ger = course.ger;
-                let semester = parseInt(course.sem);
-                let courseName = course.title;
-
-                console.log(ger);
-
-                // Find the row corresponding to the GER
-                let gerIndex = GERS.indexOf(ger);
-                console.log(gerIndex);
-                let table = document.getElementById("courses");
-                let relevantRow = table.rows[gerIndex + 1];
-                let inputs = relevantRow.getElementsByTagName("input");
-                console.log(semester);
-                // Find the input corresponding to the semester
-                if (semester >= 1 && semester <= 8) {
-                    let inputIndex = semester - 1; // Adjust for zero-based index
-                    console.log(inputs[inputIndex]);
-                    if (inputs[inputIndex]) {
-                        inputs[inputIndex].value = courseName;
-                        inputs[inputIndex].dispatchEvent(new Event('input')); // Trigger input event to update styles
-                    }
-                }
-            }
-            
-        }).catch(error => {
-            console.error("There was a problem with the fetch operation:", error);
-            alert("Failed to load plan. Please check your password and try again.");
-
-        
+        oldTable.remove()
+        oldHeader.forEach(function(row) {
+            row.parentNode.removeChild(row);
         });
-    });
+    }
+    console.log(`Previous rows of type: ${tableId} removed.`);
 }
 
-function togglePanel(){
-    var panel = document.getElementById("controlPanel");
-    var mainBody = document.getElementById("mainBody");
-    if (panel.style.display === "none") {
-        panel.style.display = "block";
-        mainBody.style.paddingTop = "18%";
-    } else {
-        panel.style.display = "none";
-        mainBody.style.paddingTop = "6%";
-    }
+function customAddRow(tableId) {
+    // remove the old button - plan to move below new row
+    var table = document.getElementById(tableId.concat("-table"));
+    // var newRow = table.insertRow(-1);
+    var numCols = table.rows[0].cells.length; // Get number of columns from the header row
+    console.log(numCols)
+    addInputRow(tableId, ["custom"]);
+    var oldButton = document.getElementById(tableId.concat(" RowBtn"));
+    oldButton.remove(); // Remove the old button
+    // Create a new button and append it to the table
+    var newButton = document.createElement("button");
+    newButton.innerHTML = "Add Row";
+    newButton.setAttribute("id", tableId+" RowBtn");
+    newButton.setAttribute("class", "headerBtns");
+    newButton.setAttribute("style", "margin-top: 10%;"); // Add some margin to the button (to keep its position consistent)
+    newButton.onclick = function() {
+        customAddRow(tableId);
+    };
+    table.appendChild(newButton);
+}
+
+function customAddColumn() {
+    // adds a new column to all tables with incremented column number
+    var tables = document.querySelectorAll("table");
+    // var mainBody = document.getElementById("mainBody");
+    var semesterSlider = document.getElementById("semesterSlider");
+    semesterSlider.max++;
+    tables.forEach(function(table) {
+        var headerRow = table.rows[0];
+        var tableId = table.id.replace("-table", ""); // Get the table ID without the "-table" suffix
+        var numCols = table.rows[0].cells.length; // Get number of columns from the header row
+
+        headerRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        // Loop through each row and add a new input cell
+        var j = numCols; // j is the index of the new column
+        for (let i = 1; i < table.rows.length; i++) {
+            var relevantRow = table.rows[i];
+            var firstCell = relevantRow.cells[0];
+            var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");
+            console.log(firstCell);
+
+            var newCell = table.rows[i].insertCell(-1);
+            var newInput = document.createElement("input");
+            newInput.setAttribute("id", tableId+"_"+i+"-"+numCols);
+            newInput.setAttribute("class", "courseInput");
+            newInput.classList.add(rowLabel);
+
+            // if row is CLPs, set to number inputs, string otherwise
+            if (rowLabel == "clps") {
+                newInput.setAttribute("type", "number");
+                newInput.setAttribute("min", "0");
+            }
+            else if (rowLabel === "fyw" && j > 2) {
+                newInput.setAttribute("disabled", "true");
+            }
+            else {
+                newInput.setAttribute("type", "text");
+            }
+            // Add event listener to handle input changes
+            // console.log("EVENT LISTENER ADDED:", i, numCols);
+            // we simply have no validation for custom rows - maybe a future feature
+            // if (!rowLabel.startsWith("custom")) {
+            newInput.addEventListener("change", updateFirstCol.bind(newInput, relevantRow, numCols));
+            // }
+            // newInput.addEventListener("change", updateTableColorsOnSlider.bind(newInput, semester));
+            newCell.appendChild(newInput);
+        }
+        setGERSAutocomplete(); // Reapply autocomplete to the new input fields
+        // updateSemesterLabel();
+    });
 }
