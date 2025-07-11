@@ -380,12 +380,15 @@ function togglePanel(){
 function toggleTable(tableId) {
     var table = document.getElementById(tableId.concat("-table"));
     var rowBtn = document.getElementById(tableId.concat(" RowBtn"));
+    var toggleSpan = document.getElementById(tableId.concat("-toggle"));
     if (table.style.display === "none") {
         table.style.display = "table-row-group";
         rowBtn.setAttribute("style", "display: block;");
+        toggleSpan.innerHTML = `<span>&and;</span>`;
     } else {
         table.style.display = "none";
         rowBtn.setAttribute("style", "display: none;");
+        toggleSpan.innerHTML = `<span>&or;</span>`;
     }
 }
 
@@ -861,7 +864,7 @@ function createTable(tableName, tableId, data) {
     var toggleSpan = document.createElement("span");
     toggleSpan.setAttribute("id", tableId.concat("-toggle"));
     toggleSpan.setAttribute("class", "tableToggle");
-    toggleSpan.innerHTML = `<span>Toggle</span>`;
+    toggleSpan.innerHTML = `<span>&and;</span>`;
     toggleSpan.onclick = function() {
         toggleTable(tableId);
     };
