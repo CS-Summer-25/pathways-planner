@@ -922,14 +922,16 @@ function customAddColumn() {
         var tableId = table.id.replace("-table", ""); // Get the table ID without the "-table" suffix
         var numCols = table.rows[0].cells.length; // Get number of columns from the header row
 
-        headerRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        headerRow.insertCell(numCols).innerHTML = `<td>Semester ${numCols}</td>`;
         // Loop through each row and add a new input cell
         var j = numCols; // j is the index of the new column
         for (let i = 1; i < table.rows.length; i++) {
             var relevantRow = table.rows[i];
             var firstCell = relevantRow.cells[0];
             var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");
-            console.log(firstCell);
+
+            console.log("FirstCell:", firstCell);
+            console.log("Row: ", Array.from(relevantRow.getElementsByTagName("input")).map(input => input.disabled));
 
             var newCell = table.rows[i].insertCell(-1);
             var newInput = document.createElement("input");
@@ -954,10 +956,20 @@ function customAddColumn() {
             // if (!rowLabel.startsWith("custom")) {
             newInput.addEventListener("change", updateFirstCol.bind(newInput, relevantRow, numCols));
             // }
+            // if there are disabled rows and the firstCell is colored blue/green/orange, disable the new input
+            if (Array.from(relevantRow.getElementsByTagName("input")).some(cell => cell.disabled == true) &&
+            (firstCell.getAttribute("style") == "background-color: #FFC000;" || 
+            firstCell.getAttribute("style") == "background-color: green;" || 
+            firstCell.getAttribute("style") == "background-color: blue;")
+            ) {
+                console.log("Disabling new input for row: ", rowLabel);
+                // continue; // Skip adding input for this row
+                newInput.disabled = "true";
+            }
             // newInput.addEventListener("change", updateTableColorsOnSlider.bind(newInput, semester));
             newCell.appendChild(newInput);
         }
         setGERSAutocomplete(); // Reapply autocomplete to the new input fields
-        // updateSemesterLabel();
+        updateSemesterLabel();
     });
 }
