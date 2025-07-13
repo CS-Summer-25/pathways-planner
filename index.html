@@ -15,49 +15,50 @@
     </head>
     <body onload="initialize()">
         <div id="header">
-            <div id="switchContainer">
+            <button id="togglePanel" class="headerBtns" onclick="togglePanel()">&and;</button>
+            <img src="logo.png" alt="Pathways Planner Logo" id="logo">
+            <h1 id="heading">Pathways Planner</h1>
+            <!-- <div id="switchContainer">
                 <span id="switchLabel">Toggle Panel</span>
                 <label class="switch">
                     <input id="switchBox" type="checkbox" onclick="togglePanel()">
                     <span class="slider round"></span>
                 </label>
-            </div>
-            <!-- <button id="hidePanel" class="headerBtns" onclick="hidePanel()">Hide Panel</button>
-            <button id="showPanel" class="headerBtns" onclick="showPanel()">Show Panel</button> -->
-            <img src="logo.png" alt="Pathways Planner Logo" id="logo">
-            <h1 id="heading">Pathways Planner</h1>
+            </div> -->
 
         </div>
         <div id="controlPanel">
             <!-- <center> -->
+            <div id="selects">
                 <label for="mainMajorSelect">Select Major:</label>
-            <select id="mainMajorSelect" onchange="grabCourses(id)">
-            </select>
+                <select id="mainMajorSelect" onchange="grabCourses(id)">
+                </select>
 
-            <!-- <br/> -->
-            <!-- For Double Major Selection -->
-            <label for="doubleMajorSelect">Select 2nd Major:</label>
-            <select id="doubleMajorSelect" onchange="grabCourses(id)">       
-            </select> 
+                <!-- <br/> -->
+                <!-- For Double Major Selection -->
+                <label for="doubleMajorSelect">Select 2nd Major:</label>
+                <select id="doubleMajorSelect" onchange="grabCourses(id)">       
+                </select> 
 
-            <!-- <br/> -->
-            <!-- For Minor Selection -->
-            <label for="minorSelect">Select Minor:</label>
-            <select id="minorSelect" onchange="grabCourses(id)">
-            </select>
+                <!-- <br/> -->
+                <!-- For Minor Selection -->
+                <label for="minorSelect">Select Minor:</label>
+                <select id="minorSelect" onchange="grabCourses(id)">
+                </select>
+            </div>
 
-            <br/><br/>
+            <!-- <br/><br/> -->
             <label for="semesterSlider">Select Current Semester:</label>
-            <span id="semesterLabel"> 1</span>
+            <span id="semesterValue">1</span>
             <input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()">
-            <br/><br/>
+            <!-- <br/><br/> -->
             <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>  -->
-            Type in your secret password to retrieve your previous plan:
-             <input type="text" id="passwordfield" placeholder="Type in password here">
+            <!-- Type in your secret password to retrieve your previous plan:
+             <input type="text" id="passwordfield" placeholder="Type in password here"> -->
             
-            <button id="saveBtn" class="headerBtns" onclick="savePlan()">Save Plan</button>
-            <button id="loadBtn" class="headerBtns" onclick="loadPlan()">Load Plan</button>
-            <button id="addColBtn" class="headerBtns" onclick="customAddColumn()">Add Column</button>
+            <button id="saveBtn" class="panelBtns" onclick="savePlan()">Save Plan</button>
+            <button id="loadBtn" class="panelBtns" onclick="loadPlan()">Load Plan</button>
+            <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Column</button>
 
             <hr/>
 

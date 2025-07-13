@@ -206,14 +206,14 @@ async function initialize() {
 
     constructCourses();
     
-    setGERSAutocomplete();
+    // setGERSAutocomplete();
     console.log("Initialization complete!")
 }
 
 // Make sure that savePlan and loadPlan save the programs as well
 function savePlan() {
 
-    var currentSemester = document.getElementById("semesterLabel").innerHTML;
+    var currentSemester = document.getElementById("semesterValue").innerHTML;
 
     var password = document.getElementById("passwordfield").value;
     console.log(password);
@@ -368,11 +368,14 @@ function setGERSAutocomplete() {
 function togglePanel(){
     var panel = document.getElementById("controlPanel");
     var mainBody = document.getElementById("mainBody");
+    var toggleButton = document.getElementById("togglePanel");
     if (panel.style.display === "none") {
         panel.style.display = "block";
+        toggleButton.innerHTML = "&and;";
         mainBody.style.paddingTop = "18%";
     } else {
         panel.style.display = "none";
+        toggleButton.innerHTML = "&or;";
         mainBody.style.paddingTop = "6%";
     }
 }
@@ -546,7 +549,7 @@ function updateFirstCol(relevantRow, j) {
 
     // Handle input change if necessary
     console.log(`Input changed (${inputValue}) for ${relevantRow.cells[0].innerHTML} in Semester ${j}`);
-    var currentSemester = document.getElementById("semesterLabel");
+    var currentSemester = document.getElementById("semesterValue");
     currentSemester = parseInt(currentSemester.innerHTML);
 
     var firstCell = relevantRow.cells[0];
@@ -717,9 +720,9 @@ function updateFirstCol(relevantRow, j) {
 }
 
 function updateSemesterLabel() {
-    var semesterLabel = document.getElementById("semesterLabel");
+    var semesterValue = document.getElementById("semesterValue");
     var slider = document.getElementById("semesterSlider");
-    semesterLabel.innerHTML = `${slider.value}`;
+    semesterValue.innerHTML = `${slider.value}`;
     console.log(`Semester Val is ${slider.value}`);
     updateTableColorsOnSlider(slider.value);
 
@@ -854,7 +857,7 @@ function createTable(tableName, tableId, data) {
     var addRowBtn = document.createElement("button");
     addRowBtn.innerHTML = "Add Row";
     addRowBtn.setAttribute("id", tableId+" RowBtn");
-    addRowBtn.setAttribute("class", "headerBtns");
+    addRowBtn.setAttribute("class", "panelBtns");
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
@@ -878,16 +881,6 @@ function removeTable(tableId) {
             oldGroup.children[i].remove();
         }
     }
-    // var oldTable = document.getElementById(tableId.concat("-table"));
-    // // Ensures that the <h1> tag also gets removed
-    // var oldHeader = document.querySelectorAll(`[class=${tableId}]`);
-    // if (oldTable) {
-
-    //     oldTable.remove()
-    //     oldHeader.forEach(function(row) {
-    //         row.parentNode.removeChild(row);
-    //     });
-    // }
     console.log(`Previous rows of type: ${tableId} removed.`);
 }
 
@@ -904,7 +897,7 @@ function customAddRow(tableId) {
     var newButton = document.createElement("button");
     newButton.innerHTML = "Add Row";
     newButton.setAttribute("id", tableId+" RowBtn");
-    newButton.setAttribute("class", "headerBtns");
+    newButton.setAttribute("class", "panelBtns");
     newButton.setAttribute("style", "margin-top: 10%;"); // Add some margin to the button (to keep its position consistent)
     newButton.onclick = function() {
         customAddRow(tableId);
@@ -950,12 +943,10 @@ function customAddColumn() {
             else {
                 newInput.setAttribute("type", "text");
             }
-            // Add event listener to handle input changes
             // console.log("EVENT LISTENER ADDED:", i, numCols);
             // we simply have no validation for custom rows - maybe a future feature
-            // if (!rowLabel.startsWith("custom")) {
             newInput.addEventListener("change", updateFirstCol.bind(newInput, relevantRow, numCols));
-            // }
+
             // if there are disabled rows and the firstCell is colored blue/green/orange, disable the new input
             if (Array.from(relevantRow.getElementsByTagName("input")).some(cell => cell.disabled == true) &&
             (firstCell.getAttribute("style") == "background-color: #FFC000;" || 
@@ -963,10 +954,8 @@ function customAddColumn() {
             firstCell.getAttribute("style") == "background-color: blue;")
             ) {
                 console.log("Disabling new input for row: ", rowLabel);
-                // continue; // Skip adding input for this row
-                newInput.disabled = "true";
+                newInput.disabled = true;
             }
-            // newInput.addEventListener("change", updateTableColorsOnSlider.bind(newInput, semester));
             newCell.appendChild(newInput);
         }
         setGERSAutocomplete(); // Reapply autocomplete to the new input fields
