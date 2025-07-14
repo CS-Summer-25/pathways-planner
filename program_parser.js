@@ -206,7 +206,7 @@ async function initialize() {
 
     constructCourses();
     
-    // setGERSAutocomplete();
+    setGERSAutocomplete();
     console.log("Initialization complete!")
 }
 
@@ -370,13 +370,11 @@ function togglePanel(){
     var mainBody = document.getElementById("mainBody");
     var toggleButton = document.getElementById("togglePanel");
     if (panel.style.display === "none") {
-        panel.style.display = "block";
+        panel.style.display = "grid";
         toggleButton.innerHTML = "&and;";
-        mainBody.style.paddingTop = "18%";
     } else {
         panel.style.display = "none";
         toggleButton.innerHTML = "&or;";
-        mainBody.style.paddingTop = "6%";
     }
 }
 
@@ -635,7 +633,6 @@ function updateFirstCol(relevantRow, j) {
                         for (let k = 0; k < disabledArr.length; k++) {
                             if (disabledArr[k] == "") {
                                 relevantRowInputs[k].disabled = true;
-                                // relevantRowInputs[k].setAttribute("style", "background-color: rgb(255, 255, 255, 0.25);");
                                 relevantRowInputs[k].setAttribute("style", compareInputSemestersJ(relevantRowInputs[k], k+1, currentSemester));
                                 
                             }
@@ -665,7 +662,6 @@ function updateFirstCol(relevantRow, j) {
                             if (disabledArr[k] == "" || !isValidCredit(disabledArr[k], rowLabel)) {
                                 relevantRowInputs[k].value = "";
                                 relevantRowInputs[k].disabled = true;
-                                // relevantRowInputs[k].setAttribute("style", "background-color: rgb(255, 255, 255, 0.25);");
                                 relevantRowInputs[k].setAttribute("style", compareInputSemestersJ(relevantRowInputs[k], k+1, currentSemester));
                             }
                         }
@@ -857,7 +853,7 @@ function createTable(tableName, tableId, data) {
     var addRowBtn = document.createElement("button");
     addRowBtn.innerHTML = "Add Row";
     addRowBtn.setAttribute("id", tableId+" RowBtn");
-    addRowBtn.setAttribute("class", "panelBtns");
+    addRowBtn.setAttribute("class", "tableBtns");
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
@@ -897,8 +893,8 @@ function customAddRow(tableId) {
     var newButton = document.createElement("button");
     newButton.innerHTML = "Add Row";
     newButton.setAttribute("id", tableId+" RowBtn");
-    newButton.setAttribute("class", "panelBtns");
-    newButton.setAttribute("style", "margin-top: 10%;"); // Add some margin to the button (to keep its position consistent)
+    newButton.setAttribute("class", "tableBtns");
+    // newButton.setAttribute("style", "margin-top: 10%;"); // Add some margin to the button (to keep its position consistent)
     newButton.onclick = function() {
         customAddRow(tableId);
     };
