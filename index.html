@@ -19,42 +19,30 @@
                 <img src="logo.png" alt="Pathways Planner Logo" id="logo">
                 <h1 id="heading">Pathways Planner</h1>
                 <button id="togglePanel" class="headerBtns" onclick="togglePanel()">&and;</button>
-                <!-- <div id="switchContainer">
-                    <span id="switchLabel">Toggle Panel</span>
-                    <label class="switch">
-                        <input id="switchBox" type="checkbox" onclick="togglePanel()">
-                        <span class="slider round"></span>
-                    </label>
-                </div> -->
 
             </div>
             <div id="controlPanel">
-                <!-- <center> -->
                 <div id="selects">
                     <label for="mainMajorSelect">Select Major:</label>
                     <select id="mainMajorSelect" onchange="grabCourses(id)">
                     </select>
 
-                    <!-- <br/> -->
                     <!-- For Double Major Selection -->
                     <label for="doubleMajorSelect">Select 2nd Major:</label>
                     <select id="doubleMajorSelect" onchange="grabCourses(id)">       
                     </select> 
 
-                    <!-- <br/> -->
                     <!-- For Minor Selection -->
                     <label for="minorSelect">Select Minor:</label>
                     <select id="minorSelect" onchange="grabCourses(id)">
                     </select>
                 </div>
 
-                <!-- <br/><br/> -->
                 <div id="semesterStuff">
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
                     <input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()">
                 </div>
-                <!-- <br/><br/> -->
                 <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>  -->
                 <!-- Type in your secret password to retrieve your previous plan:
                 <input type="text" id="passwordfield" placeholder="Type in password here"> -->
@@ -71,10 +59,13 @@
             </div>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->
-                
+                 <div id="GERS-wrapper"></div>
+                <div id="mainMajor-wrapper"></div>
+                <div id="doubleMajor-wrapper"></div>
+                <div id="minor-wrapper"></div>
+                <!-- class="tableGroup"> -->
             </div>
             
-            <!-- removed till functionality is improved-->
             <div id="footer">
                 <p>Pathways Planner © 2025</p>
             </div>
