@@ -683,6 +683,7 @@ function updateFirstCol(relevantRow, j) {
 function updateSemesterLabel() {
     var semesterValue = document.getElementById("semesterValue");
     var slider = document.getElementById("semesterSlider");
+    
     semesterValue.innerHTML = `${slider.value}`;
     console.log(`Semester Val is ${slider.value}`);
     updateTableColorsOnSlider(slider.value);
@@ -861,6 +862,40 @@ function customAddColumn() {
     var tables = document.querySelectorAll("table");
     var semesterSlider = document.getElementById("semesterSlider");
     semesterSlider.max++;
+    // update tick marks
+    var tickMarks = document.getElementById("semesterList");
+    var width = semesterSlider.getBoundingClientRect();
+    console.log("Slider width: ", width);
+    console.log(semesterSlider.offsetWidth)
+    // var calc = (width - 12) / (semesterSlider.max - 1) + "px";
+    console.log("slider css width: ", calc);
+    tickMarks.innerHTML = "";
+    for (let i = 0; i <= semesterSlider.max; i++) {
+        var tick = document.createElement("option");
+        tick.value = i;
+        tick.innerHTML = "|";
+
+        if (i == 0 || i == semesterSlider.max) {
+            var w = (parseInt(calc) * 2 + 6) + "px";
+            tick.setAttribute("style", `width: ${w};`);
+            if (i == 0) {
+                tick.setAttribute("style", "text-align: left;");
+            }
+            else {
+                tick.setAttribute("style", "text-align: right;");
+            }
+        }
+        else {
+            var w = (calc) + "px";
+            tick.setAttribute("style", `width: ${w};`);
+            tick.setAttribute("style", "text-align: center;");
+        }
+        tickMarks.appendChild(tick);
+    }
+    tickMarks.setAttribute("style", `width: ${width}`);
+    // semesterSlider.setAttribute("--list-length", semesterSlider.max);
+    // tickMarks("--list-length", semesterSlider.max);
+
     tables.forEach(function(table) {
         var headerRow = table.rows[0];
         var tableId = table.id.replace("-table", "");

@@ -7,7 +7,7 @@
 
 * [ ] Add a button for new rows to all? tables (What would the design be? Form?)
 
-* [ ] Status color for first column should not update for CLPs unless sum == 32? 
+* [X] Status color for first column should not update for CLPs unless sum == 32? 
 
 * [X] Buttons to Save and Load data
 

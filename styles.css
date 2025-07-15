@@ -130,11 +130,13 @@ body{
     grid-template-areas:
         "label value slider";
     grid-template-columns: 2fr 0.1fr 4fr;
+    grid-template-rows: 1fr 0.1fr;
 
 }
 
 label[for="semesterSlider"]{
     grid-area: label;
+    grid-row: 1 / span 1;
     align-self: center;
     justify-self: center;
     width: auto;
@@ -142,11 +144,14 @@ label[for="semesterSlider"]{
 
 #semesterValue {
     grid-area: value;
+    grid-row: 1 / span 1;
     align-self: center;
-    justify-self: flex-start;
+    /* justify-self: start; */
     font-size: large;
     width: auto;
 }
+
+input[type=range], input[type=range] + datalist { --thumb-width: 12px; --list-length: 8; }
 
 input[type="range"] {
     grid-area: slider;
@@ -156,7 +161,60 @@ input[type="range"] {
     cursor: ew-resize;
 
     align-self: center;
+    z-index: 1;
+    justify-self: center;
 }
+
+/* credit to Ich-73 on stackoverflow */
+input[type="range"] + datalist {
+    grid-area: slider;
+    display: flex;
+    margin-top: 2%;
+    /* width doesn't actually correspond to the necessary value */
+    /* how to get length of the slider? */
+    width: 100%;
+    position: relative;
+    
+}
+
+input[type="range"] + datalist option {
+    width: calc((100% - 12px) / (var(--list-length) - 1));
+    text-align: center;
+    /* justify-content: center; */
+    font-size: small;
+    color: rgb(196, 196, 196);
+}
+
+input[type=range] + datalist option:first-child {
+    width: calc((100% - 12px) / ((var(--list-length) - 1) * 2) + 6px);
+    text-align: left;
+}
+input[type=range] + datalist option:last-child {
+    width: calc((100% - 12px) / ((var(--list-length) - 1) * 2) + 6px);
+    text-align: right;
+}
+
+/* adding tick marks */
+/* #semesterList {
+    grid-area: ticks;
+    width: 100%;
+    
+}
+#semesterList option {
+    width: 8%;
+    text-align: center;
+    font-size: small;
+    color: white;
+    writing-mode: vertical-lr;
+} */
+
+/* datalist option {
+    width: 12.5%;
+    text-align: center;
+    font-size: small;
+    color: rgb(196, 83, 196);
+    writing-mode: vertical-lr;
+} */
 
 /* #passwordfield {
     width: 30%;

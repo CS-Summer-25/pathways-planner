@@ -41,7 +41,17 @@
                 <div id="semesterStuff">
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
-                    <input type="range" id="semesterSlider" min="1" max="8" value="1" oninput="updateSemesterLabel()">
+                    <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
+                        <datalist id="semesterList">
+                            <option value="1">|</option>
+                            <option value="2">|</option>
+                            <option value="3">|</option>
+                            <option value="4">|</option>
+                            <option value="5">|</option>
+                            <option value="6">|</option>
+                            <option value="7">|</option>
+                            <option value="8">|</option>
+                        </datalist>
                 </div>
                 <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>  -->
                 <!-- Type in your secret password to retrieve your previous plan:
