@@ -216,9 +216,9 @@ input[type=range] + datalist option:last-child {
     writing-mode: vertical-lr;
 } */
 
-/* #passwordfield {
-    width: 30%;
-} */
+#emailfield {
+    width: 100%;
+}
 
 #panelBtnContainer {
     /* background-color: rgb(158, 83, 196); */

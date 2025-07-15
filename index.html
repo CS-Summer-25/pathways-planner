@@ -9,7 +9,7 @@
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
-        
+        <script src="script.js"></script>        
         <script src="program_parser.js" defer></script>
         
     </head>
@@ -59,17 +59,18 @@
                             <option value="8">|</option>
                         </datalist>
                 </div>
-                <!-- <label for="searchInput">Type in your secret password to retrieve your previous plan:</label>  -->
-                <!-- Type in your secret password to retrieve your previous plan:
-                <input type="text" id="passwordfield" placeholder="Type in password here"> -->
-
-                <!-- <hr/> -->
+                <hr/>
 
                 <div id="panelBtnContainer">
                     <button id="saveBtn" class="panelBtns" onclick="savePlan()">Save Plan</button>
                     <button id="loadBtn" class="panelBtns" onclick="loadPlan()">Load Plan</button>
                     <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Column</button>
                 </div>
+                <br/>
+
+                <!-- <label for="searchInput">Type in your Furman email to retrieve or save plan:</label>  -->
+                <!-- Type in your secret password to retrieve your previous plan: -->
+                <input type="text" id="emailfield" placeholder="Type in your Furman email to retrieve or save plan" onchange="validateEmail(this.value)">
 
 
             </div>
