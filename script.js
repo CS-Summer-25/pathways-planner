@@ -82,12 +82,12 @@ function loadPlan() {
 
         coursesInfo.then(data => {
 
-            
+            let table = document.getElementById("GERS-table");
             for(i = 0; i<data.length; i++){
                 console.log(data[i]);
                 let course = data[i];
                 let ger = course.ger;
-                let semester = parseInt(course.sem);
+                let j = parseInt(course.sem);
                 let courseName = course.title;
 
                 console.log(ger);
@@ -95,24 +95,27 @@ function loadPlan() {
                 // Find the row corresponding to the GER
                 let gerIndex = GERS.indexOf(ger);
                 console.log(gerIndex);
-                let table = document.getElementById("GERS-table");
                 let relevantRow = table.rows[gerIndex + 1];
                 let inputs = relevantRow.getElementsByTagName("input");
-                console.log(semester);
+                console.log(j);
                 // Find the input corresponding to the semester
-                if (semester >= 1 && semester <= 8) {
-                    let inputIndex = semester - 1; // Adjust for zero-based index
+                if (j >= 1 && j <= 8) {
+                    let inputIndex = j - 1; // Adjust for zero-based index
                     console.log(inputs[inputIndex]);
                     if (inputs[inputIndex]) {
                         inputs[inputIndex].value = courseName;
                         inputs[inputIndex].dispatchEvent(new Event('input')); // Trigger input event to update styles
                         inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event to update styles
+                        // inputs[inputIndex].click();
+                        // click on the input to make autocomplete go away
+                        // relevantRow.click();
                         updateSemesterLabel();
+                        
                     }
                 }
-
                 // document.getElementById("tableHeader").dispatchEvent("click"); // Trigger click event to update styles
             }
+        // window.click();
             
         }).catch(error => {
             console.error("There was a problem with the fetch operation:", error);
