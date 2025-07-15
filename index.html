@@ -16,10 +16,16 @@
     <body onload="initialize()">
         <div id="body-wrapper">
             <div id="header">
-                <img src="logo.png" alt="Pathways Planner Logo" id="logo">
+                <img src="imgs/logo.png" alt="Pathways Planner Logo" id="logo">
                 <h1 id="heading">Pathways Planner</h1>
-                <button id="togglePanel" class="headerBtns" onclick="togglePanel()">&and;</button>
-
+                <!-- <input type="button" id="togglePanel" class="toggleBtn" onclick="togglePanel()"></button> -->
+                <div id="switchContainer">
+                    <span id="switchLabel">Toggle Panel</span>
+                    <label class="switch">
+                        <input type="checkbox" onclick="togglePanel()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
             </div>
             <div id="controlPanel">
                 <div id="selects">
@@ -59,10 +65,10 @@
 
                 <!-- <hr/> -->
 
-                <div class="panelBtns">
-                    <button id="saveBtn" class="tableBtns" onclick="savePlan()">Save Plan</button>
-                    <button id="loadBtn" class="tableBtns" onclick="loadPlan()">Load Plan</button>
-                    <button id="addColBtn" class="tableBtns" onclick="customAddColumn()">Add Column</button>
+                <div id="panelBtnContainer">
+                    <button id="saveBtn" class="panelBtns" onclick="savePlan()">Save Plan</button>
+                    <button id="loadBtn" class="panelBtns" onclick="loadPlan()">Load Plan</button>
+                    <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Column</button>
                 </div>
 
 

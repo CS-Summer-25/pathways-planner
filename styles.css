@@ -220,22 +220,19 @@ input[type=range] + datalist option:last-child {
     width: 30%;
 } */
 
-.panelBtns {
-    background-color: rgb(158, 83, 196);
+#panelBtnContainer {
+    /* background-color: rgb(158, 83, 196); */
     color: whitesmoke;
-    border: none;
     font-size: large;
     font-weight: bold;
     cursor: pointer;
     border-radius: 5px;
     font-family: inherit;
-
     grid-area: buttons;
     grid-row: 1 / span 2;
     width: 90%;
     align-self: center;
     justify-self: center;
-
     display: grid;
     grid-template-areas: 
         "saveBtn" 
@@ -286,8 +283,12 @@ input[type=range] + datalist option:last-child {
     width: 100%;
 }
 
-.tableToggle{
+.toggleBtn{
     background-color: rgb(158, 83, 196);
+    width: 15%;
+    /* margin-bottom: 1%; */
+    /* height: 5%; */
+    filter: invert(1);
     color: whitesmoke;
     border: none;
     padding: 0.25%;
@@ -296,6 +297,11 @@ input[type=range] + datalist option:last-child {
     cursor: pointer;
     border-radius: 5px;
     font-family: inherit;
+    /* background-color: aliceblue; */
+    background: url("imgs/down.png") no-repeat;
+    background-size: contain;
+    align-self: center;
+
 }
 
 table{
@@ -357,11 +363,12 @@ input:disabled{
     overflow-x: hidden;
 }
 
-.tableBtns{
-    background-color: rgb(158, 83, 196);
-    color: whitesmoke;
-    border: none;
-    /* padding: 0.1%; */
+.panelBtns{
+    background-color: rgb(158, 83, 196, 0.75);
+    color: rgb(241, 239, 239);
+    margin-top: 1%;
+    border: 1px solid silver;
+    /* margin: 1%; */
     font-size: large;
     font-weight: bold;
     cursor: pointer;
@@ -369,8 +376,23 @@ input:disabled{
     font-family: inherit;
 }
 
+.addRowBtns{
+    /* make it circle */
+    /* border-radius: 500px; */
+    background-color: rgb(196, 83, 196, 0.75);
+    color: whitesmoke;
+    /* margin-top: 5%; */
+    border: 1px solid whitesmoke;
+    /* margin: 1%; */
+    font-size: larger;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
 #body-wrapper > #footer{
-    background-color: rgb(196, 0, 196);
+    background-color: rgb(158, 83, 196, 0.75);
     color: white;
     text-align: center;
     /* bottom: 0%; */
@@ -378,3 +400,80 @@ input:disabled{
     width: 100%;
     z-index:0;
 } 
+
+#switchContainer{
+    float: right;
+    width: 20%;
+    margin-left: 5%;
+    margin-top: 0.5%;
+}
+
+#switchLabel{
+    float: left;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    margin-top: 3%;
+    margin-right: 5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: rgb(158, 83, 196);
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px rgb(158, 83, 196);
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }

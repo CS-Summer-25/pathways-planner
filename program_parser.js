@@ -348,11 +348,14 @@ function toggleTable(tableId) {
     if (table.style.display === "none") {
         table.style.display = "table-row-group";
         rowBtn.setAttribute("style", "display: block;");
-        toggleSpan.innerHTML = `<span>&and;</span>`;
+        // toggleSpan.innerHTML = `<span>&and;</span>`;
+        // change background image 
+        toggleSpan.setAttribute("style", "background:url('imgs/down.png') no-repeat; background-size: contain;");
     } else {
         table.style.display = "none";
         rowBtn.setAttribute("style", "display: none;");
-        toggleSpan.innerHTML = `<span>&or;</span>`;
+        // toggleSpan.innerHTML = `<span>&or;</span>`;
+        toggleSpan.setAttribute("style", "background:url('imgs/up.png') no-repeat; background-size: contain;");
     }
 }
 
@@ -804,9 +807,9 @@ function createTable(tableName, tableId, data) {
 
     // add a custom - add row button below existing rows
     var addRowBtn = document.createElement("button");
-    addRowBtn.innerHTML = "Add Row";
+    addRowBtn.innerHTML = "+";
     addRowBtn.setAttribute("id", tableId+" RowBtn");
-    addRowBtn.setAttribute("class", "tableBtns");
+    addRowBtn.setAttribute("class", "addRowBtns");
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
@@ -814,10 +817,11 @@ function createTable(tableName, tableId, data) {
     tableDiv.appendChild(addRowBtn);
 
     // add a toggle span to header
-    var toggleSpan = document.createElement("span");
+    var toggleSpan = document.createElement("input");
     toggleSpan.setAttribute("id", tableId.concat("-toggle"));
-    toggleSpan.setAttribute("class", "tableToggle");
-    toggleSpan.innerHTML = `<span>&and;</span>`;
+    toggleSpan.setAttribute("class", "toggleBtn");
+    toggleSpan.setAttribute("type", "button");
+    // toggleSpan.innerHTML = `<span>&and;</span>`;
     toggleSpan.onclick = function() {
         toggleTable(tableId);
     };
@@ -848,9 +852,9 @@ function customAddRow(tableId) {
     // Create a new button and append it to the table
 
     var newButton = document.createElement("button");
-    newButton.innerHTML = "Add Row";
+    newButton.innerHTML = "+";
     newButton.setAttribute("id", tableId+" RowBtn");
-    newButton.setAttribute("class", "tableBtns");
+    newButton.setAttribute("class", "addRowBtns");
     newButton.onclick = function() {
         customAddRow(tableId);
     };
