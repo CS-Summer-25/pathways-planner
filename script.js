@@ -5,41 +5,79 @@ function validateEmail(email) {
     // ensure email is @furman.edu
     console.log(email);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@furman\.edu$/;
+
+    return emailRegex.test(email);
     
     // send email to email address
 }
 
 // Make sure that savePlan and loadPlan save the programs as well
 function savePlan() {
-
-    var currentSemester = document.getElementById("semesterValue").innerHTML;
-
     var email = document.getElementById("emailfield").value;
     console.log("Email variable: "+email);
-    var table = document.getElementById("GERS-table");
-    var countGers = GERS.length;
 
-    console.log(GERS);
+    if (!validateEmail(email)) {
+        alert("Please enter a valid Furman email address.");
+        return; // Stop saving if email is invalid
+    }
 
-    // Saving plan in compressed form for GET requests 
+    console.log("Saving plan for " + email + " for semester " + currentSemester);
+    var currentSemester = document.getElementById("semesterValue").innerHTML;
+
+    var tables = document.querySelectorAll("table");
     var compressed = "";
-    for (let i = 0; i < countGers; i++){
-        var relevantRow = table.rows[i+1];
-        var inputs = relevantRow.getElementsByTagName("input");
-        var courses = [];
-        for (let j = 0; j < inputs.length; j++) {
-            if (inputs[j].value !== "") {
-                courses.push(inputs[j].value);
-                compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
+
+    tables.forEach(table => {
+        compressed += `#${table.id}[`; // Add table ID to compressed string
+        var numRows = table.rows.length;
+        for (let i = 1; i < numRows; i++) { // Start from 1 to skip header row
+            var relevantRow = table.rows[i];
+            var inputs = relevantRow.getElementsByTagName("input");
+            var rowLabel = relevantRow.cells[0].innerHTML;
+            // var courses = [];
+
+            for (let j = 0; j < inputs.length; j++) {
+                if (inputs[j].value !== "") {
+                    // courses.push(inputs[j].value);
+                    compressed += `${rowLabel}_${j+1}_${inputs[j].value};`;
+                }
             }
         }
-    }
+        compressed = compressed.slice(0, -1); // Remove the last semicolon
+        compressed += `]`; // Close the table ID bracket
+    });
+    // console.log(GERS);
+    // var table = document.getElementById("GERS-table");
+    // var countGers = GERS.length;
+    // // Saving plan in compressed form for GET requests 
+    // var compressed = "";
+    // for (let i = 0; i < countGers; i++) {
+    //     var relevantRow = table.rows[i+1];
+    //     var inputs = relevantRow.getElementsByTagName("input");
+    //     var courses = [];
+    //     for (let j = 0; j < inputs.length; j++) {
+    //         if (inputs[j].value !== "") {
+    //             // courses.push(inputs[j].value);
+    //             compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
+    //         }
+    //     }
+    // }
     console.log(compressed);
+
+    if (compressed === "") {
+        alert("Please enter at least one course before saving.");
+        return; // Stop saving if no courses are entered
+    }
 
     // Make get request and pass password and plan as query parameters
     // var xhr = new XMLHttpRequest();
     var constructedUrl = `https://furmancs.com/tabot/savePlan?password=${encodeURIComponent(email)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
     console.log(constructedUrl);
+
+    if (true) {
+        alert("Plan saved successfully! You can now load it using the same email.");
+        return;
+    }
     // xhr.open("GET", constructedUrl, true);
     // xhr.onreadystatechange = function() {
     //     if (xhr.readyState === 4 && xhr.status === 200) {
@@ -60,6 +98,7 @@ function savePlan() {
         return response;//.json();
     });
 
+    // fetch("https://furmancs.com/tabot/sendEmail?email="+encodeURIComponent(email))
     fetch("https://furmancs.com/tabot/sendEmail");
 
 }
@@ -110,6 +149,8 @@ function loadPlan() {
                         // click on the input to make autocomplete go away
                         // relevantRow.click();
                         updateSemesterLabel();
+                        // inputs[inputIndex].blur();
+                        relevantRow.click();
                         
                     }
                 }
