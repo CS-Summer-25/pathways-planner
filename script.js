@@ -124,13 +124,20 @@ function savePlan() {
 
 }
 
+function authenticate() {
+    // show popup
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+}
+
 function loadPlan() {
 
     var passcode = document.getElementById("passcode").value;
+    var email = document.getElementById("emailfield").value;
 
     console.log(passcode);
     console.log("Load Plan");
-    var constructedUrl = `https://furmancs.com/tabot/loadPlan?password=${encodeURIComponent(passcode)}`;
+    var constructedUrl = `https://furmancs.com/tabot/loadPlan?email=${encodeURIComponent(email)}&passcode=${encodeURIComponent(passcode)}`;
 
     fetch(constructedUrl)
     .then(response => {
@@ -138,12 +145,18 @@ function loadPlan() {
             throw new Error("Network response was not ok");
         }
 
-        var coursesInfo = response//.json();
+        var coursesInfo = response.json();
+        if('error' in coursesInfo){
+            alert(coursesInfo['error']);
+            return;
+        }
 
         coursesInfo.then(data => {
 
+            console.log(data);
+
             // parse json
-            plan = JSON.parse(data);
+            // plan = JSON.parse(data);
             console.log(plan);
             
             // for(i = 0; i<data.length; i++){
@@ -188,5 +201,38 @@ function loadPlan() {
 
         
         });
+    });
+}
+
+function closePopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "none";
+}
+
+function sendCode(){
+    var email = document.getElementById("emailfield").value;
+    console.log("Email variable: "+email);
+
+    if (!validateEmail(email)) {
+        alert("Please enter a valid Furman email address.");
+        return; // Stop sending code if email is invalid
+    }
+
+    var constructedUrl = `https://furmancs.com/tabot/sendEmail?email=${encodeURIComponent(email)}`;
+
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        result = response.json(); // Assuming the server responds with JSON
+        email = result['email']
+        code = result['code']
+
+        // alert("Code sent successfully! Please check your email.");
+    })
+    .catch(error => {
+        console.error("There was a problem with the fetch operation:", error);
+        alert("Failed to send code. Please try again.");
     });
 }

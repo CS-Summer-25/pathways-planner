@@ -63,16 +63,28 @@
 
                 <div id="panelBtnContainer">
                     <button id="saveBtn" class="panelBtns" onclick="savePlan()">Save Plan</button>
-                    <button id="loadBtn" class="panelBtns" onclick="loadPlan()">Load Plan</button>
+                    <button id="loadBtn" class="panelBtns" onclick="authenticate()">Load Plan</button>
                     <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Column</button>
                 </div>
                 <br/>
 
                 <!-- <label for="searchInput">Type in your Furman email to retrieve or save plan:</label>  -->
                 <!-- Type in your secret password to retrieve your previous plan: -->
-                <input type="text" id="emailfield" placeholder="Type in your Furman email to retrieve or save plan" onchange="validateEmail(this.value)">
 
 
+            </div>
+            <div id="popup">
+                <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup()">
+                Type in your Furman email to get a code for authentication:<br/><br/>
+                <input type="text" id="emailfield" placeholder="Type in your Furman email" onchange="validateEmail(this.value)"><br/><br/>
+                <button id="sendCodeBtn" onclick="sendCode()">Send Code</button><br/><br/>
+                <span id="codeSentMsg">Code sent!<br/><br/>
+                Check your email from `furmancompsci@gmail.com` If this is your first time, the email may have gone to your Spam folder</span><br/><br/>
+
+                </span>
+                <span>Type in the code emailed to you:</span><br/><br/>
+                <input type="code" id="passcode" placeholder="Type in the code emailed to you" onchange="validateCode(this.value)"><br/><br/>
+                <button id="loadPlanBtn" onclick="loadPlan()">Load Plan</button>
             </div>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->

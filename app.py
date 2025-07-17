@@ -8,77 +8,6 @@ import pandas as pd
 # presumably where request comes from
 from requests import request
 
-def generate_random_code(num_digits=5):
-    import random
-    import string
-    
-
-    # generate a random 5 digit code, alphanumeric
-    code = ''.join(random.choices(string.ascii_letters + string.digits, k=num_digits))
-
-    # check if the code already exists in the database
-    existing_codes = glob('sessionCodes.csv')
-    # convert .csv to df for easy manipulation
-    df = pd.read_csv(existing_codes[0])
-    # get the 'code' column
-    existing_codes = df['code'].tolist()
-
-    is_code_unique = existing_codes.count(code) == 0
-
-    while not is_code_unique:
-        # code = str(random.randint(10000, 99999))
-        code = ''.join(random.choices(string.ascii_letters + string.digits, k=num_digits))
-        is_code_unique = existing_codes.count(code) == 0
-
-    # return the unique code
-    return code
-
-@app.route('/tabot/sendEmail')
-# i guess the path would be /tabot/sendEmail, with a parameter argument for the email?
-def sendEmail():
-    email = request.args.get("email")
-    access_code = generate_random_code(5)
-    subject = "Pathways Planner New Save Plan Code"
-    sender = "furmancompsci@gmail.com"
-    body = "Here is the code to access your saved plan: {} \n\n".format(access_code) + \
-           "Please save this code in a safe place, as it is required to load your plan later.\n\n" + \
-           "If you did not request this code, please ignore this email. \n\n" + \
-           "Thank you for using the Pathways Planner!\n\n"
-              
-    recipients = [email]
-    # make sure to encrypt this later
-    # password = "your_email_password_here"
-    
-
-
-    def send_email(subject, body, sender, recipients, password):
-        msg = MIMEText(body)
-        msg['Subject'] = subject
-        msg['From'] = sender
-        msg['To'] = ', '.join(recipients)
-        with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
-          smtp_server.login(sender, password)
-          smtp_server.sendmail(sender, recipients, msg.as_string())
-        print("Message sent!")
-
-
-    send_email(subject, body, sender, recipients, password)
-    
-    # save the code and email to a csv file
-    df = pd.DataFrame({'email': [email], 'code': [access_code]})
-    # check if the file exists
-    existing_codes = glob('sessionCodes.csv')
-    if len(existing_codes) > 0:
-        # convert existing_codes to df
-        existing_df = pd.read_csv(existing_codes[0])
-        df = pd.concat([existing_df, df], ignore_index=True)
-
-    else:
-        df.to_csv('sessionCodes.csv', index=False)
-
-    # return a message to user
-    return "<h2>Code sent to: {}</h2>".format(email)
-
 @app.route('/tabot/savePlan')
 def savePlan():
     # Get params
@@ -137,19 +66,28 @@ def savePlan():
 def loadPlan():
     # Get params
     passcode = request.args.get('passcode')
+    email = request.args.get('email')
+
+    codes_df = pd.read_csv('sessionCodes.csv', dtype={'email': str, 'code': str})
+    codes_df.set_index('email', inplace=True)
+    if codes_df.loc[email, 'code'] != passcode: 
+        return jsonify({'error': 'Invalid passcode or email.'})
 
     # from glob import glob
     # from flask import jsonify
-    csv_file = glob(f"{passcode}.csv")
-    # may not be most secure
-    # relevant_file = [f for f in csv_files if f.startswith(passcode)][0]
-    if not csv_file: 
-        raise ValueError("No plan found with the given passcode.")
+    
 
-    raw_data = pd.read_csv(csv_file[0])
-    json_data = {}
-    for idx in raw_Data.index:
-        json_data[raw_data.loc[idx][0]] = raw_data.loc[idx][1:]
+    csv_files = sorted(glob(f"*{email}*.csv"))[::-1]
+    if not csv_files:
+        return jsonify({'error': 'No plans found for the given email.'})
+    
+    relevant_file = csv_files[0]
+
+    plan_df = pd.read_csv(relevant_file, header=None)
+    plan_df.columns = ['label', 'col', 'val']
+    json_data = plan_df.to_dict(orient='records')
+    # for idx in plan_df.index:
+    #     json_data[plan_df.loc[idx][0]] = plan_df.loc[idx][1:]
 
     return jsonify(json_data)
 
@@ -196,3 +134,64 @@ def loadPlan():
     #     })
 
     return jsonify(courses_json)
+
+def generate_random_code(num_digits=5, email=None):
+    import random
+    import string
+    
+    # generate a random 5 digit code, alphanumeric
+    code = ''.join(random.choices(string.ascii_letters + string.digits, k=num_digits))
+
+    # check if the code already exists in the database
+    fnames = glob('sessionCodes.csv')
+
+    if len(fnames) == 0:
+        # if no existing codes, return the code
+        df = pd.DataFrame({'email': [email], 'code': [code]})
+        df.to_csv('sessionCodes.csv', index=False)
+    else:  
+        fname = fnames[0]  
+        # convert .csv to df for easy manipulation
+        df = pd.read_csv(fname, dtype={'email': str, 'code': str})
+        df.set_index('email', inplace=True)
+        # get the 'code' column
+        existing_codes = df['code'].tolist()
+
+        is_code_unique = existing_codes.count(code) == 0
+
+        while not is_code_unique:
+            # code = str(random.randint(10000, 99999))
+            code = ''.join(random.choices(string.ascii_letters + string.digits, k=num_digits))
+            is_code_unique = existing_codes.count(code) == 0
+
+        df.loc[email] = code # append the new code and email to the df
+        df.to_csv(fname)
+
+    # return the unique code
+    return code
+
+@app.route('/tabot/sendEmail')
+# i guess the path would be /tabot/sendEmail, with a parameter argument for the email?
+def sendEmail():
+    email = request.args.get("email")
+    access_code = generate_random_code(5, email)
+    subject = "Pathways Planner | 2FA Code"
+    sender = "furmancompsci@gmail.com"
+    body = "Here is the code to access your saved plan: {} \n\n".format(access_code) + \
+           "Please save this code in a safe place, as it is required to load your plan later.\n\n" + \
+           "If you did not request this code, please ignore this email. \n\n" + \
+           "Thank you for using the Pathways Planner!\n\n"
+              
+    recipients = [email]
+    # make sure to encrypt this later
+    password = "fmip olqh qiwb dwzm"
+    
+    msg = MIMEText(body)
+    msg['Subject'] = subject
+    msg['From'] = sender
+    msg['To'] = ', '.join(recipients)
+    with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp_server:
+        smtp_server.login(sender, password)
+        smtp_server.sendmail(sender, recipients, msg.as_string())
+
+    return jsonify({'email': email, 'code': access_code, 'message': 'Email sent successfully!'})

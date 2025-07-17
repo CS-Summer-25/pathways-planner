@@ -478,3 +478,35 @@ input:disabled{
   .slider.round:before {
     border-radius: 50%;
   }
+
+#popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgb(158, 83, 196);
+    padding: 20px;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+}
+
+#closeIcon {
+    /*  position: top-right; */
+    position: absolute;
+    float:right;
+    width: 20px;
+    
+    right: 10px;
+    cursor: pointer;
+
+}
+
+#codeSentMsg{
+    color: rgb(158, 83, 196);
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    margin-top: 10px;
+    display: none; /* Hidden by default */
+}
