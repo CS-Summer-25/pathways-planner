@@ -229,7 +229,7 @@ function togglePanel(){
     var panel = document.getElementById("controlPanel");
     var toggleButton = document.getElementById("togglePanel");
     if (panel.style.display === "none") {
-        panel.style.display = "grid";
+        panel.style.display = "flex";
         toggleButton.innerHTML = "&and;";
     } else {
         panel.style.display = "none";
@@ -670,7 +670,8 @@ function isValidCredit(inputValue, creditType) {
 
 function createTable(tableName, tableId, data) {
     var tableDiv = document.getElementById(tableId.concat("-wrapper"));
-    
+    tableDiv.setAttribute("style", "border: rgb(35, 35, 35) solid 1px;")
+
     var name = document.createElement("h2");
     var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
     console.log("tableId: ", tableId);
@@ -731,6 +732,7 @@ function removeTable(tableId) {
         for (let i = oldGroup.children.length - 1; i >= 0; i--) {
             oldGroup.children[i].remove();
         }
+        oldGroup.setAttribute("style", "border: none;");
     }
     console.log(`Table: ${tableId} and its components removed.`);
 }
