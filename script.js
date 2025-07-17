@@ -25,24 +25,12 @@ function savePlan() {
     var compressed = "";
 
     tables.forEach(table => {
-        // find by class = GERS and id = tableHeader
-
-        // var header = document.getElementsByClassName(table.id.split("-")[0]).getElementById("tableHeader")
-        // var header = document.getElementById(table.id.replace("-table", "-wrapper")).querySelector(".tableHeader");
-        // var header = document.querySelectorAll(`.${table.id.split("-")[0]}`)[0].innerText.trim();
-        // get the header text
-        if (table.id === "GERS-table") {
-            var filter = "";
+        var tableGroup = table.id.split("-")[0];
+        compressed += `${tableGroup}`; // Add table ID to compressed string
+        if (tableGroup != "GERS") {
+            compressed += `-${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
         }
-        else {
-            var filter = document.getElementById(`${table.id.split("-")[0]}Select`).value;
-        }
-        console.log("Program txt: "+filter);
-        compressed += `#${table.id}`; // Add table ID to compressed string
-        if (filter !== "") {
-            compressed += `_${filter}`; // Add filter to compressed string
-        }
-        compressed += `,`; // End of table section
+        compressed += `,`; // end of table tag
         var numRows = table.rows.length;
         for (let i = 1; i < numRows; i++) { // Start from 1 to skip header row
             var relevantRow = table.rows[i];
@@ -61,22 +49,6 @@ function savePlan() {
         compressed += `;`; 
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
-    // console.log(GERS);
-    // var table = document.getElementById("GERS-table");
-    // var countGers = GERS.length;
-    // // Saving plan in compressed form for GET requests 
-    // var compressed = "";
-    // for (let i = 0; i < countGers; i++) {
-    //     var relevantRow = table.rows[i+1];
-    //     var inputs = relevantRow.getElementsByTagName("input");
-    //     var courses = [];
-    //     for (let j = 0; j < inputs.length; j++) {
-    //         if (inputs[j].value !== "") {
-    //             // courses.push(inputs[j].value);
-    //             compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
-    //         }
-    //     }
-    // }
     console.log(compressed);
 
     if (compressed === "") {
@@ -93,17 +65,6 @@ function savePlan() {
         alert("Plan saved successfully! You can now load it using the same email.");
         return;
     }
-    // xhr.open("GET", constructedUrl, true);
-    // xhr.onreadystatechange = function() {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         alert("Plan saved successfully!");
-    //     } else if (xhr.readyState === 4) {
-    //         alert("Failed to save plan. Please try again.");
-    //     }
-    //     else{
-    //         console.log("Request in progress...");
-    //     }
-    // };
 
     // should the email be sent first?
     fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
