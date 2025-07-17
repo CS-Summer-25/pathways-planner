@@ -285,9 +285,9 @@ input[type=range] + datalist option:last-child {
 
 .toggleBtn{
     background-color: rgb(158, 83, 196);
-    width: 15%;
+    /* make sure to fix this with different display sizes */
+    width: 1.75%;
     /* margin-bottom: 1%; */
-    /* height: 5%; */
     filter: invert(1);
     color: whitesmoke;
     border: none;
@@ -295,12 +295,13 @@ input[type=range] + datalist option:last-child {
     font-size: large;
     font-weight: bold;
     cursor: pointer;
-    border-radius: 5px;
+    /* border-radius: 5px; */
     font-family: inherit;
     /* background-color: aliceblue; */
     background: url("imgs/down.png") no-repeat;
     background-size: contain;
     align-self: center;
+    justify-self: center;
 
 }
 
