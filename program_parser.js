@@ -626,8 +626,8 @@ function updateTableColorsOnSlider(semester) {
         // Get all rows in the table
         var rows = table.rows;
         console.log("Updating table rows: ", rows);
-        // Loop through each row, except the header row
-        for (let i = 1; i < rows.length; i++) {
+        // Loop through each row, except the header rows
+        for (let i = 2; i < rows.length; i++) {
             var relevantRow = rows[i];
             var firstCell = relevantRow.cells[0];
             var relevantRowInputs = relevantRow.getElementsByTagName("input");
@@ -654,7 +654,7 @@ function updateTableColorsOnSlider(semester) {
 }
 
 function isValidCredit(inputValue, creditType) {
-    console.log(`isValidCredit called with inputValue: ${inputValue}, creditType: ${creditType}`, creditType.length);
+    // console.log(`isValidCredit called with inputValue: ${inputValue}, creditType: ${creditType}`, creditType.length);
     if (Object.keys(GER_COURSES).indexOf(creditType) >= 0 && creditType != "clps") {
         return GER_COURSES[creditType].indexOf(inputValue) >= 0;
     }
@@ -690,6 +690,8 @@ function createTable(tableName, tableId, data) {
 
     // Add header row 
     var tableHeader = document.createElement("thead");
+    tableHeader.setAttribute("id", tableId.concat("-tableheaders"));
+
     table.appendChild(tableHeader);
     // Create year row
     var yearRow = tableHeader.insertRow(0);
@@ -769,8 +771,8 @@ function removeTable(tableId) {
 function customAddRow(tableId) {
     // remove the old button - plan to move below new row
     var table = document.getElementById(tableId.concat("-table"));
-    var numCols = table.rows[0].cells.length; // Get number of columns from the header row
-    console.log(numCols);
+    var numCols = table.rows[1].cells.length; // Get number of columns from the header row
+    console.log("Number of columns: "+numCols);
     addInputRow(tableId, ["custom"]);
     console.log("Custom row added to table: ", tableId);
 
@@ -794,48 +796,59 @@ function customAddColumn() {
     var semesterSlider = document.getElementById("semesterSlider");
     semesterSlider.max++;
     // update tick marks
-    var tickMarks = document.getElementById("semesterList");
-    var width = semesterSlider.getBoundingClientRect();
-    console.log("Slider width: ", width);
-    console.log(semesterSlider.offsetWidth)
+    // var tickMarks = document.getElementById("semesterList");
+    // var width = semesterSlider.getBoundingClientRect();
+    // console.log("Slider width: ", width);
+    // console.log(semesterSlider.offsetWidth)
     // var calc = (width - 12) / (semesterSlider.max - 1) + "px";
-    console.log("slider css width: ", calc);
-    tickMarks.innerHTML = "";
-    for (let i = 0; i <= semesterSlider.max; i++) {
-        var tick = document.createElement("option");
-        tick.value = i;
-        tick.innerHTML = "|";
+    // console.log("slider css width: ", calc);
+    // tickMarks.innerHTML = "";
+    // for (let i = 0; i <= semesterSlider.max; i++) {
+    //     var tick = document.createElement("option");
+    //     tick.value = i;
+    //     tick.innerHTML = "|";
 
-        if (i == 0 || i == semesterSlider.max) {
-            var w = (parseInt(calc) * 2 + 6) + "px";
-            tick.setAttribute("style", `width: ${w};`);
-            if (i == 0) {
-                tick.setAttribute("style", "text-align: left;");
-            }
-            else {
-                tick.setAttribute("style", "text-align: right;");
-            }
-        }
-        else {
-            var w = (calc) + "px";
-            tick.setAttribute("style", `width: ${w};`);
-            tick.setAttribute("style", "text-align: center;");
-        }
-        tickMarks.appendChild(tick);
-    }
-    tickMarks.setAttribute("style", `width: ${width}`);
+    //     if (i == 0 || i == semesterSlider.max) {
+    //         var w = (parseInt(calc) * 2 + 6) + "px";
+    //         tick.setAttribute("style", `width: ${w};`);
+    //         if (i == 0) {
+    //             tick.setAttribute("style", "text-align: left;");
+    //         }
+    //         else {
+    //             tick.setAttribute("style", "text-align: right;");
+    //         }
+    //     }
+    //     else {
+    //         var w = (calc) + "px";
+    //         tick.setAttribute("style", `width: ${w};`);
+    //         tick.setAttribute("style", "text-align: center;");
+    //     }
+    //     tickMarks.appendChild(tick);
+    // }
+    // tickMarks.setAttribute("style", `width: ${width}`);
     // semesterSlider.setAttribute("--list-length", semesterSlider.max);
     // tickMarks("--list-length", semesterSlider.max);
 
     tables.forEach(function(table) {
-        var headerRow = table.rows[0];
+        var yearRow = table.rows[0];
+        var headerRow = table.rows[1];
         var tableId = table.id.replace("-table", "");
-        var numCols = table.rows[0].cells.length; // Get number of columns from the header row
+        var numCols = table.rows[1].cells.length; // Get number of columns from the header row
+        console.log("Adding new column to table: ", tableId, " with numCols: ", numCols);
 
+        // retrieve the text of the last cell in the year row
+        
+        // console.log("Year Row: ", yearRow.lastChild.innerHTML);
+        if (yearRow.lastChild.innerHTML == "Senior") {
+            yearRow.insertCell(yearRow.cells.length).innerHTML = `<th>Other</th>`;
+        }
+        else {
+            yearRow.lastChild.setAttribute("colspan", `${yearRow.lastChild.colSpan + 1}`);
+        }
         headerRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
         // Loop through each row and add a new input cell
         var j = numCols; 
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 2; i < table.rows.length; i++) {
             var relevantRow = table.rows[i];
             var firstCell = relevantRow.cells[0];
             var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");

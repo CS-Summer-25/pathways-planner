@@ -80,7 +80,7 @@ def loadPlan():
 
     plan_df = pd.read_csv(relevant_file, header=None)
     # plan_df.columns = ['label', 'col', 'val']
-    plan_df.columns = ['table', 'credit', 'col', 'val']
+    plan_df.columns = ['table', 'credit', 'col', 'val', "semester"]
     json_data = plan_df.to_dict(orient='records')
 
     return jsonify(json_data)

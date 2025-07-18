@@ -123,40 +123,72 @@ function loadPlan() {
             console.log(data);
 
             // loop over data, fill the table with courses
-            var table = document.getElementById("GERS-table");
+            var tables = document.querySelectorAll("table");
+            var firstColDict = {};
+
+            tables.forEach(table => {
+                var tableId = table.id;
+                // grab class == firstCol, id = "<tableId>"
+                // var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
+                var firstColumn = Array.from(table.querySelectorAll(".firstCol")).map(cell => cell.innerHTML); // Get the first column headers
+                // firstColumn = firstColumn.slice(2) // remove header Row
+                console.log("First column headers for " + tableId + ": " + firstColumn);
+                firstColDict[tableId] = firstColumn;
+                table.querySelectorAll("input").forEach(input => {
+                    input.value = "";
+                });
+            })
+            // var table = document.getElementById("GERS-table");
             // var firstColumn = Array.from(table.rows[0].cells).map(cell => cell.innerHTML); // Get the first column headers
-            var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
-            console.log(firstColumn);
+            // var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
+            // console.log(firstColDict);
             // clear the table first
-            table.querySelectorAll("input").forEach(input => {
-                input.value = "";
-            });
+            var currentSemester = null;
 
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i]);
                 cell_dict = data[i];
                 let tableGroup = cell_dict.table
-                if (":" in tableGroup) {
+                if (tableGroup.indexOf(":") != -1) {
                    tableGroup, program = tableGroup.split(":"); 
-                   tableId = tableGroup + "-table";
-                   document.getElementById(tableGroup + "-select").value = program;
+                   var programSelect = document.getElementById(tableGroup + "-select")
+                   programSelect.value = program;
                 }
-                let credit = cell_dict.label;
+                // grab table, labels, header size and row size
+                var cellTable = document.getElementById(tableGroup + "-table");
+                var firstCol= firstColDict[cellTable.id];
+                var headerSize = document.getElementById(tableGroup + "-tableheaders").rows.length;
+                // to be used to add custom rows if needed
+                var rowSize = cellTable.rows.length - headerSize;
+
+
+                let credit = cell_dict.credit;
                 let j = parseInt(cell_dict.col);
                 let value = cell_dict.val;
+                if (i == 0) {
+                    currentSemester = parseInt(cell_dict.semester);
+                }
+                if (i > 0 && currentSemester != parseInt(cell_dict.semester)) {
+                    console.warn("Multiple semesters found in the loaded plan. Only the first semester will be used.");
+                }
                 // if value is a number, parse as such
                 if (!isNaN(value)) {
                     value = parseInt(value);
                 }
                 // find the row corresponding to credit
-                
-                let relevantRowIdx = firstColumn.indexOf(credit);
-                if (relevantRowIdx !== -1) {
-                    let relevantRow = table.rows[relevantRowIdx];
+
+                // console.log("Header size: " + headerSize);
+                let relevantRowIdx = firstCol.indexOf(credit)+headerSize;
+                // make sure that if the rowLabel is not found, create a new row with that given label, use addRowBtn if needed
+
+
+                console.log(relevantRowIdx);
+                if (relevantRowIdx != -1) {
+                    let relevantRow = cellTable.rows[relevantRowIdx];
                     let inputs = relevantRow.getElementsByTagName("input");
                     console.log(j);
                     // Find the input corresponding to the semester
-                    let inputIndex = j - 1; // Adjust for zero-based index
+                    let inputIndex = j-1; // Adjust for zero-based index
                     if (inputs[inputIndex]) {
                         inputs[inputIndex].value = value;
                         inputs[inputIndex].dispatchEvent(new Event('input'));
@@ -180,8 +212,9 @@ function loadPlan() {
 
                     }
                 }
+                // add else condition - construct row with given label
             }
-        var popup = document.getElementById("popup");
+        var popup = document.getElementById("loadPopup");
         popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
             
         }).catch(error => {
