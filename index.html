@@ -28,27 +28,11 @@
                 </div>
             </div>
             <div id="controlPanel">
-                <div id="selects">
-                    <label for="mainMajorSelect">Select Major:</label>
-                    <select id="mainMajorSelect" onchange="grabCourses(id)">
-                    </select>
-
-                    <!-- For Double Major Selection -->
-                    <label for="doubleMajorSelect">Select 2nd Major:</label>
-                    <select id="doubleMajorSelect" onchange="grabCourses(id)">       
-                    </select> 
-
-                    <!-- For Minor Selection -->
-                    <label for="minorSelect">Select Minor:</label>
-                    <select id="minorSelect" onchange="grabCourses(id)">
-                    </select>
-                </div>
-
                 <div id="semesterStuff">
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
                     <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
-                        <datalist id="semesterList">
+                        <!-- <datalist id="semesterList">
                             <option value="1">|</option>
                             <option value="2">|</option>
                             <option value="3">|</option>
@@ -57,7 +41,7 @@
                             <option value="6">|</option>
                             <option value="7">|</option>
                             <option value="8">|</option>
-                        </datalist>
+                        </datalist> -->
                 </div>
                 <hr/>
 
@@ -74,8 +58,9 @@
 
             </div>
             <div id="popup">
-                <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup()">
-                Type in your Furman email to get a code for authentication:<br/><br/>
+                Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup()">
+                
+                <br/><br/>
                 <input type="text" id="emailfield" placeholder="Type in your Furman email" onchange="validateEmail(this.value)"><br/><br/>
                 <button id="sendCodeBtn" onclick="sendCode()">Send Code</button><br/><br/>
                 <span id="codeSentMsg">Code sent!<br/><br/>
@@ -83,16 +68,32 @@
 
                 </span>
                 <span>Type in the code emailed to you:</span><br/><br/>
-                <input type="code" id="passcode" placeholder="Type in the code emailed to you" onchange="validateCode(this.value)"><br/><br/>
+                <input type="code" id="passcode" placeholder="Type in the code emailed to you"><br/><br/>
                 <button id="loadPlanBtn" onclick="loadPlan()">Load Plan</button>
             </div>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->
-                 <div id="GERS-wrapper"></div>
-                <div id="mainMajor-wrapper"></div>
-                <div id="doubleMajor-wrapper"></div>
-                <div id="minor-wrapper"></div>
+                 <div id="GERS-wrapper" class="tableGroup"></div>
+                 <div id="selects">
+                    <label for="mainMajorSelect">Select Major:</label>
+                    <select id="mainMajorSelect" onchange="grabCourses(id)">
+                    </select>
+
+                    <!-- For Double Major Selection -->
+                    <label for="doubleMajorSelect">Select 2nd Major:</label>
+                    <select id="doubleMajorSelect" onchange="grabCourses(id)">       
+                    </select> 
+
+                    <!-- For Minor Selection -->
+                    <label for="minorSelect">Select Minor:</label>
+                    <select id="minorSelect" onchange="grabCourses(id)">
+                    </select>
+                </div>
+                <div id="mainMajor-wrapper" class="tableGroup"></div>
+                <div id="doubleMajor-wrapper" class="tableGroup"></div>
+                <div id="minor-wrapper" class="tableGroup"></div>
                 <!-- class="tableGroup"> -->
+                 
             </div>
             
             <div id="footer">

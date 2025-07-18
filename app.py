@@ -15,26 +15,26 @@ def savePlan():
     email = request.args.get('email')
     semester = request.args.get('semester')
 
-    programs = plan.split(";")
-    # write a dict of lists as a csv file
-    csv_data = {}
-    for program in programs:
-        courses = program.split(',')
-        for course in courses:
-            if course.startswith("#"):
-                tableName = course[1:]  # Remove the leading '#'
-                csv_data[tableName] = []
-            
-            elif course == "":
-                continue
-            else:
-                credit, colIdx, title = course.split('_')
-                csv_data[tableName].append({
-                    'credit': credit,
-                    'colIdx': colIdx,
-                    'title': title
-                })
-    csv_data["semester"] = semester
+    final_df = pd.DataFrame()
+    for program_str in plan.split(";"):
+        table_name = [program_str.split(",")[0]]
+        for cell_str in program_str.split(",")[1:]:
+
+            cell_df = pd.DataFrame(table_name + cell_str.split("_"), index=["table", "credit", "col", "val"])
+            final_df = pd.concat([final_df, cell_df.T], ignore_index=True)
+
+    final_df["semester"] = semester
+    final_df.to_csv(f"{email}.csv", index=False)
+
+    return f"<h2>Plan saved for {email} for semester {semester}</h2>"
+
+    # Stucture:
+    # csv_data = {
+        # "semester": semester,
+        # GERS credit colIdx val
+        # GERS credit colIdx val
+        # ...
+        # mainMajor-ProgCode credit colIdx val
     
     
     # find code using email in sessionCodes.csv file
@@ -45,10 +45,6 @@ def savePlan():
         # if email in df['email'].values:
             # check if the code exists
         code = sessionCodes_df[sessionCodes_df['email'] == email]['code'].values[0]
-
-    # this shouldn't run        
-    else: 
-        raise ValueError("No session codes found. Please send an email first.")
 
     # save the df to a csv file with the name email_code_semester.csv
     # df.to_csv(f"{email}_{code}_{semester}.csv", index=False)
@@ -75,7 +71,6 @@ def loadPlan():
 
     # from glob import glob
     # from flask import jsonify
-    
 
     csv_files = sorted(glob(f"*{email}*.csv"))[::-1]
     if not csv_files:
@@ -84,56 +79,11 @@ def loadPlan():
     relevant_file = csv_files[0]
 
     plan_df = pd.read_csv(relevant_file, header=None)
-    plan_df.columns = ['label', 'col', 'val']
+    # plan_df.columns = ['label', 'col', 'val']
+    plan_df.columns = ['table', 'credit', 'col', 'val']
     json_data = plan_df.to_dict(orient='records')
-    # for idx in plan_df.index:
-    #     json_data[plan_df.loc[idx][0]] = plan_df.loc[idx][1:]
 
     return jsonify(json_data)
-
-    # f = open(relevant_file)
-    # plan = f.readlines()
-    # f.close()
-
-    # csv_file = plan[0].strip()
-    # courses_json = []
-    # semester = ""
-    # for program in programs:
-    #     courses = program.split(',')
-    #     for course in courses:
-    #         if course.startswith("#"):
-    #             tableName = course[1:]  # Remove the leading '#'
-    #             csv_data[tableName] = []
-            
-    #         if course == "":
-    #             continue
-    #         else:
-    #             credit, colIdx, title = course.split('_')
-    #             csv_data[tableName].append({
-    #                 'credit': credit,
-    #                 'colIdx': colIdx,
-    #                 'title': title
-    #             })
-    # csv_data["semester"] = semester
-    # convert the csv file to json
-    # GERS-table:
-    df = pd.read_csv(csv_file)
-    courses_json = df.to_dict(orient='records')
-
-    # for course in plan:
-    #     if course.strip() == "":
-    #         continue
-    #     elif course == "semester":
-    #         semester = course.strip()
-
-    #     credit, sem, title = course.strip().split(',')
-    #     courses_json.append({
-    #         'credit': credit,
-    #         'sem': sem,
-    #         'title': title
-    #     })
-
-    return jsonify(courses_json)
 
 def generate_random_code(num_digits=5, email=None):
     import random
@@ -184,7 +134,7 @@ def sendEmail():
               
     recipients = [email]
     # make sure to encrypt this later
-    password = "fmip olqh qiwb dwzm"
+    password = "enter_valid_password_here"  # replace with your actual email password
     
     msg = MIMEText(body)
     msg['Subject'] = subject

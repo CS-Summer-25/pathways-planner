@@ -25,24 +25,12 @@ function savePlan() {
     var compressed = "";
 
     tables.forEach(table => {
-        // find by class = GERS and id = tableHeader
-
-        // var header = document.getElementsByClassName(table.id.split("-")[0]).getElementById("tableHeader")
-        // var header = document.getElementById(table.id.replace("-table", "-wrapper")).querySelector(".tableHeader");
-        // var header = document.querySelectorAll(`.${table.id.split("-")[0]}`)[0].innerText.trim();
-        // get the header text
-        if (table.id === "GERS-table") {
-            var filter = "";
+        var tableGroup = table.id.split("-")[0];
+        compressed += `${tableGroup}`; // Add table ID to compressed string
+        if (tableGroup != "GERS") {
+            compressed += `-${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
         }
-        else {
-            var filter = document.getElementById(`${table.id.split("-")[0]}Select`).value;
-        }
-        console.log("Program txt: "+filter);
-        compressed += `#${table.id}`; // Add table ID to compressed string
-        if (filter !== "") {
-            compressed += `_${filter}`; // Add filter to compressed string
-        }
-        compressed += `,`; // End of table section
+        compressed += `,`; // end of table tag
         var numRows = table.rows.length;
         for (let i = 1; i < numRows; i++) { // Start from 1 to skip header row
             var relevantRow = table.rows[i];
@@ -61,22 +49,6 @@ function savePlan() {
         compressed += `;`; 
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
-    // console.log(GERS);
-    // var table = document.getElementById("GERS-table");
-    // var countGers = GERS.length;
-    // // Saving plan in compressed form for GET requests 
-    // var compressed = "";
-    // for (let i = 0; i < countGers; i++) {
-    //     var relevantRow = table.rows[i+1];
-    //     var inputs = relevantRow.getElementsByTagName("input");
-    //     var courses = [];
-    //     for (let j = 0; j < inputs.length; j++) {
-    //         if (inputs[j].value !== "") {
-    //             // courses.push(inputs[j].value);
-    //             compressed += `${GERS[i]}_${j+1}_${inputs[j].value};`;
-    //         }
-    //     }
-    // }
     console.log(compressed);
 
     if (compressed === "") {
@@ -89,36 +61,27 @@ function savePlan() {
     var constructedUrl = `https://furmancs.com/tabot/savePlan?email=${encodeURIComponent(email)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
     console.log(constructedUrl);
 
+    // just for testing purposes, we will not actually save the plan
+    // remove this line when deploying
     if (true) {
         alert("Plan saved successfully! You can now load it using the same email.");
         return;
     }
-    // xhr.open("GET", constructedUrl, true);
-    // xhr.onreadystatechange = function() {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //         alert("Plan saved successfully!");
-    //     } else if (xhr.readyState === 4) {
-    //         alert("Failed to save plan. Please try again.");
-    //     }
-    //     else{
-    //         console.log("Request in progress...");
-    //     }
-    // };
 
     // should the email be sent first?
-    fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
+    // fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
 
-        if (!emailResponse.ok) {
+    //     if (!emailResponse.ok) {
+    //         throw new Error("Network response was not ok");
+    //     }
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
             throw new Error("Network response was not ok");
         }
-        fetch(constructedUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response;//.json();
-        });
-    })
+        return response;//.json();
+    });
+    // })
 
     // fetch("https://furmancs.com/tabot/sendEmail?email="+encodeURIComponent(email))
 
@@ -155,45 +118,67 @@ function loadPlan() {
 
             console.log(data);
 
-            // parse json
-            // plan = JSON.parse(data);
-            console.log(plan);
-            
-            // for(i = 0; i<data.length; i++){
-            //     console.log(data[i]);
-            //     let course = data[i];
-            //     let credit = course.ger;
-            //     let j = parseInt(course.sem);
-            //     let courseName = course.title;
+            // loop over data, fill the table with courses
+            var table = document.getElementById("GERS-table");
+            // var firstColumn = Array.from(table.rows[0].cells).map(cell => cell.innerHTML); // Get the first column headers
+            var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
+            console.log(firstColumn);
+            // clear the table first
+            table.querySelectorAll("input").forEach(input => {
+                input.value = "";
+            });
 
-            //     console.log(ger);
-
-            //     // Find the row corresponding to the GER
-            //     let gerIndex = GERS.indexOf(ger);
-            //     console.log(gerIndex);
-            //     let relevantRow = table.rows[gerIndex + 1];
-            //     let inputs = relevantRow.getElementsByTagName("input");
-            //     console.log(j);
-            //     // Find the input corresponding to the semester
-            //     if (j >= 1 && j <= 8) {
-            //         let inputIndex = j - 1; // Adjust for zero-based index
-            //         console.log(inputs[inputIndex]);
-            //         if (inputs[inputIndex]) {
-            //             inputs[inputIndex].value = courseName;
-            //             inputs[inputIndex].dispatchEvent(new Event('input')); // Trigger input event to update styles
-            //             inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event to update styles
-            //             // inputs[inputIndex].click();
-            //             // click on the input to make autocomplete go away
-            //             // relevantRow.click();
-            //             updateSemesterLabel();
-            //             // inputs[inputIndex].blur();
-            //             relevantRow.click();
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i]);
+                cell_dict = data[i];
+                // let tableGroup = cell_dict.table
+                // if (":" in tableGroup) {
+                //    tableGroup, program = tableGroup.split(":"); 
+                //    tableId = tableGroup + "-table";
+                //    document.getElementById(tableGroup + "-select").value = program;
+                // }
+                let credit = cell_dict.label;
+                let j = parseInt(cell_dict.col);
+                let value = cell_dict.val;
+                // if value is a number, parse as such
+                if (!isNaN(value)) {
+                    value = parseInt(value);
+                }
+                // find the row corresponding to credit
+                
+                let relevantRowIdx = firstColumn.indexOf(credit);
+                if (relevantRowIdx !== -1) {
+                    let relevantRow = table.rows[relevantRowIdx];
+                    let inputs = relevantRow.getElementsByTagName("input");
+                    console.log(j);
+                    // Find the input corresponding to the semester
+                    let inputIndex = j - 1; // Adjust for zero-based index
+                    if (inputs[inputIndex]) {
+                        inputs[inputIndex].value = value;
+                        inputs[inputIndex].dispatchEvent(new Event('input'));
+                        inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event to update styles
+                        // inputs[inputIndex].click();
+                        // click on the input to make autocomplete go away
+                        // relevantRow.click();
+                        updateSemesterLabel();
                         
-            //         }
-            //     }
-            //     // document.getElementById("tableHeader").dispatchEvent("click"); // Trigger click event to update styles
-            // }
-        // window.click();
+                        // hopefully we can find a way to stop the autocomplete menus from showing up
+                        // get the jquery autocomplete menu and hide it
+                        // var menu = $(inputs[inputIndex]).autocomplete("widget");
+                        // console.log(menu);
+                        // // menu("close"); // Close the autocomplete menu
+                        // menu[0].setAttribute("style", "display: none;"); // Hide the autocomplete menu
+                        // destroy menu[0]s children
+
+                        // menu.setAttribute("style", "display: none;"); // Hide the autocomplete menu
+                        // menu[0].autocomplete("close");
+                        // inputs[inputIndex].menu
+
+                    }
+                }
+            }
+        var popup = document.getElementById("popup");
+        popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
             
         }).catch(error => {
             console.error("There was a problem with the fetch operation:", error);
