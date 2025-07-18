@@ -61,25 +61,27 @@ function savePlan() {
     var constructedUrl = `https://furmancs.com/tabot/savePlan?email=${encodeURIComponent(email)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
     console.log(constructedUrl);
 
+    // just for testing purposes, we will not actually save the plan
+    // remove this line when deploying
     if (true) {
         alert("Plan saved successfully! You can now load it using the same email.");
         return;
     }
 
     // should the email be sent first?
-    fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
+    // fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
 
-        if (!emailResponse.ok) {
+    //     if (!emailResponse.ok) {
+    //         throw new Error("Network response was not ok");
+    //     }
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
             throw new Error("Network response was not ok");
         }
-        fetch(constructedUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response;//.json();
-        });
-    })
+        return response;//.json();
+    });
+    // })
 
     // fetch("https://furmancs.com/tabot/sendEmail?email="+encodeURIComponent(email))
 
@@ -128,18 +130,19 @@ function loadPlan() {
 
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i]);
-                // let tableGroup = data[i].table
+                cell_dict = data[i];
+                // let tableGroup = cell_dict.table
                 // if (":" in tableGroup) {
                 //    tableGroup, program = tableGroup.split(":"); 
                 //    tableId = tableGroup + "-table";
                 //    document.getElementById(tableGroup + "-select").value = program;
                 // }
-                let credit = data[i].label;
-                let j = parseInt(data[i].col);
-                let value = data[i].val;
+                let credit = cell_dict.label;
+                let j = parseInt(cell_dict.col);
+                let value = cell_dict.val;
                 // if value is a number, parse as such
                 if (!isNaN(value)) {
-                    value = parseFloat(value);
+                    value = parseInt(value);
                 }
                 // find the row corresponding to credit
                 
@@ -174,10 +177,6 @@ function loadPlan() {
                     }
                 }
             }
-        var menus = document.querySelectorAll(".ui-menu");
-        menus.forEach(menu => {
-            menu.style.display = "none"; // Hide all autocomplete menus
-        });
         var popup = document.getElementById("popup");
         popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
             

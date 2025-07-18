@@ -319,7 +319,7 @@ input[type=range] + datalist option:last-child {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.95);
+    /* background-color: rgba(255, 255, 255, 0.95); */
     border: 1px solid rgb(158, 83, 196);
     padding: 20px;
     z-index: 1000;
