@@ -116,45 +116,70 @@ function loadPlan() {
 
             console.log(data);
 
-            // parse json
-            // plan = JSON.parse(data);
-            console.log(plan);
-            
-            // for(i = 0; i<data.length; i++){
-            //     console.log(data[i]);
-            //     let course = data[i];
-            //     let credit = course.ger;
-            //     let j = parseInt(course.sem);
-            //     let courseName = course.title;
+            // loop over data, fill the table with courses
+            var table = document.getElementById("GERS-table");
+            // var firstColumn = Array.from(table.rows[0].cells).map(cell => cell.innerHTML); // Get the first column headers
+            var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
+            console.log(firstColumn);
+            // clear the table first
+            table.querySelectorAll("input").forEach(input => {
+                input.value = "";
+            });
 
-            //     console.log(ger);
-
-            //     // Find the row corresponding to the GER
-            //     let gerIndex = GERS.indexOf(ger);
-            //     console.log(gerIndex);
-            //     let relevantRow = table.rows[gerIndex + 1];
-            //     let inputs = relevantRow.getElementsByTagName("input");
-            //     console.log(j);
-            //     // Find the input corresponding to the semester
-            //     if (j >= 1 && j <= 8) {
-            //         let inputIndex = j - 1; // Adjust for zero-based index
-            //         console.log(inputs[inputIndex]);
-            //         if (inputs[inputIndex]) {
-            //             inputs[inputIndex].value = courseName;
-            //             inputs[inputIndex].dispatchEvent(new Event('input')); // Trigger input event to update styles
-            //             inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event to update styles
-            //             // inputs[inputIndex].click();
-            //             // click on the input to make autocomplete go away
-            //             // relevantRow.click();
-            //             updateSemesterLabel();
-            //             // inputs[inputIndex].blur();
-            //             relevantRow.click();
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i]);
+                // let tableGroup = data[i].table
+                // if (":" in tableGroup) {
+                //    tableGroup, program = tableGroup.split(":"); 
+                //    tableId = tableGroup + "-table";
+                //    document.getElementById(tableGroup + "-select").value = program;
+                // }
+                let credit = data[i].label;
+                let j = parseInt(data[i].col);
+                let value = data[i].val;
+                // if value is a number, parse as such
+                if (!isNaN(value)) {
+                    value = parseFloat(value);
+                }
+                // find the row corresponding to credit
+                
+                let relevantRowIdx = firstColumn.indexOf(credit);
+                if (relevantRowIdx !== -1) {
+                    let relevantRow = table.rows[relevantRowIdx];
+                    let inputs = relevantRow.getElementsByTagName("input");
+                    console.log(j);
+                    // Find the input corresponding to the semester
+                    let inputIndex = j - 1; // Adjust for zero-based index
+                    if (inputs[inputIndex]) {
+                        inputs[inputIndex].value = value;
+                        inputs[inputIndex].dispatchEvent(new Event('input'));
+                        inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event to update styles
+                        // inputs[inputIndex].click();
+                        // click on the input to make autocomplete go away
+                        // relevantRow.click();
+                        updateSemesterLabel();
                         
-            //         }
-            //     }
-            //     // document.getElementById("tableHeader").dispatchEvent("click"); // Trigger click event to update styles
-            // }
-        // window.click();
+                        // hopefully we can find a way to stop the autocomplete menus from showing up
+                        // get the jquery autocomplete menu and hide it
+                        // var menu = $(inputs[inputIndex]).autocomplete("widget");
+                        // console.log(menu);
+                        // // menu("close"); // Close the autocomplete menu
+                        // menu[0].setAttribute("style", "display: none;"); // Hide the autocomplete menu
+                        // destroy menu[0]s children
+
+                        // menu.setAttribute("style", "display: none;"); // Hide the autocomplete menu
+                        // menu[0].autocomplete("close");
+                        // inputs[inputIndex].menu
+
+                    }
+                }
+            }
+        var menus = document.querySelectorAll(".ui-menu");
+        menus.forEach(menu => {
+            menu.style.display = "none"; // Hide all autocomplete menus
+        });
+        var popup = document.getElementById("popup");
+        popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
             
         }).catch(error => {
             console.error("There was a problem with the fetch operation:", error);
