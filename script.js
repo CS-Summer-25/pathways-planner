@@ -10,7 +10,10 @@ function validateEmail(email) {
 }
 
 function savePlan() {
-    var email = document.getElementById("emailfield").value;
+
+    document.getElementById("savePopup").style.display = "block";
+
+    var email = document.getElementById("saveEmail").value;
     console.log("Email variable: "+email);
 
     if (!validateEmail(email)) {
@@ -63,10 +66,10 @@ function savePlan() {
 
     // just for testing purposes, we will not actually save the plan
     // remove this line when deploying
-    if (true) {
-        alert("Plan saved successfully! You can now load it using the same email.");
-        return;
-    }
+    // if (true) {
+    //     alert("Plan saved successfully! You can now load it using the same email.");
+    //     return;
+    // }
 
     // should the email be sent first?
     // fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
@@ -87,16 +90,17 @@ function savePlan() {
 
 }
 
-function authenticate() {
+function authenticate(mode) {
+
     // show popup
-    var popup = document.getElementById("popup");
+    var popup = document.getElementById(mode+"Popup");
     popup.style.display = "block";
 }
 
 function loadPlan() {
 
-    var passcode = document.getElementById("passcode").value;
-    var email = document.getElementById("emailfield").value;
+    var passcode = document.getElementById("loadPasscode").value;
+    var email = document.getElementById("loadEmail").value;
 
     console.log(passcode);
     console.log("Load Plan");
@@ -131,12 +135,12 @@ function loadPlan() {
             for (let i = 0; i < data.length; i++) {
                 console.log(data[i]);
                 cell_dict = data[i];
-                // let tableGroup = cell_dict.table
-                // if (":" in tableGroup) {
-                //    tableGroup, program = tableGroup.split(":"); 
-                //    tableId = tableGroup + "-table";
-                //    document.getElementById(tableGroup + "-select").value = program;
-                // }
+                let tableGroup = cell_dict.table
+                if (":" in tableGroup) {
+                   tableGroup, program = tableGroup.split(":"); 
+                   tableId = tableGroup + "-table";
+                   document.getElementById(tableGroup + "-select").value = program;
+                }
                 let credit = cell_dict.label;
                 let j = parseInt(cell_dict.col);
                 let value = cell_dict.val;
@@ -190,8 +194,11 @@ function loadPlan() {
 }
 
 function closePopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "none";
+    var popup = document.getElementsByClassName("popup");
+    for (let i = 0; i < popup.length; i++) {
+        popup[i].style.display = "none";
+    }
+    // popup.style.display = "none";
 }
 
 function sendCode(){

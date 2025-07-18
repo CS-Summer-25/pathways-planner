@@ -332,7 +332,7 @@ function grabCourses(selectId) {
 
 function addInputRow(tableId, firstCol) {
     // firstCol is a list of elements to become the first column of the table - can be of length 1 (just make a list of [element])
-    var table = document.getElementById(tableId.concat("-table"));
+    var table = document.getElementById(tableId.concat("-tablebody"));
     console.log(table);
     var tableLength = parseInt(document.getElementById("semesterSlider").max);
     console.log("tableLength: ", tableLength);
@@ -670,7 +670,7 @@ function isValidCredit(inputValue, creditType) {
 
 function createTable(tableName, tableId, data) {
     var tableDiv = document.getElementById(tableId.concat("-wrapper"));
-    tableDiv.setAttribute("style", "border: rgb(35, 35, 35) solid 1px;")
+    tableDiv.setAttribute("style", "border: red solid 1px; border-radius: 5px;");
 
     var name = document.createElement("h2");
     var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
@@ -688,8 +688,29 @@ function createTable(tableName, tableId, data) {
     tableDiv.appendChild(name);
     tableDiv.appendChild(table);
 
+    // Add header row 
+    var tableHeader = document.createElement("thead");
+    table.appendChild(tableHeader);
+    // Create year row
+    var yearRow = tableHeader.insertRow(0);
+    // yearRow = document.createElement("th");
+    yearRow.setAttribute("id", "yearRow");
+    yearRow.classList.add(tableId);
+
+    values = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
+
+    for (let i = 0; i < values.length; i++) {
+        var cell = document.createElement("th");
+
+        cell.setAttribute("colspan", i == 0 ? 1 : 2);
+        cell.innerHTML = values[i];
+    
+        yearRow.appendChild(cell);
+    }
+    
+
     // Create header row
-    var headerRow = table.insertRow(0);
+    var headerRow = tableHeader.insertRow(1);
     headerRow.setAttribute("id", "headerRow");
     headerRow.classList.add(tableId);
     for (let i = 0; i < semesterMax; i++){
@@ -697,9 +718,17 @@ function createTable(tableName, tableId, data) {
             headerRow.insertCell(i).innerHTML = `<th>Reqs</th>`;
         }
         else {
-            headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
+            // headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
+            headerRow.insertCell(i).innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
         }
     }       
+
+    var tbody = document.createElement("tbody");
+    tbody.setAttribute("id", tableId.concat("-tablebody"));
+    table.appendChild(tbody);
+    // Add input rows based on data
+    
+
     addInputRow(tableId, data);
 
     // add a custom - add row button below existing rows

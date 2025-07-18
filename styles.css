@@ -1,6 +1,6 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color:black;
+    background-color:#222;
     /* font-size: large; */
     min-height: 100vh;
 }
@@ -11,17 +11,19 @@ body{
     
     min-height: 100vh;
     width: 100%;
-    background-color: black;
+    background-color: #222;
     /* order: 1px solid rgb(35, 35, 35); */
     row-gap: 2%;    
 }
 
 #body-wrapper > #header{
-    background-color: black;
+    background-color: #343a40;
     color: white;
     width: 100%;
     height: auto;
     border: rgb(35, 35, 35) solid 1px;
+
+    /* border: silver solid 1px; */
     z-index: 1;
     font-size: large;
 
@@ -161,13 +163,14 @@ body{
 
 #body-wrapper > #controlPanel{
 
-    background-color: black;
-    border: rgb(35, 35, 35) solid 1px;
+    background-color: #222;
+    border: silver solid 1px;
+    /* border-bottom: rgb(63, 44, 44) solid 2px; */
     color: silver;
     font-family: inherit;
     width: 100%;
     height: 20%;
-    padding-left: 1%;
+    border-radius: 5px;
 
     /* grid-template-rows: auto 1fr;
     grid-template-columns: 6fr 1fr;
@@ -175,16 +178,15 @@ body{
     grid-template-areas:
         "selects buttons"
         "semesterStuff buttons"; */
-    display: flex;
+    /* display: flex; */
 }
 
-#semesterStuff {
+/* #semesterStuff {
     width: 80%;
     font-family: inherit;
     color: white;
     font-weight: bold;
     font-size: large;
-    /* grid-area: semesterStuff; */
 
     display: grid;
     grid-template-areas:
@@ -192,11 +194,11 @@ body{
     grid-template-columns: 2fr 0.1fr 4fr;
     grid-template-rows: 1fr 0.1fr;
 
-}
+} */
 
 label[for="semesterSlider"]{
     grid-area: label;
-    grid-row: 1 / span 1;
+    /* grid-row: 1 / span 1; */
     align-self: center;
     justify-self: center;
     width: auto;
@@ -204,7 +206,7 @@ label[for="semesterSlider"]{
 
 #semesterValue {
     grid-area: value;
-    grid-row: 1 / span 1;
+    /* grid-row: 1 / span 1; */
     align-self: center;
     /* justify-self: start; */
     font-size: large;
@@ -216,7 +218,7 @@ input[type=range], input[type=range] + datalist { --thumb-width: 12px; --list-le
 input[type="range"] {
     grid-area: slider;
 
-    width: 100%;
+    width: 20%;
     accent-color: rgb(196, 83, 196);
     cursor: ew-resize;
 
@@ -276,11 +278,11 @@ input[type=range] + datalist option:last-child {
     writing-mode: vertical-lr;
 } */
 
-#emailfield {
+.emailfield {
     width: 100%;
 }
 
-#panelBtnContainer {
+#panelContainer {
     /* background-color: rgb(158, 83, 196); */
     color: whitesmoke;
     font-size: large;
@@ -288,18 +290,10 @@ input[type=range] + datalist option:last-child {
     cursor: pointer;
     border-radius: 5px;
     font-family: inherit;
-    /* grid-area: buttons; */
-    grid-row: 1 / span 2;
-    width: 10%;
+    width: 100%;
     align-self: center;
     justify-self: center;
-    display: grid;
-    grid-template-areas: 
-        "saveBtn" 
-        "loadBtn" 
-        "addColBtn";
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
 }
 
 #saveBtn {
@@ -314,12 +308,12 @@ input[type=range] + datalist option:last-child {
 
 /* -------------------------------- */
 
-#body-wrapper > #popup{
+#body-wrapper > .popup{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    /* background-color: rgba(255, 255, 255, 0.95); */
+    background-color: rgba(255, 255, 255, 0.95);
     border: 1px solid rgb(158, 83, 196);
     padding: 20px;
     z-index: 1000;
@@ -355,35 +349,40 @@ input[type=range] + datalist option:last-child {
     /* padding-top: 17%; */
     display: flex;
     flex-direction: column;
-    background-color: black;
+    background-color: #222;
     width: 100%;
     margin-left: 0.5%;
 
     z-index: 1;
 }
 
-/* .tableGroup {
-    border: rgb(35, 35, 35) solid 1px;
-} */
+.tableGroup {
+    border: red solid 1px;
+    margin: 0.5%;
+    background-color: #3d444d;
+}
 
 #tableHeader{
-    background-color: black;
+    background-color: #3d444d;
     font-weight: bold;
-    color: silver;
+    color: white;
     margin: auto;
-    margin-top: 1%;
+    padding: 1%;
+    /* margin-top: 1%; */
     /* padding-left: 0.5%;
     padding-top: 1%; */
 
     /* grid-area: tableHeader;
     grid-row: 1;
     grid-column: 1; */
-    width: 100%;
+    /* width: 100%; */
+    border-radius: 5px;
 }
 
 .toggleBtn{
     background-color: rgb(158, 83, 196);
-    /* make sure to fix this with different display sizes */
+    /* move to right */
+    justify-self: flex-end;
     width: 1.75%;
     /* margin-bottom: 1%; */
     filter: invert(1);
@@ -398,8 +397,9 @@ input[type=range] + datalist option:last-child {
     /* background-color: aliceblue; */
     background: url("imgs/down.png") no-repeat;
     background-size: contain;
-    align-self: center;
-    justify-self: center;
+    align-self: flex-end;
+    justify-self: flex-end;
+    float: right;
 
 }
 
@@ -407,6 +407,7 @@ table{
     width: 100%;
     margin: 0 auto;
     display: table;
+    border-spacing: 1px;
 } 
 
 tr{
@@ -415,8 +416,18 @@ tr{
 }
 
 #headerRow{
-    background-color: silver;
+    background-color: slategrey;
+    /* font-weight: bold; */
+    /* center align */
+    text-align: center;
+    color: whitesmoke;
+}
+
+#yearRow{
+    background-color: slategrey;
+    color: whitesmoke;
     font-weight: bold;
+
 }
 
 .firstCol{
@@ -538,3 +549,7 @@ input:disabled{
     width: 100%;
     z-index:0;
 } 
+
+h3{
+    padding-left: 2%;
+}
