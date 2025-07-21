@@ -448,6 +448,7 @@ td{
      height: auto; 
      width: auto;
      /* font-size: small; */
+     
 }
 
 input{
@@ -555,4 +556,11 @@ input:disabled{
 
 h3{
     padding-left: 2%;
+}
+
+.courseInput[type="checkbox"] {
+    width: 100%;
+    background-color: (255, 255, 255, 0.75);
+    border-radius: 100px;
+    accent-color: green;
 }
