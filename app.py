@@ -64,7 +64,7 @@ def loadPlan():
     passcode = request.args.get('passcode')
     email = request.args.get('email')
 
-    codes_df = pd.read_csv('sessionCodes.csv', dtype={'email': str, 'code': str})
+    codes_df = pd.read_csv('sessionCodes.csv', names=["email", "code"], dtype={'email': str, 'code': str})
     codes_df.set_index('email', inplace=True)
     if codes_df.loc[email, 'code'] != passcode: 
         return jsonify({'error': 'Invalid passcode or email.'})
@@ -78,8 +78,8 @@ def loadPlan():
     
     relevant_file = csv_files[0]
 
-    plan_df = pd.read_csv(relevant_file, header=None)
-    # MAKY SURE THAT THERE IS A SEMESTER VALUE IN THE SERVER - USE TO ADJUST SLIDER TO CORRECT SEMESTER
+    plan_df = pd.read_csv(relevant_file)
+    # MAKE SURE THAT THERE IS A SEMESTER VALUE IN THE SERVER - USE TO ADJUST SLIDER TO CORRECT SEMESTER
     plan_df.columns = ['table', 'credit', 'col', 'val', "semester"]
     json_data = plan_df.to_dict(orient='records')
 
