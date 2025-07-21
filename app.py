@@ -79,7 +79,7 @@ def loadPlan():
     relevant_file = csv_files[0]
 
     plan_df = pd.read_csv(relevant_file, header=None)
-    # plan_df.columns = ['label', 'col', 'val']
+    # MAKY SURE THAT THERE IS A SEMESTER VALUE IN THE SERVER - USE TO ADJUST SLIDER TO CORRECT SEMESTER
     plan_df.columns = ['table', 'credit', 'col', 'val', "semester"]
     json_data = plan_df.to_dict(orient='records')
 

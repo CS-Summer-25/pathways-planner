@@ -761,9 +761,10 @@ function removeTable(tableId) {
     var oldGroup = document.getElementById(tableId.concat("-wrapper"));
     if (oldGroup) {
         for (let i = oldGroup.children.length - 1; i >= 0; i--) {
-            oldGroup.children[i].remove();
+            if (oldGroup.children[i].id != "selects") {
+                oldGroup.children[i].remove();
+            }
         }
-        oldGroup.setAttribute("style", "border: none;");
     }
     console.log(`Table: ${tableId} and its components removed.`);
 }
@@ -891,6 +892,7 @@ function customAddColumn() {
             setGERSAutocomplete(); // Reapply autocomplete to the new input fields
         }
         updateSemesterLabel();
+        
     });
     console.log("New column added to tables.");
 }
