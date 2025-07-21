@@ -1,7 +1,9 @@
 
 # TODO: 
 
-* [X] Current semester column highlight on page load and new major selection
+* [ ] Toggling tables reduces width 
+
+* [ ] Toggling panel reduces width 
 
 * [ ] Convert input boxes to checkboxes, when relevant: for XXX-XXX first col values 
 

@@ -227,11 +227,8 @@ function loadPlan() {
 }
 
 function closePopup(popupId) {
-    var popup = document.getElementsByClassName(popupId);
-    for (let i = 0; i < popup.length; i++) {
-        popup[i].style.display = "none";
-    }
-    // popup.style.display = "none";
+    var popup = document.getElementById(popupId);
+    popup.style.display = "none";
 }
 
 function sendCode(emailField){
