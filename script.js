@@ -176,9 +176,31 @@ async function initialize() {
     constructCourses();
     
     setGERSAutocomplete();
+    selectAutocomplete();
     console.log("Initialization complete!")
 }
 
+// This function is used to select the autocomplete selecting of majors 
+function selectAutocomplete(){
+    var programInputs = document.getElementsByClassName("programInput");
+
+    for (let i = 0; i < programInputs.length; i++) {
+        const programInput = programInputs[i];
+
+        var courses = programInput.id == "minorSelect" ? minors : majors;
+
+        $(programInput).autocomplete({
+
+            source: Object.keys(courses),
+            select: function(event, ui) {
+                // console.log("Selected Program: ", ui.item.label);
+                // console.log("Program Input: ", event.target);
+                event.target.value = ui.item.label;
+                grabCourses(event.target.id);
+            }
+        });
+    }
+}
 
 function setGERSAutocomplete() {
     $( function() {        
@@ -257,7 +279,6 @@ function toggleTable(tableId) {
     }
 }
 
-// We should assign majors list based on what majors.csv has in the list
 function constructCourses() {
     var progId = ["mainMajorSelect", "doubleMajorSelect", "minorSelect"];
 
@@ -300,33 +321,21 @@ function grabCourses(selectId) {
     else {
         courses = minors;
     }
-    
-    // if (selectId == "mainMajorSelect") {
-    //     tableId += "mainMajor";
-    //     courses = majors;   
-    // }
-    // else if (selectId == "doubleMajorSelect") {
-    //     tableId += "doubleMajor";
-    //     courses = majors;   
-    // }
-    // else {
-    //     tableId += "minor";
-    //     courses = minors;
-        
-    // }
 
     console.log(`grabCourses(${selectId}) running.`);
-    
-    var filter = document.getElementById(selectId).value;
+
+    var filter = document.getElementById(selectId).value; 
 
     removeTable(tableId);
     
-    if (filter != "None") {
+    if (filter in courses) {
+        var acronym = courses[filter][0];
+        console.log("Acronym "+acronym);
         console.log("Selected course Array: ", courses);
         // find selected program, csv file compliant
-        console.log(`Selected: ${filter}`);
+        console.log(`Selected: ${acronym}`);
         
-        var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == filter);
+        var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == acronym);
         
         console.log(`Program Index: ${programidx}`, `Program Name: ${Object.keys(courses)[programidx]}`);
         
@@ -337,8 +346,6 @@ function grabCourses(selectId) {
         createTable(tableName, tableId, reqs)
     }
 }
-
-// --------------------------------------------------------
 
 function addInputRow(tableId, firstCol) {
     // firstCol is a list of elements to become the first column of the table - can be of length 1 (just make a list of [element])
