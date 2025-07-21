@@ -167,6 +167,9 @@ function loadPlan() {
                 let value = cell_dict.val;
                 if (i == 0) {
                     currentSemester = parseInt(cell_dict.semester);
+                    // update slider
+                    var semesterSlider = document.getElementById("semesterSlider");
+                    semesterSlider.value = currentSemester;
                 }
                 if (i > 0 && currentSemester != parseInt(cell_dict.semester)) {
                     console.warn("Multiple semesters found in the loaded plan. Only the first semester will be used.");
@@ -192,38 +195,30 @@ function loadPlan() {
                     if (inputs[inputIndex]) {
                         inputs[inputIndex].value = value;
                         inputs[inputIndex].dispatchEvent(new Event('input'));
-                        inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event to update styles
-                        // inputs[inputIndex].click();
-                        // click on the input to make autocomplete go away
-                        // relevantRow.click();
+                        inputs[inputIndex].dispatchEvent(new Event('change'));
                         updateSemesterLabel();
-                        
-                        // hopefully we can find a way to stop the autocomplete menus from showing up
-                        // get the jquery autocomplete menu and hide it
-                        // var menu = $(inputs[inputIndex]).autocomplete("widget");
-                        // console.log(menu);
-                        // // menu("close"); // Close the autocomplete menu
-                        // menu[0].setAttribute("style", "display: none;"); // Hide the autocomplete menu
-                        // destroy menu[0]s children
-
-                        // menu.setAttribute("style", "display: none;"); // Hide the autocomplete menu
-                        // menu[0].autocomplete("close");
-                        // inputs[inputIndex].menu
 
                     }
                 }
                 // add else condition - construct row with given label
             }
-        var popup = document.getElementById("loadPopup");
-        popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
-            
+            var popup = document.getElementById("loadPopup");
+            popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
+
         }).catch(error => {
             console.error("There was a problem with the fetch operation:", error);
             alert("Failed to load plan. Please check your password and try again.");
-
-        
-        });
+        })
     });
+
+    // call a function after 10 seconds
+    setTimeout(() => {
+        // Hide autocomplete menus
+        var menus = document.getElementsByClassName("ui-menu-item-wrapper");
+        for (let i = 0; i < menus.length; i++) {
+            menus[i].click();
+        }
+    }, 1000);
 }
 
 function closePopup(popupId) {

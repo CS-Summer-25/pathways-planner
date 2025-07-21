@@ -5,6 +5,8 @@
 
 * [ ] Toggling panel reduces width 
 
+* [ ] On loadPlan, options dropdown is visible
+
 * [ ] Convert input boxes to checkboxes, when relevant: for XXX-XXX first col values 
 
 * [ ] Add a button for new rows to all? tables (What would the design be? Form?)

@@ -84,7 +84,6 @@ def loadPlan():
     json_data = plan_df.to_dict(orient='records')
 
     return jsonify(json_data)
-
 def generate_random_code(num_digits=5, email=None):
     import random
     import string
@@ -145,3 +144,7 @@ def sendEmail():
         smtp_server.sendmail(sender, recipients, msg.as_string())
 
     return jsonify({'email': email, 'code': access_code, 'message': 'Email sent successfully!'})
+
+
+if __name__ == '__main__':
+     app.run(host='0.0.0.0')
