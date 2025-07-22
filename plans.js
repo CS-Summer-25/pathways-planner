@@ -31,9 +31,12 @@ function savePlan() {
         var tableGroup = table.id.split("-")[0];
         compressed += `${tableGroup}`; // Add table ID to compressed string
         if (tableGroup != "GERS") {
-            compressed += `/${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
+            var selectId = `${tableGroup}Select`;
+            var selectValue = document.getElementById(selectId).value;
+            compressed += `/${selectValue}`; // Add program to compressed string
+            // compressed += `/${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
         }
-        compressed += `,`; // end of table tag
+        compressed += `@`; // end of table tag
         var numRows = table.rows.length;
         for (let i = 1; i < numRows; i++) { // Start from 1 to skip header row
             var relevantRow = table.rows[i];
@@ -44,13 +47,13 @@ function savePlan() {
             for (let j = 0; j < inputs.length; j++) {
                 if (inputs[j].type == "checkbox") {
                     if (inputs[j].checked) {
-                        compressed += `${rowLabel}_${j+1}_1},`;
+                        compressed += `${rowLabel}_${j+1}_1~`;
                     }
                 }
                 else{ 
                     if (inputs[j].value !== "") {
                         // courses.push(inputs[j].value);
-                        compressed += `${rowLabel}_${j+1}_${inputs[j].value},`;
+                        compressed += `${rowLabel}_${j+1}_${inputs[j].value}~`;
                     }
                 }
             }

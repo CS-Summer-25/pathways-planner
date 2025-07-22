@@ -28,3 +28,27 @@
 * [ ] Add tick marks on semester slider for visual appeal/convenience
 
 * [ ] Scroll to top button
+
+----
+
+Come back to reorganize: 
+
+`updateTable(relevantRow, j) previously called updateFirstCol 
+
+    Cases: 
+
+    allEmpty (ROW) <-- colors first col red and enables some cells 
+
+    inputValue not empty (CELL) 
+
+        isValid (CELL) <- colors green, disables other cells of the row, colors firstcol
+        invalid (CELL) 
+ 
+        CPS or Pathways or HB  (ROW)
+        Else (Normal case) (ROW)
+
+    inputValue empty`
+
+1. colorCell
+2. disableEnableOtherCells
+3. colorFirstCol 
