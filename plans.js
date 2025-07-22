@@ -1,7 +1,6 @@
 
 function validateEmail(email) {
     // ensure email is @furman.edu
-    console.log(email);
     const emailRegex = /^[a-zA-Z0-9._%+-]+@furman\.edu$/;
 
     return emailRegex.test(email);
@@ -14,7 +13,6 @@ function savePlan() {
     document.getElementById("savePopup").style.display = "block";
 
     var email = document.getElementById("saveEmail").value;
-    console.log("Email variable: "+email);
 
     if (!validateEmail(email)) {
         alert("Please enter a valid Furman email address.");
@@ -22,7 +20,6 @@ function savePlan() {
     }
 
     var currentSemester = parseInt(document.getElementById("semesterValue").innerHTML);
-    console.log("Saving plan for " + email + " for semester " + currentSemester);
 
     var tables = document.querySelectorAll("table");
     var compressed = "";
@@ -62,7 +59,6 @@ function savePlan() {
         compressed += `;`; 
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
-    console.log(compressed);
 
     if (compressed === "") {
         alert("Please enter at least one course before saving.");
@@ -72,7 +68,6 @@ function savePlan() {
     // Make get request and pass password and plan as query parameters
     // var xhr = new XMLHttpRequest();
     var constructedUrl = `https://furmancs.com/tabot/savePlan?email=${encodeURIComponent(email)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
-    console.log(constructedUrl);
 
     // just for testing purposes, we will not actually save the plan
     // remove this line when deploying
@@ -112,8 +107,6 @@ function loadPlan() {
     var passcode = document.getElementById("loadPasscode").value;
     var email = document.getElementById("loadEmail").value;
 
-    console.log(passcode);
-    console.log("Load Plan");
     var constructedUrl = `https://furmancs.com/tabot/loadPlan?email=${encodeURIComponent(email)}&passcode=${encodeURIComponent(passcode)}`;
 
     fetch(constructedUrl)
@@ -130,20 +123,12 @@ function loadPlan() {
 
         coursesInfo.then(data => {
 
-            console.log(data);
-
             // loop over data, fill the table with courses
             var tables = document.querySelectorAll("table");
-            var firstColDict = {};
 
             tables.forEach(table => {
                 var tableId = table.id;
-                // grab class == firstCol, id = "<tableId>"
-                // var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
-                var firstColumn = Array.from(table.querySelectorAll(".firstCol")).map(cell => cell.innerHTML); // Get the first column headers
-                // firstColumn = firstColumn.slice(2) // remove header Row
-                console.log("First column headers for " + tableId + ": " + firstColumn);
-                firstColDict[tableId] = firstColumn;
+                // var firstColumn = Array.from(table.querySelectorAll(".firstCol")).map(cell => cell.innerHTML); 
                 table.querySelectorAll("input").forEach(input => {
                     input.value = "";
                 });
@@ -151,90 +136,117 @@ function loadPlan() {
             // var table = document.getElementById("GERS-table");
             // var firstColumn = Array.from(table.rows[0].cells).map(cell => cell.innerHTML); // Get the first column headers
             // var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
-            // console.log(firstColDict);
             // clear the table first
             var currentSemester = null;
 
             for (let i = 0; i < data.length; i++) {
-                console.log(data[i]);
                 cell_dict = data[i];
                 let tableGroup = cell_dict.table
                 if (tableGroup.indexOf("/") != -1) {
-                   tableGroup, program = tableGroup.split("/"); 
-                   var programSelect = document.getElementById(tableGroup + "-select")
+                    program = tableGroup.split("/")[1];
+                    tableGroup = tableGroup.split("/")[0]; 
+                   
+                   var programSelect = document.getElementById(tableGroup + "Select")
                    programSelect.value = program;
+                   grabCourses(tableGroup + "Select");
                 }
+                // loadTables(tableGroup, data, i);
+                setTimeout(() => {
+                    loadTables(tableGroup, data, i);
+                }, 1000);
                 // grab table, labels, header size and row size
-                var cellTable = document.getElementById(tableGroup + "-table");
-                var firstCol= firstColDict[cellTable.id];
-                var headerSize = document.getElementById(tableGroup + "-tableheaders").rows.length;
-                // to be used to add custom rows if needed
-                var rowSize = cellTable.rows.length - headerSize;
-
-
-                let credit = cell_dict.credit;
-                let j = parseInt(cell_dict.col);
-                let value = cell_dict.val;
-                if (i == 0) {
-                    currentSemester = parseInt(cell_dict.semester);
-                    // update slider
-                    var semesterSlider = document.getElementById("semesterSlider");
-                    semesterSlider.value = currentSemester;
-                }
-                if (i > 0 && currentSemester != parseInt(cell_dict.semester)) {
-                    console.warn("Multiple semesters found in the loaded plan. Only the first semester will be used.");
-                }
-                // if value is a number, parse as such
-                if (!isNaN(value)) {
-                    value = parseInt(value);
-                }
-                // find the row corresponding to credit
-
-                // console.log("Header size: " + headerSize);
-                let relevantRowIdx = firstCol.indexOf(credit);
-                // make sure that if the rowLabel is not found, create a new row with that given label, use addRowBtn if needed
-
-
-                console.log(relevantRowIdx);
-                if (relevantRowIdx != -1) {
-                    let relevantRow = cellTable.rows[relevantRowIdx+headerSize];
-                    let inputs = relevantRow.getElementsByTagName("input");
-                    console.log(j);
-                    // Find the input corresponding to the semester
-                    let inputIndex = j-1; // Adjust for zero-based index
-                    if (inputs[inputIndex]) {
-                        inputs[inputIndex].type == "checkbox" ? inputs[inputIndex].checked = true : inputs[inputIndex].value = value;
-                        // if (inputs[inputIndex].type == "checkbox") {
-                        //     inputs[inputIndex].checked = true;
-                        // }
-                        // else {
-                        //     inputs[inputIndex].value = value;
-                        // }
-                        inputs[inputIndex].dispatchEvent(new Event('input'));
-                        inputs[inputIndex].dispatchEvent(new Event('change'));
-                        updateSemesterLabel();
-
-                    }
-                }
-                // add else condition - construct row with given label
+                
             }
             var popup = document.getElementById("loadPopup");
             popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
+            
 
         }).catch(error => {
             console.error("There was a problem with the fetch operation:", error);
             alert("Failed to load plan. Please check your password and try again.");
         })
+
+            // call a function after 10 seconds
+            setTimeout(() => {
+                // Hide autocomplete menus
+                var menus = document.getElementsByClassName("ui-menu-item-wrapper");
+                for (let i = 0; i < menus.length; i++) {
+                    menus[i].click();
+                }
+            }, 1000);
     });
 
-    // call a function after 10 seconds
-    setTimeout(() => {
-        // Hide autocomplete menus
-        var menus = document.getElementsByClassName("ui-menu-item-wrapper");
-        for (let i = 0; i < menus.length; i++) {
-            menus[i].click();
+}
+
+function loadTables(tableGroup, data, i) {
+
+    cell_dict = data[i];
+    var cellTable = document.getElementById(tableGroup + "-table");
+    var firstCol = Array.from(cellTable.querySelectorAll(".firstCol")).map(cell => cell.innerHTML); // Get the first column headers
+    // var firstCol= firstColDict[cellTable.id];
+    var headerSize = document.getElementById(tableGroup + "-tableheaders").rows.length;
+    // to be used to add custom rows if needed
+    var rowSize = cellTable.rows.length - headerSize;
+
+
+    let credit = cell_dict.credit;
+    let j = parseInt(cell_dict.col);
+    let value = cell_dict.val;
+    if (i == 0) {
+        currentSemester = parseInt(cell_dict.semester);
+        // update slider
+        var semesterSlider = document.getElementById("semesterSlider");
+        semesterSlider.value = currentSemester;
+    }
+    if (i > 0 && currentSemester != parseInt(cell_dict.semester)) {
+        console.warn("Multiple semesters found in the loaded plan. Only the first semester will be used.");
+    }
+    // if value is a number, parse as such
+    if (!isNaN(value)) {
+        value = parseInt(value);
+    }
+    // find the row corresponding to credit
+
+    let relevantRowIdx = firstCol.indexOf(credit);
+    // make sure that if the rowLabel is not found, create a new row with that given label, use addRowBtn if needed
+
+
+    console.log(relevantRowIdx);
+    if (relevantRowIdx != -1) {
+        let relevantRow = cellTable.rows[relevantRowIdx+headerSize];
+        let inputs = relevantRow.getElementsByTagName("input");
+        console.log(j);
+        // Find the input corresponding to the semester
+        let inputIndex = j-1; // Adjust for zero-based index
+        if (inputs[inputIndex]) {
+            // inputs[inputIndex].type == "checkbox" ? inputs[inputIndex].checked = true : inputs[inputIndex].value = value;
+            if (inputs[inputIndex].type == "checkbox") {
+                console.log("ABC "+inputs[inputIndex].type);
+                console.log(relevantRow);
+                console.log(inputs[inputIndex]);
+                console.log("Test 11");
+                inputs[inputIndex].checked = true;
+                
+                inputs[inputIndex].setAttribute("checked", true);
+                // inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event for checkbox
+            }
+            else {
+                console.log("Test 12");
+                inputs[inputIndex].value = value;
+            }
+            inputs[inputIndex].dispatchEvent(new Event('input'));
+            inputs[inputIndex].dispatchEvent(new Event('change'));
+
         }
-    }, 1000);
+    }
+
+    updateSemesterLabel();
+
+    var menus = cellTable.getElementsByClassName("ui-menu-item-wrapper");
+    for (let i = 0; i < menus.length; i++) {
+        menus[i].click();
+    }
+
 }
 
 function closePopup(popupId) {
@@ -244,7 +256,6 @@ function closePopup(popupId) {
 
 function sendCode(emailField){
     var email = document.getElementById(emailField).value;
-    console.log("Email variable: "+email);
 
     if (!validateEmail(email)) {
         alert("Please enter a valid Furman email address.");

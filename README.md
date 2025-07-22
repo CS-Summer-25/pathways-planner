@@ -1,6 +1,16 @@
 
 # TODO: 
 
+* ISSUE: 
+
+    Option 1 (Checkboxes don't load from plan):
+    - Comment out Lines 154-156 AND Uncomment Line 153
+    - Lines 245-248 remove
+
+    Option 2 (Checkboxes work but menus don't hide):
+    - Uncomment Lines 154-156 AND Comment out Line 153    
+        
+
 * [ ] Add a form/popup/webpage to automatically add courses from a schedule to their respective tables
     * [ ] This will also require the use of some function to check if a course has been repeated in a given table
 

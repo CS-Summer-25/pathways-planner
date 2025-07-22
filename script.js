@@ -9,24 +9,18 @@ let GERS = null;
 async function assignCourses(path) {
     // must wait to ensure that data is properly loaded into global var MAJORS
     const data = JSON.parse(await fetch(path).then(response => response.text()));
-    // console.log("assignCourses called with data:", data);
 
     // loop through the data and assign majors and minors
     for (let programTitle in data) {
-        // console.log("Program:", programTitle);
         let program = {programInfo: {"code" : "", "reqs": []}};
-        // console.log("Program Title:", programTitle);
         // program.programTitle.reqs = [];
         for (let pattern in data[programTitle]) {
             if (pattern === "key") {
                 let key = data[programTitle][pattern];
-                // console.log("Key:", key);
                 // this is the key for the program, we can use it to identify the program
                 // e.g. "CSBS" for Computer Science, B.S.
                 // we can also use it to identify the type of program (major or minor)
-                // console.log(`Program Key: ${key}`);
                 program.programInfo.code = key;
-                // console.log("Program Key:", program.programInfo.code);
                 continue; // skip to next pattern
             }
             else if (pattern.startsWith("required")) {
@@ -42,7 +36,6 @@ async function assignCourses(path) {
                 reqs = reqs.join(", ");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
-                // console.log("Processing Required: ", pattern, "\n", program.programInfo.reqs);
             }
             else if (pattern.startsWith("choose")) {
                 // this is a choice pattern
@@ -50,7 +43,6 @@ async function assignCourses(path) {
                 let numRows = parseInt(pattern.split("_")[1]);
                 // options will be used for autocomplete down the line
                 // let options = data[programTitle][pattern];
-                // console.log("Options: "+options);
                 let rowName = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
@@ -61,7 +53,6 @@ async function assignCourses(path) {
                 else {
                     reqs.push(rowName);
                 }
-                // console.log(reqs.trim().split(","));
                 // if (reqs.trim().split(",").length == 1) {
                 //     reqs = reqs.slice(0, -1); // remove trailing comma
                 // }
@@ -70,47 +61,37 @@ async function assignCourses(path) {
                 program.programInfo.reqs.push(reqs);
 
                 // let rowName = pattern.split("_")[-1];
-                // console.log("Processing Choice Pattern:", pattern, "Num Rows:", numRows, "Row Name:", rowName, "Options:", options);
-                // console.log("Processing choose: ", pattern, "\n", program.programInfo.reqs);
             }
             else if (pattern.startsWith("condchoose")) {
                 // this is a conditional choice pattern
                 // i.e. there is least, most, or range condition in the pattern
-                // console.log("Conditional Choose Pattern: ", pattern);
                 let numRows = parseInt(pattern.split("_")[1]);
                 let reqs = [];
                 // let options = {};
                 let store = 1;
-                // console.log("PATTERN: ", Object.keys(data[programTitle][pattern]).length);
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
                     // key = Object.keys(data[programTitle][pattern])[x];
                     var key = Object.keys(data[programTitle][pattern])[x];
                     var options = data[programTitle][pattern][key];
-                    console.log("poop", key, options);
 
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
                         let rowName = key.split("_")[2];
                         let condRowNum = parseInt(key.split("_")[1]);
-                        console.log("Row Name: ", rowName, condRowNum);
                         for (let i = 1; i < condRowNum+1; i++) {
-                            console.log(programTitle+"Did that!");
                             reqs.push(rowName + " " + i);
                         }
                     }
                 }
                 store += Object.keys(data[programTitle][pattern]).length;
-                console.log(programTitle+" Store: ", store);
                 let rowName = pattern.split("_")[2];
                 for (let i = store+1; i < numRows+1; i++) {
                     // this is a regular choice pattern, so we can just add the row name
                     reqs.push(rowName + " " + i);
                 }
                 reqs = reqs.join(", ");
-                console.log("cc"+programTitle+"REQS: ", reqs);
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
-                // console.log("Processing choose: ", pattern, "\n", program.programInfo.reqs);
             }
             // else if (pattern.startsWith("either")) {
             // }
@@ -118,7 +99,6 @@ async function assignCourses(path) {
                 // this is a credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4); 
                 // if there are two credits, you still need to take 1 course
-                console.log(programTitle, "NumRows: "+numRows)
                 let options = data[programTitle][pattern];
                 // rowName is the pattern name
                 let rowName = pattern.split("_")[2];
@@ -157,19 +137,15 @@ async function assignCourses(path) {
                 reqs = reqs.join(", ");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
-                // console.log("Processing credit: ", pattern, "\n", program.programInfo.reqs);
             }
         }
         program.programInfo.reqs = program.programInfo.reqs.join(", ");
         if (programTitle.endsWith("Minor")) {
             minors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
-            console.log("Program Title: ", programTitle, "\n", "REQS: ", minors[programTitle]);
         }
         else {
             
             majors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
-            console.log("Program Title: ", programTitle, "\n", "REQS: ", majors[programTitle]);
-            // console.log("Assigned Major:", programTitle, "Row Name:", rowName, "Options:", options);
         }
     }
 }
@@ -202,8 +178,6 @@ function selectAutocomplete(){
             autoFocus: true,
             source: Object.keys(courses),
             select: function(event, ui) {
-                // console.log("Selected Program: ", ui.item.label);
-                // console.log("Program Input: ", event.target);
                 event.target.value = ui.item.label;
                 grabCourses(event.target.id);
             }
@@ -217,7 +191,6 @@ function setGERSAutocomplete() {
         .then(response => response.json())
         .then(gers => {
             GERS = Object.keys(gers);
-            console.log("GERS: ", GERS);
             if (!document.getElementById("GERS-table")) {
                 createTable("GERS", "GERS", GERS);
             }
@@ -235,12 +208,8 @@ function setGERSAutocomplete() {
                             select: function(event, ui) {
                                 inputValue = ui.item.label;
                                 rowLabel = event.target.classList[1];
-                                console.log("LABEL: ", rowLabel);
 
                                 if (Object.keys(event.target.classList).indexOf("clps") == -1) {
-                                    console.log("Row Label: ", rowLabel);
-                                    console.log("Courses ", GER_COURSES);
-                                    console.log("GER ", GER_COURSES[rowLabel]);                        
                                     if (!isValidCourse(inputValue, rowLabel)){
                                         event.target.setAttribute("style", "background-color: red;");
                                     }
@@ -293,7 +262,6 @@ function toggleTable(tableId) {
 function grabCourses(selectId) {
     var courses;
     var tableId = "";
-    console.log(`SelectID = ${selectId}`);
 
     tableId = selectId.replace("Select", "");
     if (selectId == "mainMajorSelect" || selectId == "doubleMajorSelect") {
@@ -303,7 +271,6 @@ function grabCourses(selectId) {
         courses = minors;
     }
 
-    console.log(`grabCourses(${selectId}) running.`);
 
     var filter = document.getElementById(selectId).value; 
 
@@ -311,19 +278,12 @@ function grabCourses(selectId) {
     
     if (filter in courses) {
         var acronym = courses[filter][0];
-        console.log("Acronym "+acronym);
-        console.log("Selected course Array: ", courses);
-        // find selected program, csv file compliant
-        console.log(`Selected: ${acronym}`);
         
         var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == acronym);
-        
-        console.log(`Program Index: ${programidx}`, `Program Name: ${Object.keys(courses)[programidx]}`);
         
         var tableName = Object.keys(courses)[programidx];
         
         var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(", ");
-        console.log(tableId, tableName, reqs);
         createTable(tableName, tableId, reqs)
     }
 }
@@ -331,14 +291,11 @@ function grabCourses(selectId) {
 function addInputRow(tableId, firstCol) {
     // firstCol is a list of elements to become the first column of the table - can be of length 1 (just make a list of [element])
     var table = document.getElementById(tableId.concat("-tablebody"));
-    console.log(table);
     var tableLength = parseInt(document.getElementById("semesterSlider").max);
-    console.log("tableLength: ", tableLength);
     
 
     // Populate table with GER column vals, input fields
     var tableHeight = table.rows.length;
-    console.log("old table height: ", tableHeight);
     for (let i = 0; i < firstCol.length; i++){
         var tableIdx = i + tableHeight
         var newRow = table.insertRow(-1);
@@ -347,7 +304,6 @@ function addInputRow(tableId, firstCol) {
         if (firstCol[i] == "custom") {
             rowLabel += String(tableIdx);
         }
-        // console.log(tableIdx, firstCol[i], rowLabel)
         // for (let j = 0; j < table.rows[0].cells.length; j++){
         for (let j = 0; j < tableLength+1; j++) {
             if(j === 0){
@@ -397,7 +353,6 @@ function addInputRow(tableId, firstCol) {
             }
         }        
     }
-    console.log("New table height: ", table.rows.length);
     updateSemesterLabel();
 }
 
@@ -412,7 +367,6 @@ function updateTable(relevantRow, j) {
     var inputValue = this.value;
 
     // Handle input change if necessary
-    console.log(`Input changed (${inputValue}) for ${relevantRow.cells[0].innerHTML} in Semester ${j}`);
 
     var currentSemester   = parseInt(document.getElementById("semesterValue").innerHTML);
     var firstCell         = relevantRow.cells[0];
@@ -422,7 +376,6 @@ function updateTable(relevantRow, j) {
                                 Array.from(relevantRowInputs).every(input => input.checked == false) :
                                 Array.from(relevantRowInputs).every(input => input.value === "");
 
-    console.log("allEmpty " + allEmpty);
     // if all inputs are empty, set first cell to red, reenable any relevant inputs
     if (allEmpty) {
         firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);"); //red, because all empty
@@ -435,7 +388,6 @@ function updateTable(relevantRow, j) {
     }  
     if (inputValue != "") {
         // check if it is a valid GER course (if its a clp, it has to be a valid credit if not empty)
-        console.log(relevantRowInputs[j-1], inputValue);
         // If valid, set background of input cell to lightgreen
         if (isValidCourse(inputValue, rowLabel)) {
             
@@ -443,8 +395,6 @@ function updateTable(relevantRow, j) {
         }
         // invalid course
         else {
-            // console.log(typeof parseInt(inputValue))
-            console.log(`Invalid course input: ${inputValue} for ${rowLabel}`);
             relevantRowInputs[j-1].setAttribute("style", "background-color: crimson");
             // pink indicates something is wrong with the input, but it's not empty
             firstCell.setAttribute("style", "background-color: pink;");
@@ -471,7 +421,6 @@ function updateTable(relevantRow, j) {
                     }
                 }
 
-                console.log("Total CLPs: ", total);
                 if (total >= 32) {
                     firstCell.setAttribute("style", "background-color: green;");
                 } else if (allEmpty) {
@@ -485,10 +434,8 @@ function updateTable(relevantRow, j) {
                 if (rowLabel == "pathways") {
                     // construct an array from the input values of relevantRowInputs
                     var pathwaysInputs = Array.from(relevantRowInputs).map(input => input.value.toLowerCase().split("-")[0].trim())
-                    // console.log("pathwaysInputs: ", pathwaysInputs);
                     if (pathwaysInputs.includes("pth 101") && pathwaysInputs.includes("pth 102") && pathwaysInputs.includes("pth 201") && pathwaysInputs.includes("pth 202")) {
                         firstCell.setAttribute("style", setFirstColColor(currentSemester, pathwaysInputs.indexOf("pth 202")));
-                        // console.log("PATHWAYSC" + pathwaysInputs);
 
                         // disable all other inputs in row except inputs
                         var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
@@ -515,7 +462,6 @@ function updateTable(relevantRow, j) {
                             val--;
                         }
                     }
-                    console.log("HB Inputs: ", hbInputs);
                     var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
                     if (hbInputs.length >= 2) {
                         firstCell.setAttribute("style", "background-color: green;");
@@ -565,8 +511,6 @@ function updateTable(relevantRow, j) {
     }
     // if the input field is empty
     else {
-        console.log("Input field empty, resetting input styling.");
-        console.log(relevantRowInputs[j].value);
         // if input is current semester, set to purple, otherwise set to enabled/disabled color
         relevantRowInputs[j-1].setAttribute("style", setCourseInputColor(relevantRowInputs[j-1], j, currentSemester));
         // reset first cell to red if all inputs in row are empty
@@ -580,14 +524,11 @@ function updateTable(relevantRow, j) {
 
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
-    // console.log("Semester: ", semester);
     var tables = document.querySelectorAll("table");
-    console.log("Tables: ", tables);
     // Loop through each table
     tables.forEach(function(table) {
         // Get all rows in the table
         var rows = table.rows;
-        console.log("Updating table rows: ", rows);
         // Loop through each row, except the header rows
         for (let i = 2; i < rows.length; i++) {
             var relevantRow = rows[i];
@@ -610,7 +551,6 @@ function updateTableColorsOnSlider(semester) {
                     relevantRowInputs[j].setAttribute("style", "background-color: crimson;");
                     firstCell.setAttribute("style", "background-color: pink;");
                 }
-                // console.log("I: ", i, "J: ", j, "Semester: ", semester);
                 if (userInput == "") {
                     setCourseInputColor(relevantRowInputs[j], j+1, semester);
                 }
@@ -624,7 +564,6 @@ function updateSemesterLabel() {
     var slider = document.getElementById("semesterSlider");
     
     semesterValue.innerHTML = `${slider.value}`;
-    console.log(`Semester Val is ${slider.value}`);
     updateTableColorsOnSlider(slider.value);
 
 }
@@ -664,7 +603,6 @@ function setCourseInputColor(input, j, semester) {
 
 
 function isValidCourse(inputValue, rowLabel) {
-    // console.log(`isValidCourse called with inputValue: ${inputValue}, rowLabel: ${rowLabel}`, rowLabel.length);
     if (Object.keys(GER_COURSES).indexOf(rowLabel) >= 0 && rowLabel != "clps") {
         return GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
     }
@@ -751,7 +689,6 @@ function createTable(tableName, tableId, data) {
 function createTableLabel(tableId, tableName) {
     // create a header for the table
     var name = document.createElement("h2");
-    console.log("tableId: ", tableId);
 
     name.innerHTML = `${tableName}`;
     name.setAttribute("id", "tableHeader");
@@ -768,7 +705,6 @@ function createAddRowBtn(tableId, tableDiv) {
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
-    console.log("Adding Add Row Button for: ", tableId);
     tableDiv.appendChild(addRowBtn);
 }
 
@@ -782,7 +718,6 @@ function createTableToggle(tableId, name) {
     toggleSpan.onclick = function() {
         toggleTable(tableId);
     };
-    console.log("Adding Toggle for: ", tableId);
     name.appendChild(toggleSpan);
 }
 
@@ -795,16 +730,13 @@ function removeTable(tableId) {
             }
         }
     }
-    console.log(`Table: ${tableId} and its components removed.`);
 }
 
 function customAddRow(tableId) {
     // remove the old button - plan to move below new row
     var table = document.getElementById(tableId.concat("-table"));
     var numCols = table.rows[1].cells.length; // Get number of columns from the header row
-    console.log("Number of columns: "+numCols);
     addInputRow(tableId, ["custom"]);
-    console.log("Custom row added to table: ", tableId);
 
     var oldButton = document.getElementById(tableId.concat(" RowBtn"));
     oldButton.remove(); 
@@ -828,10 +760,7 @@ function customAddColumn() {
     // update tick marks
     // var tickMarks = document.getElementById("semesterList");
     // var width = semesterSlider.getBoundingClientRect();
-    // console.log("Slider width: ", width);
-    // console.log(semesterSlider.offsetWidth)
     // var calc = (width - 12) / (semesterSlider.max - 1) + "px";
-    // console.log("slider css width: ", calc);
     // tickMarks.innerHTML = "";
     // for (let i = 0; i <= semesterSlider.max; i++) {
     //     var tick = document.createElement("option");
@@ -864,11 +793,9 @@ function customAddColumn() {
         var headerRow = table.rows[1];
         var tableId = table.id.replace("-table", "");
         var numCols = table.rows[1].cells.length; // Get number of columns from the header row
-        console.log("Adding new column to table: ", tableId, " with numCols: ", numCols);
-
+        
         // retrieve the text of the last cell in the year row
         
-        // console.log("Year Row: ", yearRow.lastChild.innerHTML);
         if (yearRow.lastChild.innerHTML == "Senior") {
             yearRow.insertCell(yearRow.cells.length).innerHTML = `<th>Other</th>`;
         }
@@ -882,9 +809,6 @@ function customAddColumn() {
             var relevantRow = table.rows[i];
             var firstCell = relevantRow.cells[0];
             var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");
-
-            console.log("FirstCell:", firstCell);
-            console.log("Row: ", Array.from(relevantRow.getElementsByTagName("input")).map(input => input.disabled));
 
             var newCell = table.rows[i].insertCell(-1);
             var newInput = document.createElement("input");
@@ -912,7 +836,6 @@ function customAddColumn() {
             firstCell.getAttribute("style") == "background-color: green;" || 
             firstCell.getAttribute("style") == "background-color: blue;")
             ) {
-                console.log("Disabling new input for row: ", rowLabel);
                 newInput.disabled = true;
             }
             newCell.appendChild(newInput);
@@ -923,5 +846,4 @@ function customAddColumn() {
         updateSemesterLabel();
         
     });
-    console.log("New column added to tables.");
 }
