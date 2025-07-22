@@ -15,6 +15,7 @@ async function assignCourses(path) {
         let program = {programInfo: {"code" : "", "reqs": []}};
         // program.programTitle.reqs = [];
         for (let pattern in data[programTitle]) {
+            var row_store = 1;
             if (pattern === "key") {
                 let key = data[programTitle][pattern];
                 // this is the key for the program, we can use it to identify the program
@@ -33,7 +34,7 @@ async function assignCourses(path) {
                         // the course code is the first part of the string
                         reqs.push(options[i].split(" ")[0]);
                     }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
@@ -43,103 +44,100 @@ async function assignCourses(path) {
                 let numRows = parseInt(pattern.split("_")[1]);
                 // options will be used for autocomplete down the line
                 // let options = data[programTitle][pattern];
-                let rowName = pattern.split("_")[2];
+                let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
-                        reqs.push(rowName + " " + i);
+                        reqs.push(rowLabel + " " + i);
                     }
                 }
                 else {
-                    reqs.push(rowName);
+                    reqs.push(rowLabel);
                 }
-                // if (reqs.trim().split(",").length == 1) {
-                //     reqs = reqs.slice(0, -1); // remove trailing comma
-                // }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
 
-                // let rowName = pattern.split("_")[-1];
+                // let rowLabel = pattern.split("_")[-1];
             }
             else if (pattern.startsWith("condchoose")) {
                 // this is a conditional choice pattern
                 // i.e. there is least, most, or range condition in the pattern
                 let numRows = parseInt(pattern.split("_")[1]);
                 let reqs = [];
-                // let options = {};
-                let store = 1;
+    
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
-                    // key = Object.keys(data[programTitle][pattern])[x];
                     var key = Object.keys(data[programTitle][pattern])[x];
                     var options = data[programTitle][pattern][key];
 
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
-                        let rowName = key.split("_")[2];
+                        let rowLabel = key.split("_")[2] + pattern.split("_")[2];
                         let condRowNum = parseInt(key.split("_")[1]);
                         for (let i = 1; i < condRowNum+1; i++) {
-                            reqs.push(rowName + " " + i);
+                            reqs.push(rowLabel + " " + row_store);
+                            row_store++;
                         }
                     }
                 }
-                store += Object.keys(data[programTitle][pattern]).length;
-                let rowName = pattern.split("_")[2];
-                for (let i = store+1; i < numRows+1; i++) {
+                // row_store += Object.keys(data[programTitle][pattern]).length;
+                let rowLabel = pattern.split("_")[2];
+                for (let i = row_store; i < numRows+1; i++) {
                     // this is a regular choice pattern, so we can just add the row name
-                    reqs.push(rowName + " " + i);
+                    reqs.push(rowLabel + " " + i);
                 }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
-            // else if (pattern.startsWith("either")) {
-            // }
             else if (pattern.startsWith("credit")) {
                 // this is a credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4); 
                 // if there are two credits, you still need to take 1 course
                 let options = data[programTitle][pattern];
-                // rowName is the pattern name
-                let rowName = pattern.split("_")[2];
+                // rowLabel is the pattern name
+                let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
-                        reqs.push(rowName + " " + i);
+                        reqs.push(rowLabel + " " + i);
                     }
                 }
                 else {
-                    reqs.push(rowName);
+                    reqs.push(rowLabel);
                 }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
-                // console.log("Processing credit: ", pattern, "\n", program.programInfo.reqs);
             }
             else if (pattern.startsWith("condcredit")) {
                 // this is a conditional credit pattern
-                let numRows = parseInt(pattern.split("_")[1]) / 4;
-                let options = data[programTitle][pattern];
+                let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4);
+                var options = data[programTitle][pattern];
                 let reqs = [];
-                for (let x = 0; x < data[programTitle][pattern].length; x++) {
-                    if (data[programTitle][pattern][x].startsWith("least") || data[programTitle][pattern][x].startsWith("range")) {
+                for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
+                    var key = Object.keys(data[programTitle][pattern])[x];
+                    var options = data[programTitle][pattern][key];
+                    if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
-                        let rowName = data[programTitle][pattern][x].split(" ")[1];
-                        for (let i = 0; i < numRows; i++) {
-                            reqs.push(rowName + " " + i);
+                        let rowLabel = key.split("_")[2] + pattern.split("_")[2];
+                        let condRowNum = Math.ceil(parseInt(key.split("_")[1])/4);
+                        for (let i = 1; i < condRowNum+1; i++) {
+                            reqs.push(rowLabel + " " + row_store);
+                            row_store++;
                         }
                     }
                 }
-                let rowName = pattern.split("_")[2];
-                for (let i = 0; i < numRows; i++) {
-                    reqs.push(rowName + " " + i);
+                let rowLabel = pattern.split("_")[2];
+                for (let i = row_store; i < numRows+1; i++) {
+                    reqs.push(rowLabel + " " + i);
                 }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
         }
-        program.programInfo.reqs = program.programInfo.reqs.join(", ");
+        program.programInfo.reqs = program.programInfo.reqs.join(":");
         if (programTitle.endsWith("Minor")) {
             minors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
         }
@@ -283,7 +281,7 @@ function grabCourses(selectId) {
         
         var tableName = Object.keys(courses)[programidx];
         
-        var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(", ");
+        var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(":");
         createTable(tableName, tableId, reqs)
     }
 }
