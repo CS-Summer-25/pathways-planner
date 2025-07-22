@@ -31,7 +31,7 @@ function savePlan() {
         var tableGroup = table.id.split("-")[0];
         compressed += `${tableGroup}`; // Add table ID to compressed string
         if (tableGroup != "GERS") {
-            compressed += `-${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
+            compressed += `/${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
         }
         compressed += `,`; // end of table tag
         var numRows = table.rows.length;
@@ -42,9 +42,16 @@ function savePlan() {
             // var courses = [];
 
             for (let j = 0; j < inputs.length; j++) {
-                if (inputs[j].value !== "") {
-                    // courses.push(inputs[j].value);
-                    compressed += `${rowLabel}_${j+1}_${inputs[j].value},`;
+                if (inputs[j].type == "checkbox") {
+                    if (inputs[j].checked) {
+                        compressed += `${rowLabel}_${j+1}_1},`;
+                    }
+                }
+                else{ 
+                    if (inputs[j].value !== "") {
+                        // courses.push(inputs[j].value);
+                        compressed += `${rowLabel}_${j+1}_${inputs[j].value},`;
+                    }
                 }
             }
         }
@@ -149,8 +156,8 @@ function loadPlan() {
                 console.log(data[i]);
                 cell_dict = data[i];
                 let tableGroup = cell_dict.table
-                if (tableGroup.indexOf(":") != -1) {
-                   tableGroup, program = tableGroup.split(":"); 
+                if (tableGroup.indexOf("/") != -1) {
+                   tableGroup, program = tableGroup.split("/"); 
                    var programSelect = document.getElementById(tableGroup + "-select")
                    programSelect.value = program;
                 }
@@ -181,19 +188,25 @@ function loadPlan() {
                 // find the row corresponding to credit
 
                 // console.log("Header size: " + headerSize);
-                let relevantRowIdx = firstCol.indexOf(credit)+headerSize;
+                let relevantRowIdx = firstCol.indexOf(credit);
                 // make sure that if the rowLabel is not found, create a new row with that given label, use addRowBtn if needed
 
 
                 console.log(relevantRowIdx);
                 if (relevantRowIdx != -1) {
-                    let relevantRow = cellTable.rows[relevantRowIdx];
+                    let relevantRow = cellTable.rows[relevantRowIdx+headerSize];
                     let inputs = relevantRow.getElementsByTagName("input");
                     console.log(j);
                     // Find the input corresponding to the semester
                     let inputIndex = j-1; // Adjust for zero-based index
                     if (inputs[inputIndex]) {
-                        inputs[inputIndex].value = value;
+                        inputs[inputIndex].type == "checkbox" ? inputs[inputIndex].checked = true : inputs[inputIndex].value = value;
+                        // if (inputs[inputIndex].type == "checkbox") {
+                        //     inputs[inputIndex].checked = true;
+                        // }
+                        // else {
+                        //     inputs[inputIndex].value = value;
+                        // }
                         inputs[inputIndex].dispatchEvent(new Event('input'));
                         inputs[inputIndex].dispatchEvent(new Event('change'));
                         updateSemesterLabel();

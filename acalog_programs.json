@@ -136,41 +136,43 @@
             "ANT-304 Archaeology Method and Theory",
             "ANT-305 Practicing Anthropology"
         ],
-        "choose_2_200-299 Elective" : [
-            "ANT-202 Peoples of Africa and the African Diaspora",
-            "ANT-203 Peoples and Cultures of the World",
-            "ANT-204 Modern Japanese Society through Films",
-            "ANT-205 Japanese Popular Culture",
-            "ANT-230 Biological Anthropology",
-            "ANT-250 Race and the US Criminal Justice System",
-            "ANT-254 The Power and Politics of Black Foodways",
-            "ANT-258 Women in Africa and the African Diaspora",
-            "ANT-262 Magic and Religion",
-            "ANT-263 Environmental Anthropology",
-            "ANT-264 Psychological Anthropology",
-            "AST-215 Archaeology of East Asia",
-            "AST-240 Archaeology of the Silk Road",
-            "AST-250 Human Development in Contemporary Asia",
-            "AST-270 Languages of Asia",
-            "CLS-211 Classical Archaeology",
-            "JPN-225 Japanese Cinema",
-            "LNG-210 General Linguistics",
-            "LNG-220 Linguistic Analysis",
-            "LNG-230 Language as Cultural Phenomenon",
-            "LNG-240 The Origin of Language",
-            "REL-223 Hindu Cultures and Religious Worlds",
-            "REL-227 Religions of South Asia"
-        ],
-        
-        "choose_1_300-399 Elective" : [
-            "ANT-302 Anthropology of Race and Ethnicity",
-            "ANT-304 Archaeology Method and Theory",
-            "ANT-305 Practicing Anthropology",
-            "ANT-327 Feminist Anthropology",
-            "REL-325 Women and Power in Hinduism",
-            "SUS-320 Consumption and Culture",
-            "SUS-325 Conservation and Communities"
-        ]
+        "condchoose_5_Electives" : {
+            "least_2_200-299 Elective" : [
+                "ANT-202 Peoples of Africa and the African Diaspora",
+                "ANT-203 Peoples and Cultures of the World",
+                "ANT-204 Modern Japanese Society through Films",
+                "ANT-205 Japanese Popular Culture",
+                "ANT-230 Biological Anthropology",
+                "ANT-250 Race and the US Criminal Justice System",
+                "ANT-254 The Power and Politics of Black Foodways",
+                "ANT-258 Women in Africa and the African Diaspora",
+                "ANT-262 Magic and Religion",
+                "ANT-263 Environmental Anthropology",
+                "ANT-264 Psychological Anthropology",
+                "AST-215 Archaeology of East Asia",
+                "AST-240 Archaeology of the Silk Road",
+                "AST-250 Human Development in Contemporary Asia",
+                "AST-270 Languages of Asia",
+                "CLS-211 Classical Archaeology",
+                "JPN-225 Japanese Cinema",
+                "LNG-210 General Linguistics",
+                "LNG-220 Linguistic Analysis",
+                "LNG-230 Language as Cultural Phenomenon",
+                "LNG-240 The Origin of Language",
+                "REL-223 Hindu Cultures and Religious Worlds",
+                "REL-227 Religions of South Asia"
+            ],
+            
+            "least_1_300-399 Elective" : [
+                "ANT-302 Anthropology of Race and Ethnicity",
+                "ANT-304 Archaeology Method and Theory",
+                "ANT-305 Practicing Anthropology",
+                "ANT-327 Feminist Anthropology",
+                "REL-325 Women and Power in Hinduism",
+                "SUS-320 Consumption and Culture",
+                "SUS-325 Conservation and Communities"
+            ]
+        }
     },
     "Art History, B.A." : {
         "key" : "ARTHBA",
