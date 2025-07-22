@@ -17,6 +17,8 @@ def savePlan():
 
     final_df = pd.DataFrame()
     for program_str in plan.split(";"):
+        if program_str == "":
+            continue
         table_name = [program_str.split(",")[0]]
         for cell_str in program_str.split(",")[1:]:
 

@@ -30,8 +30,7 @@ async function assignCourses(path) {
                 continue; // skip to next pattern
             }
             else if (pattern.startsWith("required")) {
-                // this is a required course pattern
-                // each course will be a row, 
+                // this is a required course pattern: each course will be a row, 
                 let numRows = data[programTitle][pattern].length;
                 let options = data[programTitle][pattern];
                 // create row names
@@ -51,7 +50,7 @@ async function assignCourses(path) {
                 let numRows = parseInt(pattern.split("_")[1]);
                 // options will be used for autocomplete down the line
                 // let options = data[programTitle][pattern];
-                // last index is the name
+                // console.log("Options: "+options);
                 let rowName = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
@@ -218,6 +217,7 @@ function setGERSAutocomplete() {
                     for (let i = 0; i < gerElements.length; i++) {
                         const gerElement = gerElements[i];
                         $(gerElement).autocomplete({
+                            autoFocus: true,
                             source: GER_COURSES[gerKey],
                             select: function(event, ui) {
                                 inputValue = ui.item.label;
@@ -248,13 +248,13 @@ function setGERSAutocomplete() {
 
 function togglePanel(){
     var panel = document.getElementById("controlPanel");
-    var toggleButton = document.getElementById("togglePanel");
+    // var toggleButton = document.getElementById("togglePanel");
     if (panel.style.display === "none") {
         panel.style.display = "flex";
-        toggleButton.innerHTML = "&and;";
+        // toggleButton.innerHTML = "&and;";
     } else {
         panel.style.display = "none";
-        toggleButton.innerHTML = "&or;";
+        // toggleButton.innerHTML = "&or;";
     }
 }
 

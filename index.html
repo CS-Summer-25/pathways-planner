@@ -28,28 +28,12 @@
                 </div>
             </div>
             <div id="controlPanel">
-                <!-- <div id="semesterStuff">
-                    <label for="semesterSlider">Select Current Semester: </label>
-                    <span id="semesterValue">1</span>
-                    <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
-                </div> -->
-                <!-- <hr/> -->
-                <center>
-                <div id="panelContainer">
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
                     <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
                     <button id="saveBtn" class="panelBtns" onclick="authenticate('save')">Save Plan</button>
                     <button id="loadBtn" class="panelBtns" onclick="authenticate('load')">Load Plan</button>
                     <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Semester</button>
-                </div>
-                </center>
-                <br/>
-
-                <!-- <label for="searchInput">Type in your Furman email to retrieve or save plan:</label>  -->
-                <!-- Type in your secret password to retrieve your previous plan: -->
-
-
             </div>
             <div id="savePopup" class="popup">
                 Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('savePopup')">
