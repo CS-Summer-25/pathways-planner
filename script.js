@@ -76,25 +76,38 @@ async function assignCourses(path) {
             else if (pattern.startsWith("condchoose")) {
                 // this is a conditional choice pattern
                 // i.e. there is least, most, or range condition in the pattern
+                // console.log("Conditional Choose Pattern: ", pattern);
                 let numRows = parseInt(pattern.split("_")[1]);
                 let reqs = [];
-                let store = 0;
-                for (let x = 0; x < data[programTitle][pattern].length; x++) {
-                    if (data[programTitle][pattern][x].startsWith("least") || data[programTitle][pattern][x].startsWith("range")) {
+                // let options = {};
+                let store = 1;
+                // console.log("PATTERN: ", Object.keys(data[programTitle][pattern]).length);
+                for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
+                    // key = Object.keys(data[programTitle][pattern])[x];
+                    var key = Object.keys(data[programTitle][pattern])[x];
+                    var options = data[programTitle][pattern][key];
+                    console.log("poop", key, options);
+
+                    if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
-                        let rowName = data[programTitle][pattern][x].split(" ")[1];
-                        for (let i = 0; i < numRows; i++) {
+                        let rowName = key.split("_")[2];
+                        let condRowNum = parseInt(key.split("_")[1]);
+                        console.log("Row Name: ", rowName, condRowNum);
+                        for (let i = 1; i < condRowNum+1; i++) {
+                            console.log(programTitle+"Did that!");
                             reqs.push(rowName + " " + i);
                         }
                     }
-                    store = x;
                 }
+                store += Object.keys(data[programTitle][pattern]).length;
+                console.log(programTitle+" Store: ", store);
                 let rowName = pattern.split("_")[2];
-                for (let i = store+1; i < numRows; i++) {
+                for (let i = store+1; i < numRows+1; i++) {
                     // this is a regular choice pattern, so we can just add the row name
                     reqs.push(rowName + " " + i);
                 }
                 reqs = reqs.join(", ");
+                console.log("cc"+programTitle+"REQS: ", reqs);
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
                 // console.log("Processing choose: ", pattern, "\n", program.programInfo.reqs);
