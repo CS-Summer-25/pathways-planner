@@ -8,7 +8,27 @@ import pandas as pd
 from requests import request
 
 @app.route('/tabot/savePlan')
+# the back-end to savePlan() on plans.js
 def storePlan():
+    """
+    This function processes the compressed plan string from the client, extracts it and saves it to a CSV file.
+    The plan string is expected to be in the format akin to the following:
+    "table1@rowLabel1_semester1_courseName1~rowLabel2_semester2_courseName2;table2@rowLabel3_semester3_courseName3"
+
+    Hierarchical structure:
+    - table1 @ 
+        - rowLabel1 
+            - semester1
+            - courseName1
+        - rowLabel2 
+            - semester2
+            - courseName2
+    - table2 @ 
+        - rowLabel3
+            - semester3
+            - courseName3
+    Returns a confirmation message indicating plan has been saved.
+    """
     # Get params
     plan = request.args.get('plan')
     email = request.args.get('email')
@@ -35,7 +55,18 @@ def storePlan():
     return f"<h2>Plan saved for {email} for semester {semester}</h2>"
 
 @app.route('/tabot/loadPlan')
+# the back-end to loadPlan() on plans.js
 def providePlan():
+    """ 
+    This function retrieves a saved plan for a given email and passcode.
+    It checks the validity of the passcode against a CSV file containing email-passcode pairs.
+    If the passcode is valid, it retrieves the most recent plan file associated with the email.
+
+    The format of the filename is expected to be a csv called "email@furman.edu.csv"
+
+    Returns the plan data in JSON format to be parsed by the client.
+    
+    """
     # Get params
     passcode = request.args.get('passcode')
     email = request.args.get('email')
@@ -60,7 +91,16 @@ def providePlan():
     json_data = plan_df.to_dict(orient='records')
 
     return jsonify(json_data)
+
 def generate_random_code(num_digits=5, email=None):
+    """
+    This function generates a unique alphanumeric code of specified length (default is 5 digits).
+    It checks if the code already exists in a CSV file named 'sessionCodes.csv'.
+
+    Meant to be used for generating a 2FA code for email verification.
+
+    Returns the unique code (as well as saving it to a sessionCodes.csv file).
+    """
     import random
     import string
     
@@ -96,6 +136,13 @@ def generate_random_code(num_digits=5, email=None):
 
 @app.route('/tabot/sendEmail')
 def sendEmail():
+    """
+    This function sends an email with a 2FA code to the user.
+    Runs generate_random_code() to generate a unique 2FA code, and sends it to the provided email address.
+    
+    Returns a JSON response with the email, code, and a success message.
+    """
+
     email = request.args.get("email")
     access_code = generate_random_code(5, email)
     subject = "Pathways Planner | 2FA Code"

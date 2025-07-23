@@ -1,19 +1,22 @@
 // This file concerns only the "Save Plan" and "Load Plan" button functionality.
+
+// This function displays the authentication popup for saving or loading plans.
+// Mode = "save" or "load"
 function authenticate(mode) {
     // show popup
     var popup = document.getElementById(mode+"Popup");
     popup.style.display = "block";
 }
 
+// This function validates the email address to ensure it is a Furman email address (practically, ends in @furman.edu).
 function validateEmail(email) {
     // ensure email is @furman.edu
     const emailRegex = /^[a-zA-Z0-9._%+-]+@furman\.edu$/;
 
     return emailRegex.test(email);
-    
-    // send email to email address
 }
 
+// This function sends a email with the 2FA code needed to save/load plans.
 function sendCode(emailField){
     var email = document.getElementById(emailField).value;
 
@@ -33,7 +36,7 @@ function sendCode(emailField){
         email = result['email']
         code = result['code']
 
-        // alert("Code sent successfully! Please check your email.");
+        alert("Code sent successfully! Please check your email.");
     })
     .catch(error => {
         console.error("There was a problem with the fetch operation:", error);
@@ -41,6 +44,8 @@ function sendCode(emailField){
     });
 }
 
+// This function stores the current plan in a string using the provided email and 2FA code: to be sent to the server for processing.
+// Runs validateEmail() and closePopup("savePopup")
 function savePlan() {
     // popup.style.display = "block";
 
@@ -132,6 +137,8 @@ function savePlan() {
     });
 }
 
+// This function loads a plan from the server using the provided email and 2FA code.
+// Runs grabCourses() to load appropriate tables, loadTable(), closePopup("loadPopup"), closeMenuItems(), and updateSemesterLabel().
 function loadPlan() {
 
     var passcode = document.getElementById("loadPasscode").value;
@@ -175,7 +182,6 @@ function loadPlan() {
                    programSelect.value = program;
                    grabCourses(tableGroup + "Select");
                 }
-                // loadTables(tableGroup, data, i);
                 setTimeout(() => {
                     loadTable(tableGroup, data, i);
                 }, 1000);                
@@ -196,9 +202,10 @@ function loadPlan() {
         });
     });
     console.log("Plan loaded successfully.");
-
 }
 
+// This function fills the table with courses based on the data provided.
+// Runs updateSemesterLabel(), and dispatches input and change events to update the UI.
 function loadTable(tableGroup, data, i) {
 
     cell_dict = data[i];
@@ -263,6 +270,7 @@ function loadTable(tableGroup, data, i) {
     updateSemesterLabel(); 
 }
 
+// This function closes all autocomplete menu items on the page.
 function closeMenuItems() {
     // var menus = table.getElementsByClassName("ui-menu-item-wrapper");
     var menus = document.querySelectorAll(".ui-menu-item-wrapper");
@@ -271,6 +279,7 @@ function closeMenuItems() {
     }
 }
 
+// This function closes the popup with the given ID.
 function closePopup(popupId) {
     var popup = document.getElementById(popupId);
     popup.style.display = "none";
