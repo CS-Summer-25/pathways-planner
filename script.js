@@ -13,6 +13,7 @@ async function assignCourses(path) {
     // loop through the data and assign majors and minors
     for (let programTitle in data) {
         let program = {programInfo: {"code" : "", "reqs": []}};
+        
         // program.programTitle.reqs = [];
         for (let pattern in data[programTitle]) {
             var row_store = 1;
@@ -139,11 +140,16 @@ async function assignCourses(path) {
         }
         program.programInfo.reqs = program.programInfo.reqs.join(":");
         if (programTitle.endsWith("Minor")) {
-            minors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
+            minors[programTitle] = {};
+
+            minors[programTitle].key = program.programInfo.code;
+            minors[programTitle].firstCol = program.programInfo.reqs;
         }
         else {
-            
-            majors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
+            majors[programTitle] = {};
+            console.log(majors)
+            majors[programTitle].key = program.programInfo.code;
+            majors[programTitle].firstCol = program.programInfo.reqs;
         }
     }
 }
@@ -269,20 +275,21 @@ function grabCourses(selectId) {
         courses = minors;
     }
 
-
     var filter = document.getElementById(selectId).value; 
 
     removeTable(tableId);
     
-    if (filter in courses) {
-        var acronym = courses[filter][0];
-        
-        var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == acronym);
-        
+    if (filter in courses && filter != "") {
+        // var acronym = courses[filter][0];
+        var acronym = courses[filter].key;
+        // var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == acronym);
+        var programidx = Object.entries(courses).findIndex(([key, value]) => value.key == acronym);
+
         var tableName = Object.keys(courses)[programidx];
         
-        var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(":");
-        createTable(tableName, tableId, reqs)
+        // var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(":");
+        var rowLabels = courses[Object.keys(courses)[programidx]].firstCol.split(":");
+        createTable(tableName, tableId, rowLabels)
     }
 }
 
