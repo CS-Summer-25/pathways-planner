@@ -9,8 +9,7 @@ function validateEmail(email) {
 }
 
 function savePlan() {
-
-    document.getElementById("savePopup").style.display = "block";
+    // popup.style.display = "block";
 
     var email = document.getElementById("saveEmail").value;
 
@@ -22,6 +21,24 @@ function savePlan() {
     var currentSemester = parseInt(document.getElementById("semesterValue").innerHTML);
 
     var tables = document.querySelectorAll("table");
+    var isEmpty = Array.from(tables).every(table => {
+        return Array.from(table.rows).every(row => {
+            var inputs = row.getElementsByTagName("input");
+
+            return Array.from(inputs).every(input => {
+                return input.type == "checkbox" ? !input.checked : input.value === "";
+            });
+        });
+    });
+    // var allEmpty          = relevantRowInputs[2].type == "checkbox" ? 
+    //                             Array.from(relevantRowInputs).every(input => input.checked == false) :
+    //                             Array.from(relevantRowInputs).every(input => input.value === "");
+    // console.log("isEmpty: ", isEmpty);
+    if (isEmpty) {
+        alert("Please enter at least one course before saving.");
+        return; // Stop saving if no courses are entered
+    }
+
     var compressed = "";
 
     tables.forEach(table => {
@@ -60,49 +77,42 @@ function savePlan() {
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
 
-    if (compressed === "") {
-        alert("Please enter at least one course before saving.");
-        return; // Stop saving if no courses are entered
-    }
+    closePopup("savePopup");
+
+    // console.log("Compressed Plan: ", compressed);
 
     // Make get request and pass password and plan as query parameters
-    // var xhr = new XMLHttpRequest();
     var constructedUrl = `https://furmancs.com/tabot/savePlan?email=${encodeURIComponent(email)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
 
     // just for testing purposes, we will not actually save the plan
     // remove this line when deploying
     // if (true) {
-    //     alert("Plan saved successfully! You can now load it using the same email.");
+    // alert("Plan saved successfully! You can now load it using the same email.");
     //     return;
     // }
-
-    // should the email be sent first?
-    // fetch("https://furmancs.com/tabot/sendEmail").then(emailResponse => {
-
-    //     if (!emailResponse.ok) {
-    //         throw new Error("Network response was not ok");
-    //     }
+    
     fetch(constructedUrl)
     .then(response => {
         if (!response.ok) {
             throw new Error("Network response was not ok");
         }
-        return response;//.json();
+        return response;;
+    }).catch(error => {
+        console.error("There was a problem with the fetch operation:", error);
+        alert("Failed to save plan. Please try again.");
+    }).finally(() => {
+        alert("Plan saved successfully! You can now load it using the same email.");
+        console.log("Plan saved successfully.");
     });
-    // })
-
-    // fetch("https://furmancs.com/tabot/sendEmail?email="+encodeURIComponent(email))
-
 }
 
 function authenticate(mode) {
-
     // show popup
     var popup = document.getElementById(mode+"Popup");
     popup.style.display = "block";
 }
 
-function loadPlan() {
+async function loadPlan() {
 
     var passcode = document.getElementById("loadPasscode").value;
     var email = document.getElementById("loadEmail").value;
@@ -127,17 +137,12 @@ function loadPlan() {
             var tables = document.querySelectorAll("table");
 
             tables.forEach(table => {
-                var tableId = table.id;
-                // var firstColumn = Array.from(table.querySelectorAll(".firstCol")).map(cell => cell.innerHTML); 
                 table.querySelectorAll("input").forEach(input => {
                     input.value = "";
                 });
             })
-            // var table = document.getElementById("GERS-table");
-            // var firstColumn = Array.from(table.rows[0].cells).map(cell => cell.innerHTML); // Get the first column headers
-            // var firstColumn = Array.from(table.rows).map(row => row.cells[0].innerHTML); // Get the first column headers
+            
             // clear the table first
-            var currentSemester = null;
 
             for (let i = 0; i < data.length; i++) {
                 cell_dict = data[i];
@@ -152,33 +157,29 @@ function loadPlan() {
                 }
                 // loadTables(tableGroup, data, i);
                 setTimeout(() => {
-                    loadTables(tableGroup, data, i);
-                }, 1000);
-                // grab table, labels, header size and row size
-                
-            }
-            var popup = document.getElementById("loadPopup");
-            popup.setAttribute("style", "display: none;"); // Close the popup after loading the plan
-            
+                    loadTable(tableGroup, data, i);
+                }, 1000);                
+            }         
 
         }).catch(error => {
             console.error("There was a problem with the fetch operation:", error);
             alert("Failed to load plan. Please check your password and try again.");
-        })
+        
+        }).finally(() => {
+            closePopup("loadPopup");
 
-            // call a function after 10 seconds
             setTimeout(() => {
-                // Hide autocomplete menus
-                var menus = document.getElementsByClassName("ui-menu-item-wrapper");
-                for (let i = 0; i < menus.length; i++) {
-                    menus[i].click();
-                }
-            }, 1000);
+                closeMenuItems();
+            }, 1500);
+
+            updateSemesterLabel();
+        });
     });
+    console.log("Plan loaded successfully.");
 
 }
 
-function loadTables(tableGroup, data, i) {
+function loadTable(tableGroup, data, i) {
 
     cell_dict = data[i];
     var cellTable = document.getElementById(tableGroup + "-table");
@@ -211,27 +212,27 @@ function loadTables(tableGroup, data, i) {
     // make sure that if the rowLabel is not found, create a new row with that given label, use addRowBtn if needed
 
 
-    console.log(relevantRowIdx);
+    // console.log(relevantRowIdx);
     if (relevantRowIdx != -1) {
         let relevantRow = cellTable.rows[relevantRowIdx+headerSize];
         let inputs = relevantRow.getElementsByTagName("input");
-        console.log(j);
+        // console.log(j);
         // Find the input corresponding to the semester
         let inputIndex = j-1; // Adjust for zero-based index
         if (inputs[inputIndex]) {
             // inputs[inputIndex].type == "checkbox" ? inputs[inputIndex].checked = true : inputs[inputIndex].value = value;
             if (inputs[inputIndex].type == "checkbox") {
-                console.log("ABC "+inputs[inputIndex].type);
-                console.log(relevantRow);
-                console.log(inputs[inputIndex]);
-                console.log("Test 11");
+                // console.log("ABC "+inputs[inputIndex].type);
+                // console.log(relevantRow);
+                // console.log(inputs[inputIndex]);
+                // console.log("Test 11");
                 inputs[inputIndex].checked = true;
                 
                 inputs[inputIndex].setAttribute("checked", true);
                 // inputs[inputIndex].dispatchEvent(new Event('change')); // Trigger change event for checkbox
             }
             else {
-                console.log("Test 12");
+                // console.log("Test 12");
                 inputs[inputIndex].value = value;
             }
             inputs[inputIndex].dispatchEvent(new Event('input'));
@@ -239,14 +240,15 @@ function loadTables(tableGroup, data, i) {
 
         }
     }
+    updateSemesterLabel(); 
+}
 
-    updateSemesterLabel();
-
-    var menus = cellTable.getElementsByClassName("ui-menu-item-wrapper");
+function closeMenuItems() {
+    // var menus = table.getElementsByClassName("ui-menu-item-wrapper");
+    var menus = document.querySelectorAll(".ui-menu-item-wrapper");
     for (let i = 0; i < menus.length; i++) {
-        menus[i].click();
+        menus[i].click(); // This will close the menu items
     }
-
 }
 
 function closePopup(popupId) {

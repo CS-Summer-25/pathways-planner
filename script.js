@@ -370,7 +370,7 @@ function updateTable(relevantRow, j) {
     var firstCell         = relevantRow.cells[0];
     var rowLabel          = firstCell.innerHTML.toLowerCase();
     var relevantRowInputs = relevantRow.getElementsByTagName("input");
-    var allEmpty          = relevantRowInputs[2 ].type == "checkbox" ? 
+    var allEmpty          = relevantRowInputs[2].type == "checkbox" ? 
                                 Array.from(relevantRowInputs).every(input => input.checked == false) :
                                 Array.from(relevantRowInputs).every(input => input.value === "");
 

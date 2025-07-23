@@ -8,7 +8,11 @@
     - Lines 245-248 remove
 
     Option 2 (Checkboxes work but menus don't hide):
-    - Uncomment Lines 154-156 AND Comment out Line 153    
+    - Uncomment Lines 154-156 AND Comment out Line 153  
+
+    Option 3 (both checkboxes work and menus still hide)  
+    - .finally(() => {}) seems to work to remove the menus
+    - changed close menus to be a function operating on entire document instead of table - still requires timeout
         
 
 * [ ] Add a form/popup/webpage to automatically add courses from a schedule to their respective tables
