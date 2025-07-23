@@ -2,7 +2,7 @@
 
 // This function displays the authentication popup for saving or loading plans.
 // Mode = "save" or "load"
-function authenticate(mode) {
+function showPopup(mode) {
     // show popup
     var popup = document.getElementById(mode+"Popup");
     popup.style.display = "block";

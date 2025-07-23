@@ -27,17 +27,30 @@
                     <option value="sophomore">🧒</option>
                     <option value="junior">🧑</option>
                     <option value="senior">🧓</option>
-                  </select>
+                </select>
                 
-                <img src="imgs/cloud-computing.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                <img src="imgs/download.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                <img src="imgs/icons8-file-upload-100.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                <img src="imgs/icons8-open-document-100.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                <img src="imgs/info.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                <img src="imgs/question.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                <img src="imgs/icons8-add-column-100.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
-                
-                
+                <img src="imgs/cloud-computing.png" title="Save your current plan to the server" 
+                alt="Save Icon" id="saveIcon" onclick="showPopup('save')" class="headerBtns">
+
+                <img src="imgs/download.png" title="Load a saved plan from the server" 
+                alt="Load Icon" id="loadIcon" onclick="showPopup('load')" class="headerBtns">   
+
+                <img src="imgs/icons8-file-upload-100.png" title="Export your current plan to your computer" 
+                alt="Export Icon" id="uploadIcon" onclick="showPopup('export')" class="headerBtns">
+
+                <img src="imgs/icons8-open-document-100.png" title="Import a plan from the user" 
+                alt="Import Icon" id="openIcon" onclick="showPopup('import')" class="headerBtns">
+
+                <img src="imgs/info.png" title="Tutorial on how to use the planner" 
+                alt="Info Icon" id="infoIcon" onclick="tutorial()" class="headerBtns">
+
+                <img src="imgs/question.png" title="" 
+                alt="Question Icon" id="questionIcon" onclick="faq()" class="headerBtns">
+
+                <img src="imgs/icons8-add-column-100.png" title="Add a column to all tables" 
+                alt="Add Column Icon" id="addColIcon" onclick="customAddColumn()" class="headerBtns">
+
+
                 <div id="switchContainer">
                     <span id="switchLabel">Toggle Panel</span>
                     <label class="switch">
@@ -51,9 +64,9 @@
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
                     <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
-                    <button id="saveBtn" class="panelBtns" onclick="authenticate('save')">Save Plan</button>
-                    <button id="loadBtn" class="panelBtns" onclick="authenticate('load')">Load Plan</button>
-                    <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Semester</button>
+                    <!-- <button id="saveBtn" class="panelBtns" onclick="authenticate('save')">Save Plan</button>
+                    <button id="loadBtn" class="panelBtns" onclick="authenticate('load')">Load Plan</button> -->
+                    <!-- <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Semester</button> -->
             </div>
             <div id="savePopup" class="popup">
                 Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('savePopup')">
@@ -81,6 +94,11 @@
                 <input type="code" id="loadPasscode" placeholder="Type in the code emailed to you"><br/><br/>
                 <button id="loadPlanBtn" onclick="loadPlan()">Load Plan</button>
             </div>
+            <div id="importPopup" class="popup">
+                <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
+                <br/><br/>
+                <input type="file" id="importFile" accept=".json"><br/><br/>
+                <button id="importPlanBtn" onclick="importPlanFromFile()">Import Plan</button>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->
                  <div id="GERS-wrapper" class="tableGroup"></div>

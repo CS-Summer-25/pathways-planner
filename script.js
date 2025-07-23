@@ -831,12 +831,18 @@ function customAddColumn() {
         // retrieve the text of the last cell in the year row
         
         if (yearRow.lastChild.innerHTML == "Senior") {
-            yearRow.insertCell(yearRow.cells.length).innerHTML = `<th>Other</th>`;
+            var cell = document.createElement("th");
+            cell.innerHTML = `<th>Other</th>`;
+            yearRow.appendChild(cell);
         }
         else {
             yearRow.lastChild.setAttribute("colspan", `${yearRow.lastChild.colSpan + 1}`);
         }
-        semesterRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        // semesterRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        var cell = document.createElement("th");
+        cell.innerHTML = `<th> Semester ${semesterSlider.max} </th>`;
+        semesterRow.appendChild(cell);
+        
         // Loop through each row and add a new input cell
         var j = numCols; 
         for (let i = 2; i < table.rows.length; i++) {
@@ -863,12 +869,13 @@ function customAddColumn() {
             }
             // we simply have no validation for custom rows - maybe a future feature
             newInput.addEventListener("change", updateTable.bind(newInput, relevantRow, numCols));
+            var bgcolor = firstCell.getAttribute("style") != null ? firstCell.getAttribute("style").split(":")[1].trim() : "";
 
             // if there are disabled rows and the firstCell is colored blue/green/orange, disable the new input
             if (Array.from(relevantRow.getElementsByTagName("input")).some(cell => cell.disabled == true) &&
-            (firstCell.getAttribute("style") == "background-color: #FFC000;" || 
-            firstCell.getAttribute("style") == "background-color: green;" || 
-            firstCell.getAttribute("style") == "background-color: blue;")
+            (bgcolor == "#FFC000;" || 
+            bgcolor == "green;" || 
+            bgcolor == "blue;")
             ) {
                 newInput.disabled = true;
             }
