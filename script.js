@@ -147,7 +147,7 @@ async function assignCourses(path) {
         }
         else {
             majors[programTitle] = {};
-            console.log(majors)
+
             majors[programTitle].key = program.programInfo.code;
             majors[programTitle].firstCol = program.programInfo.reqs;
         }
@@ -280,9 +280,8 @@ function grabCourses(selectId) {
     removeTable(tableId);
     
     if (filter in courses && filter != "") {
-        // var acronym = courses[filter][0];
         var acronym = courses[filter].key;
-        // var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == acronym);
+
         var programidx = Object.entries(courses).findIndex(([key, value]) => value.key == acronym);
 
         var tableName = Object.keys(courses)[programidx];

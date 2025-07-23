@@ -1,3 +1,9 @@
+// This file concerns only the "Save Plan" and "Load Plan" button functionality.
+function authenticate(mode) {
+    // show popup
+    var popup = document.getElementById(mode+"Popup");
+    popup.style.display = "block";
+}
 
 function validateEmail(email) {
     // ensure email is @furman.edu
@@ -6,6 +12,33 @@ function validateEmail(email) {
     return emailRegex.test(email);
     
     // send email to email address
+}
+
+function sendCode(emailField){
+    var email = document.getElementById(emailField).value;
+
+    if (!validateEmail(email)) {
+        alert("Please enter a valid Furman email address.");
+        return; // Stop sending code if email is invalid
+    }
+
+    var constructedUrl = `https://furmancs.com/tabot/sendEmail?email=${encodeURIComponent(email)}`;
+
+    fetch(constructedUrl)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        result = response.json(); // Assuming the server responds with JSON
+        email = result['email']
+        code = result['code']
+
+        // alert("Code sent successfully! Please check your email.");
+    })
+    .catch(error => {
+        console.error("There was a problem with the fetch operation:", error);
+        alert("Failed to send code. Please try again.");
+    });
 }
 
 function savePlan() {
@@ -79,17 +112,8 @@ function savePlan() {
 
     closePopup("savePopup");
 
-    // console.log("Compressed Plan: ", compressed);
-
     // Make get request and pass password and plan as query parameters
     var constructedUrl = `https://furmancs.com/tabot/savePlan?email=${encodeURIComponent(email)}&plan=${encodeURIComponent(compressed)}&semester=${currentSemester}`;
-
-    // just for testing purposes, we will not actually save the plan
-    // remove this line when deploying
-    // if (true) {
-    // alert("Plan saved successfully! You can now load it using the same email.");
-    //     return;
-    // }
     
     fetch(constructedUrl)
     .then(response => {
@@ -97,22 +121,18 @@ function savePlan() {
             throw new Error("Network response was not ok");
         }
         return response;;
+
     }).catch(error => {
         console.error("There was a problem with the fetch operation:", error);
         alert("Failed to save plan. Please try again.");
+        
     }).finally(() => {
         alert("Plan saved successfully! You can now load it using the same email.");
         console.log("Plan saved successfully.");
     });
 }
 
-function authenticate(mode) {
-    // show popup
-    var popup = document.getElementById(mode+"Popup");
-    popup.style.display = "block";
-}
-
-async function loadPlan() {
+function loadPlan() {
 
     var passcode = document.getElementById("loadPasscode").value;
     var email = document.getElementById("loadEmail").value;
@@ -254,31 +274,4 @@ function closeMenuItems() {
 function closePopup(popupId) {
     var popup = document.getElementById(popupId);
     popup.style.display = "none";
-}
-
-function sendCode(emailField){
-    var email = document.getElementById(emailField).value;
-
-    if (!validateEmail(email)) {
-        alert("Please enter a valid Furman email address.");
-        return; // Stop sending code if email is invalid
-    }
-
-    var constructedUrl = `https://furmancs.com/tabot/sendEmail?email=${encodeURIComponent(email)}`;
-
-    fetch(constructedUrl)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("Network response was not ok");
-        }
-        result = response.json(); // Assuming the server responds with JSON
-        email = result['email']
-        code = result['code']
-
-        // alert("Code sent successfully! Please check your email.");
-    })
-    .catch(error => {
-        console.error("There was a problem with the fetch operation:", error);
-        alert("Failed to send code. Please try again.");
-    });
 }
