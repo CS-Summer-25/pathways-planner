@@ -1,6 +1,8 @@
 
 # TODO: 
 
+* [ ] Clear out old major/minor tables BEFORE loading plan 
+
 * ISSUE: 
 
     Option 1 (Checkboxes don't load from plan):
@@ -28,9 +30,9 @@
 
 * [ ] Weird misalignment of input fields in GER and maybe other tables? 
 
-* [ ] Toggling tables reduces width 
+* [X] Toggling tables reduces width 
 
-* [ ] Toggling panel reduces width 
+* [X] Toggling panel reduces width 
 
 * [ ] Add a button for new rows to all? tables (What would the design be? Form?)
 

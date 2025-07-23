@@ -258,9 +258,8 @@ function toggleTable(tableId) {
     var rowBtn = document.getElementById(tableId.concat(" RowBtn"));
     var toggleSpan = document.getElementById(tableId.concat("-toggle"));
     if (table.style.display === "none") {
-        table.style.display = "table-row-group";
+        table.style.display = "table";
         rowBtn.setAttribute("style", "display: block;");
-        // toggleSpan.innerHTML = `<span>&and;</span>`;
         // change background image 
         toggleSpan.setAttribute("style", "background:url('imgs/down.png') no-repeat; background-size: contain;");
     } else {
