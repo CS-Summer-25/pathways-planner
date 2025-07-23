@@ -1,5 +1,4 @@
 # This is to be imported into the server when its available.
-# @app are assumed to be imported from flask, i think?
 from glob import glob
 from flask import jsonify
 import smtplib
@@ -9,7 +8,27 @@ import pandas as pd
 from requests import request
 
 @app.route('/tabot/savePlan')
-def savePlan():
+# the back-end to savePlan() on plans.js
+def storePlan():
+    """
+    This function processes the compressed plan string from the client, extracts it and saves it to a CSV file.
+    The plan string is expected to be in the format akin to the following:
+    "table1@rowLabel1_semester1_courseName1~rowLabel2_semester2_courseName2;table2@rowLabel3_semester3_courseName3"
+
+    Hierarchical structure:
+    - table1 @ 
+        - rowLabel1 
+            - semester1
+            - courseName1
+        - rowLabel2 
+            - semester2
+            - courseName2
+    - table2 @ 
+        - rowLabel3
+            - semester3
+            - courseName3
+    Returns a confirmation message indicating plan has been saved.
+    """
     # Get params
     plan = request.args.get('plan')
     email = request.args.get('email')
@@ -21,15 +40,11 @@ def savePlan():
             continue
         table_name, rows_str = program_str.split("@")
         rows = rows_str.split('~')
-        # rows.split('~')
-        # table_name = program_str.split("@")[0]
         for row in rows:
 
             rowLabel, course_semester, course = row.split("_")
 
-            # cell_df = pd.DataFrame(table_name + , index=["table", "credit", "col", "val"])
             course_series = pd.Series([table_name, rowLabel, course_semester, course], index=["table", "credit", "col", "val"])
-            # final_df = pd.concat([final_df, cell_df.T], ignore_index=True)
             final_df.append(course_series)
 
     final_df = pd.DataFrame(final_df)
@@ -39,38 +54,19 @@ def savePlan():
 
     return f"<h2>Plan saved for {email} for semester {semester}</h2>"
 
-    # Stucture:
-    # csv_data = {
-        # "semester": semester,
-        # GERS credit colIdx val
-        # GERS credit colIdx val
-        # ...
-        # mainMajor-ProgCode credit colIdx val
-    
-    
-    # find code using email in sessionCodes.csv file
-    sessionCodes = glob('sessionCodes.csv')
-    # covert to df
-    if len(sessionCodes) > 0:
-        sessionCodes_df = pd.read_csv(sessionCodes[0])
-        # if email in df['email'].values:
-            # check if the code exists
-        code = sessionCodes_df[sessionCodes_df['email'] == email]['code'].values[0]
-
-    # save the df to a csv file with the name email_code_semester.csv
-    # df.to_csv(f"{email}_{code}_{semester}.csv", index=False)
-    # if the .csv already exists, overwrite it
-    plan = pd.Series(csv_data, index=csv_data.keys())
-    plan.name = f"{email}_{code}_{semester}"
-    # if len(glob(f"{email}.csv")) > 0:
-    #     plan_df.to_csv(f"{email}.csv", index=False)
-    # else:
-    plan.to_csv(f"{code}.csv")
-    
-    return f"<h2>Plan saved with code: {code}</h2>"
-
 @app.route('/tabot/loadPlan')
-def loadPlan():
+# the back-end to loadPlan() on plans.js
+def providePlan():
+    """ 
+    This function retrieves a saved plan for a given email and passcode.
+    It checks the validity of the passcode against a CSV file containing email-passcode pairs.
+    If the passcode is valid, it retrieves the most recent plan file associated with the email.
+
+    The format of the filename is expected to be a csv called "email@furman.edu.csv"
+
+    Returns the plan data in JSON format to be parsed by the client.
+    
+    """
     # Get params
     passcode = request.args.get('passcode')
     email = request.args.get('email')
@@ -95,7 +91,16 @@ def loadPlan():
     json_data = plan_df.to_dict(orient='records')
 
     return jsonify(json_data)
+
 def generate_random_code(num_digits=5, email=None):
+    """
+    This function generates a unique alphanumeric code of specified length (default is 5 digits).
+    It checks if the code already exists in a CSV file named 'sessionCodes.csv'.
+
+    Meant to be used for generating a 2FA code for email verification.
+
+    Returns the unique code (as well as saving it to a sessionCodes.csv file).
+    """
     import random
     import string
     
@@ -120,7 +125,6 @@ def generate_random_code(num_digits=5, email=None):
         is_code_unique = existing_codes.count(code) == 0
 
         while not is_code_unique:
-            # code = str(random.randint(10000, 99999))
             code = ''.join(random.choices(string.ascii_letters + string.digits, k=num_digits))
             is_code_unique = existing_codes.count(code) == 0
 
@@ -131,8 +135,14 @@ def generate_random_code(num_digits=5, email=None):
     return code
 
 @app.route('/tabot/sendEmail')
-# i guess the path would be /tabot/sendEmail, with a parameter argument for the email?
 def sendEmail():
+    """
+    This function sends an email with a 2FA code to the user.
+    Runs generate_random_code() to generate a unique 2FA code, and sends it to the provided email address.
+    
+    Returns a JSON response with the email, code, and a success message.
+    """
+
     email = request.args.get("email")
     access_code = generate_random_code(5, email)
     subject = "Pathways Planner | 2FA Code"
@@ -144,7 +154,7 @@ def sendEmail():
               
     recipients = [email]
     # make sure to encrypt this later
-    password = "enter_valid_password_here"  # replace with your actual email password
+    password = "enter_valid_password_here"  # replace with actual email password
     
     msg = MIMEText(body)
     msg['Subject'] = subject

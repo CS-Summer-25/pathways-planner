@@ -136,8 +136,8 @@
             "ANT-304 Archaeology Method and Theory",
             "ANT-305 Practicing Anthropology"
         ],
-        "condchoose_5_Electives" : {
-            "least_2_200-299 Elective" : [
+        "condchoose_5_Elective" : {
+            "least_2_(200-299) " : [
                 "ANT-202 Peoples of Africa and the African Diaspora",
                 "ANT-203 Peoples and Cultures of the World",
                 "ANT-204 Modern Japanese Society through Films",
@@ -163,7 +163,7 @@
                 "REL-227 Religions of South Asia"
             ],
             
-            "least_1_300-399 Elective" : [
+            "least_1_(300-399) " : [
                 "ANT-302 Anthropology of Race and Ethnicity",
                 "ANT-304 Archaeology Method and Theory",
                 "ANT-305 Practicing Anthropology",
@@ -852,7 +852,7 @@
             "BUS-450 Strategic Management"
         ],
         "condchoose_6_Elective" : {
-            "least_4_Primary Track Elective" : [
+            "least_4_(Primary Track) " : [
                 "BUS-150 Perspectives on Business",
                 "BUS-503 Individualized Internship",
                 "ACC-311 Intermediate Accounting I",
@@ -891,7 +891,7 @@
                 "BUS-503 Individualized Internship",
                 "BUS-505 Structured Internship"
             ],
-            "most_2_Secondary Track Elective" : [
+            "most_2_(Secondary Track) " : [
                 "CLS-311 Business and Entrepreneurship in Greece and Rome",
                 "CSC-272 Introduction to Data Mining",
                 "ECN-241 Money and Banking",
@@ -954,14 +954,14 @@
             "BUS-450 Strategic Management"
         ],
         "condchoose_4_Elective" : {
-            "least_2_Primary Track Elective" : [
+            "least_2_(Primary Track) " : [
                 "BUS-350 Business Law",
                 "BUS-360 Performance Management",
                 "BUS-420 Marketing Research",
                 "BUS-423 Consumer Behavior",
                 "BUS-503 Individualized Internship"
             ],
-            "most_2_Secondary Track Elective" : [
+            "most_2_(Secondary Track) " : [
                 "ACC-311 Intermediate Accounting I",
                 "ACC-312 Intermediate Accounting II",
                 "ACC-313 Intermediate Accounting III",
@@ -1046,7 +1046,7 @@
             "BUS-450 Strategic Management"
         ],
         "condchoose_5_Elective" : {
-            "least_3_Primary Track Elective" : [
+            "least_3_(Primary Track) " : [
                 "ACC-311 Intermediate Accounting I",
                 "ACC-312 Intermediate Accounting II",
                 "ACC-313 Intermediate Accounting III",
@@ -1058,7 +1058,7 @@
                 "ECN-241 Money and Banking",
                 "ECN-253 International Finance and Macroeconomic Policy"
             ],
-            "most_2_Secondary Track Elective" : [
+            "most_2_(Secondary Track) " : [
                 "BUS-150 Perspectives on Business",
                 "ACC-320 Cost Accounting",
                 "ACC-330 Auditing",
@@ -1140,14 +1140,14 @@
             "BUS-450 Strategic Management"
         ],
         "condchoose_6_Elective" : {
-            "least_4_Primary Track Elective" : [
+            "least_4_(Primary Track) " : [
                 "BUS-420 Marketing Research",
                 "BUS-421 International Marketing",
                 "BUS-422 Integrated Marketing Communications",
                 "BUS-423 Consumer Behavior",
                 "BUS-503 Individualized Internship"
             ],
-            "most_2_Secondary Track Elective" : [
+            "most_2_(Secondary Track) " : [
                 "BUS-150 Perspectives on Business",
                 "COM-314 Social Media Strategy",
                 "COM-376 Strategic Communication",
@@ -1230,7 +1230,7 @@
             "BUS-450 Strategic Management"
         ],
         "condcredit_20_Elective" : {
-            "cleast_8_Primary Track Elective" : [
+            "least_8_(Primary Track) " : [
                 {"BUS-200 Business Drives the Economy" : 2},
                 {"BUS-300 International Business Practices" : 2},
                 {"BUS-421 International Marketing" : 4},
@@ -1238,7 +1238,7 @@
                 {"BUS-442 Financial Institutions and Markets" : 4},
                 {"BUS-503 Individualized Internship" : 4}            
             ],
-            "cmost_12_Secondary Track Elective" : [
+            "most_12_(Secondary Track) " : [
                 {"BUS-150 Perspectives on Business" : 4},
                 {"ACC-311 Intermediate Accounting I" : 4},
                 {"ACC-312 Intermediate Accounting II" : 4},
@@ -1910,7 +1910,7 @@
             "SUS-473 Sustainability Science Praticum"
         ],
         "condchoose_6_200+ Elective" : {
-            "least_3_SUS" : [
+            "least_3_(SUS) " : [
                 "SUS-200 Sustainability Living and Leadership",
                 "SUS-201 Making Change Happen",
                 "SUS-210 Urban Sustainability",
@@ -1929,7 +1929,7 @@
                 "SUS-370 Sustainability Solutions Workshop",
                 "SUS-410 Sustainable Futures"
             ],
-            "least_1_EES" : [
+            "least_1_(EES) " : [
                 "EES-200 Topics in Spatial Analysis and Visualization",
                 "EES-201 Geographic Information Systems",
                 "EES-202 Methods in Earth and Environmental Sciences",
@@ -1950,7 +1950,7 @@
                 "EES-425 Regional Tectonics",
                 "EES-430 Engineering Geology"
             ],
-            "option_Other" : [
+            "option_(Other) " : [
             ]
         }
     },
@@ -2054,8 +2054,8 @@
             "MTH-151 Analytic Geometry and Calculus II",
             "MTH-160 Vectors and Matrices"
         ],
-        "condchoose_4_MTH Elective" : {
-            "least_2_MTH-300+ Classes" : [
+        "condchoose_4_Elective" : {
+            "least_2_(MTH-300+) " : [
                 "MTH-335 Mathematical Models and Applications",
                 "MTH-337 Operations Research",
                 "MTH-340 Probability",
@@ -2129,8 +2129,8 @@
             "MTH-151 Analytic Geometry and Calculus II",
             "MTH-160 Vectors and Matrices"
         ],
-        "condchoose_4_MTH Elective" : {
-            "least_2_MTH-300+ Classes" : [
+        "condchoose_4_Elective" : {
+            "least_2_(MTH-300+) " : [
                 "MTH-335 Mathematical Models and Applications",
                 "MTH-337 Operations Research",
                 "MTH-340 Probability",
@@ -3085,7 +3085,7 @@
     },
     "Medicine, Health and Culture Minor" : {
         "key" : "MHCmin",
-        "credit_20_Required Courses" : [
+        "credit_20_Required Course" : [
             {"ART-258 Embodied Representations: Art, Bodies, & Identities" : 4},
             {"ART-271 Art and the Science of Observation" : 2},
             {"BIO-252 Oceans and Human Health" : 2},
@@ -3213,7 +3213,7 @@
             "MES-401 Middle Eastern and Islamic Studies Capstone Seminar"
         ],
         "condchoose_4_Elective" : {
-            "range_1-2_History" : [
+            "range_1-2_(History) " : [
                 "HST-151 Middle East in the Ancient World",
                 "HST-152 Middle East in the Early Modern World",
                 "HST-153 Middle East in the Modern World",
@@ -3221,14 +3221,14 @@
                 "HST-254 Gender and Sexuality in the Middle East",
                 "HST-257 Feminist and Queer Biography"
             ],
-            "range_1-2_Political Science" : [
+            "range_1-2_(Political Science) " : [
                 "POL-225 Politics of the Middle # East",
                 "POL-231 Democratization in the Mediterranean",
                 "POL-232 Islam and Politics",
                 "POL-255 Understanding Terrorism",
                 "POL-259 The Arab-Israeli Conflict"
             ],
-            "range_1-2_Religion" : [
+            "range_1-2_(Religion) " : [
                 "REL-222 Introduction to Islam",
                 "REL-229 Sufi Islam",
                 "REL-251 Jerusalem: One City, Three Faiths",
@@ -3299,7 +3299,7 @@
             "EDU-464 Critique of Science Education Literature"
         ],
         "condchoose_4_Elective" : {
-            "range_2-3_Preparation" : [
+            "range_2-3_(Preparation) " : [
                 "COM-101 Public Speaking",
                 "COM-102 Media and Society",
                 "COM-351 Advocacy",
@@ -3320,7 +3320,7 @@
                 "REL-361 Religion and Science",
                 "WGS-240 Women in Science"
             ],
-            "range_1-2_Teaching" : [
+            "range_1-2_(Teaching) " : [
                 "BIO-461 Teaching Methods and Materials in Biology",
                 "CHM-461 Teaching Methods and Materials in Chemistry",
                 "EDU-333 Science in Grades PK-6",
@@ -3576,7 +3576,7 @@
             "CSC-465 Introduction to Numerical Analysis"
         ]
     },
-    "Mathematics, for Graduate Study B.S." : {
+    "Mathematics, for Graduate Study, B.S." : {
         "key" : "MTHCSBS",
         "required" : [
             "MTH-151 Analytic Geometry and Calculus II",
@@ -3721,7 +3721,7 @@
             "GRM-320 Travel Study German Culture"
         ],
         "condchoose_6_Elective" : {
-            "least_4_GRM" : [
+            "least_4_(GRM) " : [
                 "GRM-260 German for the Professions",
                 "GRM-305 Advanced German Oral and Written Expression",
                 "GRM-332 German Literature since 1750",
@@ -3735,7 +3735,7 @@
                 "GRM-430 Readings in German Language",
                 "GRM-466 Nazi Cinema and Culture"
             ],
-            "range_0-2_Other" : [
+            "most_2_(Other) " : [
                 "HST-207 Germany and the 30 Years’ War",
                 "HST-211 Twentieth Century Germany",
                 "MLL-210 German Language Islands",
@@ -4153,7 +4153,7 @@
             "THA-510 Theatre Practicum"
         ],
         "condcredit_8_Performance Studies" : {
-            "cleast_4_THA" : [
+            "least_4_(THA) " : [
                 {"THA-120 Foundations of Acting" : 4},
                 {"THA-220 Acting II: Characterization & Storytelling" : 4},
                 {"THA-223 Actor’s Voice" : 4},
@@ -4181,7 +4181,7 @@
             {"THA-317 Lighting Design" : 4}
         ],
         "condcredit_8_History, Literature, and Criticism Studies" : {
-            "cleast_4_THA" : [
+            "least_4_(THA) " : [
                 {"THA-210 Theatre History I" : 4},
                 {"THA-211 Theatre History II" : 4},
                 {"THA-230 Readings in Dramatic Literature" : 4},

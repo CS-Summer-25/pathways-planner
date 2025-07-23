@@ -6,6 +6,9 @@ let minors = {};
 let GER_COURSES = null;
 let GERS = null;
 
+// -----------------Asynchronous Functions-----------------
+
+// This function constructs majors/minors objects from acalog_programs.json.
 async function assignCourses(path) {
     // must wait to ensure that data is properly loaded into global var MAJORS
     const data = JSON.parse(await fetch(path).then(response => response.text()));
@@ -13,8 +16,10 @@ async function assignCourses(path) {
     // loop through the data and assign majors and minors
     for (let programTitle in data) {
         let program = {programInfo: {"code" : "", "reqs": []}};
+        
         // program.programTitle.reqs = [];
         for (let pattern in data[programTitle]) {
+            var row_store = 1;
             if (pattern === "key") {
                 let key = data[programTitle][pattern];
                 // this is the key for the program, we can use it to identify the program
@@ -33,7 +38,7 @@ async function assignCourses(path) {
                         // the course code is the first part of the string
                         reqs.push(options[i].split(" ")[0]);
                     }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
@@ -43,113 +48,116 @@ async function assignCourses(path) {
                 let numRows = parseInt(pattern.split("_")[1]);
                 // options will be used for autocomplete down the line
                 // let options = data[programTitle][pattern];
-                let rowName = pattern.split("_")[2];
+                let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
-                        reqs.push(rowName + " " + i);
+                        reqs.push(rowLabel + " " + i);
                     }
                 }
                 else {
-                    reqs.push(rowName);
+                    reqs.push(rowLabel);
                 }
-                // if (reqs.trim().split(",").length == 1) {
-                //     reqs = reqs.slice(0, -1); // remove trailing comma
-                // }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
 
-                // let rowName = pattern.split("_")[-1];
+                // let rowLabel = pattern.split("_")[-1];
             }
             else if (pattern.startsWith("condchoose")) {
                 // this is a conditional choice pattern
                 // i.e. there is least, most, or range condition in the pattern
                 let numRows = parseInt(pattern.split("_")[1]);
                 let reqs = [];
-                // let options = {};
-                let store = 1;
+    
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
-                    // key = Object.keys(data[programTitle][pattern])[x];
                     var key = Object.keys(data[programTitle][pattern])[x];
                     var options = data[programTitle][pattern][key];
 
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
-                        let rowName = key.split("_")[2];
+                        let rowLabel = key.split("_")[2] + pattern.split("_")[2];
                         let condRowNum = parseInt(key.split("_")[1]);
                         for (let i = 1; i < condRowNum+1; i++) {
-                            reqs.push(rowName + " " + i);
+                            reqs.push(rowLabel + " " + row_store);
+                            row_store++;
                         }
                     }
                 }
-                store += Object.keys(data[programTitle][pattern]).length;
-                let rowName = pattern.split("_")[2];
-                for (let i = store+1; i < numRows+1; i++) {
+                // row_store += Object.keys(data[programTitle][pattern]).length;
+                let rowLabel = pattern.split("_")[2];
+                for (let i = row_store; i < numRows+1; i++) {
                     // this is a regular choice pattern, so we can just add the row name
-                    reqs.push(rowName + " " + i);
+                    reqs.push(rowLabel + " " + i);
                 }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
-            // else if (pattern.startsWith("either")) {
-            // }
             else if (pattern.startsWith("credit")) {
                 // this is a credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4); 
                 // if there are two credits, you still need to take 1 course
                 let options = data[programTitle][pattern];
-                // rowName is the pattern name
-                let rowName = pattern.split("_")[2];
+                // rowLabel is the pattern name
+                let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
-                        reqs.push(rowName + " " + i);
+                        reqs.push(rowLabel + " " + i);
                     }
                 }
                 else {
-                    reqs.push(rowName);
+                    reqs.push(rowLabel);
                 }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
-                // console.log("Processing credit: ", pattern, "\n", program.programInfo.reqs);
             }
             else if (pattern.startsWith("condcredit")) {
                 // this is a conditional credit pattern
-                let numRows = parseInt(pattern.split("_")[1]) / 4;
-                let options = data[programTitle][pattern];
+                let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4);
+                var options = data[programTitle][pattern];
                 let reqs = [];
-                for (let x = 0; x < data[programTitle][pattern].length; x++) {
-                    if (data[programTitle][pattern][x].startsWith("least") || data[programTitle][pattern][x].startsWith("range")) {
+                for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
+                    var key = Object.keys(data[programTitle][pattern])[x];
+                    var options = data[programTitle][pattern][key];
+                    if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
-                        let rowName = data[programTitle][pattern][x].split(" ")[1];
-                        for (let i = 0; i < numRows; i++) {
-                            reqs.push(rowName + " " + i);
+                        let rowLabel = key.split("_")[2] + pattern.split("_")[2];
+                        let condRowNum = Math.ceil(parseInt(key.split("_")[1])/4);
+                        for (let i = 1; i < condRowNum+1; i++) {
+                            reqs.push(rowLabel + " " + row_store);
+                            row_store++;
                         }
                     }
                 }
-                let rowName = pattern.split("_")[2];
-                for (let i = 0; i < numRows; i++) {
-                    reqs.push(rowName + " " + i);
+                let rowLabel = pattern.split("_")[2];
+                for (let i = row_store; i < numRows+1; i++) {
+                    reqs.push(rowLabel + " " + i);
                 }
-                reqs = reqs.join(", ");
+                reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
         }
-        program.programInfo.reqs = program.programInfo.reqs.join(", ");
+        program.programInfo.reqs = program.programInfo.reqs.join(":");
         if (programTitle.endsWith("Minor")) {
-            minors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
+            minors[programTitle] = {};
+
+            minors[programTitle].key = program.programInfo.code;
+            minors[programTitle].firstCol = program.programInfo.reqs;
         }
         else {
-            
-            majors[programTitle] = [program.programInfo.code, program.programInfo.reqs]
+            majors[programTitle] = {};
+
+            majors[programTitle].key = program.programInfo.code;
+            majors[programTitle].firstCol = program.programInfo.reqs;
         }
     }
 }
 
+// This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
 async function initialize() {
     // assign majors, minors, GERS from respective files
     await assignCourses("acalog_programs.json");
@@ -165,7 +173,9 @@ async function initialize() {
     console.log("Initialization complete!")
 }
 
-// This function is used to select the autocomplete selecting of majors 
+// --------------------------------------------------------
+
+// This function is used to set the autocomplete selection of majors. Runs grabCourses() on all select program inputs on page. 
 function selectAutocomplete(){
     var programInputs = document.getElementsByClassName("programInput");
 
@@ -185,6 +195,7 @@ function selectAutocomplete(){
     }
 }
 
+// This function sets up the autocomplete for GERS. Runs createTable("GERS", "GERS", GERS) and isValidCourse()
 function setGERSAutocomplete() {
     $( function() {        
         fetch('gers.json')
@@ -228,6 +239,7 @@ function setGERSAutocomplete() {
     );
 }
 
+// This function toggles the visibility of controlPanel, basically only the semester slider and save/load/add semester buttons.
 function togglePanel(){
     var panel = document.getElementById("controlPanel");
     // var toggleButton = document.getElementById("togglePanel");
@@ -240,6 +252,7 @@ function togglePanel(){
     }
 }
 
+// This function toggles use the entire table and associated buttons, leaving only the toggle button and label visible.
 function toggleTable(tableId) {
     var table = document.getElementById(tableId.concat("-table"));
     var rowBtn = document.getElementById(tableId.concat(" RowBtn"));
@@ -258,7 +271,7 @@ function toggleTable(tableId) {
     }
 }
 
-
+// This function grabs the associated courses for a given program. Runs createTable() and removeTable().
 function grabCourses(selectId) {
     var courses;
     var tableId = "";
@@ -271,23 +284,24 @@ function grabCourses(selectId) {
         courses = minors;
     }
 
-
     var filter = document.getElementById(selectId).value; 
 
     removeTable(tableId);
     
-    if (filter in courses) {
-        var acronym = courses[filter][0];
-        
-        var programidx = Object.entries(courses).findIndex(([key, value]) => value[0] == acronym);
-        
+    if (filter in courses && filter != "") {
+        var acronym = courses[filter].key;
+
+        var programidx = Object.entries(courses).findIndex(([key, value]) => value.key == acronym);
+
         var tableName = Object.keys(courses)[programidx];
         
-        var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(", ");
-        createTable(tableName, tableId, reqs)
+        // var reqs = courses[Object.keys(courses)[programidx]].slice(1)[0].split(":");
+        var rowLabels = courses[Object.keys(courses)[programidx]].firstCol.split(":");
+        createTable(tableName, tableId, rowLabels)
     }
 }
 
+// This function creates a new 'input' row for each row Label in the firstCol var. Binds updateTable() to each input. Runs isSpecificCourse() and updateSemesterLabel().
 function addInputRow(tableId, firstCol) {
     // firstCol is a list of elements to become the first column of the table - can be of length 1 (just make a list of [element])
     var table = document.getElementById(tableId.concat("-tablebody"));
@@ -304,7 +318,6 @@ function addInputRow(tableId, firstCol) {
         if (firstCol[i] == "custom") {
             rowLabel += String(tableIdx);
         }
-        // for (let j = 0; j < table.rows[0].cells.length; j++){
         for (let j = 0; j < tableLength+1; j++) {
             if(j === 0){
                 cell = newRow.insertCell(j);
@@ -327,7 +340,6 @@ function addInputRow(tableId, firstCol) {
                 newInput.setAttribute("class", "courseInput");
                 newInput.classList.add(rowLabel);
 
-                // newInput.setAttribute("value", "-");
                 // if row is CLPs, set to number inputs, string otherwise
                 if (rowLabel == "clps") {
                     newInput.setAttribute("type", "number");
@@ -343,12 +355,10 @@ function addInputRow(tableId, firstCol) {
                     
                 }
                 // Add event listener to handle input changes
-                // console.log("EVENT LISTENER ADDED:", table.rows[tableIdx], j);
                 // we simply have no validation for custom rows - maybe a future feature
                 // if (!rowLabel.startsWith("custom")) {
                 newInput.addEventListener("change", updateTable.bind(newInput, table.rows[tableIdx], j));
                 // }
-                // newInput.addEventListener("change", updateTableColorsOnSlider.bind(newInput, semester));
                 cell.appendChild(newInput);
             }
         }        
@@ -356,12 +366,15 @@ function addInputRow(tableId, firstCol) {
     updateSemesterLabel();
 }
 
+// This function checks if a rowLabel follows the format ABC-123, where ABC is 3 letters and 123 is 3 digits. Mainly used to construct checkboxes for "required" course labels.
 function isSpecificCourse(rowLabel) {
     // regex for strings of format ABC-123
     var regex = /^[a-zA-Z]{3}-\d{3}$/;
     return regex.exec(rowLabel);
 }
 
+// This function updates the styling of the table according to user input. Affects both the input fields and the row labels.
+// Runs setCourseInputColor(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
 function updateTable(relevantRow, j) {
 
     var inputValue = this.value;
@@ -372,7 +385,7 @@ function updateTable(relevantRow, j) {
     var firstCell         = relevantRow.cells[0];
     var rowLabel          = firstCell.innerHTML.toLowerCase();
     var relevantRowInputs = relevantRow.getElementsByTagName("input");
-    var allEmpty          = relevantRowInputs[2 ].type == "checkbox" ? 
+    var allEmpty          = relevantRowInputs[2].type == "checkbox" ? 
                                 Array.from(relevantRowInputs).every(input => input.checked == false) :
                                 Array.from(relevantRowInputs).every(input => input.value === "");
 
@@ -522,6 +535,8 @@ function updateTable(relevantRow, j) {
     updateTableColorsOnSlider(currentSemester);
 }
 
+// This function updates the styling of all tables based on the semester slider's current value.
+// Runs isValidCourse(), setFirstColColor(), and setCourseInputColor().
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
     var tables = document.querySelectorAll("table");
@@ -559,6 +574,8 @@ function updateTableColorsOnSlider(semester) {
     });
 }
 
+// This function checks the current semester range value and updates the semester label accordingly. Often used in place of updateTableColorsOnSlider() calls since it runs that function automatically.
+// Runs updateTableColorsOnSlider() to style the table whenever this function is called - which is on slider change.
 function updateSemesterLabel() {
     var semesterValue = document.getElementById("semesterValue");
     var slider = document.getElementById("semesterSlider");
@@ -568,6 +585,8 @@ function updateSemesterLabel() {
 
 }
 
+// This function modifies the styling of the current RowLabel/firstCell based on the relation between the inputCell's semester and the current semester.
+// #FFC000 is the color for the current semester, green for finished semesters, and blue for future semesters.
 function setFirstColColor(j, semester) {
     if (j == semester) {
         return "background-color: #FFC000;";
@@ -580,6 +599,8 @@ function setFirstColColor(j, semester) {
     }
 }
 
+// This function sets the background color of the input field based on the semester and whether the input is disabled or not.
+// Purple(_transparent) represents the current semester, lightgrey for enabled inputs, darkgrey for disabled
 function setCourseInputColor(input, j, semester) {
 
     var color_dict = {
@@ -601,18 +622,19 @@ function setCourseInputColor(input, j, semester) {
     input.setAttribute("style", color);
 }
 
-
+// This function checks if the input value is a valid course for the given rowLabel.
+// Runs isSpecificCourse() to check if rowLabel is a checkbox type. If so, return if the checkbox is checked.
 function isValidCourse(inputValue, rowLabel) {
     if (Object.keys(GER_COURSES).indexOf(rowLabel) >= 0 && rowLabel != "clps") {
         return GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
+    }
+    else if (rowLabel == "clps") {
+        return parseInt(inputValue) >= 0;
     }
     else if(isSpecificCourse(rowLabel)) {
         // check if inputValue checkbox is checked
         return inputValue;
 
-    }
-    else if (rowLabel == "clps") {
-        return parseInt(inputValue) >= 0;
     }
     else {
         return false
@@ -621,7 +643,9 @@ function isValidCourse(inputValue, rowLabel) {
 
 // --------------------------------------------------------
 
-function createTable(tableName, tableId, data) {
+// This function creates a table with a given name and ID. It then constructs the table header, and then the body using the firstCol array.
+// Runs createTableLabel(), createAddRowBtn(), createTableToggle(). Runs addInputRow() for each rowLabel in firstCol.
+function createTable(tableName, tableId, firstCol) {
     var tableDiv = document.getElementById(tableId.concat("-wrapper"));
     tableDiv.setAttribute("style", "border: red solid 1px; border-radius: 5px;");
 
@@ -647,45 +671,47 @@ function createTable(tableName, tableId, data) {
     yearRow.setAttribute("id", "yearRow");
     yearRow.classList.add(tableId);
 
-    values = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
+    year_vals = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
 
-    for (let i = 0; i < values.length; i++) {
+    for (let i = 0; i < year_vals.length; i++) {
         var cell = document.createElement("th");
 
         cell.setAttribute("colspan", i == 0 ? 1 : 2);
-        cell.innerHTML = values[i];
-    
+        cell.innerHTML = year_vals[i];
+
         yearRow.appendChild(cell);
     }
     
+    // Create semester row (first value labels the firstCol credits, not related to semester)
+    var semesterRow = tableHeader.insertRow(1);
+    semesterRow.setAttribute("id", "headerRow");
+    semesterRow.classList.add(tableId);
 
-    // Create header row
-    var headerRow = tableHeader.insertRow(1);
-    headerRow.setAttribute("id", "headerRow");
-    headerRow.classList.add(tableId);
-    for (let i = 0; i < semesterMax; i++){
-        if (i === 0) {
-            headerRow.insertCell(i).innerHTML = `<th>Reqs</th>`;
+    document.createElement("td");
+    for (let i = 0; i < semesterMax; i++) {
+        var cell = document.createElement("th");
+        if (i == 0) {
+            cell.innerHTML = `<th>Credits</th>`;
+            cell.setAttribute("style", "font-weight: normal;");
         }
         else {
-            // headerRow.insertCell(i).innerHTML = `<th>Semester ${i}</th>`;
-            headerRow.insertCell(i).innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
+            cell.innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
         }
-    }       
+        semesterRow.appendChild(cell);
+    }
 
     var tbody = document.createElement("tbody");
     tbody.setAttribute("id", tableId.concat("-tablebody"));
     table.appendChild(tbody);
     // Add input rows based on data
-    
-
-    addInputRow(tableId, data);
+    addInputRow(tableId, firstCol);
 
     createAddRowBtn(tableId, tableDiv);
 
     createTableToggle(tableId, name);
 }
 
+// This function creates a <h2> for the table with the given tableId and tableName. Serves as the superheader of the table.
 function createTableLabel(tableId, tableName) {
     // create a header for the table
     var name = document.createElement("h2");
@@ -696,6 +722,7 @@ function createTableLabel(tableId, tableName) {
     return name
 }
 
+// This function creates a button which, when clicked, runs customAddRow(). This button is appended to the bottom of the table.
 function createAddRowBtn(tableId, tableDiv) {
     // add a custom - add row button below existing rows
     var addRowBtn = document.createElement("button");
@@ -708,6 +735,7 @@ function createAddRowBtn(tableId, tableDiv) {
     tableDiv.appendChild(addRowBtn);
 }
 
+// This function creates a toggle button for the table which, when clicked, runs toggleTable(). This button is inserted to the right of the table header.
 function createTableToggle(tableId, name) {
     // add a toggle span to header
     var toggleSpan = document.createElement("input");
@@ -721,6 +749,7 @@ function createTableToggle(tableId, name) {
     name.appendChild(toggleSpan);
 }
 
+// This function removes a given table using its ID (tail-to-head). It leaves only the select input intact, so that the user can select a different program.
 function removeTable(tableId) {
     var oldGroup = document.getElementById(tableId.concat("-wrapper"));
     if (oldGroup) {
@@ -732,6 +761,8 @@ function removeTable(tableId) {
     }
 }
 
+// This function adds a new row to a given table. It also removes the old button and creates a new one to avoid clipping.
+// Runs addInputRow() to add a new row with the "custom" label.
 function customAddRow(tableId) {
     // remove the old button - plan to move below new row
     var table = document.getElementById(tableId.concat("-table"));
@@ -752,6 +783,10 @@ function customAddRow(tableId) {
     table.appendChild(newButton);
 }
 
+
+// ACHTUNG: THIS IS BUGGY AND MAY NOT WORK AS INTENDED
+// This function adds a new column to all tables, with the addition of an "Other" year header. Semester slider max is incremented by 1 to compensate for the new column.
+// Runs setGERSAutocomplete() to reapply autocomplete to the new input fields, and updateSemesterLabel() to update the semester label.
 function customAddColumn() {
     // adds a new column to all tables with incremented column number
     var tables = document.querySelectorAll("table");
@@ -790,9 +825,9 @@ function customAddColumn() {
 
     tables.forEach(function(table) {
         var yearRow = table.rows[0];
-        var headerRow = table.rows[1];
+        var semesterRow = table.rows[1];
         var tableId = table.id.replace("-table", "");
-        var numCols = table.rows[1].cells.length; // Get number of columns from the header row
+        var numCols = semesterRow.cells.length; // Get number of columns from the semester row
         
         // retrieve the text of the last cell in the year row
         
@@ -802,7 +837,7 @@ function customAddColumn() {
         else {
             yearRow.lastChild.setAttribute("colspan", `${yearRow.lastChild.colSpan + 1}`);
         }
-        headerRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        semesterRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
         // Loop through each row and add a new input cell
         var j = numCols; 
         for (let i = 2; i < table.rows.length; i++) {
