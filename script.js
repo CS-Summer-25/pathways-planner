@@ -159,6 +159,13 @@ async function assignCourses(path) {
 
 // This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
 async function initialize() {
+
+    // get current date 
+    var currentDate = new Date();
+    console.log("Current Date: ", currentDate.toLocaleDateString());
+    var currentSemester = currentDate.getMonth() < 6 ? "Spring" : "Fall"; // 1 for Spring, 2 for Fall
+    console.log("Current Semester: ", currentSemester);
+
     // assign majors, minors, GERS from respective files
     await assignCourses("acalog_programs.json");
     // sort the majors and minors by their keys
@@ -256,17 +263,17 @@ function togglePanel(){
 function toggleTable(tableId) {
     var table = document.getElementById(tableId.concat("-table"));
     var rowBtn = document.getElementById(tableId.concat(" RowBtn"));
-    var toggleSpan = document.getElementById(tableId.concat("-toggle"));
+    var toggleBtn = document.getElementById(tableId.concat("-toggle"));
     if (table.style.display === "none") {
         table.style.display = "table";
-        rowBtn.setAttribute("style", "display: block;");
+        rowBtn.setAttribute("style", "display: block;width: 30px; height: 30px; margin: 5px;");
         // change background image 
-        toggleSpan.setAttribute("style", "background:url('imgs/down.png') no-repeat; background-size: contain;");
+        toggleBtn.setAttribute("style", "background:url('imgs/down.png') no-repeat; background-size: contain;");
     } else {
         table.style.display = "none";
         rowBtn.setAttribute("style", "display: none;");
-        // toggleSpan.innerHTML = `<span>&or;</span>`;
-        toggleSpan.setAttribute("style", "background:url('imgs/up.png') no-repeat; background-size: contain;");
+        // toggleBtn.innerHTML = `<span>&or;</span>`;
+        toggleBtn.setAttribute("style", "background:url('imgs/up.png') no-repeat; background-size: contain;");
     }
 }
 
@@ -646,7 +653,7 @@ function isValidCourse(inputValue, rowLabel) {
 // Runs createTableLabel(), createAddRowBtn(), createTableToggle(). Runs addInputRow() for each rowLabel in firstCol.
 function createTable(tableName, tableId, firstCol) {
     var tableDiv = document.getElementById(tableId.concat("-wrapper"));
-    tableDiv.setAttribute("style", "border: red solid 1px; border-radius: 5px;");
+    tableDiv.setAttribute("style", "border: rgb(196, 83, 196) solid 1px; border-radius: 5px;");
 
     var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
 
@@ -724,28 +731,34 @@ function createTableLabel(tableId, tableName) {
 // This function creates a button which, when clicked, runs customAddRow(). This button is appended to the bottom of the table.
 function createAddRowBtn(tableId, tableDiv) {
     // add a custom - add row button below existing rows
-    var addRowBtn = document.createElement("button");
-    addRowBtn.innerHTML = "+";
+    var addRowBtn = document.createElement("img");
+    addRowBtn.setAttribute("src", "imgs/add.png");
     addRowBtn.setAttribute("id", tableId+" RowBtn");
     addRowBtn.setAttribute("class", "addRowBtns");
+    addRowBtn.setAttribute("cursor", "pointer");
+    addRowBtn.setAttribute("style", "width: 30px; height: 30px; margin: 5px;");
+    // addRowBtn.
+    // Add tooltip 
+    addRowBtn.setAttribute("title", "Add a custom row");
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
+    console.log(addRowBtn.getAttribute("style"));
     tableDiv.appendChild(addRowBtn);
 }
 
 // This function creates a toggle button for the table which, when clicked, runs toggleTable(). This button is inserted to the right of the table header.
 function createTableToggle(tableId, name) {
     // add a toggle span to header
-    var toggleSpan = document.createElement("input");
-    toggleSpan.setAttribute("id", tableId.concat("-toggle"));
-    toggleSpan.setAttribute("class", "toggleBtn");
-    toggleSpan.setAttribute("type", "button");
-    // toggleSpan.innerHTML = `<span>&and;</span>`;
-    toggleSpan.onclick = function() {
+    var toggleBtn = document.createElement("input");
+    toggleBtn.setAttribute("id", tableId.concat("-toggle"));
+    toggleBtn.setAttribute("class", "toggleBtn");
+    toggleBtn.setAttribute("type", "button");
+    toggleBtn.setAttribute("title", "Toggle table visibility");
+    toggleBtn.onclick = function() {
         toggleTable(tableId);
     };
-    name.appendChild(toggleSpan);
+    name.appendChild(toggleBtn);
 }
 
 // This function removes a given table using its ID (tail-to-head). It leaves only the select input intact, so that the user can select a different program.
@@ -767,19 +780,6 @@ function customAddRow(tableId) {
     var table = document.getElementById(tableId.concat("-table"));
     var numCols = table.rows[1].cells.length; // Get number of columns from the header row
     addInputRow(tableId, ["custom"]);
-
-    var oldButton = document.getElementById(tableId.concat(" RowBtn"));
-    oldButton.remove(); 
-    // Create a new button and append it to the table
-
-    var newButton = document.createElement("button");
-    newButton.innerHTML = "+";
-    newButton.setAttribute("id", tableId+" RowBtn");
-    newButton.setAttribute("class", "addRowBtns");
-    newButton.onclick = function() {
-        customAddRow(tableId);
-    };
-    table.appendChild(newButton);
 }
 
 

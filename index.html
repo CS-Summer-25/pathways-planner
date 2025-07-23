@@ -19,6 +19,25 @@
                 <img src="imgs/logo.png" alt="Pathways Planner Logo" id="logo">
                 <h1 id="heading">Pathways Planner</h1>
                 <!-- <input type="button" id="togglePanel" class="toggleBtn" onclick="togglePanel()"></button> -->
+                <!-- <img src="imgs/diskette.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
+                <!-- <img src="imgs/file-import.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
+                 <!-- add dropdown -->
+                 <select name="standing" id="standing">
+                    <option value="freshman" selected>👶</option>
+                    <option value="sophomore">🧒</option>
+                    <option value="junior">🧑</option>
+                    <option value="senior">🧓</option>
+                  </select>
+                
+                <img src="imgs/cloud-computing.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                <img src="imgs/download.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                <img src="imgs/icons8-file-upload-100.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                <img src="imgs/icons8-open-document-100.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                <img src="imgs/info.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                <img src="imgs/question.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                <img src="imgs/icons8-add-column-100.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns">
+                
+                
                 <div id="switchContainer">
                     <span id="switchLabel">Toggle Panel</span>
                     <label class="switch">
@@ -26,8 +45,9 @@
                         <span class="slider round"></span>
                     </label>
                 </div>
+                
             </div>
-            <div id="controlPanel">
+            <div id="controlPanel"> <!-- style="display:none"-->
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
                     <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
