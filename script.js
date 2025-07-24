@@ -33,13 +33,13 @@ async function assignCourses(path) {
             else if (pattern.startsWith("required")) {
                 // this is a required course pattern: each course will be a row, 
                 let numRows = data[programTitle][pattern].length;
-                let options = data[programTitle][pattern];
+                let options = data[programTitle][pattern].sort();
                 // create row names
                 let reqs = [];
-                    for (let i = 0; i < numRows; i++) {
-                        // the course code is the first part of the string
-                        reqs.push(options[i].split(" ")[0]);
-                    }
+                for (let i = 0; i < numRows; i++) {
+                    // the course code is the first part of the string
+                    reqs.push(options[i].split(" ")[0]);
+                }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
@@ -74,10 +74,14 @@ async function assignCourses(path) {
                 // i.e. there is least, most, or range condition in the pattern
                 let numRows = parseInt(pattern.split("_")[1]);
                 let reqs = [];
+                let options_store = []
     
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
                     var key = Object.keys(data[programTitle][pattern])[x];
-                    var options = data[programTitle][pattern][key];
+                    var options = data[programTitle][pattern][key].sort();
+                    if (options_store.indexOf(options) == -1) {
+                        options_store.push(options);
+                    }
 
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
@@ -85,15 +89,21 @@ async function assignCourses(path) {
                         let condRowNum = parseInt(key.split("_")[1]);
                         for (let i = 1; i < condRowNum+1; i++) {
                             reqs.push(rowLabel + " " + row_store);
+                            courseOptions[programTitle][rowLabel + " " + row_store] = options;
                             row_store++;
                         }
                     }
                 }
+                options_store = options_store.flat();
+                // remove duplicates from options_store
+                total_options = [...new Set(options_store)].sort();
+
                 // row_store += Object.keys(data[programTitle][pattern]).length;
                 let rowLabel = pattern.split("_")[2];
                 for (let i = row_store; i < numRows+1; i++) {
                     // this is a regular choice pattern, so we can just add the row name
                     reqs.push(rowLabel + " " + i);
+                    courseOptions[programTitle][rowLabel + " " + i] = total_options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
@@ -102,18 +112,35 @@ async function assignCourses(path) {
             else if (pattern.startsWith("credit")) {
                 // this is a credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4); 
-                // if there are two credits, you still need to take 1 course
-                let options = data[programTitle][pattern];
+                // if there are two credits, you still need to take 1 course - how to handle this?
+                let course_dict = Object.values(data[programTitle][pattern]);
+                var options = [];
+                course_dict.forEach((course) => {
+                    options.push(Object.keys(course).toString());
+                });
+                options = options.sort();
+                // var options = [];
+                // for (let x = 0; x < course_dict.length; x++) {
+                //     var course = Object.keys(course_dict[x]).toString();
+                //     console.log("course", course);
+                //     options.push(course);
+                //     // do something with course
+                // }
+                // var courses = Object.keys(options).sort();
+                // var credits = Object.values(options).sort();
+                // console.log("credit", options);
                 // rowLabel is the pattern name
                 let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
                         reqs.push(rowLabel + " " + i);
+                        courseOptions[programTitle][rowLabel + " " + i] = options;
                     }
                 }
                 else {
                     reqs.push(rowLabel);
+                    courseOptions[programTitle][rowLabel] = options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
@@ -122,24 +149,45 @@ async function assignCourses(path) {
             else if (pattern.startsWith("condcredit")) {
                 // this is a conditional credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4);
-                var options = data[programTitle][pattern];
                 let reqs = [];
+                let options_store = [];
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
                     var key = Object.keys(data[programTitle][pattern])[x];
-                    var options = data[programTitle][pattern][key];
+                    let course_dict = Object.values(data[programTitle][pattern])[x];
+                    let options = [];
+                    course_dict.forEach((course) => {
+                        options.push(Object.keys(course).toString());
+                    });
+                    options = options.sort();
+
+                    if (options_store.indexOf(options) == -1) {
+                        options_store.push(options);
+                    }
+                    // console.log("options: ",options)
+                    // console.log("program: ", programTitle);
+                    // console.log("Courses: ", course_dict);
+                    // console.log("X: ", x, "Key: ", key);
+
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
                         let rowLabel = key.split("_")[2] + pattern.split("_")[2];
                         let condRowNum = Math.ceil(parseInt(key.split("_")[1])/4);
                         for (let i = 1; i < condRowNum+1; i++) {
                             reqs.push(rowLabel + " " + row_store);
+                            courseOptions[programTitle][rowLabel + " " + row_store] = options;
                             row_store++;
                         }
                     }
                 }
+                options_store = options_store.flat();
+                // remove duplicates from options_store
+                total_options = [...new Set(options_store)].sort();
+
+
                 let rowLabel = pattern.split("_")[2];
                 for (let i = row_store; i < numRows+1; i++) {
                     reqs.push(rowLabel + " " + i);
+                    courseOptions[programTitle][rowLabel + " " + i] = total_options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
@@ -161,7 +209,7 @@ async function assignCourses(path) {
         }
     }
 
-    console.log(courseOptions);
+    console.log("Course Options: ",courseOptions);
 }
 
 // This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
@@ -764,6 +812,7 @@ function isValidCourse(inputValue, rowLabel, programTitle) {
     if ((programTitle) && (programTitle != 'GERS') && !isSpecificCourse(rowLabel)) {
         console.log("Program Title: ", programTitle);
         console.log("Row Label: ", rowLabel);
+        console.log(courseOptions[programTitle]);
         return courseOptions[programTitle][rowLabel].indexOf(inputValue) >= 0;
     }
     rowLabel = rowLabel.toLowerCase().replaceAll(" ", "");
