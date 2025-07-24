@@ -3,6 +3,7 @@
 
 let majors = {};
 let minors = {};
+let courseOptions = {};
 let GER_COURSES = null;
 let GERS = null;
 
@@ -16,6 +17,7 @@ async function assignCourses(path) {
     // loop through the data and assign majors and minors
     for (let programTitle in data) {
         let program = {programInfo: {"code" : "", "reqs": []}};
+        courseOptions[programTitle] = {};
         
         // program.programTitle.reqs = [];
         for (let pattern in data[programTitle]) {
@@ -47,20 +49,23 @@ async function assignCourses(path) {
                 // the number in the pattern indicates how many rows to create
                 let numRows = parseInt(pattern.split("_")[1]);
                 // options will be used for autocomplete down the line
-                // let options = data[programTitle][pattern];
+                let options = data[programTitle][pattern];
                 let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
                         reqs.push(rowLabel + " " + i);
+                        courseOptions[programTitle][rowLabel + " " + i] = options;
                     }
                 }
                 else {
                     reqs.push(rowLabel);
+                    courseOptions[programTitle][rowLabel] = options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
+
 
                 // let rowLabel = pattern.split("_")[-1];
             }
@@ -155,6 +160,8 @@ async function assignCourses(path) {
             majors[programTitle].firstCol = program.programInfo.reqs;
         }
     }
+
+    console.log(courseOptions);
 }
 
 // This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
@@ -307,12 +314,86 @@ function grabCourses(selectId) {
     }
 }
 
+// --------------------------------------------------------
+
+// This function creates a table with a given name and ID. It then constructs the table header, and then the body using the firstCol array.
+// Runs createTableLabel(), createAddRowBtn(), createTableToggle(). Runs addInputRow() for each rowLabel in firstCol.
+function createTable(tableName, tableId, firstCol) {
+    var tableDiv = document.getElementById(tableId.concat("-wrapper"));
+    tableDiv.setAttribute("style", "border: rgb(196, 83, 196) solid 1px; border-radius: 5px;");
+
+    var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
+
+    var name = createTableLabel(tableId, tableName);
+
+    var table = document.createElement("table");
+    // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
+    table.setAttribute("id", tableId.concat("-table"));
+    
+    tableDiv.appendChild(name);
+    tableDiv.appendChild(table);
+
+    // Add header row 
+    var tableHeader = document.createElement("thead");
+    tableHeader.setAttribute("id", tableId.concat("-tableheaders"));
+
+    table.appendChild(tableHeader);
+    // Create year row
+    var yearRow = tableHeader.insertRow(0);
+    // yearRow = document.createElement("th");
+    yearRow.setAttribute("id", "yearRow");
+    yearRow.classList.add(tableId);
+
+    year_vals = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
+
+    for (let i = 0; i < year_vals.length; i++) {
+        var cell = document.createElement("th");
+
+        cell.setAttribute("colspan", i == 0 ? 1 : 2);
+        cell.innerHTML = year_vals[i];
+
+        yearRow.appendChild(cell);
+    }
+    
+    // Create semester row (first value labels the firstCol credits, not related to semester)
+    var semesterRow = tableHeader.insertRow(1);
+    semesterRow.setAttribute("id", "headerRow");
+    semesterRow.classList.add(tableId);
+
+    document.createElement("td");
+    for (let i = 0; i < semesterMax; i++) {
+        var cell = document.createElement("th");
+        if (i == 0) {
+            cell.innerHTML = `<th>Credits</th>`;
+            cell.setAttribute("style", "font-weight: normal;");
+        }
+        else {
+            cell.innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
+        }
+        semesterRow.appendChild(cell);
+    }
+
+    var tbody = document.createElement("tbody");
+    tbody.setAttribute("id", tableId.concat("-tablebody"));
+    table.appendChild(tbody);
+    // Add input rows based on data
+    addInputRow(tableId, firstCol);
+
+    createAddRowBtn(tableId, tableDiv);
+
+    createTableToggle(tableId, name);
+}
+
+
 // This function creates a new 'input' row for each row Label in the firstCol var. Binds updateTable() to each input. Runs isSpecificCourse() and updateSemesterLabel().
 function addInputRow(tableId, firstCol) {
     // firstCol is a list of elements to become the first column of the table - can be of length 1 (just make a list of [element])
     var table = document.getElementById(tableId.concat("-tablebody"));
     var tableLength = parseInt(document.getElementById("semesterSlider").max);
     
+    // get h2 with class= "programTitle"
+    var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].innerHTML.trim();
+    console.log("Program Title: ", programTitle);
 
     // Populate table with GER column vals, input fields
     var tableHeight = table.rows.length;
@@ -354,11 +435,36 @@ function addInputRow(tableId, firstCol) {
                 else if (rowLabel === "fyw" && j > 2) {
                     newInput.setAttribute("disabled", "true");
                 }
-                else {
+                else if (isSpecificCourse(rowLabel)) {
                     
-                    var type = isSpecificCourse(rowLabel) ? "checkbox" : "text";
-                    newInput.setAttribute("type", type);
+                    newInput.setAttribute("type", "checkbox");
                     
+                }
+                else{
+                    // console.log(majors);
+                    // console.log(minors);
+                    newInput.setAttribute("type", "text");
+                    if (tableId != "GERS"){
+                    
+                        $(newInput).autocomplete({
+                            autoFocus: true,
+                            source: courseOptions[programTitle][firstCol[i]],
+                            select: function(event, ui) {
+                                inputValue = ui.item.label;
+                                rowLabel = event.target.classList[1];
+
+                                console.log(inputValue, firstCol[i], programTitle);
+                                console.log(isValidCourse(inputValue, firstCol[i], programTitle))
+                            
+                                if (!isValidCourse(inputValue, firstCol[i], programTitle)){
+                                    event.target.setAttribute("style", "background-color: red;");
+                                }
+                                else {
+                                    event.target.setAttribute("style", "background-color: lightgreen;");
+                                }
+                            }
+                        });
+                    }
                 }
                 // Add event listener to handle input changes
                 // we simply have no validation for custom rows - maybe a future feature
@@ -408,7 +514,11 @@ function updateTable(relevantRow, j) {
     if (inputValue != "") {
         // check if it is a valid GER course (if its a clp, it has to be a valid credit if not empty)
         // If valid, set background of input cell to lightgreen
-        if (isValidCourse(inputValue, rowLabel)) {
+        var tableId = relevantRowInputs[j-1].getAttribute("id").split('_')[0];
+        var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].textContent.trim();
+
+
+        if (isValidCourse(inputValue, firstCell.innerHTML, programTitle)) {
             
             relevantRowInputs[j-1].setAttribute("style", "background-color: lightgreen");
         }
@@ -515,7 +625,10 @@ function updateTable(relevantRow, j) {
         }
         // if it's not a special case - it only needs 1 input to be fulfilled
         else {
-            if (isValidCourse(inputValue, rowLabel)) {
+            var tableId = relevantRowInputs[j-1].getAttribute("id").split('_')[0];
+            var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].textContent.trim();
+            
+            if (isValidCourse(inputValue, firstCell.innerHTML, programTitle)) {
                 firstCell.setAttribute("style", setFirstColColor(j, currentSemester));
             // disable all other inputs in row except input semester
             for (let k = 0; k < relevantRowInputs.length; k++) {
@@ -561,14 +674,16 @@ function updateTableColorsOnSlider(semester) {
 
             // Set all inputs to enabled
 
+            var programTitle = document.getElementById(table.id.replace("-table", "-wrapper")).getElementsByTagName('h2')[0].textContent.trim();
+
             var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");
             for (let j = 0; j < relevantRowInputs.length; j++) {
                 var currentInput = relevantRowInputs[j];
                 var userInput = currentInput.type == "checkbox" ? currentInput.checked : currentInput.value;
-                if(userInput != "" && (rowLabel != "clps") && isValidCourse(userInput, rowLabel)) {
+                if(userInput != "" && (rowLabel != "clps") && isValidCourse(userInput, firstCell.innerHTML, programTitle)) {
                     firstCell.setAttribute("style", setFirstColColor(j, semester-1));
                 }
-                else if (userInput != "" && (rowLabel != "clps") && !isValidCourse(userInput, rowLabel)) {
+                else if (userInput != "" && (rowLabel != "clps") && !isValidCourse(userInput, firstCell.innerHTML, programTitle)) {
                     relevantRowInputs[j].setAttribute("style", "background-color: crimson;");
                     firstCell.setAttribute("style", "background-color: pink;");
                 }
@@ -630,7 +745,11 @@ function setCourseInputColor(input, j, semester) {
 
 // This function checks if the input value is a valid course for the given rowLabel.
 // Runs isSpecificCourse() to check if rowLabel is a checkbox type. If so, return if the checkbox is checked.
-function isValidCourse(inputValue, rowLabel) {
+function isValidCourse(inputValue, rowLabel, programTitle) {
+    if ((programTitle) && (programTitle != 'GERS')){
+        return courseOptions[programTitle][rowLabel].indexOf(inputValue) >= 0;
+    }
+    rowLabel = rowLabel.toLowerCase().replaceAll(" ", "");
     if (Object.keys(GER_COURSES).indexOf(rowLabel) >= 0 && rowLabel != "clps") {
         return GER_COURSES[rowLabel].indexOf(inputValue) >= 0;
     }
@@ -643,79 +762,10 @@ function isValidCourse(inputValue, rowLabel) {
 
     }
     else {
-        return false
+        return false;
     }
 }
 
-// --------------------------------------------------------
-
-// This function creates a table with a given name and ID. It then constructs the table header, and then the body using the firstCol array.
-// Runs createTableLabel(), createAddRowBtn(), createTableToggle(). Runs addInputRow() for each rowLabel in firstCol.
-function createTable(tableName, tableId, firstCol) {
-    var tableDiv = document.getElementById(tableId.concat("-wrapper"));
-    tableDiv.setAttribute("style", "border: rgb(196, 83, 196) solid 1px; border-radius: 5px;");
-
-    var semesterMax = parseInt(document.getElementById("semesterSlider").max)+1;
-
-    var name = createTableLabel(tableId, tableName);
-
-    var table = document.createElement("table");
-    // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
-    table.setAttribute("id", tableId.concat("-table"));
-    
-    tableDiv.appendChild(name);
-    tableDiv.appendChild(table);
-
-    // Add header row 
-    var tableHeader = document.createElement("thead");
-    tableHeader.setAttribute("id", tableId.concat("-tableheaders"));
-
-    table.appendChild(tableHeader);
-    // Create year row
-    var yearRow = tableHeader.insertRow(0);
-    // yearRow = document.createElement("th");
-    yearRow.setAttribute("id", "yearRow");
-    yearRow.classList.add(tableId);
-
-    year_vals = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
-
-    for (let i = 0; i < year_vals.length; i++) {
-        var cell = document.createElement("th");
-
-        cell.setAttribute("colspan", i == 0 ? 1 : 2);
-        cell.innerHTML = year_vals[i];
-
-        yearRow.appendChild(cell);
-    }
-    
-    // Create semester row (first value labels the firstCol credits, not related to semester)
-    var semesterRow = tableHeader.insertRow(1);
-    semesterRow.setAttribute("id", "headerRow");
-    semesterRow.classList.add(tableId);
-
-    document.createElement("td");
-    for (let i = 0; i < semesterMax; i++) {
-        var cell = document.createElement("th");
-        if (i == 0) {
-            cell.innerHTML = `<th>Credits</th>`;
-            cell.setAttribute("style", "font-weight: normal;");
-        }
-        else {
-            cell.innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
-        }
-        semesterRow.appendChild(cell);
-    }
-
-    var tbody = document.createElement("tbody");
-    tbody.setAttribute("id", tableId.concat("-tablebody"));
-    table.appendChild(tbody);
-    // Add input rows based on data
-    addInputRow(tableId, firstCol);
-
-    createAddRowBtn(tableId, tableDiv);
-
-    createTableToggle(tableId, name);
-}
 
 // This function creates a <h2> for the table with the given tableId and tableName. Serves as the superheader of the table.
 function createTableLabel(tableId, tableName) {
