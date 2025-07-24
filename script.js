@@ -545,7 +545,7 @@ function updateTable(relevantRow, j) {
 // Runs isValidCourse(), setFirstColColor(), and setCourseInputColor().
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
-    var tables = document.querySelectorAll("table");
+    var tables = document.querySelectorAll(".programTable");
     // Loop through each table
     tables.forEach(function(table) {
         // Get all rows in the table
@@ -662,6 +662,7 @@ function createTable(tableName, tableId, firstCol) {
     var table = document.createElement("table");
     // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
     table.setAttribute("id", tableId.concat("-table"));
+    table.classList.add("programTable");
     
     tableDiv.appendChild(name);
     tableDiv.appendChild(table);
@@ -788,7 +789,7 @@ function customAddRow(tableId) {
 // Runs setGERSAutocomplete() to reapply autocomplete to the new input fields, and updateSemesterLabel() to update the semester label.
 function customAddColumn() {
     // adds a new column to all tables with incremented column number
-    var tables = document.querySelectorAll("table");
+    var tables = document.querySelectorAll(".programTable");
     var semesterSlider = document.getElementById("semesterSlider");
     semesterSlider.max++;
     // update tick marks
@@ -887,4 +888,34 @@ function customAddColumn() {
         updateSemesterLabel();
         
     });
+}
+
+// These functions may come in handy when we are validating major/minor programs and their courses - can be used to prevent duplicate courses
+function courseExistsAtAll(course) {
+    var gers = courseExists(course, "GERS");
+    var mainMajor = courseExists(course, "mainMajor");
+    var doubleMajor = courseExists(course, "doubleMajor");
+    var minor = courseExists(course, "minor");
+    return gers || mainMajor || doubleMajor || minor;
+}
+
+function courseExists(course, tableId) {
+    // check if course exists in the table with the given tableId
+    var table = document.getElementById(tableId.concat("-table"));
+        if (table) {
+        for (let i = 2; i < table.rows.length; i++) {
+            var relevantRow = table.rows[i];
+            var relevantRowInputs = relevantRow.getElementsByTagName("input");
+            if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+                for (let j = 0; j < relevantRowInputs.length; j++) {
+                    if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase()) {
+                        console.log(`Course ${course} already exists in table ${tableId}`);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    console.log(`Course ${course} does not exist in table ${tableId}`);
+    return false;
 }

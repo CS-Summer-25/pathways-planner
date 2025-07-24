@@ -97,10 +97,53 @@
             <div id="importPopup" class="popup">
                 <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
                 <br/><br/>
-                <input type="file" id="importFile" accept=".json"><br/><br/>
-                <button id="importPlanBtn" onclick="importPlanFromFile()">Import Plan</button>
+                <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
+                 <input type="text" id="yearInput" placeholder="Enter year (e.g. 2025)"name="Enter a year"><br/><br/>
+                    <input type="radio" id="termInput" name="term" value="Fall">Fall
+                    <input type="radio" id="termInput" name="term" value="Spring">Spring
+
+                <table id="importTable">
+                    <tr>
+                        <th>Course</th>
+                    </tr>
+                    <tr>
+                        <!-- Maybe more of interest, finding GER credit based on user input -->
+                        <td><input type="text" id="importInput1" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="importInput2" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="importInput3" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" id="importInput4" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
+                    </tr>
+                </table>
+                <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
+            </div>
+            <div id="exportPopup" class="popup">
+                <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
+                <br/><br/>
+                <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
+                <!-- Find which semesters they want to export -->
+                <input type="range" id="yearInput" list="yearList">
+                    <datalist id="yearList">
+                        <option value="2022" selected>2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </datalist>
+                <input type="radio" id="termInput" name="term" value="Fall">Fall
+                <input type="radio" id="termInput" name="term" value="Spring">Spring
+                <br/><br/>
+                <input type="text" id="courses" placeholder="Enter courses, comma-separated (e.g. CS-101, MATH-201)"><br/><br/>
+                <button id="importPlanBtn" onclick="importPlan()">Export Plan</button>
+            </div>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->
+                 <input type="button" onclick="courseExistsAtAll('CSC-105')" value="Test Course Exists">
                  <div id="GERS-wrapper" class="tableGroup"></div>
                  
                 <div id="mainMajor-wrapper" class="tableGroup">
