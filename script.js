@@ -340,6 +340,7 @@ function addInputRow(tableId, firstCol) {
             }
             else{
                 var cell = newRow.insertCell(j);
+                cell.classList.add("courseInput");
                 var newInput = document.createElement("input");
 
                 newInput.setAttribute("id", tableId+"_"+tableIdx+"-"+j);
@@ -670,6 +671,7 @@ function createTable(tableName, tableId, firstCol) {
     // Add header row 
     var tableHeader = document.createElement("thead");
     tableHeader.setAttribute("id", tableId.concat("-tableheaders"));
+    tableHeader.classList.add("headerRows");
 
     table.appendChild(tableHeader);
     // Create year row
@@ -713,6 +715,11 @@ function createTable(tableName, tableId, firstCol) {
     // Add input rows based on data
     addInputRow(tableId, firstCol);
 
+    // reset width of table to fit website
+    // table.setAttribute("style", "width: inherit;");
+    // tableDiv.setAttribute("style", "width: 100%;")
+    table.setAttribute("style", "width: 100%; table-layout: fixed;");
+
     createAddRowBtn(tableId, tableDiv);
 
     createTableToggle(tableId, name);
@@ -724,7 +731,7 @@ function createTableLabel(tableId, tableName) {
     var name = document.createElement("h2");
 
     name.innerHTML = `${tableName}`;
-    name.setAttribute("id", "tableHeader");
+    name.setAttribute("id", "tableName");
     name.classList.add(tableId);
     return name
 }

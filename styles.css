@@ -195,18 +195,15 @@ label[for="semesterSlider"]{
 }
 
 #semesterValue {
-    /* grid-area: value; */
-    /* grid-row: 1 / span 1; */
     align-self: center;
     /* justify-self: start; */
     font-size: large;
     width: auto;
 }
 
-input[type=range], input[type=range] + datalist { --thumb-width: 12px; --list-length: 8; }
+input[type="range"], input[type="range"] + datalist { --thumb-width: 12px; --list-length: 8; }
 
 input[type="range"] {
-    /* grid-area: slider; */
 
     width: 20%;
     accent-color: rgb(196, 83, 196);
@@ -271,31 +268,6 @@ input[type=range] + datalist option:last-child {
 .emailfield {
     width: 100%;
 }
-
-/* #panelContainer {
-    background-color: rgb(158, 83, 196);
-    color: whitesmoke;
-    font-size: large;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: inherit;
-    width: 100%;
-    align-self: center;
-    justify-self: center;
-    grid-template-rows: 1fr;
-} */
-
-/* #saveBtn {
-    grid-area: saveBtn;
-}
-#loadBtn {
-    grid-area: loadBtn;
-}
-#addColBtn {
-    grid-area: addColBtn;
-} */
-
 
 .panelBtns{
     background-color: rgb(158, 83, 196, 0.75);
@@ -368,19 +340,13 @@ input[type=range] + datalist option:last-child {
     background-color: #3d444d;
 }
 
-#tableHeader{
+#tableName{
     background-color: #3d444d;
     font-weight: bold;
     color: white;
     margin: auto;
     padding: 1%;
-    /* margin-top: 1%; */
-    /* padding-left: 0.5%;
-    padding-top: 1%; */
 
-    /* grid-area: tableHeader;
-    grid-row: 1;
-    grid-column: 1; */
     /* width: 100%; */
     border-radius: 5px;
 }
@@ -409,38 +375,38 @@ input[type=range] + datalist option:last-child {
 
 }
 
-table{
+/* table{
     width: 100%;
     margin: 0 0;
     display: table;
     border-spacing: 1px;
-} 
+}  */
 
-tr{
+.programTable {
+    width: 100%;
+    margin: 0 0;
+    padding-right: 0.5%;
+    display: table;
+    border-spacing: 1px;
+}
+
+/* tr{
     width: 100%;
     border-bottom: 1px solid black;
-}
+} */
 
-#headerRow{
+.headerRows { 
     background-color: slategrey;
-    /* font-weight: bold; */
-    /* center align */
     text-align: center;
-    color: whitesmoke;
-}
-
-#yearRow{
-    background-color: slategrey;
-    color: whitesmoke;
-    font-weight: bold;
-
+    color: whitesmoke;  
 }
 
 .firstCol{
     background-color: rgb(199, 2, 2);
     color: white;
     /*font-size-adjust: 0.8em;   */
-    width:10%;
+    /* width:10%; */
+    width: auto;
     height: 10%;
     max-width: 10%;
     max-height: 10%;
@@ -448,35 +414,51 @@ tr{
     overflow-x: auto;
 }
 
+.courseInput, td, input, input:disabled {--size: 100%;}
+
 td{
+    height: auto;
+    width: inherit;
      border: 1px solid black;
      /* background-color: black; */
-     height: auto; 
-     width:fit-content;
-     /* width: auto; */
+     /* height: auto;  */
+     /* width:fit-content; */
+     /* width: inherit; */
+     /* width: var(--size); */
      /* font-size: small; */
      
 }
 
 input{
     height: auto;
-    width:100%;
+    /* width: inherit; */
+    width: calc(var(--size) - 5%);
+    /* width: 95%; */
     background-color: rgba(255, 255, 255, 0.75);
 }
 input:disabled{
+    /* height: auto; */
+    height: auto;
+    width: calc(var(--size) - 5%);
+    /* width: 95%; */
     background-color:rgba(255, 255, 255, 0.25);
-    width: 100%;
+    /* width: calc(var(--size)-5px); */
     cursor: not-allowed;
 }
 
 /* .courseInput{
-    height: 100%;
+    height: auto;
+    width: var(--size);
     width: 100%;
+} */
+
+/* .ui-autocomplete-input {
+    width: auto;
 } */
 
 /* for the autocompletes */
 .ui-autocomplete {
-    width: 50%;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.75);
     max-height: 15%;
     overflow-y: auto;
