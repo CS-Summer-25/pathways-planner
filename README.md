@@ -20,9 +20,9 @@
 * [ ] Add a form/popup/webpage to automatically add courses from a schedule to their respective tables
     * [ ] This will also require the use of some function to check if a course has been repeated in a given table
 
-* [ ] Save/Load plan with multiple tables 
+* [X] Save/Load plan with multiple tables 
 
-* [ ] Change + button to image 
+* [X] Change + button to image 
 
 * [X] On loadPlan, options dropdown is visible
 

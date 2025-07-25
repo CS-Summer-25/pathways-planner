@@ -154,7 +154,9 @@ def sendEmail():
               
     recipients = [email]
     # make sure to encrypt this later
-    password = "enter_valid_password_here"  # replace with actual email password
+    f = open('email_password.txt', 'r')
+    password = f.read().strip()  # replace with actual email password
+    f.close()
     
     msg = MIMEText(body)
     msg['Subject'] = subject
