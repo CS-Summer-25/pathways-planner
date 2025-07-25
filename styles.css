@@ -1,6 +1,273 @@
+/* -------------Colors------------- */
+/* Light Mode Styling */
+@media (prefers-color-scheme: light) {
+    body,
+    #body-wrapper,
+    #controlPanel,
+    #mainBody {
+        background-color: #dad5dd;
+        /* background-color: rgb(34, 34, 34); */
+        /* color: ; */
+    }
+
+    #header {
+        background-color: #cfc0d7;
+        color: black;
+        border: solid 1px rgb(44,44,44);
+    }
+
+    #logo {
+        filter: saturate(0.5);
+    }
+
+    #heading {
+        color: #2c2c2c;
+    }
+
+    #switchLabel,
+    #semesterValue,
+    label[for="semesterSlider"] {
+        color: black;
+    }
+
+    .slider {
+        /* background-color: rgba(0, 0, 0, 0.5); */
+        background-color: #b2bcc2;
+    }
+    
+    .slider:before {
+        background-color: white;
+    }
+    
+    input:checked + .slider {
+        background-color: rgb(158, 83, 196);
+    }
+    
+    input:focus + .slider {
+        box-shadow: 0 0 1px rgb(158, 83, 196);
+    }
+
+    #controlPanel {
+        border: solid 1px #3f3f3f;
+        color: #3f3f3f;
+    }
+
+    .panelBtns {
+        background-color: rgb(158, 83, 196, 0.75);
+        color: rgb(14, 16, 16);
+        border: 1px solid #3f3f3f;
+    }
+
+    .popup {
+        background-color: rgba(201, 201, 201, 0.95);
+        border-color: rgb(158, 83, 196);
+        color: black;
+    }
+
+    #codeSentMsg {
+        color: rgb(158, 83, 196);
+    }
+
+    #standing {
+        background-color: rgb(0, 0, 0, 0);
+        color: black;
+    }
+
+    .headerBtns, .addRowBtns, .toggleBtn{
+        filter: invert(0);
+    }
+    .addRowBtns {
+        color: whitesmoke;
+    }
+
+    .toggleBtn {
+        color: whitesmoke;
+        background-color: rgb(158, 83, 196);
+        color: black;
+    }
+
+    .tableGroup {
+        border: solid 1px rgb(196, 83, 196);
+        background-color: #b2bcc2;
+    }
+
+    #tableName {
+        background-color: #b2bcc2;
+        color: black;
+    }
+
+    .headerRows {
+        background-color: rgb(217, 236, 255);
+        color: black;
+    }
+
+    .firstCol {
+        background-color: rgb(168, 1, 1);
+        color: black;
+    }
+
+    td {
+        border: 1px solid #c2bbb2;
+        /* background-color: #3d444d; */
+        color: #c2bbb2;
+    }
+
+    input,
+    input[type="text"],
+    .ui-autocomplete,
+    .courseInput[type="checkbox"] {
+        background-color: rgba(255, 255, 255, 0.75);
+        /* color: #212529; */
+    }
+
+    input:disabled {
+        background-color:rgba(255, 255, 255, 0.25);
+    }
+
+    #selects {
+        color: black;
+    }
+
+    #footer {
+        background-color: rgb(158, 83, 196, 0.75);
+        color: white;
+    }
+}
+
+/* Dark Mode Styling */
+@media (prefers-color-scheme: dark) {
+    body,
+    #body-wrapper,
+    #controlPanel,
+    #mainBody {
+        background-color: #222;
+        /* color: ; */
+    }
+
+    #header {
+        background-color: #343a40;
+        color: white;
+        border: solid 1px rgb(35, 35, 35);
+    }
+
+    #logo {
+        filter: invert(0.25);
+    }
+
+    #heading {
+        color: lightgray;
+    }
+
+    #switchLabel,
+    #semesterValue,
+    label[for="semesterSlider"] {
+        color: white;
+    }
+
+    .slider {
+    background-color: #ccc;
+    }
+    
+    .slider:before {
+        background-color: whitesmoke;
+    }
+    
+    input:checked + .slider {
+        background-color: rgb(158, 83, 196);
+    }
+    
+    input:focus + .slider {
+        box-shadow: 0 0 1px rgb(158, 83, 196);
+    }
+
+    #controlPanel {
+        border: solid 1px silver;
+        color: silver;
+    }
+
+    .panelBtns {
+        background-color: rgb(158, 83, 196, 0.75);
+        color: rgb(241, 239, 239);
+        border: 1px solid silver;
+    }
+
+    .popup {
+        background-color: rgba(255, 255, 255, 0.95);
+        border-color: rgb(158, 83, 196);
+    }
+
+    #codeSentMsg {
+        color: rgb(158, 83, 196);
+    }
+
+    #standing {
+        background-color: rgb(0, 0, 0, 0);
+        color: white;
+    }
+
+    .headerBtns, .addRowBtns, .toggleBtn{
+        filter: invert(1);
+    }
+    .addRowBtns {
+        color: whitesmoke;
+    }
+    .toggleBtn {
+        color: whitesmoke;
+        background-color: rgb(158, 83, 196);
+        color: black;
+    }
+
+    .tableGroup {
+        border: solid 1px rgb(196, 83, 196);
+        background-color: #3d444d;
+    }
+
+    #tableName {
+        background-color: #3d444d;
+        color: white;
+    }
+
+    .headerRows {
+        background-color: slategray;
+        color: whitesmoke;
+    }
+
+    .firstCol {
+        background-color: rgb(199, 2, 2);
+        color: white;
+    }
+
+    td {
+        border: 1px solid #3d444d;
+        /* background-color: #3d444d; */
+        color: #3d444d;
+    }
+
+    input,
+    input[type="text"],
+    .ui-autocomplete,
+    .courseInput[type="checkbox"] {
+        background-color: rgba(255, 255, 255, 0.75);
+        /* color: #212529; */
+    }
+
+    input:disabled {
+        background-color:rgba(255, 255, 255, 0.25);
+    }
+
+    #selects {
+        color: white;
+    }
+
+    #footer {
+        background-color: rgb(158, 83, 196, 0.75);
+        color: white;
+    }
+}
+/* ----------Other Styling--------- */
+
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color:#222;
     /* font-size: large; */
     min-height: 100vh;
 }
@@ -11,19 +278,14 @@ body{
     
     min-height: 100vh;
     width: 100%;
-    background-color: #222;
     /* order: 1px solid rgb(35, 35, 35); */
     row-gap: 2%;    
 }
 
-#body-wrapper > #header{
-    background-color: #343a40;
-    color: white;
+#header{
     width: 100%;
     height: auto;
-    border: rgb(35, 35, 35) solid 1px;
 
-    /* border: silver solid 1px; */
     z-index: 1;
     font-size: large;
 
@@ -35,8 +297,8 @@ body{
 }
 
 #logo {
-    filter:invert(0.25);
     /* height: 1%; */
+    padding-left: 1%;
     width: 15%;
 
     flex-shrink: 1;
@@ -47,7 +309,6 @@ body{
 
 #heading{
     margin: none;
-    color: lightgray;
     /* font-size: 1.5em; */
     font-weight: bold;
     text-align: center;
@@ -71,7 +332,6 @@ body{
     align-self: center;
     justify-self: center;
 
-    color: white;
     font-weight: bold;
     font-size: large;
     /* margin-top: 3%;
@@ -104,7 +364,6 @@ body{
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -116,7 +375,6 @@ body{
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -148,10 +406,6 @@ body{
 /* -------------------------------- */
 
 .headerBtns {
-
-    filter: invert(1);
-    /* background-color: rgb(158, 83, 196); */
-    /* color: whitesmoke; */
     border: none;
     font-weight: bold;
     cursor: pointer;
@@ -161,19 +415,15 @@ body{
     flex-shrink: 1;
     width: 2%;
     height: auto;
-
 }
 
 /* -------------------------------- */
 
-#body-wrapper > #controlPanel{
-
-    background-color: #222;
-    border: silver solid 1px;
+#controlPanel{
     padding-top: 1%;
     padding-bottom: 1%;
     /* border-bottom: rgb(63, 44, 44) solid 2px; */
-    color: silver;
+    
     font-family: inherit;
     width: 100%;
     height: 20%;
@@ -195,18 +445,15 @@ label[for="semesterSlider"]{
 }
 
 #semesterValue {
-    /* grid-area: value; */
-    /* grid-row: 1 / span 1; */
     align-self: center;
     /* justify-self: start; */
     font-size: large;
     width: auto;
 }
 
-input[type=range], input[type=range] + datalist { --thumb-width: 12px; --list-length: 8; }
+input[type="range"], input[type="range"] + datalist { --thumb-width: 12px; --list-length: 8; }
 
 input[type="range"] {
-    /* grid-area: slider; */
 
     width: 20%;
     accent-color: rgb(196, 83, 196);
@@ -218,12 +465,10 @@ input[type="range"] {
 }
 
 /* credit to Ich-73 on stackoverflow regarding tick marks */
-input[type="range"] + datalist {
+/* input[type="range"] + datalist {
     grid-area: slider;
     display: flex;
     margin-top: 2%;
-    /* width doesn't actually correspond to the necessary value */
-    /* how to get length of the slider? */
     width: 100%;
     position: relative;
     
@@ -232,7 +477,6 @@ input[type="range"] + datalist {
 input[type="range"] + datalist option {
     width: calc((100% - 12px) / (var(--list-length) - 1));
     text-align: center;
-    /* justify-content: center; */
     font-size: small;
     color: rgb(196, 196, 196);
 }
@@ -244,7 +488,7 @@ input[type=range] + datalist option:first-child {
 input[type=range] + datalist option:last-child {
     width: calc((100% - 12px) / ((var(--list-length) - 1) * 2) + 6px);
     text-align: right;
-}
+} */
 
 /* adding tick marks */
 /* #semesterList {
@@ -272,36 +516,8 @@ input[type=range] + datalist option:last-child {
     width: 100%;
 }
 
-/* #panelContainer {
-    background-color: rgb(158, 83, 196);
-    color: whitesmoke;
-    font-size: large;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 5px;
-    font-family: inherit;
-    width: 100%;
-    align-self: center;
-    justify-self: center;
-    grid-template-rows: 1fr;
-} */
-
-/* #saveBtn {
-    grid-area: saveBtn;
-}
-#loadBtn {
-    grid-area: loadBtn;
-}
-#addColBtn {
-    grid-area: addColBtn;
-} */
-
-
 .panelBtns{
-    background-color: rgb(158, 83, 196, 0.75);
-    color: rgb(241, 239, 239);
     /* margin-top: 1%; */
-    border: 1px solid silver;
     /* margin: 1%; */
     font-size: large;
     font-weight: bold;
@@ -312,21 +528,17 @@ input[type=range] + datalist option:last-child {
 
 /* -------------------------------- */
 
-#body-wrapper > .popup{
+.popup{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgb(158, 83, 196);
     padding: 20px;
     z-index: 1000;
     display: none; /* Hidden by default */
 }
 
 #closeIcon {
-    /*  position: top-right; */
-    /* position: absolute; */
     width: 20px;
     /* margin-left: 10%; */
 
@@ -336,7 +548,6 @@ input[type=range] + datalist option:last-child {
 }
 
 #codeSentMsg{
-    color: rgb(158, 83, 196);
     font-weight: bold;
     font-size: large;
     text-align: center;
@@ -346,14 +557,13 @@ input[type=range] + datalist option:last-child {
 
 /* -------------------------------- */
 
-#body-wrapper > #mainBody{
+#mainBody{
     min-height: 100%;
     flex-grow: 1;
 
     /* padding-top: 17%; */
     display: flex;
     flex-direction: column;
-    background-color: #222;
     width: 100%;
     margin-left: 0.5%;
 
@@ -362,37 +572,24 @@ input[type=range] + datalist option:last-child {
 
 .tableGroup {
     width: 99%;
-    border:rgb(196, 83, 196) solid 1px;
     border-radius: 5px;
     margin: 0.5%;
-    background-color: #3d444d;
 }
 
-#tableHeader{
-    background-color: #3d444d;
+#tableName{
     font-weight: bold;
-    color: white;
     margin: auto;
     padding: 1%;
-    /* margin-top: 1%; */
-    /* padding-left: 0.5%;
-    padding-top: 1%; */
 
-    /* grid-area: tableHeader;
-    grid-row: 1;
-    grid-column: 1; */
     /* width: 100%; */
     border-radius: 5px;
 }
 
 .toggleBtn{
-    background-color: rgb(158, 83, 196);
     /* move to right */
     justify-self: flex-end;
     width: 1.75%;
     /* margin-bottom: 1%; */
-    filter: invert(1);
-    color: whitesmoke;
     border: none;
     padding: 0.25%;
     font-size: large;
@@ -400,7 +597,6 @@ input[type=range] + datalist option:last-child {
     cursor: pointer;
     /* border-radius: 5px; */
     font-family: inherit;
-    /* background-color: aliceblue; */
     background: url("imgs/down.png") no-repeat;
     background-size: contain;
     align-self: flex-end;
@@ -409,38 +605,34 @@ input[type=range] + datalist option:last-child {
 
 }
 
-table{
+/* table{
     width: 100%;
     margin: 0 0;
     display: table;
     border-spacing: 1px;
-} 
+}  */
 
-tr{
+.programTable {
+    width: 100%;
+    margin: 0 0;
+    padding-right: 0.5%;
+    display: table;
+    border-spacing: 1px;
+}
+
+/* tr{
     width: 100%;
     border-bottom: 1px solid black;
-}
+} */
 
-#headerRow{
-    background-color: slategrey;
-    /* font-weight: bold; */
-    /* center align */
+.headerRows { 
     text-align: center;
-    color: whitesmoke;
-}
-
-#yearRow{
-    background-color: slategrey;
-    color: whitesmoke;
-    font-weight: bold;
-
 }
 
 .firstCol{
-    background-color: rgb(199, 2, 2);
-    color: white;
     /*font-size-adjust: 0.8em;   */
-    width:10%;
+    /* width:10%; */
+    width: auto;
     height: 10%;
     max-width: 10%;
     max-height: 10%;
@@ -448,47 +640,53 @@ tr{
     overflow-x: auto;
 }
 
+.courseInput, td, input, input:disabled {--size: 100%;}
+
 td{
-     border: 1px solid black;
-     /* background-color: black; */
-     height: auto; 
-     width:fit-content;
-     /* width: auto; */
-     /* font-size: small; */
+    height: auto;
+    width: inherit;
+    /* height: auto;  */
+    /* width:fit-content; */
+    /* width: inherit; */
+    /* width: var(--size); */
+    /* font-size: small; */
      
 }
 
 input{
     height: auto;
-    width:100%;
-    background-color: rgba(255, 255, 255, 0.75);
+    /* width: inherit; */
+    width: calc(var(--size) - 5%);
+    /* width: 95%; */
 }
 input:disabled{
-    background-color:rgba(255, 255, 255, 0.25);
-    width: 100%;
+    /* height: auto; */
+    height: auto;
+    width: calc(var(--size) - 5%);
+    /* width: 95%; */
+    /* width: calc(var(--size)-5px); */
     cursor: not-allowed;
 }
 
 /* .courseInput{
-    height: 100%;
+    height: auto;
+    width: var(--size);
     width: 100%;
+} */
+
+/* .ui-autocomplete-input {
+    width: auto;
 } */
 
 /* for the autocompletes */
 .ui-autocomplete {
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.75);
+    width: 100%;
     max-height: 15%;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .addRowBtns{
-    /* make it circle */
-    /* border-radius: 500px; */
-    /* background-color: rgb(196, 83, 196, 0.75); */
-    filter: invert(1);
-    color: whitesmoke;
     /* margin-top: 5%; */
     /* border: 1px solid whitesmoke; */
     /* margin: 1%; */
@@ -500,9 +698,6 @@ input:disabled{
 }
 
 #selects {
-    /* grid-area: selects; */
-    /* column-gap: 1%; */
-    color: white;
 
     display: flex;
     flex-direction: row;
@@ -535,16 +730,12 @@ input:disabled{
     /* flex-basis: 10%; */
     /* font-size: inherit; */
     margin: 1%;
-    background-color: white;
 }
 
 /* -------------------------------- */
 
-#body-wrapper > #footer{
-    background-color: rgb(158, 83, 196, 0.75);
-    color: white;
+#footer{
     text-align: center;
-    /* bottom: 0%; */
     margin-top: 1%;
     width: 100%;
     z-index:0;
@@ -556,15 +747,12 @@ h3{
 
 .courseInput[type="checkbox"] {
     width: 100%;
-    background-color: (255, 255, 255, 0.75);
     border-radius: 100px;
     accent-color: green;
 }
 
 #standing{
-    background-color: rgb(0, 0, 0, 0);
     border: none;
-    color: white;
     width: 3%;
     font-size: 40px;
     filter:grayscale(1);

@@ -33,13 +33,13 @@ async function assignCourses(path) {
             else if (pattern.startsWith("required")) {
                 // this is a required course pattern: each course will be a row, 
                 let numRows = data[programTitle][pattern].length;
-                let options = data[programTitle][pattern];
+                let options = data[programTitle][pattern].sort();
                 // create row names
                 let reqs = [];
-                    for (let i = 0; i < numRows; i++) {
-                        // the course code is the first part of the string
-                        reqs.push(options[i].split(" ")[0]);
-                    }
+                for (let i = 0; i < numRows; i++) {
+                    // the course code is the first part of the string
+                    reqs.push(options[i].split(" ")[0]);
+                }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
@@ -74,10 +74,14 @@ async function assignCourses(path) {
                 // i.e. there is least, most, or range condition in the pattern
                 let numRows = parseInt(pattern.split("_")[1]);
                 let reqs = [];
+                let options_store = []
     
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
                     var key = Object.keys(data[programTitle][pattern])[x];
-                    var options = data[programTitle][pattern][key];
+                    var options = data[programTitle][pattern][key].sort();
+                    if (options_store.indexOf(options) == -1) {
+                        options_store.push(options);
+                    }
 
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
@@ -85,35 +89,100 @@ async function assignCourses(path) {
                         let condRowNum = parseInt(key.split("_")[1]);
                         for (let i = 1; i < condRowNum+1; i++) {
                             reqs.push(rowLabel + " " + row_store);
+                            courseOptions[programTitle][rowLabel + " " + row_store] = options;
                             row_store++;
                         }
                     }
                 }
+                options_store = options_store.flat();
+                // remove duplicates from options_store
+                total_options = [...new Set(options_store)].sort();
+
                 // row_store += Object.keys(data[programTitle][pattern]).length;
                 let rowLabel = pattern.split("_")[2];
                 for (let i = row_store; i < numRows+1; i++) {
                     // this is a regular choice pattern, so we can just add the row name
                     reqs.push(rowLabel + " " + i);
+                    courseOptions[programTitle][rowLabel + " " + i] = total_options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
+            else if (pattern.startsWith("structchoose")) {
+                // this is a choice pattern
+                // the number in the pattern indicates how many rows to create
+                let numRows = parseInt(pattern.split("_")[1]);
+                // options will be used for autocomplete down the line
+                let course_lst = data[programTitle][pattern];
+                var options = [];
+                for (let x = 0; x < course_lst.length; x++) {
+                    if (Array.isArray(course_lst[x])) {
+                        for (let y = 0; y < course_lst[x].length; y++) {
+                            var course = (course_lst[x][y]).toString();
+                            options.push(course+"&and");
+                        }
+                        options[options.length - 1] = options[options.length - 1].slice(0, -4);
+                    }
+                    else {
+                        var course = (course_lst[x]).toString();
+                        options.push(course);
+                    }
+                    options.push("&or")
+                }
+                console.log(options[options.length-2]);
+                console.log("options: ", options);
+                let rowLabel = pattern.split("_")[2];
+                let reqs = [];
+                if (numRows > 1) {
+                    for (let i = 1; i < numRows+1; i++) {
+                        reqs.push(rowLabel + " " + i);
+                        courseOptions[programTitle][rowLabel + " " + i] = options;
+                    }
+                }
+                else {
+                    reqs.push(rowLabel);
+                    courseOptions[programTitle][rowLabel] = options;
+                }
+                reqs = reqs.join(":");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programInfo.reqs.push(reqs);
+
+
+                // let rowLabel = pattern.split("_")[-1];
+            }
             else if (pattern.startsWith("credit")) {
                 // this is a credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4); 
-                // if there are two credits, you still need to take 1 course
-                let options = data[programTitle][pattern];
+                // if there are two credits, you still need to take 1 course - how to handle this?
+                let course_dict = Object.values(data[programTitle][pattern]);
+                var options = [];
+                course_dict.forEach((course) => {
+                    options.push(Object.keys(course).toString());
+                });
+                options = options.sort();
+                // var options = [];
+                // for (let x = 0; x < course_dict.length; x++) {
+                //     var course = Object.keys(course_dict[x]).toString();
+                //     console.log("course", course);
+                //     options.push(course);
+                //     // do something with course
+                // }
+                // var courses = Object.keys(options).sort();
+                // var credits = Object.values(options).sort();
+                // console.log("credit", options);
                 // rowLabel is the pattern name
                 let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
                     for (let i = 1; i < numRows+1; i++) {
                         reqs.push(rowLabel + " " + i);
+                        courseOptions[programTitle][rowLabel + " " + i] = options;
                     }
                 }
                 else {
                     reqs.push(rowLabel);
+                    courseOptions[programTitle][rowLabel] = options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
@@ -122,24 +191,45 @@ async function assignCourses(path) {
             else if (pattern.startsWith("condcredit")) {
                 // this is a conditional credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4);
-                var options = data[programTitle][pattern];
                 let reqs = [];
+                let options_store = [];
                 for (let x = 0; x < Object.keys(data[programTitle][pattern]).length; x++) {
                     var key = Object.keys(data[programTitle][pattern])[x];
-                    var options = data[programTitle][pattern][key];
+                    let course_dict = Object.values(data[programTitle][pattern])[x];
+                    let options = [];
+                    course_dict.forEach((course) => {
+                        options.push(Object.keys(course).toString());
+                    });
+                    options = options.sort();
+
+                    if (options_store.indexOf(options) == -1) {
+                        options_store.push(options);
+                    }
+                    // console.log("options: ",options)
+                    // console.log("program: ", programTitle);
+                    // console.log("Courses: ", course_dict);
+                    // console.log("X: ", x, "Key: ", key);
+
                     if (key.startsWith("least") || key.startsWith("range")) {
                         // this is a least or range pattern - make that number of rows with that given pattern's name
                         let rowLabel = key.split("_")[2] + pattern.split("_")[2];
                         let condRowNum = Math.ceil(parseInt(key.split("_")[1])/4);
                         for (let i = 1; i < condRowNum+1; i++) {
                             reqs.push(rowLabel + " " + row_store);
+                            courseOptions[programTitle][rowLabel + " " + row_store] = options;
                             row_store++;
                         }
                     }
                 }
+                options_store = options_store.flat();
+                // remove duplicates from options_store
+                total_options = [...new Set(options_store)].sort();
+
+
                 let rowLabel = pattern.split("_")[2];
                 for (let i = row_store; i < numRows+1; i++) {
                     reqs.push(rowLabel + " " + i);
+                    courseOptions[programTitle][rowLabel + " " + i] = total_options;
                 }
                 reqs = reqs.join(":");
                 // reqs = reqs.slice(0, -2); // remove trailing comma
@@ -161,7 +251,7 @@ async function assignCourses(path) {
         }
     }
 
-    console.log(courseOptions);
+    console.log("Course Options: ",courseOptions);
 }
 
 // This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
@@ -236,10 +326,10 @@ function setGERSAutocomplete() {
 
                                 if (Object.keys(event.target.classList).indexOf("clps") == -1) {
                                     if (!isValidCourse(inputValue, rowLabel)){
-                                        event.target.setAttribute("style", "background-color: red;");
+                                        event.target.setAttribute("style", setColorOnSystemSettings("red"));
                                     }
                                     else {
-                                        event.target.setAttribute("style", "background-color: lightgreen;");
+                                        event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
                                     }
                                 }
                             }
@@ -253,6 +343,28 @@ function setGERSAutocomplete() {
     );
 }
 
+function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
+    $(inputCell).autocomplete({
+        autoFocus: true,
+        source: courseOptions[programTitle][rowLabel],
+        select: function(event, ui) {
+            inputValue = ui.item.label;
+            // var rowLabeler = event.target.classList[1];
+            console.log("Cause of Call: ", event.target);
+            // rowLabel = event.target
+
+            console.log(inputValue, rowLabel, programTitle);
+            console.log(isValidCourse(inputValue, rowLabel, programTitle))
+
+            if (!isValidCourse(inputValue, rowLabel, programTitle)){
+                event.target.setAttribute("style", setColorOnSystemSettings("red"));
+            }
+            else {
+                event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
+            }
+        }
+    });
+}
 // This function toggles the visibility of controlPanel, basically only the semester slider and save/load/add semester buttons.
 function togglePanel(){
     var panel = document.getElementById("controlPanel");
@@ -329,6 +441,7 @@ function createTable(tableName, tableId, firstCol) {
     var table = document.createElement("table");
     // DON'T CHANGE - NEED THIS TO ACCESS TABLE IN JS
     table.setAttribute("id", tableId.concat("-table"));
+    table.classList.add("programTable");
     
     tableDiv.appendChild(name);
     tableDiv.appendChild(table);
@@ -336,6 +449,7 @@ function createTable(tableName, tableId, firstCol) {
     // Add header row 
     var tableHeader = document.createElement("thead");
     tableHeader.setAttribute("id", tableId.concat("-tableheaders"));
+    tableHeader.classList.add("headerRows");
 
     table.appendChild(tableHeader);
     // Create year row
@@ -379,6 +493,11 @@ function createTable(tableName, tableId, firstCol) {
     // Add input rows based on data
     addInputRow(tableId, firstCol);
 
+    // reset width of table to fit website
+    // table.setAttribute("style", "width: inherit;");
+    // tableDiv.setAttribute("style", "width: 100%;")
+    table.setAttribute("style", "width: 100%; table-layout: fixed;");
+
     createAddRowBtn(tableId, tableDiv);
 
     createTableToggle(tableId, name);
@@ -393,7 +512,7 @@ function addInputRow(tableId, firstCol) {
     
     // get h2 with class= "programTitle"
     var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].innerHTML.trim();
-    console.log("Program Title: ", programTitle);
+    // console.log("Program Title: ", programTitle);
 
     // Populate table with GER column vals, input fields
     var tableHeight = table.rows.length;
@@ -401,42 +520,43 @@ function addInputRow(tableId, firstCol) {
         var tableIdx = i + tableHeight
         var newRow = table.insertRow(-1);
         // if (firstCol[i] == "custom") {
-        var rowLabel = firstCol[i].toLowerCase().replaceAll(" ", "");
+        var rowClass = firstCol[i].toLowerCase().replaceAll(" ", "");
         if (firstCol[i] == "custom") {
-            rowLabel += String(tableIdx);
+            rowClass += String(tableIdx);
         }
         for (let j = 0; j < tableLength+1; j++) {
             if(j === 0){
                 cell = newRow.insertCell(j);
                 cell.setAttribute("class", "firstCol");
 
-                if (rowLabel.startsWith("custom")) {
+                if (rowClass.startsWith("custom")) {
                     cell.innerHTML = `<td>Custom ${tableIdx}</td>`;
                 }
                 else {
                     cell.innerHTML = `<td>${firstCol[i]}</td>`;
                 }
-                cell.classList.add(rowLabel);
+                cell.classList.add(rowClass);
                 cell.setAttribute("id", tableId+"_"+tableIdx+"-"+j);
             }
             else{
                 var cell = newRow.insertCell(j);
+                cell.classList.add("courseInput");
                 var newInput = document.createElement("input");
 
                 newInput.setAttribute("id", tableId+"_"+tableIdx+"-"+j);
                 newInput.setAttribute("class", "courseInput");
-                newInput.classList.add(rowLabel);
+                newInput.classList.add(rowClass);
 
                 // if row is CLPs, set to number inputs, string otherwise
-                if (rowLabel == "clps") {
+                if (rowClass == "clps") {
                     newInput.setAttribute("type", "number");
                     newInput.setAttribute("min", "0");
                 }
-                else if (rowLabel === "fyw" && j > 2) {
+                else if (rowClass === "fyw" && j > 2) {
                     newInput.setAttribute("disabled", "true");
                 }
-                else if (isSpecificCourse(rowLabel)) {
-                    
+                else if (isSpecificCourse(rowClass)) {
+
                     newInput.setAttribute("type", "checkbox");
                     
                 }
@@ -444,26 +564,8 @@ function addInputRow(tableId, firstCol) {
                     // console.log(majors);
                     // console.log(minors);
                     newInput.setAttribute("type", "text");
-                    if (tableId != "GERS"){
-                    
-                        $(newInput).autocomplete({
-                            autoFocus: true,
-                            source: courseOptions[programTitle][firstCol[i]],
-                            select: function(event, ui) {
-                                inputValue = ui.item.label;
-                                rowLabel = event.target.classList[1];
-
-                                console.log(inputValue, firstCol[i], programTitle);
-                                console.log(isValidCourse(inputValue, firstCol[i], programTitle))
-                            
-                                if (!isValidCourse(inputValue, firstCol[i], programTitle)){
-                                    event.target.setAttribute("style", "background-color: red;");
-                                }
-                                else {
-                                    event.target.setAttribute("style", "background-color: lightgreen;");
-                                }
-                            }
-                        });
+                    if (tableId != "GERS") {
+                        setProgramAutocomplete(newInput, programTitle, firstCol[i]);
                     }
                 }
                 // Add event listener to handle input changes
@@ -488,25 +590,27 @@ function isSpecificCourse(rowLabel) {
 // This function updates the styling of the table according to user input. Affects both the input fields and the row labels.
 // Runs setCourseInputColor(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
 function updateTable(relevantRow, j) {
-
+    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var inputValue = this.value;
 
     // Handle input change if necessary
 
     var currentSemester   = parseInt(document.getElementById("semesterValue").innerHTML);
     var firstCell         = relevantRow.cells[0];
-    var rowLabel          = firstCell.innerHTML.toLowerCase();
+    var rowLabel          = firstCell.innerHTML  
     var relevantRowInputs = relevantRow.getElementsByTagName("input");
+    var rowClass          = firstCell.classList[1];
+    // console.log("relevantRow: ", rowLabel, j, rowClass);
     var allEmpty          = relevantRowInputs[2].type == "checkbox" ? 
                                 Array.from(relevantRowInputs).every(input => input.checked == false) :
                                 Array.from(relevantRowInputs).every(input => input.value === "");
 
     // if all inputs are empty, set first cell to red, reenable any relevant inputs
     if (allEmpty) {
-        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);"); //red, because all empty
+        firstCell.setAttribute("style", setColorOnSystemSettings("red")); //red, because all empty
         for (let k = 0; k < relevantRowInputs.length; k++) {
 
-            relevantRowInputs[k].disabled = (rowLabel === "fyw" && k >= 2);
+            relevantRowInputs[k].disabled = (rowClass === "fyw" && k >= 2);
             setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
         }
         return;
@@ -519,15 +623,15 @@ function updateTable(relevantRow, j) {
 
 
         if (isValidCourse(inputValue, firstCell.innerHTML, programTitle)) {
-            
-            relevantRowInputs[j-1].setAttribute("style", "background-color: lightgreen");
+
+            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("light_green"));
         }
         // invalid course
         else {
-            relevantRowInputs[j-1].setAttribute("style", "background-color: crimson");
+            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("crimson"));
             // pink indicates something is wrong with the input, but it's not empty
-            firstCell.setAttribute("style", "background-color: pink;");
-            if (rowLabel != "clps" && rowLabel != "fyw") {
+            firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
+            if (rowClass != "clps" && rowClass != "fyw") {
                 // re-enable all inputs in the row
                 for (let k = 0; k < relevantRowInputs.length; k++) {
                     relevantRowInputs[k].disabled = false;
@@ -540,9 +644,9 @@ function updateTable(relevantRow, j) {
         // now begin handling first cell background color
         // if semester is current, set first cell to yellow
         // Pathways, CLPs, and HB are special cases - they need/can have multiple inputs
-        if (rowLabel == "clps" || rowLabel == "pathways" || rowLabel == "hb") {
+        if (rowClass == "clps" || rowClass == "pathways" || rowClass == "hb") {
             // CLPs - if the sum of all inputs up to the current semester >= 32, set to green, otherwise, set to yellow (if all empty, set to red)
-            if (rowLabel == "clps") {
+            if (rowClass == "clps") {
                 var total = 0;
                 for (let k = 0; k < relevantRowInputs.length; k++) {
                     if (!isNaN(parseInt(relevantRowInputs[k].value))) {
@@ -551,20 +655,20 @@ function updateTable(relevantRow, j) {
                 }
 
                 if (total >= 32) {
-                    firstCell.setAttribute("style", "background-color: green;");
+                    firstCell.setAttribute("style", setColorOnSystemSettings("green"));
                 } else if (allEmpty) {
-                    firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+                    firstCell.setAttribute("style", setColorOnSystemSettings("red"));
                 } else {
-                    firstCell.setAttribute("style", "background-color: #FFC000;");
+                    firstCell.setAttribute("style", setColorOnSystemSettings("orange"));
                 }
             }
                 // pathways - if all 4 semesters are filled with the right courses, set to green, otherwise, set to yellow
-            if (rowLabel == "pathways" || rowLabel == "hb") {
-                if (rowLabel == "pathways") {
+            if (rowClass == "pathways" || rowClass == "hb") {
+                if (rowClass == "pathways") {
                     // construct an array from the input values of relevantRowInputs
-                    var pathwaysInputs = Array.from(relevantRowInputs).map(input => input.value.toLowerCase().split("-")[0].trim())
-                    if (pathwaysInputs.includes("pth 101") && pathwaysInputs.includes("pth 102") && pathwaysInputs.includes("pth 201") && pathwaysInputs.includes("pth 202")) {
-                        firstCell.setAttribute("style", setFirstColColor(currentSemester, pathwaysInputs.indexOf("pth 202")));
+                    var pathwaysInputs = Array.from(relevantRowInputs).map(input => input.value.toLowerCase().split(" ")[0].trim());
+                    if (pathwaysInputs.includes("pth-101") && pathwaysInputs.includes("pth-102") && pathwaysInputs.includes("pth-201") && pathwaysInputs.includes("pth-202")) {
+                        firstCell.setAttribute("style", setFirstColColor(currentSemester, pathwaysInputs.indexOf("pth-202")));
 
                         // disable all other inputs in row except inputs
                         var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
@@ -578,7 +682,7 @@ function updateTable(relevantRow, j) {
                     }
                 }
                 // hb is a special case - must have more than 1 input (2 HB credits required)
-                if (rowLabel == "hb") {
+                if (rowClass == "hb") {
                     var hbInputs = Array.from(relevantRowInputs).map(input => input.value)
                     for (let val = 0; val < hbInputs.length; val++) {
                         // if the input is empty, remove it from the array
@@ -586,18 +690,18 @@ function updateTable(relevantRow, j) {
                             hbInputs.splice(val, 1);
                             val--;
                         }
-                        else if (!isValidCourse(hbInputs[val], rowLabel)) {
+                        else if (!isValidCourse(hbInputs[val], rowClass)) {
                             hbInputs.splice(val, 1);
                             val--;
                         }
                     }
                     var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
                     if (hbInputs.length >= 2) {
-                        firstCell.setAttribute("style", "background-color: green;");
+                        firstCell.setAttribute("style", setColorOnSystemSettings("green"));
                         // disable all other rows
                         // var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
                         for (let k = 0; k < disabledArr.length; k++) {
-                            if (disabledArr[k] == "" || !isValidCourse(disabledArr[k], rowLabel)) {
+                            if (disabledArr[k] == "" || !isValidCourse(disabledArr[k], rowClass)) {
                                 relevantRowInputs[k].value = "";
                                 relevantRowInputs[k].disabled = true;
                                 setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
@@ -606,15 +710,15 @@ function updateTable(relevantRow, j) {
                     }
                     else {
                         if (hbInputs.length > 0) {
-                            firstCell.setAttribute("style", "background-color: #FFC000;");
+                            firstCell.setAttribute("style", setColorOnSystemSettings("orange"));
                         }
                         else {
-                            firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+                            firstCell.setAttribute("style", setColorOnSystemSettings("red"));
                         }
                         // re-enable all inputs in the row
                         for (let k = 0; k < relevantRowInputs.length; k++) {
                             relevantRowInputs[k].disabled = false;
-                            if (disabledArr[k] == "" || !isValidCourse(disabledArr[k], rowLabel)) {
+                            if (disabledArr[k] == "" || !isValidCourse(disabledArr[k], rowClass)) {
                                 setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
                             }
                         }
@@ -628,7 +732,7 @@ function updateTable(relevantRow, j) {
             var tableId = relevantRowInputs[j-1].getAttribute("id").split('_')[0];
             var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].textContent.trim();
             
-            if (isValidCourse(inputValue, firstCell.innerHTML, programTitle)) {
+            if (isValidCourse(inputValue, rowLabel, programTitle)) {
                 firstCell.setAttribute("style", setFirstColColor(j, currentSemester));
             // disable all other inputs in row except input semester
             for (let k = 0; k < relevantRowInputs.length; k++) {
@@ -647,7 +751,7 @@ function updateTable(relevantRow, j) {
         relevantRowInputs[j-1].setAttribute("style", setCourseInputColor(relevantRowInputs[j-1], j, currentSemester));
         // reset first cell to red if all inputs in row are empty
         if (Array.from(relevantRowInputs).every(input => input.value === "")) {
-            firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+            firstCell.setAttribute("style", setColorOnSystemSettings("red"));
         }
 
     }
@@ -658,7 +762,7 @@ function updateTable(relevantRow, j) {
 // Runs isValidCourse(), setFirstColColor(), and setCourseInputColor().
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
-    var tables = document.querySelectorAll("table");
+    var tables = document.querySelectorAll(".programTable");
     // Loop through each table
     tables.forEach(function(table) {
         // Get all rows in the table
@@ -676,16 +780,17 @@ function updateTableColorsOnSlider(semester) {
 
             var programTitle = document.getElementById(table.id.replace("-table", "-wrapper")).getElementsByTagName('h2')[0].textContent.trim();
 
-            var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");
+            var rowLabel = firstCell.innerHTML
+            var rowClass = firstCell.classList[1];
             for (let j = 0; j < relevantRowInputs.length; j++) {
                 var currentInput = relevantRowInputs[j];
                 var userInput = currentInput.type == "checkbox" ? currentInput.checked : currentInput.value;
-                if(userInput != "" && (rowLabel != "clps") && isValidCourse(userInput, firstCell.innerHTML, programTitle)) {
+                if(userInput != "" && (rowClass != "clps") && isValidCourse(userInput, rowLabel, programTitle)) {
                     firstCell.setAttribute("style", setFirstColColor(j, semester-1));
                 }
-                else if (userInput != "" && (rowLabel != "clps") && !isValidCourse(userInput, firstCell.innerHTML, programTitle)) {
-                    relevantRowInputs[j].setAttribute("style", "background-color: crimson;");
-                    firstCell.setAttribute("style", "background-color: pink;");
+                else if (userInput != "" && (rowClass != "clps") && !isValidCourse(userInput, rowLabel, programTitle)) {
+                    relevantRowInputs[j].setAttribute("style", setColorOnSystemSettings("crimson"));
+                    firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
                 }
                 if (userInput == "") {
                     setCourseInputColor(relevantRowInputs[j], j+1, semester);
@@ -709,15 +814,43 @@ function updateSemesterLabel() {
 // This function modifies the styling of the current RowLabel/firstCell based on the relation between the inputCell's semester and the current semester.
 // #FFC000 is the color for the current semester, green for finished semesters, and blue for future semesters.
 function setFirstColColor(j, semester) {
+    // grab whether dark or light mode is enabled
     if (j == semester) {
-        return "background-color: #FFC000;";
+        return setColorOnSystemSettings("orange");
     }
     else if (j < semester) {
-        return "background-color: green;";
+        return setColorOnSystemSettings("green");
     }
     else {
-        return "background-color: blue;";
+        return setColorOnSystemSettings("blue");
     }
+}
+function setColorOnSystemSettings(color) {
+    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (!isDarkMode) {
+        var color_dict = {
+            "pink"          : "background-color: #f9dede;",
+            "green"         : "background-color: #4aa564;",
+            "orange"       : "background-color: #fdb81e;",
+            "blue"          : "background-color: #00a6d2;",
+            "crimson"   : "background-color: #e59393;",
+            "red"           : "background-color: #a80101ff;",
+            "light_green"   : "background-color: #94bfa2;"
+            }
+        }
+    else {
+        var color_dict = {
+            "pink"          : "background-color: #db7093;",
+            "green"         : "background-color: green;",
+            "orange"       : "background-color: #e26310;",
+            "blue"          : "background-color: blue;",
+            "crimson"   : "background-color: crimson;",
+            "red"           : "background-color: rgb(199, 2, 2);",
+            "light_green"   : "background-color: lightgreen;"
+            }
+        }
+    return color_dict[color]
 }
 
 // This function sets the background color of the input field based on the semester and whether the input is disabled or not.
@@ -746,7 +879,10 @@ function setCourseInputColor(input, j, semester) {
 // This function checks if the input value is a valid course for the given rowLabel.
 // Runs isSpecificCourse() to check if rowLabel is a checkbox type. If so, return if the checkbox is checked.
 function isValidCourse(inputValue, rowLabel, programTitle) {
-    if ((programTitle) && (programTitle != 'GERS')){
+    if ((programTitle) && (programTitle != 'GERS') && !isSpecificCourse(rowLabel)) {
+        // console.log("Program Title: ", programTitle);
+        // console.log("Row Label: ", rowLabel);
+        // console.log(courseOptions[programTitle]);
         return courseOptions[programTitle][rowLabel].indexOf(inputValue) >= 0;
     }
     rowLabel = rowLabel.toLowerCase().replaceAll(" ", "");
@@ -766,14 +902,13 @@ function isValidCourse(inputValue, rowLabel, programTitle) {
     }
 }
 
-
 // This function creates a <h2> for the table with the given tableId and tableName. Serves as the superheader of the table.
 function createTableLabel(tableId, tableName) {
     // create a header for the table
     var name = document.createElement("h2");
 
     name.innerHTML = `${tableName}`;
-    name.setAttribute("id", "tableHeader");
+    name.setAttribute("id", "tableName");
     name.classList.add(tableId);
     return name
 }
@@ -793,7 +928,7 @@ function createAddRowBtn(tableId, tableDiv) {
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
-    console.log(addRowBtn.getAttribute("style"));
+    // console.log(addRowBtn.getAttribute("style"));
     tableDiv.appendChild(addRowBtn);
 }
 
@@ -838,7 +973,7 @@ function customAddRow(tableId) {
 // Runs setGERSAutocomplete() to reapply autocomplete to the new input fields, and updateSemesterLabel() to update the semester label.
 function customAddColumn() {
     // adds a new column to all tables with incremented column number
-    var tables = document.querySelectorAll("table");
+    var tables = document.querySelectorAll(".programTable");
     var semesterSlider = document.getElementById("semesterSlider");
     semesterSlider.max++;
     // update tick marks
@@ -881,31 +1016,38 @@ function customAddColumn() {
         // retrieve the text of the last cell in the year row
         
         if (yearRow.lastChild.innerHTML == "Senior") {
-            yearRow.insertCell(yearRow.cells.length).innerHTML = `<th>Other</th>`;
+            var cell = document.createElement("th");
+            cell.innerHTML = `<th>Other</th>`;
+            yearRow.appendChild(cell);
         }
         else {
             yearRow.lastChild.setAttribute("colspan", `${yearRow.lastChild.colSpan + 1}`);
         }
-        semesterRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        // semesterRow.insertCell(numCols).innerHTML = `<th>Semester ${numCols}</th>`;
+        var cell = document.createElement("th");
+        cell.innerHTML = `<th> Semester ${semesterSlider.max} </th>`;
+        semesterRow.appendChild(cell);
+        
         // Loop through each row and add a new input cell
         var j = numCols; 
         for (let i = 2; i < table.rows.length; i++) {
             var relevantRow = table.rows[i];
             var firstCell = relevantRow.cells[0];
-            var rowLabel = firstCell.innerHTML.toLowerCase().replaceAll(" ", "");
+            var rowLabel = firstCell.innerHTML;
+            var rowClass = firstCell.classList[1];
 
             var newCell = table.rows[i].insertCell(-1);
             var newInput = document.createElement("input");
             newInput.setAttribute("id", tableId+"_"+i+"-"+numCols);
             newInput.setAttribute("class", "courseInput");
-            newInput.classList.add(rowLabel);
+            newInput.classList.add(rowClass);
 
             // if row is CLPs, set to number inputs, string otherwise
-            if (rowLabel == "clps") {
+            if (rowClass == "clps") {
                 newInput.setAttribute("type", "number");
                 newInput.setAttribute("min", "0");
             }
-            else if (rowLabel === "fyw" && j > 2) {
+            else if (rowClass === "fyw" && j > 2) {
                 newInput.setAttribute("disabled", "true");
             }
             else {
@@ -913,13 +1055,13 @@ function customAddColumn() {
             }
             // we simply have no validation for custom rows - maybe a future feature
             newInput.addEventListener("change", updateTable.bind(newInput, relevantRow, numCols));
+            var bgcolor = firstCell.getAttribute("style") != null ? firstCell.getAttribute("style").trim() : "";
 
             // if there are disabled rows and the firstCell is colored blue/green/orange, disable the new input
             if (Array.from(relevantRow.getElementsByTagName("input")).some(cell => cell.disabled == true) &&
-            (firstCell.getAttribute("style") == "background-color: #FFC000;" || 
-            firstCell.getAttribute("style") == "background-color: green;" || 
-            firstCell.getAttribute("style") == "background-color: blue;")
-            ) {
+            (bgcolor == setColorOnSystemSettings("orange") || 
+            bgcolor == setColorOnSystemSettings("green") || 
+            bgcolor == setColorOnSystemSettings("blue"))) {
                 newInput.disabled = true;
             }
             newCell.appendChild(newInput);
@@ -927,7 +1069,41 @@ function customAddColumn() {
         if (tableId == "GERS") {
             setGERSAutocomplete(); // Reapply autocomplete to the new input fields
         }
+        else {
+            var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].textContent.trim();
+            setProgramAutocomplete(newInput, programTitle, rowLabel);
+        }
         updateSemesterLabel();
         
     });
+}
+
+// These functions may come in handy when we are validating major/minor programs and their courses - can be used to prevent duplicate courses
+function courseExistsAtAll(course) {
+    var gers = courseExists(course, "GERS");
+    var mainMajor = courseExists(course, "mainMajor");
+    var doubleMajor = courseExists(course, "doubleMajor");
+    var minor = courseExists(course, "minor");
+    return gers || mainMajor || doubleMajor || minor;
+}
+
+function courseExists(course, tableId) {
+    // check if course exists in the table with the given tableId
+    var table = document.getElementById(tableId.concat("-table"));
+        if (table) {
+        for (let i = 2; i < table.rows.length; i++) {
+            var relevantRow = table.rows[i];
+            var relevantRowInputs = relevantRow.getElementsByTagName("input");
+            if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+                for (let j = 0; j < relevantRowInputs.length; j++) {
+                    if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase()) {
+                        console.log(`Course ${course} already exists in table ${tableId}`);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    console.log(`Course ${course} does not exist in table ${tableId}`);
+    return false;
 }

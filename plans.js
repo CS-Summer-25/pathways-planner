@@ -2,8 +2,16 @@
 
 // This function displays the authentication popup for saving or loading plans.
 // Mode = "save" or "load"
-function authenticate(mode) {
+async function showPopup(mode) {
     // show popup
+    var popups = document.querySelectorAll(".popup");
+    if (popups) {
+        popups.forEach(function(popup) {
+            popup.style.display = "none";
+        });
+    }
+    // wait for a short period to ensure other popups are closed first (to easily distinguish between new and old popups)
+    await new Promise(resolve => setTimeout(resolve, 100));
     var popup = document.getElementById(mode+"Popup");
     popup.style.display = "block";
 }
@@ -47,10 +55,10 @@ function sendCode(emailField){
 // This function stores the current plan in a string using the provided email and 2FA code: to be sent to the server for processing.
 // Runs validateEmail() and closePopup("savePopup")
 function savePlan() {
-    // popup.style.display = "block";
 
     var email = document.getElementById("saveEmail").value;
 
+    // Check if email is valid
     if (!validateEmail(email)) {
         alert("Please enter a valid Furman email address.");
         return; // Stop saving if email is invalid
@@ -58,7 +66,9 @@ function savePlan() {
 
     var currentSemester = parseInt(document.getElementById("semesterValue").innerHTML);
 
-    var tables = document.querySelectorAll("table");
+    var tables = document.querySelectorAll(".programTable");
+
+    // Check that there is something to save to server
     var isEmpty = Array.from(tables).every(table => {
         return Array.from(table.rows).every(row => {
             var inputs = row.getElementsByTagName("input");
@@ -68,10 +78,7 @@ function savePlan() {
             });
         });
     });
-    // var allEmpty          = relevantRowInputs[2].type == "checkbox" ? 
-    //                             Array.from(relevantRowInputs).every(input => input.checked == false) :
-    //                             Array.from(relevantRowInputs).every(input => input.value === "");
-    // console.log("isEmpty: ", isEmpty);
+
     if (isEmpty) {
         alert("Please enter at least one course before saving.");
         return; // Stop saving if no courses are entered
@@ -144,6 +151,12 @@ function loadPlan() {
     var passcode = document.getElementById("loadPasscode").value;
     var email = document.getElementById("loadEmail").value;
 
+    // Check if email is valid
+    if (!validateEmail(email)) {
+        alert("Please enter a valid Furman email address.");
+        return; // Stop loading if email is invalid
+    }
+
     var constructedUrl = `https://furmancs.com/tabot/loadPlan?email=${encodeURIComponent(email)}&passcode=${encodeURIComponent(passcode)}`;
 
     fetch(constructedUrl)
@@ -161,7 +174,7 @@ function loadPlan() {
         coursesInfo.then(data => {
 
             // loop over data, fill the table with courses
-            var tables = document.querySelectorAll("table");
+            var tables = document.querySelectorAll(".programTable");
 
             tables.forEach(table => {
                 table.querySelectorAll("input").forEach(input => {
@@ -196,7 +209,7 @@ function loadPlan() {
 
             setTimeout(() => {
                 closeMenuItems();
-            }, 1500);
+            }, 2000);
 
             updateSemesterLabel();
         });
@@ -284,3 +297,21 @@ function closePopup(popupId) {
     var popup = document.getElementById(popupId);
     popup.style.display = "none";
 }
+
+// function importPlan() {
+//     var year = document.getElementById("yearInput").value;
+//     var term = document.getElementById("termInput").value;
+//     var courses = document.getElementById("courses").value.split(",").map(course => course.trim());
+
+//     if (!year || !term || courses.length === 0) {
+//         alert("Please fill in all fields.");
+//         return;
+//     }
+
+//     // Here you would typically send the data to your server or process it as needed
+//     console.log("Importing plan for:", year, term, courses);
+//     var tables = document.querySelectorAll("table");
+//     tables.forEach(table => {
+
+
+// }
