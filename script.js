@@ -998,7 +998,7 @@ function customAddColumn() {
             var newInput = document.createElement("input");
             newInput.setAttribute("id", tableId+"_"+i+"-"+numCols);
             newInput.setAttribute("class", "courseInput");
-            newInput.classList.add(rowLabel);
+            newInput.classList.add(rowClass);
 
             // if row is CLPs, set to number inputs, string otherwise
             if (rowClass == "clps") {
@@ -1013,20 +1013,23 @@ function customAddColumn() {
             }
             // we simply have no validation for custom rows - maybe a future feature
             newInput.addEventListener("change", updateTable.bind(newInput, relevantRow, numCols));
-            var bgcolor = firstCell.getAttribute("style") != null ? firstCell.getAttribute("style").split(":")[1].trim() : "";
+            var bgcolor = firstCell.getAttribute("style") != null ? firstCell.getAttribute("style").trim() : "";
 
             // if there are disabled rows and the firstCell is colored blue/green/orange, disable the new input
             if (Array.from(relevantRow.getElementsByTagName("input")).some(cell => cell.disabled == true) &&
-            (bgcolor == "#FFC000;" || 
-            bgcolor == "green;" || 
-            bgcolor == "blue;")
-            ) {
+            (bgcolor == setColorOnSystemSettings("orange") || 
+            bgcolor == setColorOnSystemSettings("green") || 
+            bgcolor == setColorOnSystemSettings("blue"))) {
                 newInput.disabled = true;
             }
             newCell.appendChild(newInput);
         }
         if (tableId == "GERS") {
             setGERSAutocomplete(); // Reapply autocomplete to the new input fields
+        }
+        else {
+            var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].textContent.trim();
+            setProgramAutocomplete(newInput, programTitle, rowLabel);
         }
         updateSemesterLabel();
         
