@@ -52,6 +52,59 @@ function sendCode(emailField){
     });
 }
 
+function exportPlan() {
+
+    var tables = document.querySelectorAll(".programTable");
+    var compressed = "";
+
+    tables.forEach(table => {
+
+        var tableGroup = table.id.split("-")[0];
+        compressed += `${tableGroup}`; // Add table ID to compressed string
+        if (tableGroup != "GERS") {
+            var selectId = `${tableGroup}Select`;
+            var selectValue = document.getElementById(selectId).value;
+            compressed += `:/${selectValue}`; // Add program to compressed string
+            // compressed += `/${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
+        }
+        compressed += `\n`; // end of table tag
+        var numRows = table.rows.length;
+        for (let i = 1; i < numRows; i++) { // Start from 1 to skip header row
+            var relevantRow = table.rows[i];
+            var inputs = relevantRow.getElementsByTagName("input");
+            var rowLabel = relevantRow.cells[0].innerHTML;
+            // var courses = [];
+
+            for (let j = 0; j < inputs.length; j++) {
+                if (inputs[j].type == "checkbox") {
+                    if (inputs[j].checked) {
+                        compressed += `${rowLabel},${j+1},1\n`;
+                    }
+                }
+                else{ 
+                    if (inputs[j].value !== "") {
+                        // courses.push(inputs[j].value);
+                        compressed += `${rowLabel},${j+1},${inputs[j].value}\n`;
+                    }
+                }
+            }
+        }
+        compressed = compressed.slice(0, -1); // Remove the last comma
+        compressed += `\n`; 
+    });
+    compressed = compressed.slice(0, -1); // Remove the last semicolon
+
+    // Download the compressed string as a file
+    var blob = new Blob([compressed], { type: "text/plain" });
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "plan.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+}
+
 // This function stores the current plan in a string using the provided email and 2FA code: to be sent to the server for processing.
 // Runs validateEmail() and closePopup("savePopup")
 function savePlan() {
@@ -121,6 +174,16 @@ function savePlan() {
         compressed += `;`; 
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
+
+    // Download the compressed string as a file
+    var blob = new Blob([compressed], { type: "text/plain" });
+    var link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "plan.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
 
     closePopup("savePopup");
 

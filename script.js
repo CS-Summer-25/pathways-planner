@@ -275,6 +275,47 @@ async function initialize() {
     setGERSAutocomplete();
     selectAutocomplete();
     console.log("Initialization complete!")
+
+    var headerBtns = document.getElementsByClassName("headerBtns")
+    // Add event listeners to header buttons for hover effect
+    Array.from(headerBtns).forEach(function(btn) {
+        btn.addEventListener("mouseover", function(event) {
+            showHoverText(event.target, event.pageX, event.pageY)
+        });
+        btn.addEventListener("mouseout", function(event) {
+            hideHoverText();
+        });
+    });
+
+    // Intro.js tutorial setup
+    document.getElementById("questionIcon").addEventListener("click", function() {
+        introJs().setOptions({
+            steps: [
+                {
+                    element: '#questionIcon',
+                    intro: 'Hey! Welcome to the Pathways Planner! This is a tool to help you plan your courses and track your progress towards graduation.',
+                    position: 'right'
+                },
+                {
+                    element: '#GERS-wrapper',
+                    intro: 'This is where you can see your General Education Requirements (GERs). You can search for courses in each field.',
+                    position: 'right'
+                },
+                {
+                    element: '#mainMajor-wrapper',
+                    intro: "This is where you can select your main major. You can search for courses in each field.",
+                    position: 'top'
+                },
+                // Wait for user to enter a course
+                {
+                    element: '#mainMajorSelect',
+                    intro: 'Select your main major from the dropdown. You can also search for it using the autocomplete feature.',
+                    position: 'top',
+                    disableInteraction: false
+                },
+            ]
+        }).start();
+    });
 }
 
 // --------------------------------------------------------
@@ -343,6 +384,7 @@ function setGERSAutocomplete() {
     );
 }
 
+
 function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
     $(inputCell).autocomplete({
         autoFocus: true,
@@ -376,6 +418,7 @@ function togglePanel(){
         panel.style.display = "none";
         // toggleButton.innerHTML = "&or;";
     }
+
 }
 
 // This function toggles use the entire table and associated buttons, leaving only the toggle button and label visible.
@@ -1106,4 +1149,22 @@ function courseExists(course, tableId) {
     }
     console.log(`Course ${course} does not exist in table ${tableId}`);
     return false;
+}
+
+function showHoverText(element, x, y) {
+    var hoverText = document.getElementById("hoverText");
+    hoverText.style.display = "block";
+    hoverText.style.left = x + "px";
+    hoverText.style.top = y + "px";
+    hoverText.innerHTML = element.getAttribute("title") || "No description available.";
+    hoverText.style.backgroundColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.8)";
+    hoverText.style.color = window.matchMedia('(prefers-color-scheme: dark)').matches ? "black" : "black";
+    hoverText.style.padding = "10px";
+    hoverText.style.borderRadius = "5px";
+    hoverText.style.zIndex = "1000"; // Ensure it appears above other elements
+    hoverText.style.position = "absolute"; // Position it absolutely to the viewport
+}
+function hideHoverText() {
+    var hoverText = document.getElementById("hoverText");
+    hoverText.style.display = "none";
 }

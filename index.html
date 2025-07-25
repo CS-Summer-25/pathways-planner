@@ -11,6 +11,10 @@
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <script src="./plans.js"></script>        
         <script src="./script.js" defer></script>
+        <!-- Import intro.js -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/introjs.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/intro.min.js"></script>
+        <!-- Import custom styles for intro.js -->
         
     </head>
     <body onload="initialize()">
@@ -52,6 +56,9 @@
                 <!-- temporary button to toggle light mode -->
                 <!-- <input type="button" id="toggleLightMode" onclick="toggleLightMode()"  value="Toggle Light Mode"> -->
 
+                <div id="hoverText" class="hoverText">
+                    <span id="hoverTextContent"></span>
+                </div>
                 <div id="switchContainer">
                     <span id="switchLabel">Toggle Panel</span>
                     <label class="switch">
@@ -124,7 +131,7 @@
                 <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
             </div>
             <div id="exportPopup" class="popup">
-                <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
+                <span>Export a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('exportPopup')"></span>
                 <br/><br/>
                 <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
                 <!-- Find which semesters they want to export -->
@@ -140,7 +147,7 @@
                 <input type="radio" id="termInput" name="term" value="Spring">Spring
                 <br/><br/>
                 <input type="text" id="courses" placeholder="Enter courses, comma-separated (e.g. CS-101, MATH-201)"><br/><br/>
-                <button id="importPlanBtn" onclick="importPlan()">Export Plan</button>
+                <button id="exportPlanBtn" onclick="exportPlan()">Export Plan</button>
             </div>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->

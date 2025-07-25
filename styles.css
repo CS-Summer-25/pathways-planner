@@ -762,3 +762,17 @@ h3{
 select[id="standing"]{
     filter: grayscale(1);
 }
+
+#hoverText {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    display: none; /* Hidden by default */
+    z-index: 1001;
+}
+#hoverTextContent {
+    font-size: small;
+    font-weight: bold;
+}
