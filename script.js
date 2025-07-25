@@ -109,6 +109,48 @@ async function assignCourses(path) {
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
+            else if (pattern.startsWith("structchoose")) {
+                // this is a choice pattern
+                // the number in the pattern indicates how many rows to create
+                let numRows = parseInt(pattern.split("_")[1]);
+                // options will be used for autocomplete down the line
+                let course_lst = data[programTitle][pattern];
+                var options = [];
+                for (let x = 0; x < course_lst.length; x++) {
+                    if (Array.isArray(course_lst[x])) {
+                        for (let y = 0; y < course_lst[x].length; y++) {
+                            var course = (course_lst[x][y]).toString();
+                            options.push(course+"&and");
+                        }
+                        options[options.length - 1] = options[options.length - 1].slice(0, -4);
+                    }
+                    else {
+                        var course = (course_lst[x]).toString();
+                        options.push(course);
+                    }
+                    options.push("&or")
+                }
+                console.log(options[options.length-2]);
+                console.log("options: ", options);
+                let rowLabel = pattern.split("_")[2];
+                let reqs = [];
+                if (numRows > 1) {
+                    for (let i = 1; i < numRows+1; i++) {
+                        reqs.push(rowLabel + " " + i);
+                        courseOptions[programTitle][rowLabel + " " + i] = options;
+                    }
+                }
+                else {
+                    reqs.push(rowLabel);
+                    courseOptions[programTitle][rowLabel] = options;
+                }
+                reqs = reqs.join(":");
+                // reqs = reqs.slice(0, -2); // remove trailing comma
+                program.programInfo.reqs.push(reqs);
+
+
+                // let rowLabel = pattern.split("_")[-1];
+            }
             else if (pattern.startsWith("credit")) {
                 // this is a credit pattern
                 let numRows = Math.ceil(parseInt(pattern.split("_")[1]) / 4); 

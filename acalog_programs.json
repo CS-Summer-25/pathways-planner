@@ -840,7 +840,7 @@
     },
     "Business Administration, B.A., Business Administration Track" : {
         "key" : "BUSBABA",
-        "choose_1_Accounting Intro" : [
+        "structchoose_1_Accounting Intro" : [
             "ACC-120 Principles of Financial and Managerial Accounting",
             ["ACC-111 Principles of Financial Accounting", "ACC-301 Principles of Managerial Accounting"]
         ],
@@ -940,7 +940,7 @@
     },
     "Business Administration, B.A., Business Entrepreneurship Track" : {
         "key" : "BUSENTBA",
-        "choose_1_Accounting Intro" : [
+        "structchoose_1_Accounting Intro" : [
             "ACC-120 Principles of Financial and Managerial Accounting",
             ["ACC-111 Principles of Financial Accounting", "ACC-301 Principles of Managerial Accounting"]
         ],
@@ -1033,7 +1033,7 @@
     },
     "Business Administration, B.A., Business Finance Track" : {
         "key" : "BUSFINBA",
-        "choose_1_Accounting Intro" : [
+        "structchoose_1_Accounting Intro" : [
             "ACC-120 Principles of Financial and Managerial Accounting",
             ["ACC-111 Principles of Financial Accounting", "ACC-301 Principles of Managerial Accounting"]
         ],
@@ -1128,7 +1128,7 @@
     },
     "Business Administration, B.A., Business Marketing Track" : {
         "key" : "BUSMKTBA",
-        "choose_1_Accounting Intro" : [
+        "structchoose_1_Accounting Intro" : [
             "ACC-120 Principles of Financial and Managerial Accounting",
             ["ACC-111 Principles of Financial Accounting", "ACC-301 Principles of Managerial Accounting"]
         ],
@@ -1217,7 +1217,7 @@
     },
     "Business Administration, B.A., International Business Track" : {
         "key" : "BUSINTBA",
-        "choose_1_Accounting Intro" : [
+        "structchoose_1_Accounting Intro" : [
             "ACC-120 Principles of Financial and Managerial Accounting",
             ["ACC-111 Principles of Financial Accounting", "ACC-301 Principles of Managerial Accounting"]
         ],
@@ -1296,7 +1296,7 @@
     },
     "Chemistry, Biochemistry Track, B.S." : {
         "key" : "CHMBCHMBS",
-        "choose_1_Gen. Chem." : [
+        "structchoose_1_Gen. Chem." : [
             ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
@@ -1346,7 +1346,7 @@
     },
     "Chemistry, Environmental Chemistry Track, B.S." : {
         "key" : "CHMENVBS",
-        "choose_1_General Chemistry" : [
+        "structchoose_1_General Chemistry" : [
             ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
@@ -1381,7 +1381,7 @@
     }, 
     "Chemistry, Standard Track, B.S." : {
         "key" : "CHMBS",
-        "choose_1_General Chemistry" : [
+        "structchoose_1_General Chemistry" : [
             ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
@@ -1421,11 +1421,11 @@
     },
     "Classics, Historical Language and Literature Track, B.A." : {
         "key" : "CLSHLLBA",
-        "choose_1_Ancient Language" : [
+        "structchoose_1_Ancient Language" : [
             ["GRK-305 Ancient Greek: Analytical Approaches", "GRK-315 Ancient Greek: Translation & Research", "GRK-325 Ancient Greek: Intensive Readings"],
             ["LTN-305 Latin: Analytical Approaches", "LTN-315 Latin: Translation & Research", "LTN-325 Latin: Intensive Readings"]
         ],
-        "choose_1_Other Language" : [
+        "structchoose_1_Other Language" : [
             ["GRK-110 Elementary Greek I", "GRK-120 Elementary Greek II"],
             ["LTN-110 Elementary Latin I", "LTN-120 Elementary Latin II"]
         ],
@@ -3826,14 +3826,14 @@
         "required2" : [
             "BIO-460 Neurobiology"
         ],
-        "choose_1_Gen. Chem." : [
+        "structchoose_1_Gen. Chem." : [
             ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
         ],
         "required3" : [
             "CHM-120 Organic Chemistry I"
         ],
-        "choose_1_Math" : [
+        "structchoose_1_Math" : [
             "MTH-150 Analytic Geometry and Calculus I",
             ["MTH-120 Introduction to Statistics" ,"MTH-145 Calculus for Management, Life and Social Sciences"],
             ["MTH-245 Statistical Methods I with R", "MTH-145 Calculus for Management, Life and Social Sciences"]
