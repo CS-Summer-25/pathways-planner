@@ -209,7 +209,7 @@ function loadPlan() {
 
             setTimeout(() => {
                 closeMenuItems();
-            }, 1500);
+            }, 2000);
 
             updateSemesterLabel();
         });

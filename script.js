@@ -284,10 +284,10 @@ function setGERSAutocomplete() {
 
                                 if (Object.keys(event.target.classList).indexOf("clps") == -1) {
                                     if (!isValidCourse(inputValue, rowLabel)){
-                                        event.target.setAttribute("style", "background-color: red;");
+                                        event.target.setAttribute("style", setColorOnSystemSettings("red"));
                                     }
                                     else {
-                                        event.target.setAttribute("style", "background-color: lightgreen;");
+                                        event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
                                     }
                                 }
                             }
@@ -315,10 +315,10 @@ function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
             console.log(isValidCourse(inputValue, rowLabel, programTitle))
 
             if (!isValidCourse(inputValue, rowLabel, programTitle)){
-                event.target.setAttribute("style", "background-color: red;");
+                event.target.setAttribute("style", setColorOnSystemSettings("red"));
             }
             else {
-                event.target.setAttribute("style", "background-color: lightgreen;");
+                event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
             }
         }
     });
@@ -470,7 +470,7 @@ function addInputRow(tableId, firstCol) {
     
     // get h2 with class= "programTitle"
     var programTitle = document.getElementById(tableId+"-wrapper").getElementsByTagName('h2')[0].innerHTML.trim();
-    console.log("Program Title: ", programTitle);
+    // console.log("Program Title: ", programTitle);
 
     // Populate table with GER column vals, input fields
     var tableHeight = table.rows.length;
@@ -548,7 +548,7 @@ function isSpecificCourse(rowLabel) {
 // This function updates the styling of the table according to user input. Affects both the input fields and the row labels.
 // Runs setCourseInputColor(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
 function updateTable(relevantRow, j) {
-
+    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var inputValue = this.value;
 
     // Handle input change if necessary
@@ -565,7 +565,7 @@ function updateTable(relevantRow, j) {
 
     // if all inputs are empty, set first cell to red, reenable any relevant inputs
     if (allEmpty) {
-        firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);"); //red, because all empty
+        firstCell.setAttribute("style", setColorOnSystemSettings("red")); //red, because all empty
         for (let k = 0; k < relevantRowInputs.length; k++) {
 
             relevantRowInputs[k].disabled = (rowClass === "fyw" && k >= 2);
@@ -581,14 +581,14 @@ function updateTable(relevantRow, j) {
 
 
         if (isValidCourse(inputValue, firstCell.innerHTML, programTitle)) {
-            
-            relevantRowInputs[j-1].setAttribute("style", "background-color: lightgreen");
+
+            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("light_green"));
         }
         // invalid course
         else {
-            relevantRowInputs[j-1].setAttribute("style", "background-color: crimson");
+            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("crimson"));
             // pink indicates something is wrong with the input, but it's not empty
-            firstCell.setAttribute("style", "background-color: pink;");
+            firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
             if (rowClass != "clps" && rowClass != "fyw") {
                 // re-enable all inputs in the row
                 for (let k = 0; k < relevantRowInputs.length; k++) {
@@ -613,20 +613,20 @@ function updateTable(relevantRow, j) {
                 }
 
                 if (total >= 32) {
-                    firstCell.setAttribute("style", "background-color: green;");
+                    firstCell.setAttribute("style", setColorOnSystemSettings("green"));
                 } else if (allEmpty) {
-                    firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+                    firstCell.setAttribute("style", setColorOnSystemSettings("red"));
                 } else {
-                    firstCell.setAttribute("style", "background-color: #FFC000;");
+                    firstCell.setAttribute("style", setColorOnSystemSettings("orange"));
                 }
             }
                 // pathways - if all 4 semesters are filled with the right courses, set to green, otherwise, set to yellow
             if (rowClass == "pathways" || rowClass == "hb") {
                 if (rowClass == "pathways") {
                     // construct an array from the input values of relevantRowInputs
-                    var pathwaysInputs = Array.from(relevantRowInputs).map(input => input.value.toLowerCase().split("-")[0].trim())
-                    if (pathwaysInputs.includes("pth 101") && pathwaysInputs.includes("pth 102") && pathwaysInputs.includes("pth 201") && pathwaysInputs.includes("pth 202")) {
-                        firstCell.setAttribute("style", setFirstColColor(currentSemester, pathwaysInputs.indexOf("pth 202")));
+                    var pathwaysInputs = Array.from(relevantRowInputs).map(input => input.value.toLowerCase().split(" ")[0].trim());
+                    if (pathwaysInputs.includes("pth-101") && pathwaysInputs.includes("pth-102") && pathwaysInputs.includes("pth-201") && pathwaysInputs.includes("pth-202")) {
+                        firstCell.setAttribute("style", setFirstColColor(currentSemester, pathwaysInputs.indexOf("pth-202")));
 
                         // disable all other inputs in row except inputs
                         var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
@@ -655,7 +655,7 @@ function updateTable(relevantRow, j) {
                     }
                     var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
                     if (hbInputs.length >= 2) {
-                        firstCell.setAttribute("style", "background-color: green;");
+                        firstCell.setAttribute("style", setColorOnSystemSettings("green"));
                         // disable all other rows
                         // var disabledArr = Array.from(relevantRowInputs).map(input => input.value);
                         for (let k = 0; k < disabledArr.length; k++) {
@@ -668,10 +668,10 @@ function updateTable(relevantRow, j) {
                     }
                     else {
                         if (hbInputs.length > 0) {
-                            firstCell.setAttribute("style", "background-color: #FFC000;");
+                            firstCell.setAttribute("style", setColorOnSystemSettings("orange"));
                         }
                         else {
-                            firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+                            firstCell.setAttribute("style", setColorOnSystemSettings("red"));
                         }
                         // re-enable all inputs in the row
                         for (let k = 0; k < relevantRowInputs.length; k++) {
@@ -709,7 +709,7 @@ function updateTable(relevantRow, j) {
         relevantRowInputs[j-1].setAttribute("style", setCourseInputColor(relevantRowInputs[j-1], j, currentSemester));
         // reset first cell to red if all inputs in row are empty
         if (Array.from(relevantRowInputs).every(input => input.value === "")) {
-            firstCell.setAttribute("style", "background-color: rgb(199, 2, 2);");
+            firstCell.setAttribute("style", setColorOnSystemSettings("red"));
         }
 
     }
@@ -747,8 +747,8 @@ function updateTableColorsOnSlider(semester) {
                     firstCell.setAttribute("style", setFirstColColor(j, semester-1));
                 }
                 else if (userInput != "" && (rowClass != "clps") && !isValidCourse(userInput, rowLabel, programTitle)) {
-                    relevantRowInputs[j].setAttribute("style", "background-color: crimson;");
-                    firstCell.setAttribute("style", "background-color: pink;");
+                    relevantRowInputs[j].setAttribute("style", setColorOnSystemSettings("crimson"));
+                    firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
                 }
                 if (userInput == "") {
                     setCourseInputColor(relevantRowInputs[j], j+1, semester);
@@ -772,15 +772,43 @@ function updateSemesterLabel() {
 // This function modifies the styling of the current RowLabel/firstCell based on the relation between the inputCell's semester and the current semester.
 // #FFC000 is the color for the current semester, green for finished semesters, and blue for future semesters.
 function setFirstColColor(j, semester) {
+    // grab whether dark or light mode is enabled
     if (j == semester) {
-        return "background-color: #FFC000;";
+        return setColorOnSystemSettings("orange");
     }
     else if (j < semester) {
-        return "background-color: green;";
+        return setColorOnSystemSettings("green");
     }
     else {
-        return "background-color: blue;";
+        return setColorOnSystemSettings("blue");
     }
+}
+function setColorOnSystemSettings(color) {
+    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    if (!isDarkMode) {
+        var color_dict = {
+            "pink"          : "background-color: #f9dede;",
+            "green"         : "background-color: #4aa564;",
+            "orange"       : "background-color: #fdb81e;",
+            "blue"          : "background-color: #00a6d2;",
+            "crimson"   : "background-color: #e59393;",
+            "red"           : "background-color: #a80101ff;",
+            "light_green"   : "background-color: #94bfa2;"
+            }
+        }
+    else {
+        var color_dict = {
+            "pink"          : "background-color: #db7093;",
+            "green"         : "background-color: green;",
+            "orange"       : "background-color: #e26310;",
+            "blue"          : "background-color: blue;",
+            "crimson"   : "background-color: crimson;",
+            "red"           : "background-color: rgb(199, 2, 2);",
+            "light_green"   : "background-color: lightgreen;"
+            }
+        }
+    return color_dict[color]
 }
 
 // This function sets the background color of the input field based on the semester and whether the input is disabled or not.
@@ -810,9 +838,9 @@ function setCourseInputColor(input, j, semester) {
 // Runs isSpecificCourse() to check if rowLabel is a checkbox type. If so, return if the checkbox is checked.
 function isValidCourse(inputValue, rowLabel, programTitle) {
     if ((programTitle) && (programTitle != 'GERS') && !isSpecificCourse(rowLabel)) {
-        console.log("Program Title: ", programTitle);
-        console.log("Row Label: ", rowLabel);
-        console.log(courseOptions[programTitle]);
+        // console.log("Program Title: ", programTitle);
+        // console.log("Row Label: ", rowLabel);
+        // console.log(courseOptions[programTitle]);
         return courseOptions[programTitle][rowLabel].indexOf(inputValue) >= 0;
     }
     rowLabel = rowLabel.toLowerCase().replaceAll(" ", "");
@@ -858,7 +886,7 @@ function createAddRowBtn(tableId, tableDiv) {
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
-    console.log(addRowBtn.getAttribute("style"));
+    // console.log(addRowBtn.getAttribute("style"));
     tableDiv.appendChild(addRowBtn);
 }
 
