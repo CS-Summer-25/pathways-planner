@@ -287,11 +287,53 @@ async function initialize() {
         });
     });
 
-    // Intro.js tutorial setup
-    // document.getElementById("questionIcon").addEventListener("click", function() {
-        
-    // });
+    createLegend();
+    
     document.getElementById("questionIcon").addEventListener("click", tourWebsite);
+}
+
+function createLegend(){
+
+    var legend = document.getElementById("legend");
+    var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", "1000");
+    svg.setAttribute("height", "50");
+    svg.setAttribute("viewBox", "0 0 1000 70");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+
+    var getColor = function(colorName) {
+        console.log("Setting color for: ", colorName);
+        return setColorOnSystemSettings(colorName).split(":")[1].trim().slice(0, -1)
+    };
+
+    var colors = [
+        {color: getColor("green"), text: "Completed"},
+        {color: getColor("orange"), text: "In Progress"},
+        {color: getColor("blue"), text: "Scheduled"},
+        {color: getColor("red"), text: "Incomplete"},
+        {color: getColor("pink"), text: "Error"},
+    ];
+    var xPos = 0;
+    colors.forEach(function(item, index) {
+        var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        circle.setAttribute("cx", xPos + 100);
+        circle.setAttribute("cy", "30");
+        circle.setAttribute("r", "20");
+        circle.setAttribute("stroke", "darkgray");
+        circle.setAttribute("stroke-width", "2");
+        circle.setAttribute("fill", item.color);
+        svg.appendChild(circle);
+        var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", xPos + 140);
+        text.setAttribute("y", "40");
+        text.setAttribute("font-size", "25");
+        text.setAttribute("fill", "white");
+        text.textContent = item.text;
+        svg.appendChild(text);
+        xPos += 250; // Adjust spacing between circles
+    });
+    legend.appendChild(svg);
+
 }
 
 // --------------------------------------------------------
@@ -300,32 +342,35 @@ function tourWebsite() {
     var tutorial = introJs();
     
     tutorial.setOptions({
+
+            showProgress: false,
+            overlayOpacity: 0.85,
+            // disableInteraction: false,
             steps: [
                 {
-                    element: '#questionIcon',
+                    element: document.querySelector('#questionIcon'),
                     intro: 'Hey! Welcome to the Pathways Planner! This is a tool to help you plan your courses and track your progress towards graduation.',
                     position: 'right'
                 },
                 {
                     element: document.querySelector('#body-wrapper'),
                     intro: 'Each of these sections represents a different part of your academic plan. You can add courses to each section typing in a course name.',
-                    position: 'top'
+                    // position: 'top'
                 },
                 {
-                    element: '#GERS-wrapper',
+                    element: document.querySelector('#GERS-wrapper'),
                     intro: 'This is where you can see your General Education Requirements (GERs). You can search for courses in each field.',
-                    position: 'right'
+                    // position: 'right'
                 },
                 {
-                    element: '#mainMajor-wrapper',
+                    element: document.querySelector('#mainMajor-wrapper'),
                     intro: "This is where you can select your main major. You can search for courses in each field.",
-                    position: 'top'
+                    // position: 'top'
                 },
                 // Wait for user to enter a course
                 {
-                    element: '#mainMajorSelect',
+                    element: document.querySelector('#mainMajorSelect'),
                     intro: 'Select your main major from the dropdown. You can also search for it using the autocomplete feature.',
-                    disableInteraction: false,
                     // wait for user to enter a course
                     // disableInteraction: true,
                     // hideButtons: true,
@@ -339,45 +384,45 @@ function tourWebsite() {
                 {
                     element: '#doubleMajorSelect',
                     intro: 'Select your double major from the dropdown. You can also search for it using the autocomplete feature.',
-                    disableInteraction: false,
+                    // disableInteraction: false,
                 },
             ],
         }
     )
 
-    tutorial.onafterchange(function(targetElement) {
-        console.log("Changed to: ", targetElement);
-        var nextBtn = document.querySelector('.introjs-nextbutton');
+    // tutorial.onafterchange(function(targetElement) {
+    //     console.log("Changed to: ", targetElement);
+    //     var nextBtn = document.querySelector('.introjs-nextbutton');
 
-        if (targetElement.id.endsWith("Select")) {
-            var id = targetElement.id.split("Select")[0];
-            console.log(`${targetElement.id} Element Found`);
-            var input = document.getElementById(targetElement.id);
-            tutorial.setOption('disableInteraction', true);
-            // tutorial.hideButtons();
-            setTimeout(() => input.focus(), 1000);
-            input.addEventListener('input', async function() {
-                console.log("Input changed: ", input.value);
-                if (input.value !== "") {
-                    nextBtn.disabled = false;
-                    tutorial.setOption('enableInteraction', true);
-                    // tutorial.hideButtons();
-                    grabCourses(targetElement.id);
-                    // if valid program: create new step that highlights the table
-                    if (document.getElementById(`${id}-table`)) {
-                        await new Promise(resolve => setTimeout(resolve, 100));
-                        tutorial.addStep({
-                            element: `#${id}-table`,
-                            intro: `Look at that! This is your ${id}'s academic plan. Like the GERs, you can search for courses in each field.`,
-                        });
-                    }
+    //     if (targetElement.id.endsWith("Select")) {
+    //         var id = targetElement.id.split("Select")[0];
+    //         console.log(`${targetElement.id} Element Found`);
+    //         var input = document.getElementById(targetElement.id);
+    //         tutorial.setOption('disableInteraction', true);
+    //         // tutorial.hideButtons();
+    //         setTimeout(() => input.focus(), 1000);
+    //         input.addEventListener('input', async function() {
+    //             console.log("Input changed: ", input.value);
+    //             if (input.value !== "") {
+    //                 nextBtn.disabled = false;
+    //                 tutorial.setOption('enableInteraction', true);
+    //                 // tutorial.hideButtons();
+    //                 grabCourses(targetElement.id);
+    //                 // if valid program: create new step that highlights the table
+    //                 if (document.getElementById(`${id}-table`)) {
+    //                     await new Promise(resolve => setTimeout(resolve, 100));
+    //                     tutorial.addStep({
+    //                         element: `#${id}-table`,
+    //                         intro: `Look at that! This is your ${id}'s academic plan. Like the GERs, you can search for courses in each field.`,
+    //                     });
+    //                 }
 
 
-                }
-            });
+    //             }
+    //         });
             
-        }
-    });
+    //     }
+    // });
 
     tutorial.start();
 }
@@ -460,6 +505,7 @@ function setGERSAutocomplete() {
 
 
 function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
+
     $(inputCell).autocomplete({
         autoFocus: true,
         source: courseOptions[programTitle][rowLabel],
@@ -686,7 +732,7 @@ function addInputRow(tableId, firstCol) {
                     // console.log(majors);
                     // console.log(minors);
                     newInput.setAttribute("type", "text");
-                    if (tableId != "GERS") {
+                    if ((tableId != "GERS") && (firstCol[i].startsWith("custom")==false)) {
                         setProgramAutocomplete(newInput, programTitle, firstCol[i]);
                     }
                 }

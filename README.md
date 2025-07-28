@@ -20,18 +20,12 @@
 * [ ] Add a form/popup/webpage to automatically add courses from a schedule to their respective tables
     * [ ] This will also require the use of some function to check if a course has been repeated in a given table
 
-* [X] Save/Load plan with multiple tables 
+* [X] Weird misalignment of input fields in GER and maybe other tables? 
 
-* [X] Change + button to image 
+* [X] Add a button for new rows to all? tables (What would the design be? Form?)
 
-* [X] On loadPlan, options dropdown is visible
-
-* [ ] Weird misalignment of input fields in GER and maybe other tables? 
-
-* [ ] Add a button for new rows to all? tables (What would the design be? Form?)
-
-* [ ] Change general CSS styling (hard on the eyes)
-    * [ ] Preferably, Page styling based on system preferences (dark/light mode)
+* [X] Change general CSS styling (hard on the eyes)
+    * [X] Preferably, Page styling based on system preferences (dark/light mode)
 
 * [ ] Add tick marks on semester slider for visual appeal/convenience
 

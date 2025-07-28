@@ -68,11 +68,6 @@
         color: rgb(158, 83, 196);
     }
 
-    #standing {
-        background-color: rgb(0, 0, 0, 0);
-        color: black;
-    }
-
     .headerBtns, .addRowBtns, .toggleBtn{
         filter: invert(0);
     }
@@ -145,7 +140,7 @@
     }
 
     #header {
-        background-color: #343a40;
+        /* background-color: #343a40; */
         color: white;
         border: solid 1px rgb(35, 35, 35);
     }
@@ -181,7 +176,7 @@
     }
 
     #controlPanel {
-        border: solid 1px silver;
+        border: solid 1px rgb(196, 83, 196);
         color: silver;
     }
 
@@ -198,11 +193,6 @@
 
     #codeSentMsg {
         color: rgb(158, 83, 196);
-    }
-
-    #standing {
-        background-color: rgb(0, 0, 0, 0);
-        color: white;
     }
 
     .headerBtns, .addRowBtns, .toggleBtn{
@@ -432,9 +422,11 @@ body{
     display: flex;
     flex-direction: row;
     align-self: center;
-    justify-content: center;
+    /*justify-content: center; */
     gap: 1%;
     border-radius: 5px;
+    /* background-color: #343a40; */
+    background-color: #3d444d;
 }
 
 label[for="semesterSlider"]{
@@ -442,6 +434,7 @@ label[for="semesterSlider"]{
     justify-self: center;
     width: auto;
     font-weight: bold;
+    margin-left: 2%;
 }
 
 #semesterValue {
@@ -455,7 +448,7 @@ input[type="range"], input[type="range"] + datalist { --thumb-width: 12px; --lis
 
 input[type="range"] {
 
-    width: 20%;
+    width: 45%;
     accent-color: rgb(196, 83, 196);
     cursor: ew-resize;
 
@@ -565,15 +558,16 @@ input[type=range] + datalist option:last-child {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin-left: 0.5%;
+    /* margin-left: 0.5%; */
 
     z-index: 1;
 }
 
 .tableGroup {
-    width: 99%;
+    width: 100%;
     border-radius: 5px;
-    margin: 0.5%;
+    /* format: top, right, bottom, left */
+    margin: 0.5% 0% 0.5% 0%;
 }
 
 #tableName{
@@ -638,7 +632,7 @@ input[type=range] + datalist option:last-child {
 .programTable {
     width: 100%;
     margin: 0 0;
-    padding-right: 0.5%;
+    /* padding-right: 0.5%; */
     display: table;
     border-spacing: 1px;
 }
@@ -774,17 +768,6 @@ h3{
     accent-color: green;
 }
 
-#standing{
-    border: none;
-    width: 3%;
-    font-size: 40px;
-    filter:grayscale(1);
-    margin-right: 1%;
-}
-
-select[id="standing"]{
-    filter: grayscale(1);
-}
 
 #hoverText {
     position: absolute;

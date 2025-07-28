@@ -64,7 +64,7 @@ function exportPlan() {
 
     tables.forEach(table => {
         var tableGroup = table.id.split("-")[0];
-        compressed += `${tableGroup}`; // Add table ID to compressed string
+        compressed += `${tableGroup}\n`; // Add table ID to compressed string
         if (tableGroup != "GERS") {
             var selectId = `${tableGroup}Select`;
             var selectValue = document.getElementById(selectId).value;

@@ -12,8 +12,10 @@
         <script src="./plans.js"></script>        
         <script src="./script.js" defer></script>
         <!-- Import intro.js -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/introjs.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/intro.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/introjs.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/intro.min.js"></script> -->
         <!-- Import custom styles for intro.js -->
         
     </head>
@@ -26,12 +28,6 @@
                 <!-- <img src="imgs/diskette.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
                 <!-- <img src="imgs/file-import.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
                  <!-- add dropdown -->
-                 <select name="standing" id="standing">
-                    <option value="freshman" selected>👶</option>
-                    <option value="sophomore">🧒</option>
-                    <option value="junior">🧑</option>
-                    <option value="senior">🧓</option>
-                </select>
                 
                 <img src="imgs/cloud-computing.png" title="Save your current plan to the server" 
                 alt="Save Icon" id="saveIcon" onclick="showPopup('save')" class="headerBtns">
@@ -55,6 +51,10 @@
 
                 <img src="imgs/icons8-add-column-100.png" title="Add a column to all tables" 
                 alt="Add Column Icon" id="addColIcon" onclick="customAddColumn()" class="headerBtns">
+                
+                <img src="imgs/technical-service.png" title="Report a bug or suggest a feature" 
+                alt="Add Column Icon" id="reportBugIcon" onclick="customAddColumn()" class="headerBtns">
+
                 <!-- temporary button to toggle light mode -->
                 <!-- <input type="button" id="toggleLightMode" onclick="toggleLightMode()"  value="Toggle Light Mode"> -->
 
@@ -71,12 +71,15 @@
                 
             </div>
             <div id="controlPanel"> <!-- style="display:none"-->
+                
                     <label for="semesterSlider">Select Current Semester: </label>
                     <span id="semesterValue">1</span>
                     <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
                     <!-- <button id="saveBtn" class="panelBtns" onclick="authenticate('save')">Save Plan</button>
                     <button id="loadBtn" class="panelBtns" onclick="authenticate('load')">Load Plan</button> -->
                     <!-- <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Semester</button> -->
+                    <div id="legend">
+                    </div>
             </div>
             <div id="savePopup" class="popup">
                 Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('savePopup')">
