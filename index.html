@@ -71,13 +71,11 @@
                 
             </div>
             <div id="controlPanel"> <!-- style="display:none"-->
-                
-                    <label for="semesterSlider">Select Current Semester: </label>
-                    <span id="semesterValue">1</span>
-                    <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
-                    <!-- <button id="saveBtn" class="panelBtns" onclick="authenticate('save')">Save Plan</button>
-                    <button id="loadBtn" class="panelBtns" onclick="authenticate('load')">Load Plan</button> -->
-                    <!-- <button id="addColBtn" class="panelBtns" onclick="customAddColumn()">Add Semester</button> -->
+                    <div id="sliderWrapper">
+                        <label for="semesterSlider">Select Current Semester: </label>
+                        <span id="semesterValue">1</span>
+                        <input type="range" id="semesterSlider" min="1" max="8" step="1" value="1" list="semesterList" oninput="updateSemesterLabel()">
+                    </div>
                     <div id="legend">
                     </div>
             </div>

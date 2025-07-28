@@ -299,6 +299,7 @@ function createLegend(){
     svg.setAttribute("width", "1000");
     svg.setAttribute("height", "50");
     svg.setAttribute("viewBox", "0 0 1000 70");
+
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 
     var getColor = function(colorName) {
@@ -313,7 +314,7 @@ function createLegend(){
         {color: getColor("red"), text: "Incomplete"},
         {color: getColor("pink"), text: "Error"},
     ];
-    var xPos = 0;
+    var xPos = -100;
     colors.forEach(function(item, index) {
         var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         circle.setAttribute("cx", xPos + 100);
