@@ -513,7 +513,7 @@ function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
         select: function(event, ui) {
             inputValue = ui.item.label;
             // var rowLabeler = event.target.classList[1];
-            console.log("Cause of Call: ", event.target);
+            // console.log("Cause of Call: ", event.target);
             // rowLabel = event.target
 
             console.log(inputValue, rowLabel, programTitle);
