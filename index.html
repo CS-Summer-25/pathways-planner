@@ -45,11 +45,13 @@
                 <img src="imgs/icons8-open-document-100.png" title="Import a plan from the user" 
                 alt="Import Icon" id="openIcon" onclick="showPopup('import')" class="headerBtns">
 
-                <img src="imgs/info.png" title="Tutorial on how to use the planner" 
+                <img src="imgs/info.png" title="" 
                 alt="Info Icon" id="infoIcon" onclick="tutorial()" class="headerBtns">
 
-                <img src="imgs/question.png" title="" 
-                alt="Question Icon" id="questionIcon" onclick="faq()" class="headerBtns">
+                <!-- <img src="imgs/question.png" title="Tutorial on how to use the planner" 
+                alt="Question Icon" id="questionIcon" onclick="faq()" class="headerBtns"> -->
+                <img src="imgs/question.png" title="Tutorial on how to use the planner" 
+                alt="Question Icon" id="questionIcon" class="headerBtns">
 
                 <img src="imgs/icons8-add-column-100.png" title="Add a column to all tables" 
                 alt="Add Column Icon" id="addColIcon" onclick="customAddColumn()" class="headerBtns">
@@ -131,22 +133,10 @@
                 <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
             </div>
             <div id="exportPopup" class="popup">
-                <span>Export a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('exportPopup')"></span>
+                <span>Export a plan to your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('exportPopup')"></span>
                 <br/><br/>
                 <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
                 <!-- Find which semesters they want to export -->
-                <input type="range" id="yearInput" list="yearList">
-                    <datalist id="yearList">
-                        <option value="2022" selected>2022</option>
-                        <option value="2023">2023</option>
-                        <option value="2024">2024</option>
-                        <option value="2025">2025</option>
-                        <option value="2026">2026</option>
-                    </datalist>
-                <input type="radio" id="termInput" name="term" value="Fall">Fall
-                <input type="radio" id="termInput" name="term" value="Spring">Spring
-                <br/><br/>
-                <input type="text" id="courses" placeholder="Enter courses, comma-separated (e.g. CS-101, MATH-201)"><br/><br/>
                 <button id="exportPlanBtn" onclick="exportPlan()">Export Plan</button>
             </div>
             <div id="mainBody">

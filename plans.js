@@ -44,6 +44,9 @@ function sendCode(emailField){
         email = result['email']
         code = result['code']
 
+        var codeSent = document.getElementById("codeSentMsg");
+        codeSent.style.display = "block";
+
         alert("Code sent successfully! Please check your email.");
     })
     .catch(error => {
@@ -56,44 +59,71 @@ function exportPlan() {
 
     var tables = document.querySelectorAll(".programTable");
     var compressed = "";
+    var tableLst = [];
+    compressed += `Course, Semester\n`;
 
     tables.forEach(table => {
-
         var tableGroup = table.id.split("-")[0];
         compressed += `${tableGroup}`; // Add table ID to compressed string
         if (tableGroup != "GERS") {
             var selectId = `${tableGroup}Select`;
             var selectValue = document.getElementById(selectId).value;
-            compressed += `:/${selectValue}`; // Add program to compressed string
+            // compressed += `:/${selectValue}`; // Add program to compressed string
             // compressed += `/${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
+            tableGroup = `${tableGroup}: ${selectValue}`; // Add program to compressed string
+
         }
-        compressed += `\n`; // end of table tag
+        if (tableLst.indexOf(tableGroup) == -1) {
+            tableLst.push(tableGroup);
+        }
+
+        // compressed += `\n`; // end of table tag
         var numRows = table.rows.length;
-        for (let i = 1; i < numRows; i++) { // Start from 1 to skip header row
+        var yearRow = table.rows[0].cells;
+        var semesterRow = table.rows[1].cells;
+        for (let i = 2; i < numRows; i++) { // Start from 2 to skip header rows
             var relevantRow = table.rows[i];
             var inputs = relevantRow.getElementsByTagName("input");
-            var rowLabel = relevantRow.cells[0].innerHTML;
+            // var rowLabel = relevantRow.cells[0].innerHTML;
             // var courses = [];
-
             for (let j = 0; j < inputs.length; j++) {
+                var headerIdx = j + 1;
+                var year = yearRow[Math.ceil((headerIdx/2))].innerHTML; // Get the year from the first row
+                var semester = semesterRow[headerIdx].innerHTML;
+                var rowLabel = relevantRow.cells[0].innerHTML;
+                // console.log(year, semester);
+                // console.log(yearRow[Math.ceil((j+1)/2)].innerHTML, semesterRow[j+1].innerHTML);
+                // console.log(inputs[j]);
                 if (inputs[j].type == "checkbox") {
                     if (inputs[j].checked) {
-                        compressed += `${rowLabel},${j+1},1\n`;
+                        // compressed += `${rowLabel},${j+1},1\n`;
+                        compressed += `"${rowLabel}",${year}-${semester}\n`;
                     }
                 }
                 else{ 
                     if (inputs[j].value !== "") {
-                        // courses.push(inputs[j].value);
-                        compressed += `${rowLabel},${j+1},${inputs[j].value}\n`;
+                        if (rowLabel == "CLPs") {
+                            compressed += `"CLPs: ${inputs[j].value}",${year}-${semester}\n`;
+                        }
+                        else{
+                            // courses.push(inputs[j].value);
+                            // compressed += `${rowLabel},${j+1},${inputs[j].value}\n`;
+                            compressed += `"${inputs[j].value}",${year}-${semester}\n`;
+                        }
                     }
                 }
             }
         }
-        compressed = compressed.slice(0, -1); // Remove the last comma
-        compressed += `\n`; 
+        // compressed = compressed.slice(0, -1); // Remove the last comma
+        // compressed += `\n`; 
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
+    compressed = [tableLst, compressed].join("\n\n"); // Add table names at the top
 
+    // use this to test the compressed string without downloading file
+    // if (true) 
+    //     console.log(compressed);
+    //     return compressed;
     // Download the compressed string as a file
     var blob = new Blob([compressed], { type: "text/plain" });
     var link = document.createElement("a");
@@ -102,6 +132,10 @@ function exportPlan() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+
+    alert("Plan exported successfully!");
+    console.log("Plan exported successfully.");
+    closePopup("exportPopup");
 
 }
 
@@ -175,14 +209,17 @@ function savePlan() {
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
 
-    // Download the compressed string as a file
-    var blob = new Blob([compressed], { type: "text/plain" });
-    var link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "plan.txt";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // // Download the compressed string as a file
+    // var blob = new Blob([compressed], { type: "text/plain" });
+    // var link = document.createElement("a");
+    // link.href = URL.createObjectURL(blob);
+    // link.download = "plan.txt";
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
+
+    var sentCode = document.getElementById("codeSentMsg");
+    sentCode.style.display = "none"; // Hide the code sent message
     
 
     closePopup("savePopup");
@@ -272,6 +309,9 @@ function loadPlan() {
 
             setTimeout(() => {
                 closeMenuItems();
+
+                // keep the scroll position at the top
+                document.documentElement.scrollTop = 0;
             }, 2000);
 
             updateSemesterLabel();
