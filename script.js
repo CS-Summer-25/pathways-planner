@@ -288,13 +288,28 @@ async function initialize() {
     });
 
     // Intro.js tutorial setup
-    document.getElementById("questionIcon").addEventListener("click", function() {
-        introJs().setOptions({
+    // document.getElementById("questionIcon").addEventListener("click", function() {
+        
+    // });
+    document.getElementById("questionIcon").addEventListener("click", tourWebsite);
+}
+
+// --------------------------------------------------------
+
+function tourWebsite() {
+    var tutorial = introJs();
+    
+    tutorial.setOptions({
             steps: [
                 {
                     element: '#questionIcon',
                     intro: 'Hey! Welcome to the Pathways Planner! This is a tool to help you plan your courses and track your progress towards graduation.',
                     position: 'right'
+                },
+                {
+                    element: document.querySelector('#body-wrapper'),
+                    intro: 'Each of these sections represents a different part of your academic plan. You can add courses to each section typing in a course name.',
+                    position: 'top'
                 },
                 {
                     element: '#GERS-wrapper',
@@ -310,15 +325,63 @@ async function initialize() {
                 {
                     element: '#mainMajorSelect',
                     intro: 'Select your main major from the dropdown. You can also search for it using the autocomplete feature.',
-                    position: 'top',
-                    disableInteraction: false
+                    disableInteraction: false,
+                    // wait for user to enter a course
+                    // disableInteraction: true,
+                    // hideButtons: true,
+                    // waitFor: {
+                    //     event: 'input',
+                    //     element: '#mainMajorSelect',
+                    //     callback: grabCourses.bind(null, 'mainMajorSelect'),
+                    // },
+                    // position: 'top',
                 },
-            ]
-        }).start();
+                {
+                    element: '#doubleMajorSelect',
+                    intro: 'Select your double major from the dropdown. You can also search for it using the autocomplete feature.',
+                    disableInteraction: false,
+                },
+            ],
+        }
+    )
+
+    tutorial.onafterchange(function(targetElement) {
+        console.log("Changed to: ", targetElement);
+        var nextBtn = document.querySelector('.introjs-nextbutton');
+
+        if (targetElement.id.endsWith("Select")) {
+            var id = targetElement.id.split("Select")[0];
+            console.log(`${targetElement.id} Element Found`);
+            var input = document.getElementById(targetElement.id);
+            tutorial.setOption('disableInteraction', true);
+            // tutorial.hideButtons();
+            setTimeout(() => input.focus(), 1000);
+            input.addEventListener('input', async function() {
+                console.log("Input changed: ", input.value);
+                if (input.value !== "") {
+                    nextBtn.disabled = false;
+                    tutorial.setOption('enableInteraction', true);
+                    // tutorial.hideButtons();
+                    grabCourses(targetElement.id);
+                    // if valid program: create new step that highlights the table
+                    if (document.getElementById(`${id}-table`)) {
+                        await new Promise(resolve => setTimeout(resolve, 100));
+                        tutorial.addStep({
+                            element: `#${id}-table`,
+                            intro: `Look at that! This is your ${id}'s academic plan. Like the GERs, you can search for courses in each field.`,
+                        });
+                    }
+
+
+                }
+            });
+            
+        }
     });
+
+    tutorial.start();
 }
 
-// --------------------------------------------------------
 
 // This function is used to set the autocomplete selection of majors. Runs grabCourses() on all select program inputs on page. 
 function selectAutocomplete(){
