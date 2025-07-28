@@ -335,6 +335,17 @@ function selectAutocomplete(){
             select: function(event, ui) {
                 event.target.value = ui.item.label;
                 grabCourses(event.target.id);
+                console.log("Selected Program: ", event.target);
+                // hide 
+                // hide parent div of the select input
+                event.target.parentElement.setAttribute("style", "display: none;");
+                // show edit button
+                console.log("Event Target: ", event.target);
+                var tableId = event.target.id.replace("Select", "");
+                var editBtn = document.getElementById(tableId.concat("-edit"));
+                console.log("Edit Button: ", tableId.concat("-edit"));
+                console.log("Edit Button: ", editBtn);
+                editBtn.setAttribute("style", "display: block;");
             }
         });
     }
@@ -544,6 +555,11 @@ function createTable(tableName, tableId, firstCol) {
     createAddRowBtn(tableId, tableDiv);
 
     createTableToggle(tableId, name);
+
+    if (tableId != "GERS") {
+        createEditBtn(tableId, name);
+    }
+
 }
 
 
@@ -988,6 +1004,24 @@ function createTableToggle(tableId, name) {
     };
     name.appendChild(toggleBtn);
 }
+
+// This function creates an edit button for the table which, when clicked, runs customAddColumn(). This button is inserted to the right of the table header.
+function createEditBtn(tableId, tableDiv) {
+
+    var editBtn = document.createElement("input");
+    editBtn.setAttribute("id", tableId.concat("-edit"));
+    editBtn.setAttribute("class", "editProgramBtn");
+    editBtn.setAttribute("type", "button");
+    editBtn.onclick = function(event) {
+        var tableId = event.target.id.replace("-edit", "");
+        var tableWrapper = document.getElementById(tableId.concat("-wrapper"))
+        var majorSelectElements = tableWrapper.querySelector("#selects");
+        majorSelectElements.style.display = majorSelectElements.style.display == "flex" ? "none" : "flex"
+
+    };
+    tableDiv.appendChild(editBtn);
+}
+
 
 // This function removes a given table using its ID (tail-to-head). It leaves only the select input intact, so that the user can select a different program.
 function removeTable(tableId) {

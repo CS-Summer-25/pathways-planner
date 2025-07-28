@@ -605,6 +605,29 @@ input[type=range] + datalist option:last-child {
 
 }
 
+.editProgramBtn{
+    /* move to right */
+    justify-self: flex-end;
+    width: 2.5%;
+    /* display: none;  */
+    /* margin-bottom: 1%; */
+    border: none;
+    padding-bottom: 0.5%;
+    margin-left: 1%;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    /* border-radius: 5px; */
+    font-family: inherit;
+    background: url("imgs/edit_round.png") no-repeat;
+    background-size: contain;
+    align-self: flex-end;
+    justify-self: flex-end;
+    /* float: left; */
+    filter: invert(1);
+
+}
+
 /* table{
     width: 100%;
     margin: 0 0;
