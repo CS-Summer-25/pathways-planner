@@ -6,6 +6,18 @@ let minors = {};
 let courseOptions = {};
 let GER_COURSES = null;
 let GERS = null;
+// // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+// var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+//     var darkMode = e.matches ? "dark" : "light";
+//     console.log("Dark Mode Changed: ", darkMode);
+// });
+// console.log("Initialize Dark Mode: ", isDarkMode);
+// var isDarkMode = null;
+
+// function updateDarkLightMode() {
+//     isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+// }
 
 // -----------------Asynchronous Functions-----------------
 
@@ -272,8 +284,8 @@ async function initialize() {
     console.log(majors, minors);
     console.log("Starting GER Population");
     
-    setGERSAutocomplete();
-    selectAutocomplete();
+    await setGERSAutocomplete();
+    await selectAutocomplete();
     console.log("Initialization complete!")
 
     var headerBtns = document.getElementsByClassName("headerBtns")
@@ -320,7 +332,7 @@ function createLegend(){
         circle.setAttribute("cx", xPos + 100);
         circle.setAttribute("cy", "30");
         circle.setAttribute("r", "20");
-        circle.setAttribute("stroke", "darkgray");
+        circle.setAttribute("stroke", "darkgrey");
         circle.setAttribute("stroke-width", "2");
         circle.setAttribute("fill", item.color);
         svg.appendChild(circle);
@@ -340,13 +352,13 @@ function createLegend(){
 // --------------------------------------------------------
 
 function tourWebsite() {
-    var tutorial = introJs();
+    // console.log("isDark Mode: ", isDarkMode);
+    var tutorial = introJs.tour();
     
     tutorial.setOptions({
-
+            disableInteraction: false,
             showProgress: false,
             overlayOpacity: 0.85,
-            // disableInteraction: false,
             steps: [
                 {
                     element: document.querySelector('#questionIcon'),
@@ -391,7 +403,7 @@ function tourWebsite() {
         }
     )
 
-    // tutorial.onafterchange(function(targetElement) {
+    // tutorial.onAfterChange(function(targetElement) {
     //     console.log("Changed to: ", targetElement);
     //     var nextBtn = document.querySelector('.introjs-nextbutton');
 
@@ -430,7 +442,7 @@ function tourWebsite() {
 
 
 // This function is used to set the autocomplete selection of majors. Runs grabCourses() on all select program inputs on page. 
-function selectAutocomplete(){
+async function selectAutocomplete(){
     var programInputs = document.getElementsByClassName("programInput");
 
     for (let i = 0; i < programInputs.length; i++) {
@@ -461,7 +473,7 @@ function selectAutocomplete(){
 }
 
 // This function sets up the autocomplete for GERS. Runs createTable("GERS", "GERS", GERS) and isValidCourse()
-function setGERSAutocomplete() {
+async function setGERSAutocomplete() {
     $( function() {        
         fetch('gers.json')
         .then(response => response.json())
@@ -759,7 +771,7 @@ function isSpecificCourse(rowLabel) {
 // This function updates the styling of the table according to user input. Affects both the input fields and the row labels.
 // Runs setCourseInputColor(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
 function updateTable(relevantRow, j) {
-    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var inputValue = this.value;
 
     // Handle input change if necessary
@@ -1302,7 +1314,7 @@ function showHoverText(element, x, y) {
     hoverText.style.top = y + "px";
     hoverText.innerHTML = element.getAttribute("title") || "No description available.";
     hoverText.style.backgroundColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.8)";
-    hoverText.style.color = window.matchMedia('(prefers-color-scheme: dark)').matches ? "black" : "black";
+    hoverText.style.color = window.matchMedia('(prefers-color-scheme: dark)').matches ? "black" : "white";
     hoverText.style.padding = "10px";
     hoverText.style.borderRadius = "5px";
     hoverText.style.zIndex = "1000"; // Ensure it appears above other elements

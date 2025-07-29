@@ -3,7 +3,6 @@
 @media (prefers-color-scheme: light) {
     body,
     #body-wrapper,
-    #controlPanel,
     #mainBody {
         background-color: #dad5dd;
         /* background-color: rgb(34, 34, 34); */
@@ -50,6 +49,7 @@
     #controlPanel {
         border: solid 1px #3f3f3f;
         color: #3f3f3f;
+        background-color: #b2bcc2;
     }
 
     .panelBtns {
@@ -125,15 +125,25 @@
 
     #footer {
         background-color: rgb(158, 83, 196, 0.75);
+        color: black;
+    }
+
+    #hoverText {
+        background-color: rgba(0, 0, 0, 0.75);
         color: white;
     }
+
+    #legend {
+        color: inherit;
+        font-weight: bold;
+    }
+
 }
 
 /* Dark Mode Styling */
 @media (prefers-color-scheme: dark) {
     body,
     #body-wrapper,
-    #controlPanel,
     #mainBody {
         background-color: #222;
         /* color: ; */
@@ -150,7 +160,7 @@
     }
 
     #heading {
-        color: lightgray;
+        color: lightgrey;
     }
 
     #switchLabel,
@@ -178,6 +188,7 @@
     #controlPanel {
         border: solid 1px rgb(196, 83, 196);
         color: silver;
+        background-color: #3d444d
     }
 
     .panelBtns {
@@ -218,7 +229,7 @@
     }
 
     .headerRows {
-        background-color: slategray;
+        background-color: slategrey;
         color: whitesmoke;
     }
 
@@ -251,6 +262,14 @@
 
     #footer {
         background-color: rgb(158, 83, 196, 0.75);
+        color: white;
+    }
+    #hoverText {
+        background-color: rgba(255, 255, 255, 0.75);
+        color: black;
+    }
+
+    #legend {
         color: white;
     }
 }
@@ -423,8 +442,6 @@ body{
     /*justify-content: center; */
     gap: 1%;
     border-radius: 5px;
-    /* background-color: #343a40; */
-    background-color: #3d444d;
 }
 
 #sliderWrapper {
@@ -523,7 +540,6 @@ datalist option {
     /* align-items: center; */
     align-self: auto;
     font-size: small;
-    color: white;
     flex-basis: 60vw;
     /* writing-mode: vertical-lr; */
 }
@@ -793,8 +809,6 @@ h3{
 
 #hoverText {
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
     padding: 5px;
     border-radius: 5px;
     display: none; /* Hidden by default */
