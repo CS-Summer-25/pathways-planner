@@ -427,3 +427,7 @@ function closePopup(popupId) {
 
 
 // }
+
+function guidePopup(){
+    
+}

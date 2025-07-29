@@ -4,19 +4,17 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pathways Planner</title>
-        <link rel="stylesheet" href="styles.css">
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
         <script src="./plans.js"></script>        
         <script src="./script.js" defer></script>
-        <!-- Import intro.js -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
-        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/introjs.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/4.2.2/intro.min.js"></script> -->
-        <!-- Import custom styles for intro.js -->
+
+
+        <link rel="stylesheet" href="styles.css">
         
     </head>
     <body onload="initialize()">
@@ -29,30 +27,33 @@
                 <!-- <img src="imgs/file-import.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
                  <!-- add dropdown -->
                 
-                <img src="imgs/cloud-computing.png" title="Save your current plan to the server" 
+                <img src="imgs/diskette.png" alt="Guided tour for filling out your plan" 
+                alt="Guided tour" id="saveIcon" onclick="showPopup('guide')" class="headerBtns">
+
+                <img src="imgs/cloud-computing.png" alt="Save your current plan to the server" 
                 alt="Save Icon" id="saveIcon" onclick="showPopup('save')" class="headerBtns">
 
-                <img src="imgs/download.png" title="Load a saved plan from the server" 
+                <img src="imgs/download.png" alt="Load a saved plan from the server" 
                 alt="Load Icon" id="loadIcon" onclick="showPopup('load')" class="headerBtns">   
 
-                <img src="imgs/icons8-file-upload-100.png" title="Export your current plan to your computer" 
+                <img src="imgs/icons8-file-upload-100.png" alt="Export your current plan to your computer" 
                 alt="Export Icon" id="uploadIcon" onclick="showPopup('export')" class="headerBtns">
 
-                <img src="imgs/icons8-open-document-100.png" title="Import a plan from the user" 
+                <img src="imgs/icons8-open-document-100.png" alt="Import a plan from the user" 
                 alt="Import Icon" id="openIcon" onclick="showPopup('import')" class="headerBtns">
 
-                <img src="imgs/info.png" title="" 
+                <img src="imgs/info.png" alt="" 
                 alt="Info Icon" id="infoIcon" onclick="tutorial()" class="headerBtns">
 
                 <!-- <img src="imgs/question.png" title="Tutorial on how to use the planner" 
                 alt="Question Icon" id="questionIcon" onclick="faq()" class="headerBtns"> -->
-                <img src="imgs/question.png" title="Tutorial on how to use the planner" 
+                <img src="imgs/question.png" alt="Tutorial on how to use the planner" 
                 alt="Question Icon" id="questionIcon" class="headerBtns">
 
-                <img src="imgs/icons8-add-column-100.png" title="Add a column to all tables" 
+                <img src="imgs/icons8-add-column-100.png" alt="Add a column to all tables" 
                 alt="Add Column Icon" id="addColIcon" onclick="customAddColumn()" class="headerBtns">
                 
-                <img src="imgs/technical-service.png" title="Report a bug or suggest a feature" 
+                <img src="imgs/technical-service.png" alt="Report a bug or suggest a feature" 
                 alt="Add Column Icon" id="reportBugIcon" onclick="customAddColumn()" class="headerBtns">
 
                 <!-- temporary button to toggle light mode -->
@@ -133,8 +134,60 @@
                 </table>
                 <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
             </div>
+            <div id="guidePopup" class="popup" style="z-index: 100">
+                    <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('guidePopup')">
+                    <h2>Guided Tour</h2>
+                    <p>Welcome to the guided tour! This will help you fill out your plan.</p>
+                    <p>To start, enter your course code in the input below. For example, if you want to add the course "CSC-101", type "CSC-101" in the input field.</p>
+                    <p>Once you enter the course code, click on the</p>
+                    <input type="text" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-101)">
+
+                    <div id="guideTime" style="display: none;">
+                        <p>When did you take it?</p>
+                        <input type="text" id="guideYearInput" class="yearInput" placeholder="Enter year (e.g. 2025)" name="Enter a year"><br/><br/>
+                        <p>Was it Fall or Spring?</p>
+                        <input type="text" id="guideTermInput" class="termInput" placeholder="Enter term (e.g. Fall)" name="Enter a term"><br/><br/>
+                    </div>
+
+                    <div id="guideMajor" style="display: none;">
+                        <p>What is your major?</p>
+                        <input type="text" id="guideMajorInput" class="majorInput" placeholder="Enter your major (e.g. Computer Science)"><br/><br/>
+                    </div>
+
+                    <!-- <div id="guideMinor" style="display: none;">
+                        <p>Do you have a minor?</p>
+                        <input type="text" id="guideMinorInput" class="minorInput" placeholder="Enter your minor (e.g. Mathematics)"><br/><br/>
+                    </div> -->
+
+                    <div id="guideConfirm" style="display: none;">
+                        <button id="guideAddBtn">Looks all good? Add to plan?</button>
+                    </div>
+
+                <br/><br/>
+                <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
+                <!-- Find which semesters they want to export -->
+                <!-- <button id="exportPlanBtn" onclick="exportPlan()">Export Plan</button> -->
+            </div>
             <div id="exportPopup" class="popup">
-                <span>Export a plan to your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('exportPopup')"></span>
+                <span>
+                    <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('exportPopup')">
+                    You are about to export your plan to your computer as kind of a CSV file. It is going to be formatted as follows: 
+                    <br/><br/>
+                    <div style="background-color: black; padding: 10px; border-radius: 5px;">
+                        <code>
+                            Program
+                            <br/>
+                            Course Info, Year-Semester
+                            <br/>
+
+                            e.g. <br/><br/>
+
+                            GERS<br/>
+                            CSC-101, 2025-Fall<br/>
+                            CSC-102, 2025-Spring<br/>
+                        </code>
+                    </div><br/>
+                    Export a plan to your computer: </span>
                 <br/><br/>
                 <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
                 <!-- Find which semesters they want to export -->
