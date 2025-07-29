@@ -258,8 +258,12 @@
 
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    /* font-size: large; */
+    /* font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, sans-serif; */
+    font-size: large;
+    font-weight:bold;
     min-height: 100vh;
+    /* background-color:  */
 }
 
 #body-wrapper {
@@ -283,7 +287,11 @@ body{
     flex-direction: row;
     align-items: center;
     /* align-content: center; */
-    justify-content: space-between;    
+    justify-content: space-between;   
+    
+    /* font-family:     , sans-serif; */
+    /* font-weight: 200; */
+    /* background-color: black; */
 }
 
 #logo {
@@ -537,6 +545,7 @@ input[type=range] + datalist option:last-child {
 
     right: 1px;
     cursor: pointer;
+    float: right;
 
 }
 
@@ -554,13 +563,12 @@ input[type=range] + datalist option:last-child {
     min-height: 100%;
     flex-grow: 1;
 
-    /* padding-top: 17%; */
     display: flex;
     flex-direction: column;
     width: 100%;
-    /* margin-left: 0.5%; */
 
     z-index: 1;
+    /* background-color: black; */
 }
 
 .tableGroup {
@@ -649,6 +657,7 @@ input[type=range] + datalist option:last-child {
 .firstCol{
     /*font-size-adjust: 0.8em;   */
     /* width:10%; */
+    padding-left: 0.2%;
     width: auto;
     height: 10%;
     max-width: 10%;
@@ -781,4 +790,36 @@ h3{
 #hoverTextContent {
     font-size: small;
     font-weight: bold;
+}
+/* 
+.introjs-tooltipReferenceLayer{
+    z-index: -999;
+}
+
+.introjs-helperLayer {
+    z-index: 1000;
+} */
+
+
+
+
+code {
+    font-family: monospace;
+    font-size: small;
+/* dark grey background */
+    background-color: #b8b6b684;
+    color: white;
+
+    padding: 2px 4px;
+    border-radius: 3px;
+}
+
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+  }
+
+.introjs-relativePosition{
+    z-index: 99999999999999;
 }

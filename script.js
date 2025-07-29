@@ -6,6 +6,7 @@ let minors = {};
 let courseOptions = {};
 let GER_COURSES = null;
 let GERS = null;
+let INVERTED_GER_COURSES = null;
 
 // -----------------Asynchronous Functions-----------------
 
@@ -272,8 +273,8 @@ async function initialize() {
     console.log(majors, minors);
     console.log("Starting GER Population");
     
-    setGERSAutocomplete();
-    selectAutocomplete();
+    await setGERSAutocomplete();
+    await selectAutocomplete();
     console.log("Initialization complete!")
 
     var headerBtns = document.getElementsByClassName("headerBtns")
@@ -290,13 +291,110 @@ async function initialize() {
     createLegend();
     
     document.getElementById("questionIcon").addEventListener("click", tourWebsite);
+
+    setTimeout(initializeGuidePopup, 1000);
+}
+
+function createInvertedGERCourses() {
+    var inverted = {};
+    for (const [key, value] of Object.entries(GER_COURSES)) {
+        if (Array.isArray(value)) {
+            for (const course of value) {
+                if (!inverted[course]) {
+                    inverted[course] = [];
+                }
+                inverted[course].push(key);
+            }
+        } else {
+            inverted[value] = key;
+        }
+    }
+    INVERTED_GER_COURSES = inverted;
+    console.log(INVERTED_GER_COURSES);
+}
+
+function initializeGuidePopup() {
+
+    var input = document.getElementById("guideCourseInput");
+    console.log("GUIDE");
+    
+
+    $(input).autocomplete({
+        autoFocus: true,
+        source: Object.keys(INVERTED_GER_COURSES),
+        select: function(event, ui) {
+            // ui.disp
+            // hide ui
+            // input.setAttribu  
+            document.getElementById("guideTime").setAttribute("style", "display: block;");
+            var time = document.getElementById("guideYearInput");
+            console.log(time);
+            $(time).autocomplete({
+                autoFocus: true,
+                source: ["Freshman Year", "Sophomore Year", "Junior Year", "Senior Year"],
+                select: function(event, ui) {
+                    // Set the selected time value
+                    time.value = ui.item.value;
+                }
+            });
+
+            var term = document.getElementById("guideTermInput");
+            // term.setAttribute("style", "display: block;");
+            $(term).autocomplete({
+                autoFocus: true,
+                source: ["Spring", "Fall"],
+                select: function(event, ui) {
+                    // show guideMajor
+                    document.getElementById("guideMajor").setAttribute("style", "display: block;");
+                    var major = document.getElementById("guideMajorInput");
+                    $(major).autocomplete({
+                        autoFocus: true,
+                        source: Object.keys(majors),
+                        select: function(event, ui) {
+                            // Set the selected major value
+                            console.log(document.getElementById("guideConfirm"));
+                            console.log(document.getElementById("guideAddBtn"));
+                            document.getElementById("guideConfirm").setAttribute("style", "display: block;");
+                            document.getElementById("guideAddBtn").addEventListener("click", function() {
+                                addToPlan(input.value, major.value, time.value, term.value);
+                                // hide the guide popup
+                                document.getElementById("guidePopup").setAttribute("style", "display: none;");
+                                // reset the input values
+                                input.value = "";
+                                time.value = "";
+                                term.value = "";
+                                major.value = "";
+                                showPopup("guide");
+                            });
+                        }
+                    });
+                }
+            });
+        }
+    });
+}
+
+function addToPlan(course, major, time, term) {
+    var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
+    if (isGER) {
+        // Add to GERS table
+        var j = 1 + (['Freshman Year', 'Sophomore Year', 'Junior Year', 'Senior Year'].indexOf(time)*2 + (term === "Spring" ? 1 : 0));
+        console.log("GERS_" + j + "-" );
+        INVERTED_GER_COURSES[course].forEach((ger) => {
+            var relevantRow = document.querySelectorAll(`.${ger}`);
+            console.log(relevantRow);
+            relevantRow[j].innerHTML = course;
+            relevantRow[j].value = course;
+            relevantRow[j].setAttribute("style", setColorOnSystemSettings("light_green"));
+        });
+    }
 }
 
 function createLegend(){
 
     var legend = document.getElementById("legend");
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("width", "1000");
+    svg.setAttribute("width", document.body.clientWidth/2);
     svg.setAttribute("height", "50");
     svg.setAttribute("viewBox", "0 0 1000 70");
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
@@ -316,21 +414,21 @@ function createLegend(){
     var xPos = 0;
     colors.forEach(function(item, index) {
         var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-        circle.setAttribute("cx", xPos + 100);
-        circle.setAttribute("cy", "30");
+        circle.setAttribute("cx", xPos + 10);
+        circle.setAttribute("cy", "35");
         circle.setAttribute("r", "20");
         circle.setAttribute("stroke", "darkgray");
         circle.setAttribute("stroke-width", "2");
         circle.setAttribute("fill", item.color);
         svg.appendChild(circle);
         var text = document.createElementNS("http://www.w3.org/2000/svg", "text");
-        text.setAttribute("x", xPos + 140);
-        text.setAttribute("y", "40");
+        text.setAttribute("x", xPos + 40);
+        text.setAttribute("y", "45");
         text.setAttribute("font-size", "25");
         text.setAttribute("fill", "white");
         text.textContent = item.text;
         svg.appendChild(text);
-        xPos += 250; // Adjust spacing between circles
+        xPos += 220; // Adjust spacing between circles
     });
     legend.appendChild(svg);
 
@@ -339,12 +437,13 @@ function createLegend(){
 // --------------------------------------------------------
 
 function tourWebsite() {
-    var tutorial = introJs();
+    var tutorial = introJs.tour();
     
     tutorial.setOptions({
 
             showProgress: false,
             overlayOpacity: 0.85,
+            // disableInteraction: false,
             // disableInteraction: false,
             steps: [
                 {
@@ -429,7 +528,7 @@ function tourWebsite() {
 
 
 // This function is used to set the autocomplete selection of majors. Runs grabCourses() on all select program inputs on page. 
-function selectAutocomplete(){
+async function selectAutocomplete(){
     var programInputs = document.getElementsByClassName("programInput");
 
     for (let i = 0; i < programInputs.length; i++) {
@@ -460,7 +559,7 @@ function selectAutocomplete(){
 }
 
 // This function sets up the autocomplete for GERS. Runs createTable("GERS", "GERS", GERS) and isValidCourse()
-function setGERSAutocomplete() {
+async function setGERSAutocomplete() {
     $( function() {        
         fetch('gers.json')
         .then(response => response.json())
@@ -471,6 +570,10 @@ function setGERSAutocomplete() {
             }
             // convert all keys to lowercase
             GER_COURSES = Object.fromEntries(Object.entries(gers).map(([key, value]) => [key.toLowerCase(), value]));
+            if (!INVERTED_GER_COURSES) {
+                createInvertedGERCourses();
+            }
+            console.log(GER_COURSES);
             // Loop over gers dictionary to set up autocomplete for all GER fields
             for (let gerKey in GER_COURSES) {
                 if (GER_COURSES.hasOwnProperty(gerKey)) {
@@ -498,7 +601,7 @@ function setGERSAutocomplete() {
                 }
             }
         });
-
+        
       } 
     );
 }
@@ -1299,7 +1402,7 @@ function showHoverText(element, x, y) {
     hoverText.style.display = "block";
     hoverText.style.left = x + "px";
     hoverText.style.top = y + "px";
-    hoverText.innerHTML = element.getAttribute("title") || "No description available.";
+    hoverText.innerHTML = element.getAttribute("alt") || "No description available.";
     hoverText.style.backgroundColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.8)";
     hoverText.style.color = window.matchMedia('(prefers-color-scheme: dark)').matches ? "black" : "black";
     hoverText.style.padding = "10px";
