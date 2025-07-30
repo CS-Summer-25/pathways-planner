@@ -21,7 +21,7 @@ let INVERTED_courseOptions = null;
 //     isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 // }
 
-// -----------------Asynchronous Functions-----------------
+// -----------------Asynchronous/On-Load Functions-----------------
 
 // This function constructs majors/minors objects from acalog_programs.json.
 async function assignCourses(path) {
@@ -430,7 +430,10 @@ function addToPlan(course, major, time, term) {
             console.log(relevantRow);
             relevantRow[j].innerHTML = course;
             relevantRow[j].value = course;
-            relevantRow[j].setAttribute("style", setColorOnSystemSettings("light_green"));
+            // Make sure the input updates table styling accordingly
+            relevantRow[j].dispatchEvent(new Event('change'));
+            // relevantRow[j].setAttribute("style", setColorOnSystemSettings("light_green"));
+            
         });
     }
 }
@@ -493,7 +496,7 @@ function tourWebsite() {
             steps: [
                 {
                     element: document.querySelector('#questionIcon'),
-                    intro: 'Hey! Welcome to the Pathways Planner! This is a tool to help you plan your courses and track your progress towards graduation.',
+                    intro: 'Hey! Welcome to the Planadin! This is a tool to help you plan your courses and track your progress towards graduation.',
                     position: 'right'
                 },
                 {
