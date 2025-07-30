@@ -7,6 +7,7 @@ let courseOptions = {};
 let GER_COURSES = null;
 let GERS = null;
 let INVERTED_GER_COURSES = null;
+let INVERTED_courseOptions = null;
 // // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
@@ -52,8 +53,10 @@ async function assignCourses(path) {
                 for (let i = 0; i < numRows; i++) {
                     // the course code is the first part of the string
                     reqs.push(options[i].split(" ")[0]);
+                    
                 }
                 reqs = reqs.join(":");
+                courseOptions[programTitle].required = options;
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
@@ -122,6 +125,7 @@ async function assignCourses(path) {
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
+            // Required: Finish this pattern
             else if (pattern.startsWith("structchoose")) {
                 // this is a choice pattern
                 // the number in the pattern indicates how many rows to create
@@ -308,21 +312,51 @@ async function initialize() {
 }
 
 function createInvertedGERCourses() {
+    if (!INVERTED_courseOptions) {
+        createInvertedCourseOptions();
+    }
     var inverted = {};
-    for (const [key, value] of Object.entries(GER_COURSES)) {
+    for (const [programTitle, value] of Object.entries(GER_COURSES)) {
         if (Array.isArray(value)) {
             for (const course of value) {
                 if (!inverted[course]) {
                     inverted[course] = [];
                 }
-                inverted[course].push(key);
+                inverted[course].push(programTitle);
             }
         } else {
-            inverted[value] = key;
+            inverted[value] = programTitle;
         }
     }
     INVERTED_GER_COURSES = inverted;
     console.log(INVERTED_GER_COURSES);
+}
+
+function createInvertedCourseOptions() {
+    var inverted = {};
+    // console.log("Creating Inverted Course Options");
+    // console.log(courseOptions);
+    // structure of courseOptions: programTitle: {rowLabel: [course1, course2, ...]}
+    // thus, inverted should be {course: {programTitle: [rowLabel1, rowLabel2, ...]}}
+    // Actual structure - {course : [{programTitle:title, rowLabel:label}, ...]}
+    for (const [programTitle, values] of Object.entries(courseOptions)) {
+            for (const [label, courses] of Object.entries(values)) {
+                // console.log("Course: ", courses);
+                // console.log("Label: ", label);
+                for (const course of courses) {
+                    key = {programTitle: programTitle, rowLabel: label};
+
+                    if (!inverted[course]) {
+                        inverted[course] = [];
+                    }
+
+                    inverted[course].push(key);
+                }
+            }
+        }
+    // console.log("Inverted Course Options: ");
+    console.log(inverted)
+    INVERTED_courseOptions = inverted;
 }
 
 function initializeGuidePopup() {
@@ -335,9 +369,8 @@ function initializeGuidePopup() {
         autoFocus: true,
         source: Object.keys(INVERTED_GER_COURSES),
         select: function(event, ui) {
-            // ui.disp
+            // ui.display
             // hide ui
-            // input.setAttribu  
             document.getElementById("guideTime").setAttribute("style", "display: block;");
             var time = document.getElementById("guideYearInput");
             console.log(time);
@@ -438,7 +471,7 @@ function createLegend(){
         text.setAttribute("x", xPos + 40);
         text.setAttribute("y", "45");
         text.setAttribute("font-size", "25");
-        text.setAttribute("fill", "white");
+        text.setAttribute("fill", window.matchMedia('(prefers-color-scheme: dark)').matches ? "white" : "black");
         text.textContent = item.text;
         svg.appendChild(text);
         xPos += 220; // Adjust spacing between circles
