@@ -403,7 +403,10 @@ function initializeGuidePopup() {
             }
         });
 
-        addToPlan(input.value, major.value, time, term);
+        var fulfilledCredits = addToPlan(input.value, major.value, time, term);
+        if (fulfilledCredits.length > 0) {
+            alert(`Added ${input.value} to your plan! \nYou have fulfilled ${fulfilledCredits.length} credits: ` + fulfilledCredits.join(", "));
+        }
         // hide the guide popup
         // document.getElementById("guidePopup").setAttribute("style", "display: none;");
         // reset the input values
@@ -419,22 +422,42 @@ function initializeGuidePopup() {
 }
 
 function addToPlan(course, major, time, term) {
+    // May be worth checking if the course is already in the plan in this function - mainly, don't want 1 course to be counted across multiple semesters
     var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
-    if (isGER) {
-        // Add to GERS table
-        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
-        console.log("GERS_" + j + "-" );
-        INVERTED_GER_COURSES[course].forEach((ger) => {
-            var relevantRow = document.querySelectorAll(`.${ger}`);
-            console.log(relevantRow);
-            relevantRow[j].innerHTML = course;
-            relevantRow[j].value = course;
-            // Make sure the input updates table styling accordingly
-            relevantRow[j].dispatchEvent(new Event('change'));
-            // relevantRow[j].setAttribute("style", setColorOnSystemSettings("light_green"));
-            
-        });
+    var availableCredits = [];
+
+    if (time != "" && term != "" && course != "") {
+        if (isGER) {
+            // Add to GERS table
+            var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
+            // console.log("GERS_" + j + "-" );
+            INVERTED_GER_COURSES[course].forEach((ger) => {
+                var relevantRow = document.querySelectorAll(`.${ger}`);
+                // console.log(relevantRow);
+                    if (relevantRow[j].disabled == false) {
+                    relevantRow[j].innerHTML = course;
+                    relevantRow[j].value = course;
+                    // Make sure the input updates table styling accordingly
+                    relevantRow[j].dispatchEvent(new Event('change'));
+                    availableCredits.push(relevantRow[0].innerHTML);
+                    }
+                    else {
+                        alert(course + ` couldn't be added to ` + relevantRow[0].innerHTML + ".\nEither this credit is fulfilled, or it is not available for this semester.");
+                        console.error(`${relevantRow[j].id} is disabled, cannot add course: `, course);
+                    }            
+            });
+        }
     }
+    // not a valid course somehow
+    else {
+        console.log([course, major, time, term])
+        if (course == "") 
+            alert(`"${course}" is not a valid course. Please check the course code and try again.`);
+        else if (time == "" || term == "") 
+            alert(`Please select a standing and semester for the course.`);
+    }
+    console.log(availableCredits);
+    return availableCredits;
 }
 
 function createLegend(){
