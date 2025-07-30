@@ -187,7 +187,7 @@
     }
 
     .popup {
-        background-color: rgba(255, 255, 255, 0.95);
+        background-color: whitesmoke;
         border-color: rgb(158, 83, 196);
     }
 
@@ -537,6 +537,10 @@ input[type=range] + datalist option:last-child {
     padding: 20px;
     z-index: 1000;
     display: none; /* Hidden by default */
+    border: 1px solid rgb(158, 83, 196);
+    border-radius: 5px;
+    /* background-color: black; */
+    /* box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); */
 }
 
 #closeIcon {
@@ -820,6 +824,55 @@ code {
     margin: auto;
   }
 
-.introjs-relativePosition{
+/* #guidePopup{
+    opacity: 100%;
+    background-color: rgba(255, 255, 255, 1);
+} */
+
+/* .introjs-relativePosition{
     z-index: 99999999999999;
+} */
+
+input[type="radio"] {
+    margin-right: 10px;
+    width: auto;
+    font-weight: bolder;
+}
+
+.radioOption {
+    margin-right: 20px;
+    /* font-size: small; */
+    font-weight: lighter;
+}
+
+#guideConfirm > button{
+    background-color: rgb(158, 83, 196);
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: inherit;
+    padding: 10px 20px;
+}
+
+.guideInputs{
+    /* width: 95%; */
+    /* height: 100%; */
+    font-size: large;
+    /* flex-basis: 10%; */
+    /* font-size: inherit; */
+    margin: 1%;
+
+}
+
+#guidePopup {
+    z-index: 100;
+    /* position: fixed;
+    width: 100%;
+    height: auto;
+    top: calc(document.screen.height - this.height); */
+    /* width: 100%;
+    height: 100%; */
+
 }
