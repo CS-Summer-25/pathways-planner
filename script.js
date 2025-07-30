@@ -1,3 +1,15 @@
+document.addEventListener('click', function (e) {
+  const clickedEl = e.target;
+  const zIndex = window.getComputedStyle(clickedEl).zIndex;
+
+  console.log('Clicked Element:', clickedEl);
+  console.log('Tag:', clickedEl.tagName);
+  console.log('ID:', clickedEl.id);
+  console.log('Class:', clickedEl.className);
+  console.log('Z-Index:', zIndex);
+  console.log('-------------------------');
+});
+
 // Looks into acalog_programs.json file 
 // loops over programs 
 
@@ -362,60 +374,47 @@ function createInvertedCourseOptions() {
 function initializeGuidePopup() {
 
     var input = document.getElementById("guideCourseInput");
-    console.log("GUIDE");
-    
-
     $(input).autocomplete({
         autoFocus: true,
-        source: Object.keys(INVERTED_GER_COURSES),
-        select: function(event, ui) {
-            // ui.display
-            // hide ui
-            document.getElementById("guideTime").setAttribute("style", "display: block;");
-            var time = document.getElementById("guideYearInput");
-            console.log(time);
-            $(time).autocomplete({
-                autoFocus: true,
-                source: ["Freshman Year", "Sophomore Year", "Junior Year", "Senior Year"],
-                select: function(event, ui) {
-                    // Set the selected time value
-                    time.value = ui.item.value;
-                }
-            });
 
-            var term = document.getElementById("guideTermInput");
-            // term.setAttribute("style", "display: block;");
-            $(term).autocomplete({
-                autoFocus: true,
-                source: ["Spring", "Fall"],
-                select: function(event, ui) {
-                    // show guideMajor
-                    document.getElementById("guideMajor").setAttribute("style", "display: block;");
-                    var major = document.getElementById("guideMajorInput");
-                    $(major).autocomplete({
-                        autoFocus: true,
-                        source: Object.keys(majors),
-                        select: function(event, ui) {
-                            // Set the selected major value
-                            console.log(document.getElementById("guideConfirm"));
-                            console.log(document.getElementById("guideAddBtn"));
-                            document.getElementById("guideConfirm").setAttribute("style", "display: block;");
-                            document.getElementById("guideAddBtn").addEventListener("click", function() {
-                                addToPlan(input.value, major.value, time.value, term.value);
-                                // hide the guide popup
-                                document.getElementById("guidePopup").setAttribute("style", "display: none;");
-                                // reset the input values
-                                input.value = "";
-                                time.value = "";
-                                term.value = "";
-                                major.value = "";
-                                showPopup("guide");
-                            });
-                        }
-                    });
-                }
-            });
-        }
+        source: Object.keys(INVERTED_GER_COURSES)
+    });
+
+    var major = document.getElementById("guideMajorInput");
+    $(major).autocomplete({
+        autoFocus: true,
+        source: Object.keys(majors)
+    });
+
+    document.getElementById("guideAddBtn").addEventListener("click", function() {
+
+        var time = "";
+        var term = "";
+        // Get value of selected radio buttons named standing
+        document.getElementsByName("standing").forEach(function(x) {
+            if (x.checked) {
+                time = x.value;
+            }
+        });
+
+        document.getElementsByName("semester").forEach(function(x) {
+            if (x.checked) {
+                term = x.value;
+            }
+        });
+
+        addToPlan(input.value, major.value, time, term);
+        // hide the guide popup
+        // document.getElementById("guidePopup").setAttribute("style", "display: none;");
+        // reset the input values
+        input.value = "";
+        // major.value = "";
+        document.getElementsByName("semester").forEach(function(x) { x.checked = false; });
+        document.getElementsByName("standing").forEach(function(x) { x.checked = false; });
+        // showPopup("guide");
+
+        // document.getElementById("guideDoneBtn").addE
+        // // guideDoneBtn
     });
 }
 
@@ -423,7 +422,7 @@ function addToPlan(course, major, time, term) {
     var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
     if (isGER) {
         // Add to GERS table
-        var j = 1 + (['Freshman Year', 'Sophomore Year', 'Junior Year', 'Senior Year'].indexOf(time)*2 + (term === "Spring" ? 1 : 0));
+        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
         console.log("GERS_" + j + "-" );
         INVERTED_GER_COURSES[course].forEach((ger) => {
             var relevantRow = document.querySelectorAll(`.${ger}`);
@@ -492,12 +491,54 @@ function tourWebsite() {
     tutorial.setOptions({
             disableInteraction: false,
             showProgress: false,
-            overlayOpacity: 0.85,
+            // overlayOpacity: 0.85,
+            overlayOpacity: 0,
+            disableInteraction: false,
+            // disableInteraction: false,
             steps: [
+                {
+                    element: document.querySelector('#guideIcon'),
+                    intro: `
+                     <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('guidePopup')">
+                    <h2>Guided Tour</h2>
+                    <p>Welcome to the guided tour! This will help you fill out your plan.</p>
+                    <p>To start, enter your course code in the input below. For example, if you want to add the course "CSC-101", type "CSC-101" in the input field.</p>
+                    <p>Once you enter the course code, click on the</p>
+                    <input onclick="initializeGuidePopup()" type="text" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-101)">
+
+                    <div id="guideTime" style="display: none;">
+                        <p>When did you take it?</p>
+                        <input type="text" id="guideYearInput" class="yearInput" placeholder="Enter year (e.g. 2025)" name="Enter a year"><br/><br/>
+                        <p>Was it Fall or Spring?</p>
+                        <input type="text" id="guideTermInput" class="termInput" placeholder="Enter term (e.g. Fall)" name="Enter a term"><br/><br/>
+                    </div>
+
+                    <div id="guideMajor" style="display: none;">
+                        <p>What is your major?</p>
+                        <input type="text" id="guideMajorInput" class="majorInput" placeholder="Enter your major (e.g. Computer Science)"><br/><br/>
+                    </div>
+
+                    <!-- <div id="guideMinor" style="display: none;">
+                        <p>Do you have a minor?</p>
+                        <input type="text" id="guideMinorInput" class="minorInput" placeholder="Enter your minor (e.g. Mathematics)"><br/><br/>
+                    </div> -->
+
+                    <div id="guideConfirm" style="display: none;">
+                        <button id="guideAddBtn">Looks all good? Add to plan?</button>
+                    </div>`
+                },
+                 {
+
+                    element: document.querySelector('#GERS_5-4'),
+                    intro: 'Hey! Welcome to the Pathways Planner! <input type="text"></input>This is a tool to help you plan your courses and track your progress towards graduation.',
+                    position: 'top',
+                    // disableInteraction: true,
+                },
                 {
                     element: document.querySelector('#questionIcon'),
                     intro: 'Hey! Welcome to the Planadin! This is a tool to help you plan your courses and track your progress towards graduation.',
                     position: 'right'
+
                 },
                 {
                     element: document.querySelector('#body-wrapper'),
@@ -536,40 +577,50 @@ function tourWebsite() {
             ],
         }
     )
+    tutorial.onbeforechange(function (element) {
+        setTimeout(function() {
 
-    // tutorial.onAfterChange(function(targetElement) {
-    //     console.log("Changed to: ", targetElement);
-    //     var nextBtn = document.querySelector('.introjs-nextbutton');
+            const helperLayer = document.querySelector('.introjs-helperLayer');
+            const index = tutorial._currentStep;
 
-    //     if (targetElement.id.endsWith("Select")) {
-    //         var id = targetElement.id.split("Select")[0];
-    //         console.log(`${targetElement.id} Element Found`);
-    //         var input = document.getElementById(targetElement.id);
-    //         tutorial.setOption('disableInteraction', true);
-    //         // tutorial.hideButtons();
-    //         setTimeout(() => input.focus(), 1000);
-    //         input.addEventListener('input', async function() {
-    //             console.log("Input changed: ", input.value);
-    //             if (input.value !== "") {
-    //                 nextBtn.disabled = false;
-    //                 tutorial.setOption('enableInteraction', true);
-    //                 // tutorial.hideButtons();
-    //                 grabCourses(targetElement.id);
-    //                 // if valid program: create new step that highlights the table
-    //                 if (document.getElementById(`${id}-table`)) {
-    //                     await new Promise(resolve => setTimeout(resolve, 100));
-    //                     tutorial.addStep({
-    //                         element: `#${id}-table`,
-    //                         intro: `Look at that! This is your ${id}'s academic plan. Like the GERs, you can search for courses in each field.`,
-    //                     });
-    //                 }
+            // Clear previous custom opacity
+            helperLayer.style.backgroundColor = '';
+
+            // Define per-step opacity
+            const opacities = [0.4, 0.8, 0.6];
+            console.log(helperLayer);
+            // Apply new one
+            if (helperLayer) {
+                helperLayer.style.boxShadow = `rgba(0, 0, 0, ${opacities[index]})`;
+            }
+        }, 100);
+    });
 
 
-    //             }
-    //         });
-            
-    //     }
-    // });
+    tutorial.onafterchange(function(targetElement) {
+        console.log("Changed to: ", targetElement);
+        // Let user interact with targetElement 
+
+        setTimeout(function() {
+
+            // targetElement.style.border = "1px solid black";            
+            introOnClick = function() {
+                targetElement.focus();
+                targetElement.addEventListener('input', function() {
+                    var menus = document.querySelectorAll(".ui-menu-item-wrapper");
+                    console.log(menus);
+                    for (let i = 0; i < menus.length; i++) {
+                        item = menus[i];
+                        // item.classList.add("introjs-relativePosition");
+                        item.classList.add("introjs-showElement");
+                    }
+                });
+            }
+
+            document.getElementsByClassName("introjs-overlay")[0].onclick = introOnClick;
+            document.getElementsByClassName("introjs-helperLayer")[0].onclick = introOnClick;
+        }, 1000);
+    });
 
     tutorial.start();
 }

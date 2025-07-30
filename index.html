@@ -5,8 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pathways Planner</title>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script>
+        <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intro.js/minified/introjs.min.css"> -->
+        <script src="https://unpkg.com/intro.js/minified/intro.min.js"></script>
+        <!-- <script src="https://cdn.jsdelivr.net/npm/intro.js/minified/intro.min.js"></script> -->
+        
+        <link rel="stylesheet" href="https://unpkg.com/intro.js/minified/introjs.min.css">
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
         <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.js"></script>
@@ -21,14 +24,14 @@
         <div id="body-wrapper">
             <div id="header">
                 <img src="imgs/logo.png" alt="Pathways Planner Logo" id="logo">
-                <h1 id="heading">P L A N A D I N</h1>
+                <h1 id="heading">P L A N <i>A</i> D I N</h1>
                 <!-- <input type="button" id="togglePanel" class="toggleBtn" onclick="togglePanel()"></button> -->
                 <!-- <img src="imgs/diskette.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
                 <!-- <img src="imgs/file-import.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
                  <!-- add dropdown -->
                 
                 <img src="imgs/diskette.png" alt="Guided tour for filling out your plan" 
-                alt="Guided tour" id="saveIcon" onclick="showPopup('guide')" class="headerBtns">
+                alt="Guided tour" id="guideIcon" onclick="showPopup('guide')" class="headerBtns">
 
                 <img src="imgs/cloud-computing.png" alt="Save your current plan to the server" 
                 alt="Save Icon" id="saveIcon" onclick="showPopup('save')" class="headerBtns">
@@ -134,33 +137,50 @@
                 </table>
                 <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
             </div>
-            <div id="guidePopup" class="popup" style="z-index: 100">
+            <div id="guidePopup" class="popup">
                     <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('guidePopup')">
-                    <h2>Guided Tour</h2>
-                    <p>Welcome to the guided tour! This will help you fill out your plan.</p>
-                    <p>To start, enter your course code in the input below. For example, if you want to add the course "CSC-101", type "CSC-101" in the input field.</p>
-                    <p>Once you enter the course code, click on the</p>
-                    <input type="text" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-101)">
+                    <center><h3>Guided Tour</h3></center>
+                    <br/>
 
-                    <div id="guideTime" style="display: none;">
+                        <p>Have you decided on a major yet? If not, leave this blank.</p>
+                        <input type="text" class="guideInputs" id="guideMajorInput" class="majorInput" placeholder="Enter your major (e.g. Computer Science)"><br/><br/>
+                    
+                    <hr/>
+                    
+                    <p>1. Enter a course that you have-taken / are-taking:</p>
+                    <input type="text" class="guideInputs" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-101)">
+                    <br/><br/>
+                    <p>2. When did you take the course?</p>
+                    <center>
+                    <span class="radioOption"><input type="radio" id="freshman" name="standing" value="freshman">Freshman</span>
+                    <span class="radioOption"><input type="radio" id="sophomore" name="standing" value="sophomore">Sophomore</span>
+                    <span class="radioOption"><input type="radio" id="junior" name="standing" value="junior">Junior</span>
+                    <span class="radioOption"><input type="radio" id="senior" name="standing" value="senior">Senior</span>
+                    </center>
+                    <br/><br/>
+                    <p>3. What semester was it?</p>
+                    <center>
+                    <span class="radioOption"><input type="radio" id="fall" name="semester" value="fall"/>🍂 Fall</span>
+                    <span class="radioOption"><input type="radio" id="spring" name="semester" value="spring"/>🌸 Spring</span>
+                    </center>
+                  
+
+                    <!-- <div id="guideTime" style="display: none;">
                         <p>When did you take it?</p>
                         <input type="text" id="guideYearInput" class="yearInput" placeholder="Enter year (e.g. 2025)" name="Enter a year"><br/><br/>
                         <p>Was it Fall or Spring?</p>
                         <input type="text" id="guideTermInput" class="termInput" placeholder="Enter term (e.g. Fall)" name="Enter a term"><br/><br/>
-                    </div>
+                    </div> -->
 
-                    <div id="guideMajor" style="display: none;">
-                        <p>What is your major?</p>
-                        <input type="text" id="guideMajorInput" class="majorInput" placeholder="Enter your major (e.g. Computer Science)"><br/><br/>
-                    </div>
 
                     <!-- <div id="guideMinor" style="display: none;">
                         <p>Do you have a minor?</p>
                         <input type="text" id="guideMinorInput" class="minorInput" placeholder="Enter your minor (e.g. Mathematics)"><br/><br/>
                     </div> -->
-
-                    <div id="guideConfirm" style="display: none;">
-                        <button id="guideAddBtn">Looks all good? Add to plan?</button>
+                    <br/><br/>
+                    <div id="guideConfirm" >
+                        <button id="guideAddBtn">Add to table and continue</button>
+                        <button id="guideDoneBtn" onclick="closePopup('guidePopup')">Done adding courses</button>
                     </div>
 
                 <br/><br/>
