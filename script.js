@@ -20,6 +20,7 @@ let GER_COURSES = null;
 let GERS = null;
 let INVERTED_GER_COURSES = null;
 let INVERTED_courseOptions = null;
+let isDarkMode = null;
 // // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
@@ -283,7 +284,7 @@ async function assignCourses(path) {
     console.log("Course Options: ",courseOptions);
 }
 
-// This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
+// This function runs important functions on page load. Notable functions run include assignCourses(), setGERSAutocomplete(), selectAutocomplete(), createLegend(), and initializeGuidePopup().
 async function initialize() {
 
     // get current date 
@@ -323,10 +324,8 @@ async function initialize() {
     setTimeout(initializeGuidePopup, 1000);
 }
 
+// This function constructs an Object INVERTED_GERS_COURSES that maps each course in the GER_COURSES Object to the programs that require it.
 function createInvertedGERCourses() {
-    if (!INVERTED_courseOptions) {
-        createInvertedCourseOptions();
-    }
     var inverted = {};
     for (const [programTitle, value] of Object.entries(GER_COURSES)) {
         if (Array.isArray(value)) {
@@ -344,6 +343,7 @@ function createInvertedGERCourses() {
     console.log(INVERTED_GER_COURSES);
 }
 
+// This function constructs an Object INVERTED_courseOptions that maps each course in the courseOptions Object to the programs and rowLabels that require it.
 function createInvertedCourseOptions() {
     var inverted = {};
     // console.log("Creating Inverted Course Options");
@@ -371,6 +371,9 @@ function createInvertedCourseOptions() {
     INVERTED_courseOptions = inverted;
 }
 
+// This function initializes the Guide Popup, setting up autocomplete for course and major select inputs. 
+// The Guide Popup is used to help users add courses to their plan in a guided manner. It will automatically fill out the plan based on user input.
+// Runs addToPlan().
 function initializeGuidePopup() {
 
     var input = document.getElementById("guideCourseInput");
@@ -421,6 +424,7 @@ function initializeGuidePopup() {
     });
 }
 
+// This function automatically adds a course to the current plan based on user input.
 function addToPlan(course, major, time, term) {
     // May be worth checking if the course is already in the plan in this function - mainly, don't want 1 course to be counted across multiple semesters
     var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
@@ -460,6 +464,7 @@ function addToPlan(course, major, time, term) {
     return availableCredits;
 }
 
+// This function creates a legend for the course status colors used across the planner. Runs setColorOnSystemSettings()
 function createLegend(){
 
     var legend = document.getElementById("legend");
@@ -507,6 +512,7 @@ function createLegend(){
 
 // --------------------------------------------------------
 
+// This function shows the user a tour of how the website works, using intro.js. Assigned to the questionIcon button in the header.
 function tourWebsite() {
     // console.log("isDark Mode: ", isDarkMode);
     var tutorial = introJs.tour();
@@ -1519,6 +1525,29 @@ function courseExists(course, tableId) {
     return false;
 }
 
+//should we collapse this into courseExists()?
+function courseExistsElsewhere(course, tableId, colIdx) {
+    // check if course exists in the table with the given tableId
+    var table = document.getElementById(tableId.concat("-table"));
+        if (table) {
+        for (let i = 2; i < table.rows.length; i++) {
+            var relevantRow = table.rows[i];
+            var relevantRowInputs = relevantRow.getElementsByTagName("input");
+            if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+                for (let j = 0; j < relevantRowInputs.length; j++) {
+                    if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && j != colIdx) {
+                        console.log(`Course ${course} already exists in table ${tableId}`);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    console.log(`Course ${course} does not exist elsewhere in table ${tableId}`);
+    return false;
+}
+
+// This function adds a hover text element to the page that displays the 'alt text' of the given image when the user hovers over it.
 function showHoverText(element, x, y) {
     var hoverText = document.getElementById("hoverText");
     hoverText.style.display = "block";
@@ -1532,6 +1561,8 @@ function showHoverText(element, x, y) {
     hoverText.style.zIndex = "1000"; // Ensure it appears above other elements
     hoverText.style.position = "absolute"; // Position it absolutely to the viewport
 }
+
+// This function hides the hover text element when the user moves the mouse away from the image.
 function hideHoverText() {
     var hoverText = document.getElementById("hoverText");
     hoverText.style.display = "none";
