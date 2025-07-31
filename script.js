@@ -1,14 +1,14 @@
-document.addEventListener('click', function (e) {
-  const clickedEl = e.target;
-  const zIndex = window.getComputedStyle(clickedEl).zIndex;
+// document.addEventListener('click', function (e) {
+//   const clickedEl = e.target;
+//   const zIndex = window.getComputedStyle(clickedEl).zIndex;
 
-  console.log('Clicked Element:', clickedEl);
-  console.log('Tag:', clickedEl.tagName);
-  console.log('ID:', clickedEl.id);
-  console.log('Class:', clickedEl.className);
-  console.log('Z-Index:', zIndex);
-  console.log('-------------------------');
-});
+//   console.log('Clicked Element:', clickedEl);
+//   console.log('Tag:', clickedEl.tagName);
+//   console.log('ID:', clickedEl.id);
+//   console.log('Class:', clickedEl.className);
+//   console.log('Z-Index:', zIndex);
+//   console.log('-------------------------');
+// });
 
 // Looks into acalog_programs.json file 
 // loops over programs 
@@ -21,6 +21,7 @@ let GERS = null;
 let INVERTED_GER_COURSES = null;
 let INVERTED_courseOptions = null;
 let isDarkMode = null;
+let MERGED_INVERTS = null;
 // // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
@@ -321,7 +322,9 @@ async function initialize() {
     
     document.getElementById("questionIcon").addEventListener("click", tourWebsite);
 
-    setTimeout(initializeGuidePopup, 1000);
+    setTimeout(() => {mergeInverts()}, 1000);
+
+    setTimeout(() => {initializeGuidePopup()}, 1000);
 }
 
 // This function constructs an Object INVERTED_GERS_COURSES that maps each course in the GER_COURSES Object to the programs that require it.
@@ -366,9 +369,28 @@ function createInvertedCourseOptions() {
                 }
             }
         }
-    // console.log("Inverted Course Options: ");
+    console.log("Inverted Course Options: ");
     console.log(inverted)
     INVERTED_courseOptions = inverted;
+}
+
+function mergeInverts() {
+    // if (INVERTED_GER_COURSES && INVERTED_courseOptions) {
+    // if (INVERTED_GER_COURSES == null) {
+    //     console.error("INVERTED_GER_COURSES is null, cannot merge.");
+    //     createInvertedGERCourses();
+    // }
+    // if (INVERTED_courseOptions == null) {
+    //     console.error("INVERTED_courseOptions is null, cannot merge.");
+    //     createInvertedCourseOptions();
+    // }
+    // console.log(Object.keys(INVERTED_GER_COURSES));
+    // console.log(Object.keys(INVERTED_courseOptions));
+    var merged = Object.keys(INVERTED_GER_COURSES).concat(Object.keys(INVERTED_courseOptions));
+    // remove duplicates from merged
+    merged = [...new Set(merged)].sort();
+    console.log("MERGED: ", merged);
+    MERGED_INVERTS = merged;
 }
 
 // This function initializes the Guide Popup, setting up autocomplete for course and major select inputs. 
@@ -380,7 +402,8 @@ function initializeGuidePopup() {
     $(input).autocomplete({
         autoFocus: true,
 
-        source: Object.keys(INVERTED_GER_COURSES)
+        // source: Object.keys(INVERTED_GER_COURSES)
+        source: MERGED_INVERTS
     });
 
     var major = document.getElementById("guideMajorInput");
@@ -460,6 +483,61 @@ function addToPlan(course, major, time, term) {
         else if (time == "" || term == "") 
             alert(`Please select a standing and semester for the course.`);
     }
+    if (major != "" && course != "") {
+        const progSelect = document.getElementById("mainMajorSelect");
+        // console.log("Program Select: ", progSelect, major);
+        progSelect.value = major;
+        grabCourses("mainMajorSelect");
+        console.log(course);
+        console.log(INVERTED_courseOptions);
+        console.log("INVERTED_courseOptions: ", INVERTED_courseOptions[course]);
+
+        var isCourse = Object.keys(INVERTED_courseOptions).indexOf(course) != -1;
+        console.log("Is Course: ", isCourse);
+        if (isCourse) {
+        // if (true) {
+            console.log(INVERTED_courseOptions[course]);
+
+            setTimeout(() => {
+                INVERTED_courseOptions[course].forEach((info) => {
+                    if (info.programTitle == major) {
+                        console.log("Adding course to: ", info.programTitle, info.rowLabel);
+                        var table = document.getElementById("mainMajor-table");
+
+                        // If the course is of "required" pattern, then the rowLabel will match the course directly
+                        if (info.rowLabel == "required") {
+                            var pattern = course.split(" ")[0];
+                            var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == pattern);
+                        }
+                        else {
+                            var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == info.rowLabel);
+                        }
+
+                        console.log("Relevant Row: ", i);
+                        console.log(i.id.split("_")[1].split("-")[0]);
+                        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
+
+                        
+                        var relevantCell = document.getElementById("mainMajor_" + i.id.split("_")[1].split("-")[0] + "-" + j);
+                        console.log("Relevant Cell: ", relevantCell);
+                        if (relevantCell.disabled == false) {
+                            if (relevantCell.type == "text") {
+                                relevantCell.value = course;
+                            }
+                            else {
+                                // relevantCell.checked = true;
+                                // relevantCell.setAttribute("checked", true);
+                                relevantCell.click();
+                            }  
+                            relevantCell.dispatchEvent(new Event('change'));
+                        }                     
+                    }
+                });
+            }, 1000);
+        }
+
+    }
+
     console.log(availableCredits);
     return availableCredits;
 }
@@ -658,6 +736,9 @@ function tourWebsite() {
 // This function is used to set the autocomplete selection of majors. Runs grabCourses() on all select program inputs on page. 
 async function selectAutocomplete(){
     var programInputs = document.getElementsByClassName("programInput");
+    if (INVERTED_courseOptions == null) {
+        createInvertedCourseOptions();
+    }
 
     for (let i = 0; i < programInputs.length; i++) {
         const programInput = programInputs[i];

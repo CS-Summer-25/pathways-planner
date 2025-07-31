@@ -118,7 +118,7 @@
     input[type="text"],
     .ui-autocomplete,
     .courseInput[type="checkbox"] {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(255, 255, 255, 0.99);
         /* color: #212529; */
     }
 
@@ -262,7 +262,7 @@
     input[type="text"],
     .ui-autocomplete,
     .courseInput[type="checkbox"] {
-        background-color: rgba(255, 255, 255, 0.75);
+        background-color: rgba(255, 255, 255, 0.99);
         /* color: #212529; */
     }
 
@@ -761,8 +761,10 @@ input:disabled{
 
 /* for the autocompletes */
 .ui-autocomplete {
-    width: 100%;
-    max-height: 15%;
+    /* width: 100%; */
+    /* Make sure the autocomplete menu doesn't go off the page */
+    max-width: 25%;
+    max-height: 25%;
     overflow-y: auto;
     overflow-x: hidden;
 }
