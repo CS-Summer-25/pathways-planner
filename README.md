@@ -33,6 +33,15 @@
 
 * [ ] Scroll to top button
 
+* [ ] Make the RowLabel of custom rows / ColLabel of custom columns editable by user
+
+* [ ] Fix issue where an image's title appears of the hover text 
+
+* [ ] Add "Report Bug/Github Link" functionality
+
+* [ ] Export/Import Functionality
+
+* [ ] Tour functionality
 ----
 
 Come back to reorganize: 

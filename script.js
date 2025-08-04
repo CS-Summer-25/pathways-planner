@@ -1,14 +1,14 @@
-document.addEventListener('click', function (e) {
-  const clickedEl = e.target;
-  const zIndex = window.getComputedStyle(clickedEl).zIndex;
+// document.addEventListener('click', function (e) {
+//   const clickedEl = e.target;
+//   const zIndex = window.getComputedStyle(clickedEl).zIndex;
 
-  console.log('Clicked Element:', clickedEl);
-  console.log('Tag:', clickedEl.tagName);
-  console.log('ID:', clickedEl.id);
-  console.log('Class:', clickedEl.className);
-  console.log('Z-Index:', zIndex);
-  console.log('-------------------------');
-});
+//   console.log('Clicked Element:', clickedEl);
+//   console.log('Tag:', clickedEl.tagName);
+//   console.log('ID:', clickedEl.id);
+//   console.log('Class:', clickedEl.className);
+//   console.log('Z-Index:', zIndex);
+//   console.log('-------------------------');
+// });
 
 // Looks into acalog_programs.json file 
 // loops over programs 
@@ -19,8 +19,23 @@ let courseOptions = {};
 let GER_COURSES = null;
 let GERS = null;
 let INVERTED_GER_COURSES = null;
+let INVERTED_courseOptions = null;
+let isDarkMode = null;
+let MERGED_INVERTS = null;
+// // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+// var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
+// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+//     var darkMode = e.matches ? "dark" : "light";
+//     console.log("Dark Mode Changed: ", darkMode);
+// });
+// console.log("Initialize Dark Mode: ", isDarkMode);
+// var isDarkMode = null;
 
-// -----------------Asynchronous Functions-----------------
+// function updateDarkLightMode() {
+//     isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+// }
+
+// -----------------Asynchronous/On-Load Functions-----------------
 
 // This function constructs majors/minors objects from acalog_programs.json.
 async function assignCourses(path) {
@@ -52,8 +67,10 @@ async function assignCourses(path) {
                 for (let i = 0; i < numRows; i++) {
                     // the course code is the first part of the string
                     reqs.push(options[i].split(" ")[0]);
+                    
                 }
                 reqs = reqs.join(":");
+                courseOptions[programTitle].required = options;
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
@@ -122,6 +139,7 @@ async function assignCourses(path) {
                 // reqs = reqs.slice(0, -2); // remove trailing comma
                 program.programInfo.reqs.push(reqs);
             }
+            // Required: Finish this pattern
             else if (pattern.startsWith("structchoose")) {
                 // this is a choice pattern
                 // the number in the pattern indicates how many rows to create
@@ -267,7 +285,7 @@ async function assignCourses(path) {
     console.log("Course Options: ",courseOptions);
 }
 
-// This function runs important functions on page load. Runs assignCourses(), setGERSAutocomplete(), and selectAutocomplete()
+// This function runs important functions on page load. Notable functions run include assignCourses(), setGERSAutocomplete(), selectAutocomplete(), createLegend(), and initializeGuidePopup().
 async function initialize() {
 
     // get current date 
@@ -304,33 +322,88 @@ async function initialize() {
     
     document.getElementById("questionIcon").addEventListener("click", tourWebsite);
 
-    setTimeout(initializeGuidePopup, 1000);
+    setTimeout(() => {mergeInverts()}, 1000);
+
+    setTimeout(() => {initializeGuidePopup()}, 1000);
 }
 
+// This function constructs an Object INVERTED_GERS_COURSES that maps each course in the GER_COURSES Object to the programs that require it.
 function createInvertedGERCourses() {
     var inverted = {};
-    for (const [key, value] of Object.entries(GER_COURSES)) {
+    for (const [programTitle, value] of Object.entries(GER_COURSES)) {
         if (Array.isArray(value)) {
             for (const course of value) {
                 if (!inverted[course]) {
                     inverted[course] = [];
                 }
-                inverted[course].push(key);
+                inverted[course].push(programTitle);
             }
         } else {
-            inverted[value] = key;
+            inverted[value] = programTitle;
         }
     }
     INVERTED_GER_COURSES = inverted;
     console.log(INVERTED_GER_COURSES);
 }
 
+// This function constructs an Object INVERTED_courseOptions that maps each course in the courseOptions Object to the programs and rowLabels that require it.
+function createInvertedCourseOptions() {
+    var inverted = {};
+    // console.log("Creating Inverted Course Options");
+    // console.log(courseOptions);
+    // structure of courseOptions: programTitle: {rowLabel: [course1, course2, ...]}
+    // thus, inverted should be {course: {programTitle: [rowLabel1, rowLabel2, ...]}}
+    // Actual structure - {course : [{programTitle:title, rowLabel:label}, ...]}
+    for (const [programTitle, values] of Object.entries(courseOptions)) {
+            for (const [label, courses] of Object.entries(values)) {
+                // console.log("Course: ", courses);
+                // console.log("Label: ", label);
+                for (const course of courses) {
+                    key = {programTitle: programTitle, rowLabel: label};
+
+                    if (!inverted[course]) {
+                        inverted[course] = [];
+                    }
+
+                    inverted[course].push(key);
+                }
+            }
+        }
+    console.log("Inverted Course Options: ");
+    console.log(inverted)
+    INVERTED_courseOptions = inverted;
+}
+
+function mergeInverts() {
+    // if (INVERTED_GER_COURSES && INVERTED_courseOptions) {
+    // if (INVERTED_GER_COURSES == null) {
+    //     console.error("INVERTED_GER_COURSES is null, cannot merge.");
+    //     createInvertedGERCourses();
+    // }
+    // if (INVERTED_courseOptions == null) {
+    //     console.error("INVERTED_courseOptions is null, cannot merge.");
+    //     createInvertedCourseOptions();
+    // }
+    // console.log(Object.keys(INVERTED_GER_COURSES));
+    // console.log(Object.keys(INVERTED_courseOptions));
+    var merged = Object.keys(INVERTED_GER_COURSES).concat(Object.keys(INVERTED_courseOptions));
+    // remove duplicates from merged
+    merged = [...new Set(merged)].sort();
+    console.log("MERGED: ", merged);
+    MERGED_INVERTS = merged;
+}
+
+// This function initializes the Guide Popup, setting up autocomplete for course and major select inputs. 
+// The Guide Popup is used to help users add courses to their plan in a guided manner. It will automatically fill out the plan based on user input.
+// Runs addToPlan().
 function initializeGuidePopup() {
 
     var input = document.getElementById("guideCourseInput");
     $(input).autocomplete({
         autoFocus: true,
-        source: Object.keys(INVERTED_GER_COURSES)
+
+        // source: Object.keys(INVERTED_GER_COURSES)
+        source: MERGED_INVERTS
     });
 
     var major = document.getElementById("guideMajorInput");
@@ -356,7 +429,10 @@ function initializeGuidePopup() {
             }
         });
 
-        addToPlan(input.value, major.value, time, term);
+        var fulfilledCredits = addToPlan(input.value, major.value, time, term);
+        if (fulfilledCredits.length > 0) {
+            alert(`Added ${input.value} to your plan! \nYou have fulfilled ${fulfilledCredits.length} credits: ` + fulfilledCredits.join(", "));
+        }
         // hide the guide popup
         // document.getElementById("guidePopup").setAttribute("style", "display: none;");
         // reset the input values
@@ -371,22 +447,102 @@ function initializeGuidePopup() {
     });
 }
 
+// This function automatically adds a course to the current plan based on user input.
 function addToPlan(course, major, time, term) {
+    // May be worth checking if the course is already in the plan in this function - mainly, don't want 1 course to be counted across multiple semesters
     var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
-    if (isGER) {
-        // Add to GERS table
-        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
-        console.log("GERS_" + j + "-" );
-        INVERTED_GER_COURSES[course].forEach((ger) => {
-            var relevantRow = document.querySelectorAll(`.${ger}`);
-            console.log(relevantRow);
-            relevantRow[j].innerHTML = course;
-            relevantRow[j].value = course;
-            relevantRow[j].setAttribute("style", setColorOnSystemSettings("light_green"));
-        });
+    var availableCredits = [];
+
+    if (time != "" && term != "" && course != "") {
+        if (isGER) {
+            // Add to GERS table
+            var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
+            // console.log("GERS_" + j + "-" );
+            INVERTED_GER_COURSES[course].forEach((ger) => {
+                var relevantRow = document.querySelectorAll(`.${ger}`);
+                // console.log(relevantRow);
+                    if (relevantRow[j].disabled == false) {
+                    relevantRow[j].innerHTML = course;
+                    relevantRow[j].value = course;
+                    // Make sure the input updates table styling accordingly
+                    relevantRow[j].dispatchEvent(new Event('change'));
+                    availableCredits.push(relevantRow[0].innerHTML);
+                    }
+                    else {
+                        alert(course + ` couldn't be added to ` + relevantRow[0].innerHTML + ".\nEither this credit is fulfilled, or it is not available for this semester.");
+                        console.error(`${relevantRow[j].id} is disabled, cannot add course: `, course);
+                    }            
+            });
+        }
     }
+    // not a valid course somehow
+    else {
+        console.log([course, major, time, term])
+        if (course == "") 
+            alert(`"${course}" is not a valid course. Please check the course code and try again.`);
+        else if (time == "" || term == "") 
+            alert(`Please select a standing and semester for the course.`);
+    }
+    if (major != "" && course != "") {
+        const progSelect = document.getElementById("mainMajorSelect");
+        // console.log("Program Select: ", progSelect, major);
+        progSelect.value = major;
+        grabCourses("mainMajorSelect");
+        console.log(course);
+        console.log(INVERTED_courseOptions);
+        console.log("INVERTED_courseOptions: ", INVERTED_courseOptions[course]);
+
+        var isCourse = Object.keys(INVERTED_courseOptions).indexOf(course) != -1;
+        console.log("Is Course: ", isCourse);
+        if (isCourse) {
+        // if (true) {
+            console.log(INVERTED_courseOptions[course]);
+
+            setTimeout(() => {
+                INVERTED_courseOptions[course].forEach((info) => {
+                    if (info.programTitle == major) {
+                        console.log("Adding course to: ", info.programTitle, info.rowLabel);
+                        var table = document.getElementById("mainMajor-table");
+
+                        // If the course is of "required" pattern, then the rowLabel will match the course directly
+                        if (info.rowLabel == "required") {
+                            var pattern = course.split(" ")[0];
+                            var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == pattern);
+                        }
+                        else {
+                            var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == info.rowLabel);
+                        }
+
+                        console.log("Relevant Row: ", i);
+                        console.log(i.id.split("_")[1].split("-")[0]);
+                        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
+
+                        
+                        var relevantCell = document.getElementById("mainMajor_" + i.id.split("_")[1].split("-")[0] + "-" + j);
+                        console.log("Relevant Cell: ", relevantCell);
+                        if (relevantCell.disabled == false) {
+                            if (relevantCell.type == "text") {
+                                relevantCell.value = course;
+                            }
+                            else {
+                                // relevantCell.checked = true;
+                                // relevantCell.setAttribute("checked", true);
+                                relevantCell.click();
+                            }  
+                            relevantCell.dispatchEvent(new Event('change'));
+                        }                     
+                    }
+                });
+            }, 1000);
+        }
+
+    }
+
+    console.log(availableCredits);
+    return availableCredits;
 }
 
+// This function creates a legend for the course status colors used across the planner. Runs setColorOnSystemSettings()
 function createLegend(){
 
     var legend = document.getElementById("legend");
@@ -394,6 +550,7 @@ function createLegend(){
     svg.setAttribute("width", document.body.clientWidth/2);
     svg.setAttribute("height", "50");
     svg.setAttribute("viewBox", "0 0 1000 70");
+
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 
     var getColor = function(colorName) {
@@ -408,13 +565,13 @@ function createLegend(){
         {color: getColor("red"), text: "Incomplete"},
         {color: getColor("pink"), text: "Error"},
     ];
-    var xPos = 0;
+    var xPos = -100;
     colors.forEach(function(item, index) {
         var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         circle.setAttribute("cx", xPos + 10);
         circle.setAttribute("cy", "35");
         circle.setAttribute("r", "20");
-        circle.setAttribute("stroke", "darkgray");
+        circle.setAttribute("stroke", "darkgrey");
         circle.setAttribute("stroke-width", "2");
         circle.setAttribute("fill", item.color);
         svg.appendChild(circle);
@@ -422,7 +579,7 @@ function createLegend(){
         text.setAttribute("x", xPos + 40);
         text.setAttribute("y", "45");
         text.setAttribute("font-size", "25");
-        text.setAttribute("fill", "white");
+        text.setAttribute("fill", window.matchMedia('(prefers-color-scheme: dark)').matches ? "white" : "black");
         text.textContent = item.text;
         svg.appendChild(text);
         xPos += 220; // Adjust spacing between circles
@@ -433,11 +590,13 @@ function createLegend(){
 
 // --------------------------------------------------------
 
+// This function shows the user a tour of how the website works, using intro.js. Assigned to the questionIcon button in the header.
 function tourWebsite() {
+    // console.log("isDark Mode: ", isDarkMode);
     var tutorial = introJs.tour();
     
     tutorial.setOptions({
-
+            disableInteraction: false,
             showProgress: false,
             // overlayOpacity: 0.85,
             overlayOpacity: 0,
@@ -484,8 +643,9 @@ function tourWebsite() {
                 },
                 {
                     element: document.querySelector('#questionIcon'),
-                    intro: 'Hey! Welcome to the Pathways Planner! This is a tool to help you plan your courses and track your progress towards graduation.',
-                    position: 'right',
+                    intro: 'Hey! Welcome to the Planadin! This is a tool to help you plan your courses and track your progress towards graduation.',
+                    position: 'right'
+
                 },
                 {
                     element: document.querySelector('#body-wrapper'),
@@ -550,8 +710,7 @@ function tourWebsite() {
 
         setTimeout(function() {
 
-            // targetElement.style.border = "1px solid black";
-            
+            // targetElement.style.border = "1px solid black";            
             introOnClick = function() {
                 targetElement.focus();
                 targetElement.addEventListener('input', function() {
@@ -577,6 +736,9 @@ function tourWebsite() {
 // This function is used to set the autocomplete selection of majors. Runs grabCourses() on all select program inputs on page. 
 async function selectAutocomplete(){
     var programInputs = document.getElementsByClassName("programInput");
+    if (INVERTED_courseOptions == null) {
+        createInvertedCourseOptions();
+    }
 
     for (let i = 0; i < programInputs.length; i++) {
         const programInput = programInputs[i];
@@ -662,7 +824,7 @@ function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
         select: function(event, ui) {
             inputValue = ui.item.label;
             // var rowLabeler = event.target.classList[1];
-            console.log("Cause of Call: ", event.target);
+            // console.log("Cause of Call: ", event.target);
             // rowLabel = event.target
 
             console.log(inputValue, rowLabel, programTitle);
@@ -908,7 +1070,7 @@ function isSpecificCourse(rowLabel) {
 // This function updates the styling of the table according to user input. Affects both the input fields and the row labels.
 // Runs setCourseInputColor(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
 function updateTable(relevantRow, j) {
-    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var inputValue = this.value;
 
     // Handle input change if necessary
@@ -1444,6 +1606,29 @@ function courseExists(course, tableId) {
     return false;
 }
 
+//should we collapse this into courseExists()?
+function courseExistsElsewhere(course, tableId, colIdx) {
+    // check if course exists in the table with the given tableId
+    var table = document.getElementById(tableId.concat("-table"));
+        if (table) {
+        for (let i = 2; i < table.rows.length; i++) {
+            var relevantRow = table.rows[i];
+            var relevantRowInputs = relevantRow.getElementsByTagName("input");
+            if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+                for (let j = 0; j < relevantRowInputs.length; j++) {
+                    if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && j != colIdx) {
+                        console.log(`Course ${course} already exists in table ${tableId}`);
+                        return true;
+                    }
+                }
+            }
+        }
+    }
+    console.log(`Course ${course} does not exist elsewhere in table ${tableId}`);
+    return false;
+}
+
+// This function adds a hover text element to the page that displays the 'alt text' of the given image when the user hovers over it.
 function showHoverText(element, x, y) {
     var hoverText = document.getElementById("hoverText");
     hoverText.style.display = "block";
@@ -1451,12 +1636,14 @@ function showHoverText(element, x, y) {
     hoverText.style.top = y + "px";
     hoverText.innerHTML = element.getAttribute("alt") || "No description available.";
     hoverText.style.backgroundColor = window.matchMedia('(prefers-color-scheme: dark)').matches ? "rgba(255, 255, 255, 0.9)" : "rgba(0, 0, 0, 0.8)";
-    hoverText.style.color = window.matchMedia('(prefers-color-scheme: dark)').matches ? "black" : "black";
+    hoverText.style.color = window.matchMedia('(prefers-color-scheme: dark)').matches ? "black" : "white";
     hoverText.style.padding = "10px";
     hoverText.style.borderRadius = "5px";
     hoverText.style.zIndex = "1000"; // Ensure it appears above other elements
     hoverText.style.position = "absolute"; // Position it absolutely to the viewport
 }
+
+// This function hides the hover text element when the user moves the mouse away from the image.
 function hideHoverText() {
     var hoverText = document.getElementById("hoverText");
     hoverText.style.display = "none";

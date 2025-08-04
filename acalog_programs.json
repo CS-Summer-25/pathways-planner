@@ -55,7 +55,7 @@
             "POL-219 Crime and Policing",
             "POL-224 Politics of Africa",
             "POL-274 Black Political Thought",
-            "POL-442 Issues in African Poltics",
+            "POL-442 Issues in African Politics",
             "PSY-219 Stereotyping, Prejudice, & Discrimination",
             "SOC-223 Urban Community",
             "SOC-243 Race and Ethnic Relations",
@@ -89,7 +89,7 @@
             "POL-219 Crime and Policing",
             "POL-224 Politics of Africa",
             "POL-274 Black Political Thought",
-            "POL-442 Issues in African Poltics",
+            "POL-442 Issues in African Politics",
             "PSY-219 Stereotyping, Prejudice, & Discrimination",
             "SOC-223 Urban Community",
             "SOC-243 Race and Ethnic Relations",
@@ -144,7 +144,7 @@
                 "ANT-204 Modern Japanese Society through Films",
                 "ANT-205 Japanese Popular Culture",
                 "ANT-230 Biological Anthropology",
-                "ANT-250 Race and the US Criminal Justice System",
+                "ANT-250 Race and the U.S. Criminal Justice System",
                 "ANT-254 The Power and Politics of Black Foodways",
                 "ANT-258 Women in Africa and the African Diaspora",
                 "ANT-262 Magic and Religion",
@@ -178,7 +178,7 @@
     "Art History, B.A." : {
         "key" : "ARTHBA",
         "required" : [
-            "ART-132 History of Art I",
+            "ART-132 Histories of Art I",
             "ART-133 Histories of Art II",
             "ART-330 Art Theory and Criticism"
         ],
@@ -522,7 +522,7 @@
             "CHM-111 General Chemistry - Exam Equivalency"
         ],
         "required2" : [
-            "CHM-115 Kinetics, Thermodynamics and the Environment",
+            "CHM-115 Kinetics Thermodynamics and the Environment",
             "CHM-120 Organic Chemistry I"
         ]
     },
@@ -597,7 +597,7 @@
             "CHM-111 General Chemistry - Exam Equivalency"
         ],
         "required2" : [
-            "CHM-115 Kinetics, Thermodynamics and the Environment",
+            "CHM-115 Kinetics Thermodynamics and the Environment",
             "CHM-120 Organic Chemistry I"
         ]
     },
@@ -746,7 +746,7 @@
             "CHM-111 General Chemistry - Exam Equivalency"
         ],
         "required2" : [
-            "CHM-115 Kinetics, Thermodynamics and the Environment"
+            "CHM-115 Kinetics Thermodynamics and the Environment"
         ]
     },
     "Accounting, B.A." : {
@@ -1297,8 +1297,8 @@
     "Chemistry, Biochemistry Track, B.S." : {
         "key" : "CHMBCHMBS",
         "structchoose_1_Gen. Chem." : [
-            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
-            ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics, Thermodynamics and the Environment"],
+            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics Thermodynamics and the Environment"],
+            ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
         ],
         "choose_1_Genetics" : [
@@ -1347,8 +1347,8 @@
     "Chemistry, Environmental Chemistry Track, B.S." : {
         "key" : "CHMENVBS",
         "structchoose_1_General Chemistry" : [
-            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
-            ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics, Thermodynamics and the Environment"],
+            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics Thermodynamics and the Environment"],
+            ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
         ],
         "required1" : [
@@ -1382,8 +1382,8 @@
     "Chemistry, Standard Track, B.S." : {
         "key" : "CHMBS",
         "structchoose_1_General Chemistry" : [
-            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
-            ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics, Thermodynamics and the Environment"],
+            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics Thermodynamics and the Environment"],
+            ["CHM-111 General Chemistry - Exam Equivalency", "CHM-115 Kinetics Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
         ],
         "required1" : [
@@ -1422,8 +1422,8 @@
     "Classics, Historical Language and Literature Track, B.A." : {
         "key" : "CLSHLLBA",
         "structchoose_1_Ancient Language" : [
-            ["GRK-305 Ancient Greek: Analytical Approaches", "GRK-315 Ancient Greek: Translation & Research", "GRK-325 Ancient Greek: Intensive Readings"],
-            ["LTN-305 Latin: Analytical Approaches", "LTN-315 Latin: Translation & Research", "LTN-325 Latin: Intensive Readings"]
+            ["GRK-305 Ancient Greek: Analytical Approaches", "GRK-315 Ancient Greek: Translation & Research Methods", "GRK-325 Ancient Greek: Intensive Readings"],
+            ["LTN-305 Latin: Analytical Approaches", "LTN-315 Latin: Translation & Research Methods", "LTN-325 Latin: Intensive Readings"]
         ],
         "structchoose_1_Other Language" : [
             ["GRK-110 Elementary Greek I", "GRK-120 Elementary Greek II"],
@@ -1439,7 +1439,7 @@
             "CLS-213 Inventing the Book",
             "CLS-214 Law and Order: Greece & Rome",
             "CLS-215 Science and Innovation in Antiquity",
-            "CLS-216 Historical Linguistics & PIE",
+            "CLS-216 Historical Linguistics and Proto-Indo-European",
             "CLS-220 Greek Civilization",
             "CLS-221 Roman Civilization",
             "CLS-222 Title The Invention of Archaeology",
@@ -1449,7 +1449,7 @@
             "CLS-320 Travel Study in Classical Civilizations",
             "CLS-321 Polytheism and Its Problems",
             "CLS-322 The Power in Democracy",
-            "CLS-323 What is \"Western Civilization\"?",
+            "CLS-323 What is 'Western Civilization'?",
             "CLS-331 Constructing Identities"
         ],
         "choose_1_Capstone" : [
@@ -1459,10 +1459,10 @@
     "Classics, Information, Tradition, and Text Track, B.A." : {
         "choose_1_GRK/LTN-201+ " : [
             "GRK-305 Ancient Greek: Analytical Approaches",
-            "GRK-315 Ancient Greek: Translation & Research",
+            "GRK-315 Ancient Greek: Translation & Research Methods",
             "GRK-325 Ancient Greek: Intensive Readings",
             "LTN-305 Latin: Analytical Approaches",
-            "LTN-315 Latin: Translation & Research",
+            "LTN-315 Latin: Translation & Research Methods",
             "LTN-325 Latin: Intensive Readings"
         ],
         "choose_7_Classics" : [
@@ -1475,7 +1475,7 @@
             "CLS-213 Inventing the Book",
             "CLS-214 Law and Order: Greece & Rome",
             "CLS-215 Science and Innovation in Antiquity", 
-            "CLS-216 Historical Linguistics & PIE",
+            "CLS-216 Historical Linguistics and Proto-Indo-European",
             "CLS-220 Greek Civilization",
             "CLS-221 Roman Civilization",
             "CLS-222 Title The Invention of Archaeology",
@@ -1485,7 +1485,7 @@
             "CLS-320 Travel Study in Classical Civilizations",
             "CLS-321 Polytheism and Its Problems",
             "CLS-322 The Power in Democracy",
-            "CLS-323 What is \"Western Civilization\"?",
+            "CLS-323 What is 'Western Civilization'?",
             "CLS-331 Constructing Identities"
         ],
         "choose_1_Capstone" : [
@@ -1500,12 +1500,12 @@
             "COM-202 Digital Storytelling"
         ],
         "choose_1_Methods" : [
-            "COM-302 Media Criticsm",
+            "COM-302 Media Criticism",
             "COM-303 Communication Research Methods"
         ],
         "choose_2_Track Elective" : [
             "COM-304 Broadcast Communication",
-            "COM-323 Race, Class and Gender in Media",
+            "COM-323 Race, Class, and Gender in Media",
             "COM-331 Media History",
             "COM-335 Political Economy of Mass Media",
             "COM-337 International Communication",
@@ -1540,11 +1540,11 @@
         "key" : "COMRADBA",
         "required" : [
             "COM-101 Public Speaking",
-            "COM-201 Rhetoric and Strategy",
+            "COM-201 Rhetoric & Strategy",
             "COM-202 Digital Storytelling"
         ],
         "choose_1_Methods" : [
-            "COM-301 Rhetorical Criticsm",
+            "COM-301 Rhetorical Criticism",
             "COM-303 Communication Research Methods"
         ],
         "choose_2_Track Elective" : [
@@ -1567,7 +1567,7 @@
             "COM-414 Global Advocacy"   
         ],
         "choose_2_COM-300+ Elective" : [
-            "COM-323 Race, Class and Gender in Media",
+            "COM-323 Race, Class, and Gender in Media",
             "COM-337 International Communication",
             "COM-419 Mobile Media, Space and Place",
             "COM-451 Civic Media",
@@ -1586,7 +1586,7 @@
     "Computer Science, B.A." : {
         "key" : "CSBA",
         "required" : [
-            "CSC-105 Introduction to Computer Science",
+            "CSC-105 Intro to Computer Science",
             "CSC-121 Intro to Computer Programming",
             "CSC-122 Data Structures and Algorithms",
             "CSC-223 Advanced Data Structures and Software Development",
@@ -1640,7 +1640,7 @@
     "Computer Science, B.S." : {
         "key" : "CSBS",
         "required" : [
-            "CSC-105 Introduction to Computer Science",
+            "CSC-105 Intro to Computer Science",
             "CSC-121 Intro to Computer Programming",
             "CSC-122 Data Structures and Algorithms",
             "CSC-223 Advanced Data Structures and Software Development",
@@ -1691,7 +1691,7 @@
     "Informational Technology, B.A." : {
         "key" : "ITBA",
         "required" : [
-            "CSC-105 Introduction to Computer Science",
+            "CSC-105 Intro to Computer Science",
             "CSC-121 Intro to Computer Programming",
             "CSC-122 Data Structures and Algorithms"
         ],
@@ -1759,7 +1759,7 @@
     "Informational Technology, B.S." : {
         "key" : "ITBS",
         "required" : [
-            "CSC-105 Introduction to Computer Science",
+            "CSC-105 Intro to Computer Science",
             "CSC-121 Intro to Computer Programming",
             "CSC-122 Data Structures and Algorithms"
         ],
@@ -1874,7 +1874,7 @@
             "EES-472 Research and Analysis",
             "EES-474 Senior Capstone",
             "CHM-110 Foundations of Chemistry",
-            "CHM-115 Kinetics, Thermodynamics and the Environment"
+            "CHM-115 Kinetics Thermodynamics and the Environment"
         ],
         "choose_6_EES-200+ Elective" : [
             "EES-200 Topics in Spatial Analysis and Visualization",
@@ -1908,7 +1908,7 @@
         ],
         "choose_1_Methods" : [
             "SUS-472 Research and Analysis",
-            "SUS-473 Sustainability Science Praticum"
+            "SUS-473 Sustainability Science Practicum"
         ],
         "condchoose_6_200+ Elective" : {
             "least_3_(SUS) " : [
@@ -1977,7 +1977,7 @@
         ],
         "required2" : [
             "ECN-331 Empirical Methods in Economics",
-            "ECN-345 Intermediate Macroeconomics Analysis",
+            "ECN-345 Intermediate Macroeconomic Analysis",
             "ECN-346 Intermediate Microeconomic Analysis",
             "ECN-475 Senior Seminar in Economics"
         ],
@@ -2024,16 +2024,6 @@
             "ECN-238 Public Economics",
             "ECN-239 Economics of Sports",
             "ECN-241 Money and Banking",
-            "ECN-242 Health Economics",
-            "ECN-244 Behavioral Economics",
-            "ECN-245 Development Economics",
-            "ECN-246 Economic Growth",
-            "ECN-247 History of Economic Thought",
-            "ECN-248 Economics of Market Regulation",
-            "ECN-250 Labor Economics",
-            "ECN-252 International Trade",
-            "ECN-253 International Finance and Macroeconomic Policy",
-            "ECN-256 Economics of Strategy",
             "ECN-242 Health Economics",
             "ECN-244 Behavioral Economics",
             "ECN-245 Development Economics",
@@ -2099,16 +2089,6 @@
             "ECN-238 Public Economics",
             "ECN-239 Economics of Sports",
             "ECN-241 Money and Banking",
-            "ECN-242 Health Economics",
-            "ECN-244 Behavioral Economics",
-            "ECN-245 Development Economics",
-            "ECN-246 Economic Growth",
-            "ECN-247 History of Economic Thought",
-            "ECN-248 Economics of Market Regulation",
-            "ECN-250 Labor Economics",
-            "ECN-252 International Trade",
-            "ECN-253 International Finance and Macroeconomic Policy",
-            "ECN-256 Economics of Strategy",
             "ECN-242 Health Economics",
             "ECN-244 Behavioral Economics",
             "ECN-245 Development Economics",
@@ -2232,7 +2212,7 @@
             "ENG-304 English Literature of Restoration and 18th Century",
             "ENG-314 Studies in Chaucer",
             "ENG-315 Animals in Medieval Literature and Culture",
-            "ENG-316 Late 14th Century English Literature",
+            "ENG-316 Late 14th Century Literature",
             "ENG-317 Literature of Early Modern Britain",
             "ENG-318 Early Modern Drama",
             "ENG-319 Major Figures in Early Modern British Literature",
@@ -2302,7 +2282,7 @@
             {"ENG-304 English Literature of Restoration and 18th Century" : 4},
             {"ENG-314 Studies in Chaucer" : 4},
             {"ENG-315 Animals in Medieval Literature and Culture" : 4},
-            {"ENG-316 Late 14th Century English Literature" : 4},
+            {"ENG-316 Late 14th Century Literature" : 4},
             {"ENG-317 Literature of Early Modern Britain" : 4},
             {"ENG-318 Early Modern Drama" : 4},
             {"ENG-319 Major Figures in Early Modern British Literature" : 4},
@@ -2713,7 +2693,7 @@
         "choose_2_Field Courses" : [
             "ANT-302 Anthropology of Race and Ethnicity",
             "COM-318 African American Rhetoric",
-            "COM-323 Race, Class and Gender in Media",
+            "COM-323 Race, Class, and Gender in Media",
             "ENG-356 Faulkner",
             "ENG-293 Literature of the South",
             "ENG-346 American Slavery and the Novel",
@@ -2741,7 +2721,7 @@
             "CLS-311 Business and Entrepreneurship in Greece and Rome",
             "CLS-321 Polytheism and Its Problems",
             "CLS-322 The Power in Democracy",
-            "CLS-323 What is \"Western Civilization\"?",
+            "CLS-323 What is 'Western Civilization'?",
             "CLS-331 Constructing Identities",
             "CLS-332 Women and Power in Antiquity"
         ],
@@ -2754,11 +2734,11 @@
             {"CLS-103 Mythology" : 4},
             {"CLS-104 Sport and Violence in the Ancient World" : 4},
             {"CLS-105 The Ancient World in 50 Archaeological Objects" : 4},
-            {"CLS-212 Geography and Travel in the Ancient Mediterranean Catalog" : 4},
+            {"CLS-212 Geography and Travel in the Ancient Mediterranean" : 4},
             {"CLS-213 Inventing the Book" : 4},
             {"CLS-214 Law and Order: Greece & Rome" : 4},
             {"CLS-215 Science and Innovation in Antiquity" : 4},
-            {"CLS-216 Historical Linguistics & PIE" : 4},
+            {"CLS-216 Historical Linguistics and Proto-Indo-European" : 4},
             {"CLS-222 Title The Invention of Archaeology" : 4},
             {"CLS-223 Immigration and Integration in Greece and Rome" : 4},
             {"CLS-232 Guide to the Good Life" : 4},
@@ -2771,11 +2751,11 @@
             {"CLS-332 Women and Power in Antiquity" : 4},
             {"CLS-401 Seminar in Classics" : 4},
             {"CLS-504 Directed Independent Study" : 4},
-            {"COM-201 Rhetoric and Strategy" : 4},
+            {"COM-201 Rhetoric & Strategy" : 4},
             {"COM-311 Rhetoric in the Ancient World" : 4},
             {"FYW-1141 Homer and History" : 4},
             {"GRK-201 Intermediate Greek I" : 4},
-            {"GRK-315 Ancient Greek: Translation & Research" : 4},
+            {"GRK-315 Ancient Greek: Translation & Research Methods" : 4},
             {"GRK-325 Ancient Greek: Intensive Readings" : 4},
             {"HST-101 Europe in the Ancient World" : 4},
             {"HST-102 Europe in the Medieval World" : 4},
@@ -2847,7 +2827,7 @@
             {"COM-301 Rhetorical Criticism" : 4},
             {"COM-302 Media Criticism" : 4},
             {"COM-314 Social Media Strategy" : 4},
-            {"COM-323 Race, Class and Gender in Media" : 4},
+            {"COM-323 Race, Class, and Gender in Media" : 4},
             {"COM-335 Political Economy of Mass Media" : 4},
             {"COM-419 Mobile Media, Space and Place" : 4},
             {"COM-451 Civic Media" : 4},
@@ -2870,7 +2850,7 @@
         "key" : "ESTmin",
         "required" : [
             "EES-112 Environmental Science",
-            "EES-301 Environment and Society"
+            "EST-301 Environment and Society"
         ],
         "choose_1_Social Sciences" : [
             "ANT-263 Environmental Anthropology",
@@ -2929,7 +2909,7 @@
             {"ANT-205 Japanese Popular Culture" : 4},
             {"CHN-225 Chinese Film" : 4},
             {"COM-302 Media Criticism" : 4},
-            {"COM-323 Race, Class and Gender in Media" : 4},
+            {"COM-323 Race, Class, and Gender in Media" : 4},
             {"COM-350 Lenses on Africa" : 4},
             {"COM-421 Studies in Mass Media" : 4},
             {"ENG-392 Film Analysis" : 4},
@@ -2977,7 +2957,7 @@
             {"MXP-240 Travel Writing" : 2}
         ],
         "choose_1_Additional Course" : [
-            "COM-323 Race, Class and Gender in Media",
+            "COM-323 Race, Class, and Gender in Media",
             "COM-331 Media History",
             "COM-335 Political Economy of Mass Media",
             "COM-353 Political Communication",
@@ -3020,9 +3000,9 @@
             {"SPN-361 Survey of Spanish American Literature" : 4},
             {"SPN-401 Studies in Hispanic Civilization" : 4},
             {"SPN-440 Spanish American Narrative" : 4},
-            {"SPN-445 Latin American Women’s Literature" : 4},
+            {"SPN-445 Latin American Women's Literature" : 4},
             {"SPN-448 Spanish-American Short Story" : 4},
-            {"SPN-460 Readings in Spanish Amer Literature" : 4},
+            {"SPN-460 Readings in Spanish American Literature" : 4},
             {"SPN-466 United States Latino/a Studies" : 4}
         ]
     },
@@ -3036,7 +3016,7 @@
             {"AST-504 Directed Independent Study" : 4},
             {"CHN-404 Classical Chinese" : 4},
             {"CHN-504 Directed Independent Study" : 4},
-            {"CLS-216 Historical Linguistics & PIE" : 4},
+            {"CLS-216 Historical Linguistics and Proto-Indo-European" : 4},
             {"CLS-504 Directed Independent Study" : 4},
             {"CSC-223 Advanced Data Structures and Software Development" : 4},
             {"CSC-272 Introduction to Data Mining" : 4},
@@ -3051,9 +3031,9 @@
             {"FRN-323 Quebec Language, Civilization & Culture" : 4},
             {"FRN-405 Introduction to French Linguistics" : 4},
             {"FRN-504 Directed Independent Study" : 4},
-            {"FYW-1156 Who Speaks Bad English?" : 4},
+            {"FYW-1156 Who Speaks Bad English? Language and Ideology" : 4},
             {"FYW-1286 Spanish in the United States" : 4},
-            {"GRK-315 Ancient Greek: Translation & Research" : 4},
+            {"GRK-315 Ancient Greek: Translation & Research Methods" : 4},
             {"GRM-405 Introduction to German Linguistics" : 4},
             {"GRM-504 Directed Independent Study" : 4},
             {"HUM-502 Humanities Lab" : 4},
@@ -3154,7 +3134,7 @@
             {"ENG-300 Literature Before Print" : 4},
             {"ENG-314 Studies in Chaucer" : 4},
             {"ENG-315 Animals in Medieval Literature and Culture" : 4},
-            {"ENG-316 Late 14th Century English Literature" : 4},
+            {"ENG-316 Late 14th Century Literature" : 4},
             {"ENG-317 Literature of Early Modern Britain" : 4},
             {"ENG-318 Early Modern Drama" : 4},
             {"ENG-319 Major Figures in Early Modern British Literature" : 4},
@@ -3186,7 +3166,7 @@
             {"HST-307 Life on the Margins in Early Modern Europe" : 2},
             {"HST-310 History of Western Medicine" : 4},
             {"HST-475 Senior Seminar in History" : 4},
-            {"HUM-102 Studies in Humanities" : 4},
+            {"HUM-102 Studies in Humanities II" : 4},
             {"HUM-201 History of Ideas in Context I" : 4},
             {"HUM-202 History of Ideas in Context II" : 4},
             {"MUS-221 Music History I" : 2},
@@ -3233,7 +3213,7 @@
                 "REL-222 Introduction to Islam",
                 "REL-229 Sufi Islam",
                 "REL-251 Jerusalem: One City, Three Faiths",
-                "REL-322 Muhammad and the Qur’an",
+                "REL-322 Muhammad and the Qur'an",
                 "REL-323 Women, Gender, Islam"
             ]
         }        
@@ -3381,7 +3361,7 @@
             {"AST-255 Poverty, Gender and Development in India" : 4},
             {"ART-252 Women and the Arts" : 4},
             {"CLS-332 Women and Power in Antiquity" : 4},
-            {"COM-323 Race, Class and Gender in Media" : 4},
+            {"COM-323 Race, Class, and Gender in Media" : 4},
             {"COM-412 International Women’s Rhetoric" : 4},
             {"ECN-233 Economics of Gender" : 4},
             {"ENG-252 Shakespeare" : 4},
@@ -3411,10 +3391,10 @@
             {"REL-325 Women and Power in Hinduism" : 4},
             {"REL-344 Black Liberation and Womanist Theologies" : 4},
             {"REL-360 Prophets, Priests, and Patriarchy: Women in Judaism and Christianity" : 4},
-            {"REL-363 Sexuality and Christian Theologies" : 4},
+            {"REL-363 Sexuality and Christian Theology" : 4},
             {"SOC-232 Sociology of Contemporary Families" : 4},
             {"SOC-242 Sociology of Gender and Sexuality" : 4},
-            {"SPN-445 Latin American Women’s Literature" : 4},
+            {"SPN-445 Latin American Women's Literature" : 4},
             {"WGS-240 Women in Science" : 4},
             {"WGS-252 Sexual Revolutions in Modern America" : 2}
         ]
@@ -3464,7 +3444,7 @@
             "CSC-461 Computational Theory",
 
             "ECN-331 Empirical Methods in Economics",
-            "ECN-345 Intermediate Macroeconomics Analysis",
+            "ECN-345 Intermediate Macroeconomic Analysis",
             "ECN-346 Intermediate Microeconomic Analysis",
             "ECN-475 Senior Seminar in Economics",
 
@@ -3785,10 +3765,10 @@
             "SPN-420 20th and 21st Century Spanish Literature",
             "SPN-430 Readings in Spanish Literature",
             "SPN-440 Spanish American Narrative",
-            "SPN-445 Latin American Women’s Literature",
+            "SPN-445 Latin American Women's Literature",
             "SPN-448 Spanish-American Short Story",
             "SPN-450 Studies in Hispanic Civilization",
-            "SPN-460 Readings in Spanish Amer Literature",
+            "SPN-460 Readings in Spanish American Literature",
             "SPN-465 Film Studies",
             "SPN-466 United States Latino/a Studies",
             "SPN-470 Senior Seminar in Spanish"
@@ -3801,10 +3781,10 @@
             "SPN-420 20th and 21st Century Spanish Literature",
             "SPN-430 Readings in Spanish Literature",
             "SPN-440 Spanish American Narrative",
-            "SPN-445 Latin American Women’s Literature",
+            "SPN-445 Latin American Women's Literature",
             "SPN-448 Spanish-American Short Story",
             "SPN-450 Studies in Hispanic Civilization",
-            "SPN-460 Readings in Spanish Amer Literature",
+            "SPN-460 Readings in Spanish American Literature",
             "SPN-465 Film Studies",
             "SPN-466 United States Latino/a Studies",
             "SPN-470 Senior Seminar in Spanish",
@@ -3827,7 +3807,7 @@
             "BIO-460 Neurobiology"
         ],
         "structchoose_1_Gen. Chem." : [
-            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics, Thermodynamics and the Environment"],
+            ["CHM-110 Foundations of Chemistry", "CHM-115 Kinetics Thermodynamics and the Environment"],
             "CHM-118 Principles of Chemistry: Theory and Applications"
         ],
         "required3" : [
@@ -3925,7 +3905,7 @@
             "PHY-331 Thermodynamics",
             "PHY-311 Classical Mechanics I",
             "PHY-312 Classical Mechanics II",
-            "PHY-321 Electrmagnetic Theoyy I",
+            "PHY-321 Electromagnetic Theory I",
             "PHY-322 Electromagnetic Theory II",
             "PHY-441 Quantum Mechanics I"
         ],
@@ -3966,7 +3946,7 @@
         ],
         "choose_1_Biopsychology" : [
             "PSY-320 Introduction to Biopsychology",
-            "PSY-321 Pyschopharmacology",
+            "PSY-321 Psychopharmacology",
             "PSY-323 Animal Behavior",
             "PSY-327 Functional Neuroanatomy",
             "PSY-328 Sensation and Perception"
@@ -3983,7 +3963,7 @@
             "PSY-212 Social Psychology",
             "PSY-214 Health Psychology",
             "PSY-216 Personality",
-            "PSY-219 Stereotypes, Prejudice, and Discrimination"
+            "PSY-219 Stereotyping, Prejudice, & Discrimination"
         ],
         "choose_1_Capstone" : [
             "PSY-404 Autism",
@@ -4014,7 +3994,7 @@
         ],
         "choose_1_Biopsychology" : [
             "PSY-320 Introduction to Biopsychology",
-            "PSY-321 Pyschopharmacology",
+            "PSY-321 Psychopharmacology",
             "PSY-323 Animal Behavior",
             "PSY-327 Functional Neuroanatomy",
             "PSY-328 Sensation and Perception"
@@ -4031,7 +4011,7 @@
             "PSY-212 Social Psychology",
             "PSY-214 Health Psychology",
             "PSY-216 Personality",
-            "PSY-219 Stereotypes, Prejudice, and Discrimination"
+            "PSY-219 Stereotyping, Prejudice, & Discrimination"
         ],
         "choose_1_Capstone" : [
             "PSY-404 Autism",
@@ -4051,7 +4031,7 @@
         "required" : [
             "SOC-101 Introduction to Sociology",
             "SOC-301 Sociological Theory",
-            "SCO-302 Methods of Social Research",
+            "SOC-302 Methods of Social Research",
             "SOC-303 Quantitative Research Seminar",
             "SOC-304 Qualitative Research Seminar",
             "SOC-465 Capstone Seminar"
@@ -4266,8 +4246,8 @@
             {"ART-258 Embodied Representations: Art, Bodies, & Identities" : 4},
             {"AST-255 Poverty, Gender and Development in India" : 4},
             {"CLS-332 Women and Power in Antiquity" : 4},
-            {"COM-315 Great Speeches (specific topics approved by the oversight committee)" : 4},
-            {"COM-323 Race, Class and Gender in Media" : 4},
+            {"COM-315 Great Speeches" : 4},
+            {"COM-323 Race, Class, and Gender in Media" : 4},
             {"COM-412 International Women’s Rhetoric" : 4},
             {"ECN-233 Economics of Gender" : 4},
             {"ENG-252 Shakespeare" : 4},
@@ -4297,12 +4277,12 @@
             {"REL-325 Women and Power in Hinduism" : 4},
             {"REL-344 Black Liberation and Womanist Theologies" : 4},
             {"REL-360 Prophets, Priests, and Patriarchy: Women in Judaism and Christianity" : 4},
-            {"REL-363 Sexuality and Christian Theologies" : 4},
+            {"REL-363 Sexuality and Christian Theology" : 4},
             {"SOC-232 Sociology of Contemporary Families" : 4},
             {"SOC-242 Sociology of Gender and Sexuality" : 4},
-            {"SPN-445 Latin American Women’s Literature" : 4},
-            {"SPN-460 Readings in Spanish Amer Literature (specific topics approved by the oversight committee)" : 4},
-            {"WGS-101 Issues in Women’s, Gender and Sexuality Studies" : 4},
+            {"SPN-445 Latin American Women's Literature" : 4},
+            {"SPN-460 Readings in Spanish American Literature" : 4},
+            {"WGS-101 Issues in Women's, Gender and Sexuality Studies" : 4},
             {"WGS-240 Women in Science" : 4},
             {"WGS-250 Introduction to Queer Theory and Sexuality Studies" : 4},
             {"WGS-252 Sexual Revolutions in Modern America" : 2},

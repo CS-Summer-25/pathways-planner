@@ -277,11 +277,16 @@ function loadPlan() {
             var tables = document.querySelectorAll(".programTable");
 
             tables.forEach(table => {
+                var tableId = table.id.split("-")[0];
                 table.querySelectorAll("input").forEach(input => {
                     input.value = "";
                 });
-            })
-            
+                var select = document.querySelector(tableId + "Select");
+                if (select) {
+                    select.value = ""; // Reset the select to ""
+                }
+            });
+
             // clear the table first
 
             for (let i = 0; i < data.length; i++) {
@@ -292,10 +297,13 @@ function loadPlan() {
                     tableGroup = tableGroup.split("/")[0]; 
                    
                    var programSelect = document.getElementById(tableGroup + "Select")
+
                    programSelect.value = program;
+                   console.log("Program Select: " + programSelect.value);
                    grabCourses(tableGroup + "Select");
                 }
                 setTimeout(() => {
+                    // console.log("Loading table: " + tableGroup);
                     loadTable(tableGroup, data, i);
                 }, 1000);                
             }         
@@ -313,8 +321,8 @@ function loadPlan() {
                 // keep the scroll position at the top
                 document.documentElement.scrollTop = 0;
             }, 2000);
-
-            updateSemesterLabel();
+            console.log("Updating semester label.");
+            // updateSemesterLabel();
         });
     });
     console.log("Plan loaded successfully.");
@@ -363,6 +371,7 @@ function loadTable(tableGroup, data, i) {
         // Find the input corresponding to the semester
         let inputIndex = j-1; // Adjust for zero-based index
         if (inputs[inputIndex]) {
+            console.log("Current Table: " + tableGroup);
             // inputs[inputIndex].type == "checkbox" ? inputs[inputIndex].checked = true : inputs[inputIndex].value = value;
             if (inputs[inputIndex].type == "checkbox") {
                 // console.log("ABC "+inputs[inputIndex].type);
