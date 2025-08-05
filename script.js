@@ -322,9 +322,11 @@ async function initialize() {
     
     document.getElementById("questionIcon").addEventListener("click", tourWebsite);
 
-    setTimeout(() => {mergeInverts()}, 1000);
+    setTimeout(() => {mergeInverts()}, 100);
+    // mergeInverts();
 
-    setTimeout(() => {initializeGuidePopup()}, 1000);
+    setTimeout(() => {initializeGuidePopup()}, 100);
+    // initializeGuidePopup();
 }
 
 // This function constructs an Object INVERTED_GERS_COURSES that maps each course in the GER_COURSES Object to the programs that require it.
@@ -375,15 +377,6 @@ function createInvertedCourseOptions() {
 }
 
 function mergeInverts() {
-    // if (INVERTED_GER_COURSES && INVERTED_courseOptions) {
-    // if (INVERTED_GER_COURSES == null) {
-    //     console.error("INVERTED_GER_COURSES is null, cannot merge.");
-    //     createInvertedGERCourses();
-    // }
-    // if (INVERTED_courseOptions == null) {
-    //     console.error("INVERTED_courseOptions is null, cannot merge.");
-    //     createInvertedCourseOptions();
-    // }
     // console.log(Object.keys(INVERTED_GER_COURSES));
     // console.log(Object.keys(INVERTED_courseOptions));
     var merged = Object.keys(INVERTED_GER_COURSES).concat(Object.keys(INVERTED_courseOptions));
@@ -406,13 +399,46 @@ function initializeGuidePopup() {
         source: MERGED_INVERTS
     });
 
-    var major = document.getElementById("guideMajorInput");
-    $(major).autocomplete({
-        autoFocus: true,
-        source: Object.keys(majors)
-    });
+    // var programs = document.getElementsByClassName("guideInputs");
 
-    document.getElementById("guideAddBtn").addEventListener("click", function() {
+    var programs = document.getElementsByClassName("guideProgram");
+    console.log("Programs: ", programs);
+
+    // programs.forEach((program) => {
+    //     $(program).autocomplete({
+    //         autoFocus: true,
+    //         source: program.id == "guideInput-minor" ? Object.keys(minors) : Object.keys(majors),
+    //     });
+    // });
+    var programsObj = {};
+    for (i = 0; i < programs.length; i++) {
+        var program = programs[i];
+        $(program).autocomplete({
+            autoFocus: true,
+            source: program.id == "guideInput-minor" ? Object.keys(minors) : Object.keys(majors),
+        });
+        programsObj[program.id.split("-")[1]] = program;
+    }
+
+    document.getElementById("guideAddBtn").addEventListener("click", submitGuidePopup.bind(null, programsObj, input));
+
+};
+
+
+function submitGuidePopup(programsObj, input) {
+    var validPrograms = {};
+        Object.keys(programsObj).forEach((key) => {
+            var program = programsObj[key];
+            if (program.value != "") {
+                    console.log("Program: ", program.value);
+                if (Object.keys(majors).indexOf(program.value) != -1 || Object.keys(minors).indexOf(program.value) != -1) {
+                    validPrograms[key] = program.value;
+                
+                }
+            }
+        });
+            
+        console.log("Valid Programs: ", validPrograms);
 
         var time = "";
         var term = "";
@@ -429,28 +455,25 @@ function initializeGuidePopup() {
             }
         });
 
-        var fulfilledCredits = addToPlan(input.value, major.value, time, term);
+        var fulfilledCredits = addToPlan(input.value, validPrograms, time, term);
+        // var fulfilledCredits = addToPlan(input.value, major.value, time, term);
         if (fulfilledCredits.length > 0) {
             alert(`Added ${input.value} to your plan! \nYou have fulfilled ${fulfilledCredits.length} credits: ` + fulfilledCredits.join(", "));
         }
-        // hide the guide popup
-        // document.getElementById("guidePopup").setAttribute("style", "display: none;");
         // reset the input values
         input.value = "";
-        // major.value = "";
         document.getElementsByName("semester").forEach(function(x) { x.checked = false; });
         document.getElementsByName("standing").forEach(function(x) { x.checked = false; });
         // showPopup("guide");
-
-        // document.getElementById("guideDoneBtn").addE
-        // // guideDoneBtn
-    });
+        document.getElementById("guidePopup").style.display = "none";
 }
 
 // This function automatically adds a course to the current plan based on user input.
-function addToPlan(course, major, time, term) {
+function addToPlan(course, programs, time, term) {
     // May be worth checking if the course is already in the plan in this function - mainly, don't want 1 course to be counted across multiple semesters
+    
     var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
+
     var availableCredits = [];
 
     if (time != "" && term != "" && course != "") {
@@ -477,67 +500,81 @@ function addToPlan(course, major, time, term) {
     }
     // not a valid course somehow
     else {
-        console.log([course, major, time, term])
+        console.log([course, programs, time, term])
         if (course == "") 
             alert(`"${course}" is not a valid course. Please check the course code and try again.`);
         else if (time == "" || term == "") 
             alert(`Please select a standing and semester for the course.`);
     }
-    if (major != "" && course != "") {
-        const progSelect = document.getElementById("mainMajorSelect");
-        // console.log("Program Select: ", progSelect, major);
-        progSelect.value = major;
-        grabCourses("mainMajorSelect");
-        console.log(course);
-        console.log(INVERTED_courseOptions);
+    if (Object.keys(programs).length != 0 && course != "") {
+        setTimeout(() => {
+            Object.keys(programs).forEach((key) => {
+                // const progSelect = document.getElementById("mainMajorSelect");
+                
+                var progSelect = document.getElementById(key+"Select");
+                // console.log("Program Select: ", progSelect, major);
+                if (progSelect.value == "" || progSelect.value != programs[key]) {
+                    progSelect.value = programs[key];
+                    grabCourses(key+"Select");
+                }
+            });
+        }, 1000);
+            // if (programs.indexOf(major) == -1) {
+            //     alert(`"${major}" is not a valid major. Please check the major and try again.`);
+            //     return availableCredits;
+            // }
+        
+        console.log("Inputted Course: ", course);
         console.log("INVERTED_courseOptions: ", INVERTED_courseOptions[course]);
 
         var isCourse = Object.keys(INVERTED_courseOptions).indexOf(course) != -1;
         console.log("Is Course: ", isCourse);
         if (isCourse) {
-        // if (true) {
-            console.log(INVERTED_courseOptions[course]);
 
             setTimeout(() => {
-                INVERTED_courseOptions[course].forEach((info) => {
-                    if (info.programTitle == major) {
-                        console.log("Adding course to: ", info.programTitle, info.rowLabel);
-                        var table = document.getElementById("mainMajor-table");
+                Object.keys(programs).forEach((key) => {
+                    var program = programs[key];
+                    console.log("Program: ", program);
+                    INVERTED_courseOptions[course].forEach((info) => {
+                        if (info.programTitle == program) {
+                            console.log("Adding course to: ", info.programTitle, info.rowLabel);
+                            // var table = document.getElementById("mainMajor-table");
+                            console.log("Key: ", key);
+                            var table = document.getElementById(key + "-table");
+                            console.log("Table: ", table);
 
-                        // If the course is of "required" pattern, then the rowLabel will match the course directly
-                        if (info.rowLabel == "required") {
-                            var pattern = course.split(" ")[0];
-                            var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == pattern);
-                        }
-                        else {
-                            var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == info.rowLabel);
-                        }
-
-                        console.log("Relevant Row: ", i);
-                        console.log(i.id.split("_")[1].split("-")[0]);
-                        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
-
-                        
-                        var relevantCell = document.getElementById("mainMajor_" + i.id.split("_")[1].split("-")[0] + "-" + j);
-                        console.log("Relevant Cell: ", relevantCell);
-                        if (relevantCell.disabled == false) {
-                            if (relevantCell.type == "text") {
-                                relevantCell.value = course;
+                            // If the course is of "required" pattern, then the rowLabel will match the course directly
+                            if (info.rowLabel == "required") {
+                                var pattern = course.split(" ")[0];
+                                var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == pattern);
                             }
                             else {
-                                // relevantCell.checked = true;
-                                // relevantCell.setAttribute("checked", true);
-                                relevantCell.click();
-                            }  
-                            relevantCell.dispatchEvent(new Event('change'));
-                        }                     
-                    }
+                                var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == info.rowLabel);
+                            }
+
+                            console.log("Relevant Row: ", i);
+                            console.log(i.id.split("_")[1].split("-")[0]);
+                            var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
+
+                            var relevantCell = document.getElementById(key + "_" + i.id.split("_")[1].split("-")[0] + "-" + j);
+                            console.log("Relevant Cell: ", relevantCell);
+                            if (relevantCell.disabled == false) {
+                                if (relevantCell.type == "text") {
+                                    relevantCell.value = course;
+                                }
+                                else {
+                                    // relevantCell.checked = true;
+                                    // relevantCell.setAttribute("checked", true);
+                                    relevantCell.click();
+                                }  
+                                relevantCell.dispatchEvent(new Event('change'));
+                            }                     
+                        }
+                    });
                 });
             }, 1000);
         }
-
     }
-
     console.log(availableCredits);
     return availableCredits;
 }
@@ -565,7 +602,8 @@ function createLegend(){
         {color: getColor("red"), text: "Incomplete"},
         {color: getColor("pink"), text: "Error"},
     ];
-    var xPos = -100;
+    // var xPos = -100;
+    var xPos = 0;
     colors.forEach(function(item, index) {
         var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         circle.setAttribute("cx", xPos + 10);
