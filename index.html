@@ -48,8 +48,11 @@
                 <img src="imgs/info.png" alt="" 
                 alt="Info Icon" id="infoIcon" onclick="tutorial()" class="headerBtns">
 
-                <!-- <img src="imgs/question.png" title="Tutorial on how to use the planner" 
-                alt="Question Icon" id="questionIcon" onclick="faq()" class="headerBtns"> -->
+                <!-- 
+                <img src="imgs/question.png" title="Tutorial on how to use the planner" 
+                alt="Question Icon" id="questionIcon" onclick="faq()" class="headerBtns"> 
+                https://github.com/CS-Summer-25/pathways-planner
+                -->
                 <img src="imgs/question.png" alt="Tutorial on how to use the planner" 
                 alt="Question Icon" id="questionIcon" class="headerBtns">
 
@@ -57,7 +60,7 @@
                 alt="Add Column Icon" id="addColIcon" onclick="customAddColumn()" class="headerBtns">
                 
                 <img src="imgs/technical-service.png" alt="Report a bug or suggest a feature" 
-                alt="Add Column Icon" id="reportBugIcon" onclick="customAddColumn()" class="headerBtns">
+                alt="Add Column Icon" id="reportBugIcon" class="headerBtns">
 
                 <!-- temporary button to toggle light mode -->
                 <!-- <input type="button" id="toggleLightMode" onclick="toggleLightMode()"  value="Toggle Light Mode"> -->
@@ -141,14 +144,15 @@
                     <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('guidePopup')">
                     <center><h3>Guided Tour</h3></center>
                     <br/>
+                        <p>Have you decided on your majors yet? If not, leave them blank.</p>
+                        <input type="text" class="guideInputs guideProgram" id="guideInput-mainMajor" placeholder="Enter your primary major (e.g. Computer Science)"><br/><br/>
+                        <input type="text" class="guideInputs guideProgram" id="guideInput-doubleMajor" placeholder="Enter your 2nd major (e.g. Information Technology)"><br/><br/>
+                        <input type="text" class="guideInputs guideProgram" id="guideInput-minor" placeholder="Enter your minor (e.g. Digital Ethics)"><br/><br/>
 
-                        <p>Have you decided on a major yet? If not, leave this blank.</p>
-                        <input type="text" class="guideInputs" id="guideMajorInput" class="majorInput" placeholder="Enter your major (e.g. Computer Science)"><br/><br/>
-                    
                     <hr/>
                     
                     <p>1. Enter a course that you have-taken / are-taking:</p>
-                    <input type="text" class="guideInputs" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-101)">
+                    <input type="text" class="guideInputs" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-105)">
                     <br/><br/>
                     <p>2. When did you take the course?</p>
                     <center>
@@ -163,20 +167,7 @@
                     <span class="radioOption"><input type="radio" id="fall" name="semester" value="fall"/>🍂 Fall</span>
                     <span class="radioOption"><input type="radio" id="spring" name="semester" value="spring"/>🌸 Spring</span>
                     </center>
-                  
-
-                    <!-- <div id="guideTime" style="display: none;">
-                        <p>When did you take it?</p>
-                        <input type="text" id="guideYearInput" class="yearInput" placeholder="Enter year (e.g. 2025)" name="Enter a year"><br/><br/>
-                        <p>Was it Fall or Spring?</p>
-                        <input type="text" id="guideTermInput" class="termInput" placeholder="Enter term (e.g. Fall)" name="Enter a term"><br/><br/>
-                    </div> -->
-
-
-                    <!-- <div id="guideMinor" style="display: none;">
-                        <p>Do you have a minor?</p>
-                        <input type="text" id="guideMinorInput" class="minorInput" placeholder="Enter your minor (e.g. Mathematics)"><br/><br/>
-                    </div> -->
+                
                     <br/><br/>
                     <div id="guideConfirm" >
                         <button id="guideAddBtn">Add to table and continue</button>
