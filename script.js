@@ -971,13 +971,21 @@ function createTable(tableName, tableId, firstCol) {
     yearRow.setAttribute("id", "yearRow");
     yearRow.classList.add(tableId);
 
-    year_vals = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
+    var year_vals = ['Year', 'Freshman', 'Sophomore', 'Junior', 'Senior'];
+    if (semesterMax > 9) 
+        year_vals.push('Other');
+
 
     for (let i = 0; i < year_vals.length; i++) {
         var cell = document.createElement("th");
-
-        cell.setAttribute("colspan", i == 0 ? 1 : 2);
         cell.innerHTML = year_vals[i];
+        
+        if (i < 5)
+            cell.setAttribute("colspan", i == 0 ? 1 : 2);
+        else 
+            cell.setAttribute("colspan", Math.ceil(semesterMax / 2) - 4);
+
+
 
         yearRow.appendChild(cell);
     }
@@ -995,7 +1003,10 @@ function createTable(tableName, tableId, firstCol) {
             cell.setAttribute("style", "font-weight: normal;");
         }
         else {
-            cell.innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
+            if (i < 9 )
+                cell.innerHTML = i % 2 == 0 ? `<th>Spring</th>` : `<th>Fall</th>`;
+            else
+                cell.innerHTML = `<th>Semester ${i}</th>`; 
         }
         semesterRow.appendChild(cell);
     }
@@ -1583,12 +1594,13 @@ function customAddColumn() {
                 newInput.setAttribute("type", "number");
                 newInput.setAttribute("min", "0");
             }
-            else if (rowClass === "fyw" && j > 2) {
+            else if (rowClass === "fyw" && j > 2)
                 newInput.setAttribute("disabled", "true");
-            }
-            else {
+            else if (isSpecificCourse(rowClass)) 
+                newInput.setAttribute("type", "checkbox");
+            else
                 newInput.setAttribute("type", "text");
-            }
+            
             // we simply have no validation for custom rows - maybe a future feature
             newInput.addEventListener("change", updateTable.bind(newInput, relevantRow, numCols));
             var bgcolor = firstCell.getAttribute("style") != null ? firstCell.getAttribute("style").trim() : "";
