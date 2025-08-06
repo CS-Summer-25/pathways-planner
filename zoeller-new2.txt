@@ -1,0 +1,52 @@
+Table,Course,Semester
+"GERS","CLPs: 0",Freshman-Fall
+"GERS","CLPs: 12",Freshman-Spring
+"GERS","CLPs: 6",Sophomore-Fall
+"GERS","CLPs: 4",Sophomore-Spring
+"GERS","CLPs: 3",Junior-Fall
+"GERS","CLPs: 3",Junior-Spring
+"GERS","FYW-1116 Language, Argument and Culture",Freshman-Spring
+"GERS","PTH-101 Pathways 101",Freshman-Fall
+"GERS","PTH-102 Pathways 102",Freshman-Spring
+"GERS","PTH-201 Pathways 201",Sophomore-Fall
+"GERS","PTH-202 Pathways 202",Sophomore-Spring
+"GERS","LNG-220 Linguistic Analysis",Sophomore-Fall
+"GERS","CHM-115 Kinetics Thermodynamics and the Environment",Freshman-Spring
+"GERS","ANT-101 Introduction to Anthropology",Freshman-Fall
+"GERS","ANT-105 Introduction to Archaeology",Junior-Fall
+"GERS","REL-251 Jerusalem: One City, Three Faiths",Sophomore-Spring
+"GERS","PHL-317 Twentieth Century Philosophy",Junior-Spring
+"GERS","ANT-205 Japanese Popular Culture",Sophomore-Spring
+"GERS","PHL-101 Introduction to Philosophy",Sophomore-Spring
+"GERS","GRM-201 Intermediate German I",Freshman-Fall
+"GERS","HSC-101 Wellness Concepts",Sophomore-Spring
+"GERS","MTH-116 Introduction to Cryptology",Freshman-Fall
+"GERS","LNG-210 General Linguistics",Freshman-Fall
+"GERS","CSC-272 Introduction to Data Mining",Junior-Fall
+"GERS","CHM-101 Chemistry and Global Awareness",Freshman-Fall
+"GERS","PHY-111 General Physics I",Freshman-Spring
+"Computer Science, B.S.","CSC-105",Freshman-Fall
+"Computer Science, B.S.","CSC-121",Sophomore-Fall
+"Computer Science, B.S.","CSC-122",Sophomore-Spring
+"Computer Science, B.S.","CSC-223",Senior-Fall
+"Computer Science, B.S.","CSC-231",Sophomore-Spring
+"Computer Science, B.S.","CSC-261",Junior-Fall
+"Computer Science, B.S.","CSC-461",Senior-Fall
+"Computer Science, B.S.","MTH-150",Freshman-Fall
+"Computer Science, B.S.","CSC-372 Machine Learning with Big Data",Junior-Spring
+"Computer Science, B.S.","CSC-343 Artificial Intelligence",Senior-Spring
+"Computer Science, B.S.","CSC-341 Database Management Systems",Junior-Spring
+"Computer Science, B.S.","CSC-272 Introduction to Data Mining",Junior-Fall
+"Computer Science, B.S.","CSC-475 Seminar in Computer Science",Senior-Spring
+"Anthropology, B.A.","ANT-101",Freshman-Fall
+"Anthropology, B.A.","ANT-105",Junior-Fall
+"Anthropology, B.A.","ANT-401",Senior-Spring
+"Anthropology, B.A.","ANT-305 Practicing Anthropology",Senior-Fall
+"Anthropology, B.A.","LNG-230 Language as Cultural Phenomenon",Freshman-Fall
+"Anthropology, B.A.","ANT-205 Japanese Popular Culture",Freshman-Fall
+"Anthropology, B.A.","LNG-220 Linguistic Analysis",Sophomore-Fall
+"Anthropology, B.A.","LNG-210 General Linguistics",Freshman-Fall
+"Linguistics Minor","LNG-210",Freshman-Fall
+"Linguistics Minor","LNG-250 Second Language Learning and Acquisition",Freshman-Spring
+"Linguistics Minor","AST-270 Languages of Asia",Junior-Fall
+"Linguistics Minor","CSC-272 Introduction to Data Mining",Junior-Fall

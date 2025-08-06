@@ -1,6 +1,8 @@
 
 # TODO: 
 
+* [ ] Server crashes periodically. Investigate. 
+
 * [ ] One step tutorials (intro.js) interlaced with guide ???
 
 * [ ] Clear out old major/minor tables BEFORE loading plan 

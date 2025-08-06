@@ -30,7 +30,7 @@
                 <!-- <img src="imgs/file-import.png" alt="Save Icon" id="saveIcon" onclick="authenticate('save')" class="headerBtns"> -->
                  <!-- add dropdown -->
                 
-                <img src="imgs/diskette.png" alt="Guided tour for filling out your plan" 
+                <img src="imgs/add-button.png" alt="Guided tour for filling out your plan" 
                 alt="Guided tour" id="guideIcon" onclick="showPopup('guide')" class="headerBtns">
 
                 <img src="imgs/cloud-computing.png" alt="Save your current plan to the server" 
@@ -116,28 +116,8 @@
                 <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
                 <br/><br/>
                 <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
-                 <input type="text" id="yearInput" placeholder="Enter year (e.g. 2025)"name="Enter a year"><br/><br/>
-                    <input type="radio" id="termInput" name="term" value="Fall">Fall
-                    <input type="radio" id="termInput" name="term" value="Spring">Spring
-
-                <table id="importTable">
-                    <tr>
-                        <th>Course</th>
-                    </tr>
-                    <tr>
-                        <!-- Maybe more of interest, finding GER credit based on user input -->
-                        <td><input type="text" id="importInput1" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="importInput2" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="importInput3" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" id="importInput4" class="importInput" placeholder="Enter course code (e.g. CSC-101)" pattern="^[a-zA-Z]{3}(\s|-|)\d{3,4}$"></td>
-                    </tr>
-                </table>
+                 <input type="file" id="importFile" accept=".txt"><br/>
+                    <br/><br/>
                 <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
             </div>
             <div id="guidePopup" class="popup">

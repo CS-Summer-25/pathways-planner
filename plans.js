@@ -60,23 +60,19 @@ function exportPlan() {
     var tables = document.querySelectorAll(".programTable");
     var compressed = "";
     var tableLst = [];
-    compressed += `Course, Semester\n`;
+    compressed += `Table,Course,Semester\n`;
 
     tables.forEach(table => {
         var tableGroup = table.id.split("-")[0];
-        compressed += `${tableGroup}\n`; // Add table ID to compressed string
+        // compressed += `${tableGroup}\n`; // Add table ID to compressed string
         if (tableGroup != "GERS") {
             var selectId = `${tableGroup}Select`;
             var selectValue = document.getElementById(selectId).value;
             // compressed += `:/${selectValue}`; // Add program to compressed string
             // compressed += `/${document.getElementById(`${tableGroup}Select`).value}`; // Add filter to compressed string
-            tableGroup = `${tableGroup}: ${selectValue}`; // Add program to compressed string
-
+            // tableGroup = `${tableGroup}: ${selectValue}`; // Add program to compressed string
+            tableGroup = `${selectValue}`; // Add program to compressed string
         }
-        if (tableLst.indexOf(tableGroup) == -1) {
-            tableLst.push(tableGroup);
-        }
-
         // compressed += `\n`; // end of table tag
         var numRows = table.rows.length;
         var yearRow = table.rows[0].cells;
@@ -97,18 +93,18 @@ function exportPlan() {
                 if (inputs[j].type == "checkbox") {
                     if (inputs[j].checked) {
                         // compressed += `${rowLabel},${j+1},1\n`;
-                        compressed += `"${rowLabel}",${year}-${semester}\n`;
+                        compressed += `"${tableGroup}","${rowLabel}",${year}-${semester}\n`;
                     }
                 }
                 else{ 
                     if (inputs[j].value !== "") {
                         if (rowLabel == "CLPs") {
-                            compressed += `"CLPs: ${inputs[j].value}",${year}-${semester}\n`;
+                            compressed += `"${tableGroup}","CLPs: ${inputs[j].value}",${year}-${semester}\n`;
                         }
                         else{
                             // courses.push(inputs[j].value);
                             // compressed += `${rowLabel},${j+1},${inputs[j].value}\n`;
-                            compressed += `"${inputs[j].value}",${year}-${semester}\n`;
+                            compressed += `"${tableGroup}","${inputs[j].value}",${year}-${semester}\n`;
                         }
                     }
                 }
@@ -118,7 +114,9 @@ function exportPlan() {
         // compressed += `\n`; 
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
-    compressed = [tableLst, compressed].join("\n\n"); // Add table names at the top
+    console.log(compressed);
+    console.log(tableLst);
+    // compressed = [tableLst, compressed].join("\n\n"); // Add table names at the top
 
     // use this to test the compressed string without downloading file
     // if (true) 
@@ -410,24 +408,223 @@ function closePopup(popupId) {
     popup.style.display = "none";
 }
 
-// function importPlan() {
-//     var year = document.getElementById("yearInput").value;
-//     var term = document.getElementById("termInput").value;
-//     var courses = document.getElementById("courses").value.split(",").map(course => course.trim());
+function importPlan() {
 
-//     if (!year || !term || courses.length === 0) {
-//         alert("Please fill in all fields.");
-//         return;
-//     }
+    // Get the file from the input element
+    var fileInput = document.getElementById("importFile");
+    var file = fileInput.files[0];
+    if (!file) {
+        alert("Please select a file.");
+        return;
+    }
+    var reader = new FileReader();
+    reader.onload = function(e) {
+        var contents = e.target.result;
+        // console.log(contents);
+        processImportedPlan(contents); // 
+    };
+    reader.readAsText(file); // Read the file as text
+}
 
-//     // Here you would typically send the data to your server or process it as needed
-//     console.log("Importing plan for:", year, term, courses);
-//     var tables = document.querySelectorAll("table");
-//     tables.forEach(table => {
+function processImportedPlan(contents) {
+    var lines = contents.split("\n");
+    var major = "";
+    for (var i = 0; i < lines.length; i++) {
+        var line = lines[i].trim()
+        if (line) {
+            // Process each line of the imported plan
+            console.log("Processing line:", line);
+            processLine(line, major);
+        }
+    }
+}
 
-
-// }
-
-function guidePopup(){
+function checkIfValidLine(line) {
+    var parts = line.split(",");
+    // "Anthropology, B.A.","LNG-210 General Linguistics",Freshman-Fall
+    // Ignore commas in quotes
+    // Use a regular expression to split by commas not within quotes
+    parts = line.match(/(".*?"|[^",\s]+)(?=\s*,|\s*$)/g);
+    // Remove quotes from the parts
+    parts = parts.map(part => part.replace(/"/g, '').trim());
     
+    console.log(parts);
+    if (parts.length !== 3) {
+        console.warn("Invalid line format:", line);
+        return; // Skip invalid lines
+    }
+    return parts;
+}
+
+function parseLine(parts, major){
+
+    var program = parts[0].replace(/"/g, '').trim();
+    var isMajor = Object.keys(majors).includes(program);
+    if (isMajor && major === "") {
+        major = program; // Only set the major once
+    }
+    var isMinor = Object.keys(minors).includes(program);
+    var isGER = program === "GERS";
+    var isDoubleMajor = !isGER && !isMinor && major !== "" && major !== program && isMajor;
+    var course = parts[1].replace(/"/g, '').trim();
+    var semester = parts[2].trim();
+
+    var yearSemester = semester.split("-");
+    if (yearSemester.length !== 2) {
+        console.warn("Invalid semester format:", semester);
+        return; // Skip invalid semesters
+    }
+    var yearStr = yearSemester[0];
+    var year = ["Freshman", "Sophomore", "Junior", "Senior"].indexOf(yearStr);
+    if (year === -1) {
+        console.warn("Invalid year:", yearStr);
+        return; // Skip invalid years
+    }
+    var sem = yearSemester[1];
+    var semesterColIdx = (parseInt(year) - 1) * 2 + (sem.toLowerCase() === "Fall" ? 0 : 1);
+
+    return [isMinor, isGER, isMajor, isDoubleMajor, program, course, semesterColIdx, major];
+}
+
+function getOrCreateTable(tableGroup) {
+        var table = document.getElementById(tableGroup + "-table");
+    if (!table) {
+        if (isDoubleMajor){
+            document.getElementById("doubleMajorSelect").value = tableGroup; // Set the main major select to the double major
+            grabCourses("doubleMajorSelect"); // Ensure the double major table is loaded
+            table = document.getElementById("doubleMajor-table");
+        }
+        else if (isMinor) {
+            document.getElementById("minorSelect").value = tableGroup; // Set the main minor select to the minor
+            grabCourses("minorSelect"); // Ensure the minor table is loaded
+            table = document.getElementById("minor-table");
+        }
+        else if (isMajor) {
+            document.getElementById("mainMajorSelect").value = tableGroup; // Set the
+            grabCourses("mainMajorSelect"); // Ensure the main major table is loaded
+            table = document.getElementById("mainMajor-table");
+        }
+        else{
+            console.warn("Table not found for group:", tableGroup);
+            return; // Skip if table not found
+        }
+    }
+
+    return table;
+}
+
+function processLine(line, major){
+
+    var parts = checkIfValidLine(line);
+    if (!parts) return; // Skip invalid lines
+
+    if (isNaN(semesterNumber) || semesterNumber < 1) {
+        console.warn("Invalid semester number:", semester);
+        return; // Skip invalid semester numbers
+    }
+
+    var [isMinor, isGER, isMajor, isDoubleMajor, tableGroup, course, semesterColIdx, major] = parseLine(parts, major);
+
+    // Set the semester slider to the maximum semester number found
+    // var semesterSlider = document.getElementById("semesterSlider");
+    // if (semesterNumber > parseInt(semesterSlider.max)) {
+    //     semesterSlider.max = semesterNumber;
+    // }
+    // semesterSlider.value = semesterNumber;
+    // console.log(tableGroup, isGER, isMajor, isMinor, isDoubleMajor);
+    // Find the table and set the course
+
+    var table = getOrCreateTable(tableGroup);
+    if (!table) {
+        console.warn("Table not found for group:", tableGroup);
+        return; // Skip if table not found
+    }
+
+    var firstCol = Array.from(table.querySelectorAll(".firstCol")).map(cell => cell.innerHTML);
+
+    if (course.indexOf("CLPs:") === 0) {
+        // Special handling for CLPs
+        var clpValue = course.split("CLPs:")[1].trim();
+        var clpRowIdx = firstCol.indexOf("CLPs");
+        if (clpRowIdx === -1) {
+            console.warn("CLPs row not found in table:", tableGroup);
+            return; // Skip if CLPs row not found
+        }
+        var headerSize = document.getElementById(tableGroup + "-tableheaders").rows.length;
+        var clpRow = table.rows[clpRowIdx + headerSize];
+        var clpInputs = clpRow.getElementsByTagName("input");
+        var semesterColIdx = (parseInt(year) - 1) * 2 + (sem.toLowerCase() === "Fall" ? 1 : 2);
+        if (semesterColIdx < 0 || semesterColIdx >= clpInputs.length) {
+            console.warn("Semester column index out of range for CLPs:", course);
+            return; // Skip if semester column index is out of range
+        }
+        var clpInput = clpInputs[semesterColIdx];
+        clpInput.value = clpValue;
+        clpInput.dispatchEvent(new Event('input'));
+        clpInput.dispatchEvent(new Event('change'));
+        updateSemesterLabel();  
+        return; // Move to the next line after handling CLPs
+    }
+    var relevantLabels;
+    if (isGER) relevantLabels = INVERTED_GER_COURSES[course];
+    else{
+        var result = [];
+        var allCourses = Object.keys(INVERTED_courseOptions);
+        for (let c of allCourses) {
+            if (c.startsWith(course)) {
+                labels = INVERTED_courseOptions[c]
+                if (typeof(labels) === "string") {
+                    result.push(labels);
+                }
+                else if (Array.isArray(labels)) {
+                    labelsArr = labels;
+                    for (let label of labelsArr) {
+                        if (label["programTitle"] == tableGroup){
+                            if (label["rowLabel"] != "required"){
+                                result.push(label["rowLabel"]);
+                            }
+                            else{
+                                result.push(course);
+                            }
+                        }
+                    }
+                }
+                else {
+                    console.warn("Unexpected type for labels:", typeof labels, labels);
+                }
+            }
+        }
+        relevantLabels = result;
+    }
+
+    console.log(relevantLabels);
+    for (let label of relevantLabels) {
+
+        console.log("label: " +label.toLowerCase().replace(" ", ""));
+        var relevantRow = Array.from(document.getElementsByClassName(label.toLowerCase().replaceAll(" ", "")));
+        console.log(relevantRow);
+        var inputs = relevantRow.slice(1, relevantRow.length);
+        var semesterColIdx = (parseInt(year) - 1) * 2 + (sem.toLowerCase() === "Fall" ? 1 : 2);
+        console.log("Semester Column Index: " + semesterColIdx);
+        if (semesterColIdx < 0 || semesterColIdx >= inputs.length) {
+            console.warn("Semester column index out of range for course:", course);
+            continue; // Skip if semester column index is out of range
+        }
+        var input = inputs[semesterColIdx];
+        if (input.type === "checkbox") {
+            console.log("Checkboxes");
+            console.log(input);
+            input.checked = true;
+            input.setAttribute("checked", true);
+            // input.dispatchEvent(new Event('change')); // Trigger change event for checkbox
+
+            // input.click();
+        }
+        else {
+            input.value = course;
+        }
+        // input.dispatchEvent(new Event('input'));
+        input.dispatchEvent(new Event('change'));
+        updateSemesterLabel();  
+    }
 }
