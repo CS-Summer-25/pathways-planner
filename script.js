@@ -874,6 +874,11 @@ async function setGERSAutocomplete() {
                                         event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
                                     }
                                 }
+                                console.group("GERS Autocomplete Select Info");
+                                console.debug("Input Value: ", inputValue);
+                                console.debug("Label: ", rowLabel);
+                                console.debug("Is Valid: ", isValidCourse(inputValue, rowLabel));
+                                console.groupEnd();
                             }
                         });
                     }

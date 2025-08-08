@@ -58,7 +58,7 @@ function sendCode(emailField){
 function exportPlan() {
     var tables = document.querySelectorAll(".programTable");
     var compressed = "";
-    var tableLst = [];
+    // var tableLst = [];
     compressed += `Table,Course,Semester\n`;
 
     tables.forEach(table => {
@@ -94,8 +94,13 @@ function exportPlan() {
                     if (inputs[j].value !== "") {
                         if (rowLabel == "CLPs") 
                             compressed += `"${tableGroup}","CLPs: ${inputs[j].value}",${year}-${semester}\n`;
-                        else
+                        else {
+                            if (!isValidCourse(inputs[j].value, rowLabel, tableGroup)) {
+                                alert(`Invalid course: ${inputs[j].value} in row: ${rowLabel}. This course isn't able to be imported.`);
+                                console.warn(`Invalid course: ${inputs[j].value} in row: ${rowLabel}. Skipping...`);
+                            }
                             compressed += `"${tableGroup}","${inputs[j].value}",${year}-${semester}\n`;
+                        }
                         
                     }
                 }
@@ -104,7 +109,7 @@ function exportPlan() {
     });
     compressed = compressed.slice(0, -1); // Remove the last semicolon
     console.log(compressed);
-    console.log(tableLst);
+    // console.log(tableLst);
 
     // use this to test the compressed string without downloading file
     // if (true) 
@@ -427,7 +432,7 @@ function processImportedPlan(contents) {
     setTimeout(() => {
         closeMenuItems();
         document.documentElement.scrollTop = 0; // Scroll to top
-    }, 100);
+    }, 500);
 }
 
 function checkIfValidLine(line) {
@@ -557,6 +562,11 @@ function processLine(line, major){
 
         // Replace "required" with the actual course (if only a course code is given)
         relevantLabels = (info.map(item => item["rowLabel"])).map(label => label == "required" ? course : label); 
+    }
+
+    if (relevantLabels == undefined || relevantLabels.length == 0) {
+        console.warn(`No relevant credits found for course: "${course.trim()}". This course may not exist. \nSkipping...`);
+        return;
     }
 
     console.debug("Relevant Labels: ", relevantLabels, "Course: ", course);
