@@ -86,40 +86,6 @@
                     <div id="legend">
                     </div>
             </div>
-            <div id="savePopup" class="popup">
-                Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('savePopup')">
-                <br/><br/>
-                <input type="text" id="saveEmail" class="emailfield" placeholder="Type in your Furman email" onchange="validateEmail(this.value)"><br/><br/>
-                <button id="sendCodeBtn" onclick="sendCode('saveEmail')">Send Code</button><br/><br/>
-                <span id="codeSentMsg">Code sent!<br/><br/>
-                Check your email from `furmancompsci@gmail.com` If this is your first time, the email may have gone to your Spam folder</span><br/><br/>
-                </span>
-                <span>Type in the code emailed to you:</span><br/><br/>
-                <input type="code" id="savePasscode" placeholder="Type in the code emailed to you"><br/><br/>
-                <button id="savePlanBtn" onclick="savePlan()">Save Plan</button>
-            </div>
-            <div id="loadPopup" class="popup">
-                Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('loadPopup')">
-
-                <br/><br/>
-                <input type="text" id="loadEmail" class="emailfield" placeholder="Type in your Furman email" onchange="validateEmail(this.value)"><br/><br/>
-                <button id="sendCodeBtn" onclick="sendCode('loadEmail')">Send Code</button><br/><br/>
-                <span id="codeSentMsg">Code sent!<br/><br/>
-                Check your email from `furmancompsci@gmail.com` If this is your first time, the email may have gone to your Spam folder</span><br/><br/>
-
-                </span>
-                <span>Type in the code emailed to you:</span><br/><br/>
-                <input type="code" id="loadPasscode" placeholder="Type in the code emailed to you"><br/><br/>
-                <button id="loadPlanBtn" onclick="loadPlan()">Load Plan</button>
-            </div>
-            <div id="importPopup" class="popup">
-                <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
-                <br/><br/>
-                <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
-                 <input type="file" id="importFile" accept=".txt"><br/>
-                    <br/><br/>
-                <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
-            </div>
             <div id="guidePopup" class="popup">
                     <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('guidePopup')">
                     <center><h3>Guided Tour</h3></center>
@@ -159,6 +125,32 @@
                 <!-- Find which semesters they want to export -->
                 <!-- <button id="exportPlanBtn" onclick="exportPlan()">Export Plan</button> -->
             </div>
+            <div id="savePopup" class="popup">
+                Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('savePopup')">
+                <br/><br/>
+                <input type="text" id="saveEmail" class="emailfield" placeholder="Type in your Furman email" onchange="validateEmail(this.value)"><br/><br/>
+                <button id="sendCodeBtn" onclick="sendCode('saveEmail')">Send Code</button><br/><br/>
+                <span id="codeSentMsg">Code sent!<br/><br/>
+                Check your email from `furmancompsci@gmail.com` If this is your first time, the email may have gone to your Spam folder</span><br/><br/>
+                </span>
+                <span>Type in the code emailed to you:</span><br/><br/>
+                <input type="code" id="savePasscode" placeholder="Type in the code emailed to you"><br/><br/>
+                <button id="savePlanBtn" onclick="savePlan()">Save Plan</button>
+            </div>
+            <div id="loadPopup" class="popup">
+                Type in your Furman email to get a code for authentication: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('loadPopup')">
+
+                <br/><br/>
+                <input type="text" id="loadEmail" class="emailfield" placeholder="Type in your Furman email" onchange="validateEmail(this.value)"><br/><br/>
+                <button id="sendCodeBtn" onclick="sendCode('loadEmail')">Send Code</button><br/><br/>
+                <span id="codeSentMsg">Code sent!<br/><br/>
+                Check your email from `furmancompsci@gmail.com` If this is your first time, the email may have gone to your Spam folder</span><br/><br/>
+
+                </span>
+                <span>Type in the code emailed to you:</span><br/><br/>
+                <input type="code" id="loadPasscode" placeholder="Type in the code emailed to you"><br/><br/>
+                <button id="loadPlanBtn" onclick="loadPlan()">Load Plan</button>
+            </div>
             <div id="exportPopup" class="popup">
                 <span>
                     <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('exportPopup')">
@@ -183,6 +175,14 @@
                 <!-- <input type="file" id="importFile" accept=".json"><br/><br/> -->
                 <!-- Find which semesters they want to export -->
                 <button id="exportPlanBtn" onclick="exportPlan()">Export Plan</button>
+            </div>
+            <div id="importPopup" class="popup">
+                <span>Import a plan from your computer: <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('importPopup')"></span>
+                <br/><br/>
+                <!-- <input type="file" id="importFile" accept=".txt, .csv, .tsv, .json, .xlsx"><br/><br/> -->
+                 <input type="file" id="importFile" accept=".txt"><br/>
+                    <br/><br/>
+                <button id="importPlanBtn" onclick="importPlan()">Import Plan</button>
             </div>
             <div id="mainBody">
                 <!-- This is where the schedule tables get created -->
