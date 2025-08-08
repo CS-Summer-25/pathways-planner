@@ -2,12 +2,30 @@
 //   const clickedEl = e.target;
 //   const zIndex = window.getComputedStyle(clickedEl).zIndex;
 
-//   console.log('Clicked Element:', clickedEl);
-//   console.log('Tag:', clickedEl.tagName);
-//   console.log('ID:', clickedEl.id);
-//   console.log('Class:', clickedEl.className);
-//   console.log('Z-Index:', zIndex);
-//   console.log('-------------------------');
+//   console.group('Clicked Element:', clickedEl);
+// //   if (clickedEl.tagName === 'INPUT') {
+//     console.table({
+//         "Type"          : clickedEl.type,
+//         "Tag"           : clickedEl.tagName.toLowerCase(),
+//         "ID: "          : clickedEl.id,
+//         "Classes"       : clickedEl.classList.length >= 0 ? clickedEl.className.split(" ").join(", ") : 'N/A',
+//         "Z-Index"       : zIndex,
+//         "BG Color"      : getColorOnSystemSettings(clickedEl.style.backgroundColor) || clickedEl.style.backgroundColor,
+//         "Text Color"    : clickedEl.style.color,
+
+//     });
+//     console.log(clickedEl.style.backgroundColor)
+// //   }
+// //   else {
+// //     console.debug('Tag:', clickedEl.tagName);
+// //     console.debug('ID:', clickedEl.id);
+// //     console.debug('Class:', clickedEl.className);
+// //     console.debug('Z-Index:', zIndex);
+// //   }
+//   console.debug('-------------------------');
+//   console.groupEnd();
+
+// //   console.clear()
 // });
 
 // Looks into acalog_programs.json file 
@@ -161,8 +179,8 @@ async function assignCourses(path) {
                     }
                     options.push("&or")
                 }
-                console.log(options[options.length-2]);
-                console.log("options: ", options);
+                // console.debug(options[options.length-2]);
+                // console.debug("options: ", options);
                 let rowLabel = pattern.split("_")[2];
                 let reqs = [];
                 if (numRows > 1) {
@@ -282,13 +300,13 @@ async function assignCourses(path) {
         }
     }
 
-    console.log("Course Options: ",courseOptions);
+    console.debug("Course Options: ",courseOptions);
 }
 
 // This function runs important functions on page load. Notable functions run include assignCourses(), setGERSAutocomplete(), selectAutocomplete(), createLegend(), and initializeGuidePopup().
 async function initialize() {
-
-    // get current date 
+    // console.time("Time to Initialize");
+    // get current date
     var currentDate = new Date();
     console.log("Current Date: ", currentDate.toLocaleDateString());
     var currentSemester = currentDate.getMonth() < 6 ? "Spring" : "Fall"; // 1 for Spring, 2 for Fall
@@ -299,13 +317,16 @@ async function initialize() {
     // sort the majors and minors by their keys
     majors = Object.fromEntries(Object.entries(majors).sort());
     minors = Object.fromEntries(Object.entries(minors).sort());
-    console.log("MAJORS/MINORS Initialized: ");
-    console.log(majors, minors);
+    console.group("MAJORS/MINORS Initialized: ");
+    console.debug(majors, minors);
+    // console.timeLog("Time to Initialize");
+    console.groupEnd();
+    
     console.log("Starting GER Population");
     
     await setGERSAutocomplete();
     await selectAutocomplete();
-    console.log("Initialization complete!")
+    console.log("Table Initialization complete!")
 
     var headerBtns = document.getElementsByClassName("headerBtns")
     // Add event listeners to header buttons for hover effect
@@ -322,11 +343,17 @@ async function initialize() {
     
     document.getElementById("questionIcon").addEventListener("click", tourWebsite);
 
-    setTimeout(() => {mergeInverts()}, 100);
+    setTimeout(() => {
+        mergeInverts()
+        initializeGuidePopup();
+    }, 200);
     // mergeInverts();
 
-    setTimeout(() => {initializeGuidePopup()}, 100);
+    // setTimeout(() => {initializeGuidePopup()}, 100);
     // initializeGuidePopup();
+
+    console.log("Full Initialization complete!");
+    // console.timeEnd("Time to Initialize");
 }
 
 // This function constructs an Object INVERTED_GERS_COURSES that maps each course in the GER_COURSES Object to the programs that require it.
@@ -345,14 +372,12 @@ function createInvertedGERCourses() {
         }
     }
     INVERTED_GER_COURSES = inverted;
-    console.log(INVERTED_GER_COURSES);
+    console.debug(INVERTED_GER_COURSES);
 }
 
 // This function constructs an Object INVERTED_courseOptions that maps each course in the courseOptions Object to the programs and rowLabels that require it.
 function createInvertedCourseOptions() {
     var inverted = {};
-    // console.log("Creating Inverted Course Options");
-    // console.log(courseOptions);
     // structure of courseOptions: programTitle: {rowLabel: [course1, course2, ...]}
     // thus, inverted should be {course: {programTitle: [rowLabel1, rowLabel2, ...]}}
     // Actual structure - {course : [{programTitle:title, rowLabel:label}, ...]}
@@ -371,8 +396,9 @@ function createInvertedCourseOptions() {
                 }
             }
         }
-    console.log("Inverted Course Options: ");
-    console.log(inverted)
+    console.group("Inverted Course Options");
+    console.debug(inverted)
+    console.groupEnd();
     INVERTED_courseOptions = inverted;
 }
 
@@ -382,7 +408,9 @@ function mergeInverts() {
     var merged = Object.keys(INVERTED_GER_COURSES).concat(Object.keys(INVERTED_courseOptions));
     // remove duplicates from merged
     merged = [...new Set(merged)].sort();
-    console.log("MERGED: ", merged);
+    console.group("MERGED: ");
+    console.debug(merged);
+    console.groupEnd();
     MERGED_INVERTS = merged;
 }
 
@@ -402,7 +430,7 @@ function initializeGuidePopup() {
     // var programs = document.getElementsByClassName("guideInputs");
 
     var programs = document.getElementsByClassName("guideProgram");
-    console.log("Programs: ", programs);
+    console.debug("Programs: ", programs);
 
     // programs.forEach((program) => {
     //     $(program).autocomplete({
@@ -789,16 +817,20 @@ async function selectAutocomplete(){
             select: function(event, ui) {
                 event.target.value = ui.item.label;
                 grabCourses(event.target.id);
-                console.log("Selected Program: ", event.target);
+                console.log("Selected Program: ", event.target.value);
                 // hide 
                 // hide parent div of the select input
                 event.target.parentElement.setAttribute("style", "display: none;");
                 // show edit button
-                console.log("Event Target: ", event.target);
+                console.debug("Event Target: ", event.target);
                 var tableId = event.target.id.replace("Select", "");
                 var editBtn = document.getElementById(tableId.concat("-edit"));
-                console.log("Edit Button: ", tableId.concat("-edit"));
-                console.log("Edit Button: ", editBtn);
+
+                console.group("Edit Button Info");
+                console.debug("ID: ", tableId.concat("-edit"));
+                console.debug("BTN: ", editBtn);
+                console.groupEnd();
+
                 editBtn.setAttribute("style", "display: block;");
             }
         });
@@ -820,7 +852,7 @@ async function setGERSAutocomplete() {
             if (!INVERTED_GER_COURSES) {
                 createInvertedGERCourses();
             }
-            console.log(GER_COURSES);
+            console.debug(GER_COURSES);
             // Loop over gers dictionary to set up autocomplete for all GER fields
             for (let gerKey in GER_COURSES) {
                 if (GER_COURSES.hasOwnProperty(gerKey)) {
@@ -842,6 +874,11 @@ async function setGERSAutocomplete() {
                                         event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
                                     }
                                 }
+                                console.group("GERS Autocomplete Select Info");
+                                console.debug("Input Value: ", inputValue);
+                                console.debug("Label: ", rowLabel);
+                                console.debug("Is Valid: ", isValidCourse(inputValue, rowLabel));
+                                console.groupEnd();
                             }
                         });
                     }
@@ -852,7 +889,6 @@ async function setGERSAutocomplete() {
       } 
     );
 }
-
 
 function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
 
@@ -865,8 +901,12 @@ function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
             // console.log("Cause of Call: ", event.target);
             // rowLabel = event.target
 
-            console.log(inputValue, rowLabel, programTitle);
-            console.log(isValidCourse(inputValue, rowLabel, programTitle))
+            console.group("Autocomplete Select Info");
+            console.debug("Input Value: ", inputValue);
+            console.debug("Label: ", rowLabel);
+            console.debug("Program: ", programTitle);
+            console.debug("Is Valid: ", isValidCourse(inputValue, rowLabel, programTitle));
+            console.groupEnd();
 
             if (!isValidCourse(inputValue, rowLabel, programTitle)){
                 event.target.setAttribute("style", setColorOnSystemSettings("red"));
@@ -975,7 +1015,6 @@ function createTable(tableName, tableId, firstCol) {
     if (semesterMax > 9) 
         year_vals.push('Other');
 
-
     for (let i = 0; i < year_vals.length; i++) {
         var cell = document.createElement("th");
         cell.innerHTML = year_vals[i];
@@ -984,8 +1023,6 @@ function createTable(tableName, tableId, firstCol) {
             cell.setAttribute("colspan", i == 0 ? 1 : 2);
         else 
             cell.setAttribute("colspan", Math.ceil(semesterMax / 2) - 4);
-
-
 
         yearRow.appendChild(cell);
     }
@@ -1090,8 +1127,6 @@ function addInputRow(tableId, firstCol) {
                     
                 }
                 else{
-                    // console.log(majors);
-                    // console.log(minors);
                     newInput.setAttribute("type", "text");
                     if ((tableId != "GERS") && (firstCol[i].startsWith("custom")==false)) {
                         setProgramAutocomplete(newInput, programTitle, firstCol[i]);
@@ -1306,7 +1341,6 @@ function updateTableColorsOnSlider(semester) {
             // }
 
             // Set all inputs to enabled
-
             var programTitle = document.getElementById(table.id.replace("-table", "-wrapper")).getElementsByTagName('h2')[0].textContent.trim();
 
             var rowLabel = firstCell.innerHTML
@@ -1341,7 +1375,7 @@ function updateSemesterLabel() {
 }
 
 // This function modifies the styling of the current RowLabel/firstCell based on the relation between the inputCell's semester and the current semester.
-// #FFC000 is the color for the current semester, green for finished semesters, and blue for future semesters.
+// orange is the color for the current semester, green for finished semesters, and blue for future semesters.
 function setFirstColColor(j, semester) {
     // grab whether dark or light mode is enabled
     if (j == semester) {
@@ -1382,6 +1416,33 @@ function setColorOnSystemSettings(color) {
     return color_dict[color]
 }
 
+function getColorOnSystemSettings(color) {
+    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (!isDarkMode) {
+        var color_dict = {
+            "#f9dede"                 : "pink",
+            "#4aa564"                 : "green",
+            "#fdb81e"                 : "orange",
+            "#00a6d2"                 : "blue",
+            "#e59393"                 : "crimson",
+            "#a80101ff"               : "red",
+            "#94bfa2"                 : "light_green",
+            }
+        }
+    else {
+        var color_dict = {
+            "#db7093"     : "pink",
+            "green"         : "green",
+            "#e26310"     : "orange",
+            "blue"          : "blue",
+            "crimson"       : "crimson",
+            "rgb(199, 2, 2)" : "red",
+            "lightgreen"    : "light_green",
+            }
+        }
+    return color_dict[color.toLowerCase().trim()];
+}
+
 // This function sets the background color of the input field based on the semester and whether the input is disabled or not.
 // Purple(_transparent) represents the current semester, lightgrey for enabled inputs, darkgrey for disabled
 function setCourseInputColor(input, j, semester) {
@@ -1409,9 +1470,6 @@ function setCourseInputColor(input, j, semester) {
 // Runs isSpecificCourse() to check if rowLabel is a checkbox type. If so, return if the checkbox is checked.
 function isValidCourse(inputValue, rowLabel, programTitle) {
     if ((programTitle) && (programTitle != 'GERS') && !isSpecificCourse(rowLabel)) {
-        // console.log("Program Title: ", programTitle);
-        // console.log("Row Label: ", rowLabel);
-        // console.log(courseOptions[programTitle]);
         return courseOptions[programTitle][rowLabel].indexOf(inputValue) >= 0;
     }
     rowLabel = rowLabel.toLowerCase().replaceAll(" ", "");
@@ -1457,7 +1515,6 @@ function createAddRowBtn(tableId, tableDiv) {
     addRowBtn.onclick = function() {
         customAddRow(tableId);
     };
-    // console.log(addRowBtn.getAttribute("style"));
     tableDiv.appendChild(addRowBtn);
 }
 
@@ -1492,7 +1549,6 @@ function createEditBtn(tableId, tableDiv) {
     tableDiv.appendChild(editBtn);
 }
 
-
 // This function removes a given table using its ID (tail-to-head). It leaves only the select input intact, so that the user can select a different program.
 function removeTable(tableId) {
     var oldGroup = document.getElementById(tableId.concat("-wrapper"));
@@ -1509,11 +1565,10 @@ function removeTable(tableId) {
 // Runs addInputRow() to add a new row with the "custom" label.
 function customAddRow(tableId) {
     // remove the old button - plan to move below new row
-    var table = document.getElementById(tableId.concat("-table"));
-    var numCols = table.rows[1].cells.length; // Get number of columns from the header row
+    // var table = document.getElementById(tableId.concat("-table"));
+    // var numCols = table.rows[1].cells.length; // Get number of columns from the header row
     addInputRow(tableId, ["custom"]);
 }
-
 
 // ACHTUNG: THIS IS BUGGY AND MAY NOT WORK AS INTENDED
 // This function adds a new column to all tables, with the addition of an "Other" year header. Semester slider max is incremented by 1 to compensate for the new column.
@@ -1645,14 +1700,14 @@ function courseExists(course, tableId) {
             if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
                 for (let j = 0; j < relevantRowInputs.length; j++) {
                     if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase()) {
-                        console.log(`Course ${course} already exists in table ${tableId}`);
+                        console.info(`Course ${course} already exists in table ${tableId}`);
                         return true;
                     }
                 }
             }
         }
     }
-    console.log(`Course ${course} does not exist in table ${tableId}`);
+    console.info(`Course ${course} does not exist in table ${tableId}`);
     return false;
 }
 
@@ -1667,16 +1722,59 @@ function courseExistsElsewhere(course, tableId, colIdx) {
             if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
                 for (let j = 0; j < relevantRowInputs.length; j++) {
                     if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && j != colIdx) {
-                        console.log(`Course ${course} already exists in table ${tableId}`);
+                        console.info(`Course ${course} already exists in table ${tableId}`);
                         return true;
                     }
                 }
             }
         }
     }
-    console.log(`Course ${course} does not exist elsewhere in table ${tableId}`);
+    console.info(`Course ${course} does not exist elsewhere in table ${tableId}`);
     return false;
 }
+
+// function courseExistsElsewhereColumns(course, tableId, colIdxArray) {
+//     // check if course exists in the table with the given tableId
+//     var table = document.getElementById(tableId.concat("-table"));
+//     if (table) {
+//         for (let i = 2; i < table.rows.length; i++) {
+//             var relevantRow = table.rows[i];
+//             var relevantRowInputs = relevantRow.getElementsByTagName("input");
+//             if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+//                 for (let j = 0; j < relevantRowInputs.length; j++) {
+//                     if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && colIdxArray.includes(j)) {
+//                         console.info(`Course ${course} already exists in table ${tableId}`);
+//                         return true;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     console.info(`Course ${course} does not exist elsewhere in table ${tableId}`);
+//     return false;
+// }
+
+// function courseExistsElsewhereRows(course, tableId, rowIdxArray) {
+//     // check if course exists in the table with the given tableId
+//     var table = document.getElementById(tableId.concat("-table"));
+//     if (table) {
+//         for (let i = 2; i < table.rows.length; i++) {
+//             var relevantRow = table.rows[i];
+//             var relevantRowInputs = relevantRow.getElementsByTagName("input");
+//             if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+//                 for (let j = 0; j < relevantRowInputs.length; j++) {
+//                     if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && rowIdxArray.includes(i)) {
+//                         console.info(`Course ${course} already exists in table ${tableId}`);
+//                         return true;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     console.info(`Course ${course} does not exist elsewhere in table ${tableId}`);
+//     return false;
+// }
+
 
 // This function adds a hover text element to the page that displays the 'alt text' of the given image when the user hovers over it.
 function showHoverText(element, x, y) {
