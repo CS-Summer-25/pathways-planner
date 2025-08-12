@@ -38,8 +38,12 @@ let GER_COURSES = null;
 let GERS = null;
 let INVERTED_GER_COURSES = null;
 let INVERTED_courseOptions = null;
-let isDarkMode = null;
+let isDarkMode = "system";
 let MERGED_INVERTS = null;
+document.getElementById("toggleStylingModeIcon").addEventListener("click", (e) => {
+    toggleStylingMode();
+    console.log("Dark Mode Changed: ", isDarkMode);
+});
 // // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
@@ -352,6 +356,8 @@ async function initialize() {
     // setTimeout(() => {initializeGuidePopup()}, 100);
     // initializeGuidePopup();
 
+    updatePageStyling("dark"); // initialize the page styling mode
+
     console.log("Full Initialization complete!");
     // console.timeEnd("Time to Initialize");
 }
@@ -451,7 +457,6 @@ function initializeGuidePopup() {
     document.getElementById("guideAddBtn").addEventListener("click", submitGuidePopup.bind(null, programsObj, input));
 
 };
-
 
 function submitGuidePopup(programsObj, input) {
     var validPrograms = {};
@@ -645,7 +650,7 @@ function createLegend(){
         text.setAttribute("x", xPos + 40);
         text.setAttribute("y", "45");
         text.setAttribute("font-size", "25");
-        text.setAttribute("fill", window.matchMedia('(prefers-color-scheme: dark)').matches ? "white" : "black");
+        text.setAttribute("fill", isDarkMode == "light" ? "black" : "white");
         text.textContent = item.text;
         svg.appendChild(text);
         xPos += 220; // Adjust spacing between circles
@@ -938,14 +943,13 @@ function toggleTable(tableId) {
     var toggleBtn = document.getElementById(tableId.concat("-toggle"));
     if (table.style.display === "none") {
         table.style.display = "table";
-        rowBtn.setAttribute("style", "display: block;width: 30px; height: 30px; margin: 5px;");
+        rowBtn.setAttribute("style", "display: block; width: 30px; height: 30px; margin: 5px;");
         // change background image 
-        toggleBtn.setAttribute("style", "background:url('imgs/down.png') no-repeat; background-size: contain;");
+        toggleBtn.setAttribute("style", "background: url('imgs/down.png') no-repeat; background-size: contain;");
     } else {
         table.style.display = "none";
         rowBtn.setAttribute("style", "display: none;");
-        // toggleBtn.innerHTML = `<span>&or;</span>`;
-        toggleBtn.setAttribute("style", "background:url('imgs/up.png') no-repeat; background-size: contain;");
+        toggleBtn.setAttribute("style", "background: url('imgs/up.png') no-repeat; background-size: contain;");
     }
 }
 
@@ -984,6 +988,7 @@ function grabCourses(selectId) {
 // This function creates a table with a given name and ID. It then constructs the table header, and then the body using the firstCol array.
 // Runs createTableLabel(), createAddRowBtn(), createTableToggle(). Runs addInputRow() for each rowLabel in firstCol.
 function createTable(tableName, tableId, firstCol) {
+
     var tableDiv = document.getElementById(tableId.concat("-wrapper"));
     tableDiv.setAttribute("style", "border: rgb(196, 83, 196) solid 1px; border-radius: 5px;");
 
@@ -1389,9 +1394,11 @@ function setFirstColColor(j, semester) {
     }
 }
 function setColorOnSystemSettings(color) {
-    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var systemStyling = getPageStyling();
+    // console.log("System Settings Styling: ", systemStyling);
+    // isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (!isDarkMode) {
+    if (systemStyling == "light") {
         var color_dict = {
             "pink"          : "background-color: #f9dede;",
             "green"         : "background-color: #4aa564;",
@@ -1417,8 +1424,9 @@ function setColorOnSystemSettings(color) {
 }
 
 function getColorOnSystemSettings(color) {
-    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (!isDarkMode) {
+    // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var systemStyling = getPageStyling();
+    if (systemStyling == "light") {
         var color_dict = {
             "#f9dede"                 : "pink",
             "#4aa564"                 : "green",
@@ -1538,6 +1546,7 @@ function createEditBtn(tableId, tableDiv) {
     var editBtn = document.createElement("input");
     editBtn.setAttribute("id", tableId.concat("-edit"));
     editBtn.setAttribute("class", "editProgramBtn");
+    editBtn.classList.add(getPageStyling() + "-mode");
     editBtn.setAttribute("type", "button");
     editBtn.onclick = function(event) {
         var tableId = event.target.id.replace("-edit", "");
@@ -1795,4 +1804,97 @@ function showHoverText(element, x, y) {
 function hideHoverText() {
     var hoverText = document.getElementById("hoverText");
     hoverText.style.display = "none";
+}
+
+function toggleStylingMode() {
+    var stylingBtn = document.getElementById("toggleStylingModeIcon");
+    var store = isDarkMode;
+    console.log("Current styling is " + store + ".", stylingBtn);
+    console.log(stylingBtn.src);
+
+    var link = window.location.origin;
+
+    if (stylingBtn.src == `${link}/imgs/system-mode.png`) {
+        // Switch to light mode from system preferences mode
+        isDarkMode = "light";
+        stylingBtn.src = "/imgs/light-mode.png";
+    } 
+    else if (stylingBtn.src == `${link}/imgs/dark-mode.png`) {
+        // Switch to system preferences mode from dark mode
+        isDarkMode = "system";
+        stylingBtn.src = "/imgs/system-mode.png";
+    }
+    else if (stylingBtn.src == `${link}/imgs/light-mode.png`) {
+        // Switch to dark mode from light mode
+        isDarkMode = "dark";
+        stylingBtn.src = "/imgs/dark-mode.png";
+    }
+    console.log("Shifting styling from " + store + " to " + isDarkMode + ".");
+
+    var systemStyling = getPageStyling();
+
+    console.log("Updating page styling to: ", systemStyling, " (previously: ", store, ")");
+    if (store != systemStyling) {
+        updatePageStyling(store);
+    }
+
+}
+
+function getPageStyling() {
+    var systemStyling = isDarkMode == "system" ? window.matchMedia('(prefers-color-scheme: light)').matches : isDarkMode;
+    if (typeof(systemStyling) === "boolean") {
+        systemStyling = systemStyling ? "light" : "dark";
+    }
+    return systemStyling;
+}
+
+function updatePageStyling(store) {    
+    var systemStyling = getPageStyling()
+
+
+    var oldBody = Array.from(document.body.classList).find(cls => cls.match(/.*-mode/));
+    if (oldBody) {
+        console.log("Element: ", document.body, " Old Style: ", oldBody);
+        // remove the old style
+        document.body.classList.remove(oldBody);
+    }
+    document.body.classList.add(systemStyling + "-mode");
+
+    var all = document.querySelectorAll("*");
+    // update the styling of all elements on the page
+    for (let i = 0; i < all.length; i++) {
+        var element = all[i];
+        // regex for "*-mode" to match any class that has with "-mode"
+        // var oldStyle = element.classList.value.match(/.*-mode/);
+        // if the element can have light-mode/dark-mode:
+
+            // if element has id/class, or if its the following: body, label[for="semesterSlider"], input:checked + .slider , input:focus + .slider, code, td, input, input[type="text"], input:disabled
+        if (element.id != "" || element.classList.value != "" || 
+            element.matches("label[for=\"semesterSlider\"], input:checked + .slider, input:focus + .slider, code, td, input, input[type=\"text\"], input:disabled")) {
+
+            var oldStyle = Array.from(element.classList).find(cls => cls.match(/.*-mode/));
+            if (oldStyle) {
+                console.log("Element: ", element, " Old Style: ", oldStyle);
+                // remove the old style
+                element.classList.remove(oldStyle);
+            }
+            element.classList.add(systemStyling + "-mode");
+        }
+            
+    }
+    updateLegend();
+    updateSemesterLabel();
+}
+
+function updateLegend() {
+    var legend = document.getElementById("legend");
+
+    if (legend) {
+        for (let i = legend.children.length - 1; i >= 0; i--) {
+            if (legend.children[i].id != "selects") {
+                legend.children[i].remove();
+            }
+        }
+    }
+    createLegend();    
 }

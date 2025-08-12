@@ -1,0 +1,25 @@
+Table,Course,Semester
+"GERS","CLPs: 3",Freshman-Fall
+"GERS","CLPs: 12",Freshman-Spring
+"GERS","CLPs: 4",Sophomore-Fall
+"GERS","CLPs: 2",Sophomore-Spring
+"GERS","PTH-101 Pathways 101",Freshman-Fall
+"GERS","PTH-102 Pathways 102",Freshman-Spring
+"GERS","PTH-201 Pathways 201",Sophomore-Fall
+"GERS","PTH-202 Pathways 202",Sophomore-Spring
+"GERS","LNG-220 Linguistic Analysis",Sophomore-Spring
+"GERS","ANT-101 Introduction to Anthropology",Junior-Fall
+"GERS","ANT-101 Introduction to Anthropology",Junior-Fall
+"GERS","PIE",Sophomore-Spring
+"GERS","ANT-205 Japanese Popular Culture",Sophomore-Fall
+"GERS","LNG-220 Linguistic Analysis",Sophomore-Spring
+"GERS","ANT-101 Introduction to Anthropology",Junior-Fall
+"GERS","CHM-110 Foundations of Chemistry",Freshman-Spring
+"GERS","CHM-110 Foundations of Chemistry",Freshman-Spring
+"Physics, B.S.","MTH-151",Freshman-Fall
+"Physics, B.S.","PHY-111",Sophomore-Fall
+"Physics, B.S.","PHY-311",Sophomore-Spring
+"Physics, B.S.","PHY-441",Freshman-Spring
+"Physics, B.S.","PHY-421 Optics",Freshman-Spring
+"Classics, Historical Language and Literature Track, B.A.","CLS-216 Historical Linguistics and Proto-Indo-European",Freshman-Spring
+"Classics, Historical Language and Literature Track, B.A.","CLS-401 Seminar in Classics",Sophomore-Fall

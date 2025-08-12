@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="styles.css">
         
     </head>
-    <body onload="initialize()">
+    <body onload="initialize()" id="body">
         <div id="body-wrapper">
             <div id="header">
                 <img src="imgs/logo.png" alt="Pathways Planner Logo" id="logo">
@@ -45,7 +45,7 @@
                 <img src="imgs/icons8-open-document-100.png" alt="Import a plan from the user" 
                 id="openIcon" onclick="showPopup('import')" class="headerBtns">
 
-                <img src="imgs/info.png" alt="Credits Icon" 
+                <img src="imgs/info.png" alt="See credits for this project" 
                 id="creditsIcon" class="headerBtns">
 
                 <!-- 
@@ -68,7 +68,9 @@
                 id="reportBugIcon" class="headerBtns" onclick="window.open('https://github.com/CS-Summer-25/pathways-planner/issues', '_blank')">
 
                 <!-- temporary button to toggle light mode -->
-                <!-- <input type="button" id="toggleLightMode" onclick="toggleLightMode()"  value="Toggle Light Mode"> -->
+                <!-- <input type="button" id="toggleLightMode" onclick="toggleLightStyling()"  value="Toggle Light Mode"> -->
+                <img src="imgs/system-mode.png" alt="Toggle between light, dark, and system styling" 
+                id="toggleStylingModeIcon" class="headerBtns">
 
                 <div id="hoverText" class="hoverText">
                     <span id="hoverTextContent"></span>
