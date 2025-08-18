@@ -42,20 +42,8 @@ let isDarkMode = "system";
 let MERGED_INVERTS = null;
 document.getElementById("toggleStylingModeIcon").addEventListener("click", (e) => {
     toggleStylingMode();
-    console.log("Dark Mode Changed: ", isDarkMode);
+    // console.log("Dark Mode Changed: ", isDarkMode);
 });
-// // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-// var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
-// window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-//     var darkMode = e.matches ? "dark" : "light";
-//     console.log("Dark Mode Changed: ", darkMode);
-// });
-// console.log("Initialize Dark Mode: ", isDarkMode);
-// var isDarkMode = null;
-
-// function updateDarkLightMode() {
-//     isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-// }
 
 // -----------------Asynchronous/On-Load Functions-----------------
 
@@ -458,7 +446,7 @@ function initializeGuidePopup() {
 
 };
 
-function submitGuidePopup(programsObj, input) {
+async function submitGuidePopup(programsObj, input) {
     var validPrograms = {};
         Object.keys(programsObj).forEach((key) => {
             var program = programsObj[key];
@@ -487,48 +475,138 @@ function submitGuidePopup(programsObj, input) {
                 term = x.value;
             }
         });
-
-        var fulfilledCredits = addToPlan(input.value, validPrograms, time, term);
+    
+        var fulfilledCredits = await addToPlan(input.value, validPrograms, time, term);
         // var fulfilledCredits = addToPlan(input.value, major.value, time, term);
+        console.log("FC: ", fulfilledCredits);
         if (fulfilledCredits.length > 0) {
-            alert(`Added ${input.value} to your plan! \nYou have fulfilled ${fulfilledCredits.length} credits: ` + fulfilledCredits.join(", "));
+            // Tell user what credits were fulfilled, and where
+            // console.log([...new Set(Object.keys(fulfilledCredits))])
+            // loop over each program (the keys) 
+            var tables = fulfilledCredits.map(credit => Object.keys(credit)[0]);
+            console.log(tables);
+            var innerTXT = "";
+
+            for (idx=0; idx < fulfilledCredits.length; idx++) {
+                // console.log(`Fulfilled Credit ${idx+1}: `, fulfilledCredits[idx]);
+                var key = Object.keys(fulfilledCredits[idx])[0];
+                var credit = fulfilledCredits[idx][key];
+                console.log(key, credit);
+                if (!innerTXT.includes(key))
+                    innerTXT += "\n" + key + ": \n";
+
+                innerTXT += " - " + credit + "\n";
+
+            }
+            console.table(fulfilledCredits);
+            // console.log(innerTXT)
+            alert(`You have fullfilled ${fulfilledCredits.length} credits. \nAdded the following to your plan: ${innerTXT}`)
+            // alert(`Added ${input.value} to your plan! \nYou have fulfilled ${fulfilledCredits.length} credits: ` + fulfilledCredits.join(", "));
         }
         // reset the input values
         input.value = "";
         document.getElementsByName("semester").forEach(function(x) { x.checked = false; });
         document.getElementsByName("standing").forEach(function(x) { x.checked = false; });
         // showPopup("guide");
-        document.getElementById("guidePopup").style.display = "none";
+        // document.getElementById("guidePopup").style.display = "none";
+        // closeMenuItems();
 }
 
 // This function automatically adds a course to the current plan based on user input.
-function addToPlan(course, programs, time, term) {
+async function addToPlan(course, programs, time, term) {
     // May be worth checking if the course is already in the plan in this function - mainly, don't want 1 course to be counted across multiple semesters
     
     var isGER = Object.keys(INVERTED_GER_COURSES).indexOf(course) !== -1;
+    var isProgram = Object.keys(programs).length > 0;
 
     var availableCredits = [];
 
     if (time != "" && term != "" && course != "") {
+        var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
         if (isGER) {
             // Add to GERS table
-            var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
             // console.log("GERS_" + j + "-" );
-            INVERTED_GER_COURSES[course].forEach((ger) => {
+            INVERTED_GER_COURSES[course].forEach(async (ger) => {
                 var relevantRow = document.querySelectorAll(`.${ger}`);
                 // console.log(relevantRow);
-                    if (relevantRow[j].disabled == false) {
-                    relevantRow[j].innerHTML = course;
-                    relevantRow[j].value = course;
-                    // Make sure the input updates table styling accordingly
-                    relevantRow[j].dispatchEvent(new Event('change'));
-                    availableCredits.push(relevantRow[0].innerHTML);
-                    }
-                    else {
-                        alert(course + ` couldn't be added to ` + relevantRow[0].innerHTML + ".\nEither this credit is fulfilled, or it is not available for this semester.");
-                        console.error(`${relevantRow[j].id} is disabled, cannot add course: `, course);
-                    }            
+                var firstCell= relevantRow[0];
+                var i = firstCell.id.split("_")[1].split("-")[0];
+                var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
+
+                var result = await fillInputByIndices(document.getElementById("GERS-table"), i, j, course);
+                console.log("GER RES: ", result);
+                if (result)
+                    availableCredits.push({"GERS": firstCell.innerHTML});
+                // else
+                //     alert(course + ` couldn't be added to ` + firstCell.innerHTML + ".\nEither this credit is fulfilled, or it is not available for this semester.");            
             });
+        }
+        if (isProgram && course != "") {
+            setTimeout(() => {
+                Object.keys(programs).forEach((key) => {
+                    // const progSelect = document.getElementById("mainMajorSelect");
+                    
+                    var progSelect = document.getElementById(key+"Select");
+                    // console.log("Program Select: ", progSelect, major);
+                    if (progSelect.value == "" || progSelect.value != programs[key]) {
+                        console.log(`Changing program ${progSelect.value} to: `  + programs[key]);
+                        progSelect.value = programs[key];
+                        grabCourses(key+"Select");
+                    }
+                });
+            }, 1000);
+                // if (programs.indexOf(major) == -1) {
+                //     alert(`"${major}" is not a valid major. Please check the major and try again.`);
+                //     return availableCredits;
+                // }
+            
+            console.log("Inputted Course: ", course);
+            console.log("INVERTED_courseOptions: ", INVERTED_courseOptions[course]);
+
+            var isCourse = Object.keys(INVERTED_courseOptions).indexOf(course) != -1;
+            console.log("Is Course: ", isCourse);
+            if (isCourse) {
+
+                await new Promise(resolve => setTimeout(() => {
+                    Object.keys(programs).forEach((progId) => {
+                        var program = programs[progId];
+                        console.log("Program: ", program);
+                        INVERTED_courseOptions[course].forEach(async (info) => {
+                            if (info.programTitle == program) {
+                                    console.log("Adding course to: ", info.programTitle, info.rowLabel);
+                                    // var table = document.getElementById("mainMajor-table");
+                                    console.log("Key: ", progId);
+                                    var table = document.getElementById(progId + "-table");
+                                    console.log("Table: ", table);
+
+                                    // If the course is of "required" pattern, then the rowLabel will match the course directly
+                                    if (info.rowLabel == "required") {
+                                        var pattern = course.split(" ")[0];
+                                        var firstCell = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == pattern);
+                                        
+                                    }
+                                    else {
+                                        var firstCell = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == info.rowLabel);
+                                    }
+                                    var i = firstCell.id.split("_")[1].split("-")[0];
+                                    // availableCredits.push(firstCell.innerHTML);
+                                    // console.log("AC: ", availableCredits);
+
+                                    console.log("Relevant Row: ", i);
+
+                                    var result = await fillInputByIndices(table, i, j, course);
+                                    if (result)
+                                        availableCredits.push({[program] : firstCell.innerHTML});
+                                    // else
+                                    //     alert(course + ` couldn't be added to ` + firstCell.innerHTML + ".\nEither this credit is fulfilled, or it is not available for this semester.");            
+
+            
+                                }
+                            });
+                        });
+                    resolve();
+                }, 1000));
+            }
         }
     }
     // not a valid course somehow
@@ -539,76 +617,7 @@ function addToPlan(course, programs, time, term) {
         else if (time == "" || term == "") 
             alert(`Please select a standing and semester for the course.`);
     }
-    if (Object.keys(programs).length != 0 && course != "") {
-        setTimeout(() => {
-            Object.keys(programs).forEach((key) => {
-                // const progSelect = document.getElementById("mainMajorSelect");
-                
-                var progSelect = document.getElementById(key+"Select");
-                // console.log("Program Select: ", progSelect, major);
-                if (progSelect.value == "" || progSelect.value != programs[key]) {
-                    progSelect.value = programs[key];
-                    grabCourses(key+"Select");
-                }
-            });
-        }, 1000);
-            // if (programs.indexOf(major) == -1) {
-            //     alert(`"${major}" is not a valid major. Please check the major and try again.`);
-            //     return availableCredits;
-            // }
-        
-        console.log("Inputted Course: ", course);
-        console.log("INVERTED_courseOptions: ", INVERTED_courseOptions[course]);
-
-        var isCourse = Object.keys(INVERTED_courseOptions).indexOf(course) != -1;
-        console.log("Is Course: ", isCourse);
-        if (isCourse) {
-
-            setTimeout(() => {
-                Object.keys(programs).forEach((key) => {
-                    var program = programs[key];
-                    console.log("Program: ", program);
-                    INVERTED_courseOptions[course].forEach((info) => {
-                        if (info.programTitle == program) {
-                            console.log("Adding course to: ", info.programTitle, info.rowLabel);
-                            // var table = document.getElementById("mainMajor-table");
-                            console.log("Key: ", key);
-                            var table = document.getElementById(key + "-table");
-                            console.log("Table: ", table);
-
-                            // If the course is of "required" pattern, then the rowLabel will match the course directly
-                            if (info.rowLabel == "required") {
-                                var pattern = course.split(" ")[0];
-                                var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == pattern);
-                            }
-                            else {
-                                var i = Array.from(table.querySelectorAll(`.firstCol`)).find(row => row.innerHTML == info.rowLabel);
-                            }
-
-                            console.log("Relevant Row: ", i);
-                            console.log(i.id.split("_")[1].split("-")[0]);
-                            var j = 1 + (['freshman', 'sophomore', 'junior', 'senior'].indexOf(time)*2 + (term === "spring" ? 1 : 0));
-
-                            var relevantCell = document.getElementById(key + "_" + i.id.split("_")[1].split("-")[0] + "-" + j);
-                            console.log("Relevant Cell: ", relevantCell);
-                            if (relevantCell.disabled == false) {
-                                if (relevantCell.type == "text") {
-                                    relevantCell.value = course;
-                                }
-                                else {
-                                    // relevantCell.checked = true;
-                                    // relevantCell.setAttribute("checked", true);
-                                    relevantCell.click();
-                                }  
-                                relevantCell.dispatchEvent(new Event('change'));
-                            }                     
-                        }
-                    });
-                });
-            }, 1000);
-        }
-    }
-    console.log(availableCredits);
+    console.log("FINAL AC: ", availableCredits);
     return availableCredits;
 }
 
@@ -626,7 +635,7 @@ function createLegend(){
     svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
 
     var getColor = function(colorName) {
-        console.log("Setting color for: ", colorName);
+        // console.log("Setting color for: ", colorName);
         return setColorOnSystemSettings(colorName).split(":")[1].trim().slice(0, -1)
     };
 
@@ -1868,32 +1877,33 @@ function hideHoverText() {
 function toggleStylingMode() {
     var stylingBtn = document.getElementById("toggleStylingModeIcon");
     var store = isDarkMode;
-    console.log("Current styling is " + store + ".", stylingBtn);
-    console.log(stylingBtn.src);
+    console.log("Current styling is " + store + "."); //, stylingBtn);
+    // console.log(stylingBtn.src);
 
     var link = window.location.origin;
 
     if (stylingBtn.src == `${link}/imgs/system-mode.png`) {
         // Switch to light mode from system preferences mode
         isDarkMode = "light";
-        stylingBtn.src = "/imgs/light-mode.png";
+        stylingBtn.src = `${link}/imgs/light-mode.png`;
     } 
     else if (stylingBtn.src == `${link}/imgs/dark-mode.png`) {
         // Switch to system preferences mode from dark mode
         isDarkMode = "system";
-        stylingBtn.src = "/imgs/system-mode.png";
+        stylingBtn.src = `${link}/imgs/system-mode.png`;
     }
     else if (stylingBtn.src == `${link}/imgs/light-mode.png`) {
         // Switch to dark mode from light mode
         isDarkMode = "dark";
-        stylingBtn.src = "/imgs/dark-mode.png";
+        stylingBtn.src = `${link}/imgs/dark-mode.png`;
     }
-    console.log("Shifting styling from " + store + " to " + isDarkMode + ".");
+    // console.log("Shifting styling from " + store + " to " + isDarkMode + ".");
 
     var systemStyling = getPageStyling();
 
-    console.log("Updating page styling to: ", systemStyling, " (previously: ", store, ")");
+    
     if (store != systemStyling) {
+        console.log("Updating page styling to: ", systemStyling, " (previously: " + isDarkMode + ")");
         updatePageStyling(store);
     }
 
@@ -1913,7 +1923,7 @@ function updatePageStyling(store) {
 
     var oldBody = Array.from(document.body.classList).find(cls => cls.match(/.*-mode/));
     if (oldBody) {
-        console.log("Element: ", document.body, " Old Style: ", oldBody);
+        // console.log("Element: ", document.body, " Old Style: ", oldBody);
         // remove the old style
         document.body.classList.remove(oldBody);
     }
@@ -1933,7 +1943,7 @@ function updatePageStyling(store) {
 
             var oldStyle = Array.from(element.classList).find(cls => cls.match(/.*-mode/));
             if (oldStyle) {
-                console.log("Element: ", element, " Old Style: ", oldStyle);
+                // console.log("Element: ", element, " Old Style: ", oldStyle);
                 // remove the old style
                 element.classList.remove(oldStyle);
             }
