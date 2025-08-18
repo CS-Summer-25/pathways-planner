@@ -263,7 +263,7 @@ function loadPlan() {
             return;
         }
 
-        coursesInfo.then(data => {
+        coursesInfo.then(async data => {
 
             // loop over data, fill the table with courses
             var tables = document.querySelectorAll(".programTable");
@@ -292,7 +292,7 @@ function loadPlan() {
 
                    programSelect.value = program;
                    console.log("Program Select: " + programSelect.value);
-                   grabCourses(tableGroup + "Select");
+                   await grabCourses(tableGroup + "Select");
                 }
                 setTimeout(() => {
                     // console.log("Loading table: " + tableGroup);
@@ -486,7 +486,7 @@ function parseLine(parts, major){
     return [isMinor, isGER, isMajor, isDoubleMajor, program, course, semesterColIdx, major];
 }
 
-function getOrCreateTable(tableGroup, tableType) {
+async function getOrCreateTable(tableGroup, tableType) {
     console.debug(tableType, tableGroup)
     var [isMinor, isMajor, isDoubleMajor] = tableType;
     var table = document.getElementById(tableGroup + "-table");
@@ -504,7 +504,7 @@ function getOrCreateTable(tableGroup, tableType) {
         var selectBox = document.getElementById(programId + "Select");
         if (selectBox.value == "") {
             document.getElementById(programId + "Select").value = tableGroup; // Set the appropriate select to the program
-            grabCourses(programId + "Select");
+            await grabCourses(programId + "Select");
         }
         else console.debug("Select box already has a value:", selectBox.value, "Attempted to set:", tableGroup);
         table = document.getElementById(programId + "-table");
@@ -528,7 +528,7 @@ async function processLine(line, major){
     }
 
 
-    var table = getOrCreateTable(tableGroup, programType);
+    var table = await getOrCreateTable(tableGroup, programType);
     if (!table) {
         console.warn("Table not found for group:", tableGroup);
         return; // Skip if table not found
@@ -589,7 +589,7 @@ async function processLine(line, major){
     }
 }
 
-async function fillInputByIndices(table, rowIdx, semesterIdx, course) {
+async function fillInputByIndices(table, rowIdx, semesterIdx, course) {    
     var headerSize = document.getElementById(table.id.split("-")[0] + "-tableheaders").rows.length;
     var relevantRow = table.rows[parseInt(rowIdx) + headerSize];
     console.log("Relevant Row: ", relevantRow, "Row Index: ", rowIdx, "Semester Index: ", semesterIdx, "Course: ", course);

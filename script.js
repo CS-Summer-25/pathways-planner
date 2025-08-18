@@ -503,6 +503,9 @@ async function submitGuidePopup(programsObj, input) {
             alert(`You have fullfilled ${fulfilledCredits.length} credits. \nAdded the following to your plan: ${innerTXT}`)
             // alert(`Added ${input.value} to your plan! \nYou have fulfilled ${fulfilledCredits.length} credits: ` + fulfilledCredits.join(", "));
         }
+        else {
+            alert(`No credits were fulfilled for ${input.value}. Sorry!`);
+        }
         // reset the input values
         input.value = "";
         document.getElementsByName("semester").forEach(function(x) { x.checked = false; });
@@ -543,7 +546,7 @@ async function addToPlan(course, programs, time, term) {
         }
         if (isProgram && course != "") {
             setTimeout(() => {
-                Object.keys(programs).forEach((key) => {
+                Object.keys(programs).forEach(async (key) => {
                     // const progSelect = document.getElementById("mainMajorSelect");
                     
                     var progSelect = document.getElementById(key+"Select");
@@ -551,7 +554,7 @@ async function addToPlan(course, programs, time, term) {
                     if (progSelect.value == "" || progSelect.value != programs[key]) {
                         console.log(`Changing program ${progSelect.value} to: `  + programs[key]);
                         progSelect.value = programs[key];
-                        grabCourses(key+"Select");
+                        await grabCourses(key+"Select");
                     }
                 });
             }, 1000);
@@ -594,9 +597,13 @@ async function addToPlan(course, programs, time, term) {
 
                                     console.log("Relevant Row: ", i);
 
-                                    var result = await fillInputByIndices(table, i, j, course);
-                                    if (result)
-                                        availableCredits.push({[program] : firstCell.innerHTML});
+                                    var courseAlreadyExists = courseExists(course, progId, [i, undefined]);
+                                    console.log("Course Already Exists: ", courseAlreadyExists);
+                                    if (!courseAlreadyExists) {
+                                        var result = await fillInputByIndices(table, i, j, course);
+                                        if (result)
+                                            availableCredits.push({[program] : firstCell.innerHTML});
+                                    }
                                     // else
                                     //     alert(course + ` couldn't be added to ` + firstCell.innerHTML + ".\nEither this credit is fulfilled, or it is not available for this semester.");            
 
@@ -971,7 +978,7 @@ function toggleTable(tableId) {
 }
 
 // This function grabs the associated courses for a given program. Runs createTable() and removeTable().
-function grabCourses(selectId) {
+async function grabCourses(selectId) {
     var courses;
     var tableId = "";
 
@@ -1759,99 +1766,43 @@ function customAddColumn() {
 }
 
 // These functions may come in handy when we are validating major/minor programs and their courses - can be used to prevent duplicate courses
-function courseExistsAtAll(course) {
-    var gers = courseExists(course, "GERS");
-    var mainMajor = courseExists(course, "mainMajor");
-    var doubleMajor = courseExists(course, "doubleMajor");
-    var minor = courseExists(course, "minor");
-    return gers || mainMajor || doubleMajor || minor;
-}
+// function courseExistsAtAll(course) {
+//     var gers = courseExists(course, "GERS");
+//     var mainMajor = courseExists(course, "mainMajor");
+//     var doubleMajor = courseExists(course, "doubleMajor");
+//     var minor = courseExists(course, "minor");
+//     return gers || mainMajor || doubleMajor || minor;
+// }
 
-function courseExists(course, tableId) {
+function courseExists(course, tableId, ignoredIndices) {
     // check if course exists in the table with the given tableId
+    var [ignoreRowIdx, ignoreColIdx] = ignoredIndices;
+    ignoreRowIdx = ignoreRowIdx == undefined ? -1 : ignoreRowIdx;
+    ignoreColIdx = ignoreColIdx == undefined ? -1 : ignoreColIdx;
+    console.log(ignoreRowIdx, ignoreColIdx);
     var table = document.getElementById(tableId.concat("-table"));
-        if (table) {
-        for (let i = 2; i < table.rows.length; i++) {
-            var relevantRow = table.rows[i];
-            var relevantRowInputs = relevantRow.getElementsByTagName("input");
-            if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
-                for (let j = 0; j < relevantRowInputs.length; j++) {
-                    if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase()) {
-                        console.info(`Course ${course} already exists in table ${tableId}`);
-                        return true;
+    if (table) {
+            for (let i = 2; i < table.rows.length; i++) {
+                var rowIdx = i-2;
+                var relevantRow = table.rows[i];
+                var relevantRowInputs = relevantRow.getElementsByTagName("input");
+                if (rowIdx != ignoreRowIdx) {
+                    if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
+                        for (let j = 0; j < relevantRowInputs.length; j++) {
+                            if (j != ignoreColIdx) {
+                                if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase()) {
+                                    console.info(`Course ${course} already exists in table ${tableId}`);
+                                    return true;
+                                }
+                            }
+                        }
                     }
                 }
             }
-        }
     }
     console.info(`Course ${course} does not exist in table ${tableId}`);
     return false;
 }
-
-//should we collapse this into courseExists()?
-function courseExistsElsewhere(course, tableId, colIdx) {
-    // check if course exists in the table with the given tableId
-    var table = document.getElementById(tableId.concat("-table"));
-        if (table) {
-        for (let i = 2; i < table.rows.length; i++) {
-            var relevantRow = table.rows[i];
-            var relevantRowInputs = relevantRow.getElementsByTagName("input");
-            if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
-                for (let j = 0; j < relevantRowInputs.length; j++) {
-                    if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && j != colIdx) {
-                        console.info(`Course ${course} already exists in table ${tableId}`);
-                        return true;
-                    }
-                }
-            }
-        }
-    }
-    console.info(`Course ${course} does not exist elsewhere in table ${tableId}`);
-    return false;
-}
-
-// function courseExistsElsewhereColumns(course, tableId, colIdxArray) {
-//     // check if course exists in the table with the given tableId
-//     var table = document.getElementById(tableId.concat("-table"));
-//     if (table) {
-//         for (let i = 2; i < table.rows.length; i++) {
-//             var relevantRow = table.rows[i];
-//             var relevantRowInputs = relevantRow.getElementsByTagName("input");
-//             if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
-//                 for (let j = 0; j < relevantRowInputs.length; j++) {
-//                     if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && colIdxArray.includes(j)) {
-//                         console.info(`Course ${course} already exists in table ${tableId}`);
-//                         return true;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//     console.info(`Course ${course} does not exist elsewhere in table ${tableId}`);
-//     return false;
-// }
-
-// function courseExistsElsewhereRows(course, tableId, rowIdxArray) {
-//     // check if course exists in the table with the given tableId
-//     var table = document.getElementById(tableId.concat("-table"));
-//     if (table) {
-//         for (let i = 2; i < table.rows.length; i++) {
-//             var relevantRow = table.rows[i];
-//             var relevantRowInputs = relevantRow.getElementsByTagName("input");
-//             if (!Array.from(relevantRowInputs).some(input => input.type == "checkbox")) {
-//                 for (let j = 0; j < relevantRowInputs.length; j++) {
-//                     if (relevantRowInputs[j].value.toLowerCase() == course.toLowerCase() && rowIdxArray.includes(i)) {
-//                         console.info(`Course ${course} already exists in table ${tableId}`);
-//                         return true;
-//                     }
-//                 }
-//             }
-//         }
-//     }
-//     console.info(`Course ${course} does not exist elsewhere in table ${tableId}`);
-//     return false;
-// }
-
 
 // This function adds a hover text element to the page that displays the 'alt text' of the given image when the user hovers over it.
 function showHoverText(element, x, y) {
