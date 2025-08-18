@@ -38,8 +38,12 @@ let GER_COURSES = null;
 let GERS = null;
 let INVERTED_GER_COURSES = null;
 let INVERTED_courseOptions = null;
-let isDarkMode = null;
+let isDarkMode = "system";
 let MERGED_INVERTS = null;
+document.getElementById("toggleStylingModeIcon").addEventListener("click", (e) => {
+    toggleStylingMode();
+    console.log("Dark Mode Changed: ", isDarkMode);
+});
 // // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
 // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 // window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
@@ -352,6 +356,8 @@ async function initialize() {
     // setTimeout(() => {initializeGuidePopup()}, 100);
     // initializeGuidePopup();
 
+    updatePageStyling("dark"); // initialize the page styling mode
+
     console.log("Full Initialization complete!");
     // console.timeEnd("Time to Initialize");
 }
@@ -451,7 +457,6 @@ function initializeGuidePopup() {
     document.getElementById("guideAddBtn").addEventListener("click", submitGuidePopup.bind(null, programsObj, input));
 
 };
-
 
 function submitGuidePopup(programsObj, input) {
     var validPrograms = {};
@@ -612,6 +617,8 @@ function createLegend(){
 
     var legend = document.getElementById("legend");
     var svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    var systemStyling = getPageStyling();
+
     svg.setAttribute("width", document.body.clientWidth/2);
     svg.setAttribute("height", "50");
     svg.setAttribute("viewBox", "0 0 1000 70");
@@ -645,7 +652,7 @@ function createLegend(){
         text.setAttribute("x", xPos + 40);
         text.setAttribute("y", "45");
         text.setAttribute("font-size", "25");
-        text.setAttribute("fill", window.matchMedia('(prefers-color-scheme: dark)').matches ? "white" : "black");
+        text.setAttribute("fill", systemStyling == "light" ? "black" : "white");
         text.textContent = item.text;
         svg.appendChild(text);
         xPos += 220; // Adjust spacing between circles
@@ -865,19 +872,24 @@ async function setGERSAutocomplete() {
                             select: function(event, ui) {
                                 inputValue = ui.item.label;
                                 rowLabel = event.target.classList[1];
+                                j = event.target.id.split("-")[1];
 
                                 if (Object.keys(event.target.classList).indexOf("clps") == -1) {
                                     if (!isValidCourse(inputValue, rowLabel)){
-                                        event.target.setAttribute("style", setColorOnSystemSettings("red"));
+                                        event.target.setAttribute("style", setColorOnSystemSettings("light_red"));
                                     }
                                     else {
-                                        event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
+                                        // if course if valid, color according to ongoing, future, or complete
+                                        setCourseInputColorOnInput(event.target, j, document.getElementById("semesterSlider").value);
+
+                                        // event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
                                     }
                                 }
                                 console.group("GERS Autocomplete Select Info");
                                 console.debug("Input Value: ", inputValue);
                                 console.debug("Label: ", rowLabel);
                                 console.debug("Is Valid: ", isValidCourse(inputValue, rowLabel));
+                                console.debug("J: ", j);
                                 console.groupEnd();
                             }
                         });
@@ -909,10 +921,11 @@ function setProgramAutocomplete(inputCell, programTitle, rowLabel) {
             console.groupEnd();
 
             if (!isValidCourse(inputValue, rowLabel, programTitle)){
-                event.target.setAttribute("style", setColorOnSystemSettings("red"));
+                event.target.setAttribute("style", setColorOnSystemSettings("light_red"));
             }
             else {
-                event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
+                // event.target.setAttribute("style", setColorOnSystemSettings("light_green"));
+                setCourseInputColorOnInput(event.target, j, document.getElementById("semesterSlider").value);
             }
         }
     });
@@ -938,14 +951,13 @@ function toggleTable(tableId) {
     var toggleBtn = document.getElementById(tableId.concat("-toggle"));
     if (table.style.display === "none") {
         table.style.display = "table";
-        rowBtn.setAttribute("style", "display: block;width: 30px; height: 30px; margin: 5px;");
+        rowBtn.setAttribute("style", "display: block; width: 30px; height: 30px; margin: 5px;");
         // change background image 
-        toggleBtn.setAttribute("style", "background:url('imgs/down.png') no-repeat; background-size: contain;");
+        toggleBtn.setAttribute("style", "background: url('imgs/down.png') no-repeat; background-size: contain;");
     } else {
         table.style.display = "none";
         rowBtn.setAttribute("style", "display: none;");
-        // toggleBtn.innerHTML = `<span>&or;</span>`;
-        toggleBtn.setAttribute("style", "background:url('imgs/up.png') no-repeat; background-size: contain;");
+        toggleBtn.setAttribute("style", "background: url('imgs/up.png') no-repeat; background-size: contain;");
     }
 }
 
@@ -984,6 +996,7 @@ function grabCourses(selectId) {
 // This function creates a table with a given name and ID. It then constructs the table header, and then the body using the firstCol array.
 // Runs createTableLabel(), createAddRowBtn(), createTableToggle(). Runs addInputRow() for each rowLabel in firstCol.
 function createTable(tableName, tableId, firstCol) {
+
     var tableDiv = document.getElementById(tableId.concat("-wrapper"));
     tableDiv.setAttribute("style", "border: rgb(196, 83, 196) solid 1px; border-radius: 5px;");
 
@@ -1152,7 +1165,7 @@ function isSpecificCourse(rowLabel) {
 }
 
 // This function updates the styling of the table according to user input. Affects both the input fields and the row labels.
-// Runs setCourseInputColor(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
+// Runs setCourseInputColorOnEmpty(), isValidCourse(), setFirstColColor(), and updateTableColorsOnSlider().
 function updateTable(relevantRow, j) {
     // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     var inputValue = this.value;
@@ -1175,7 +1188,7 @@ function updateTable(relevantRow, j) {
         for (let k = 0; k < relevantRowInputs.length; k++) {
 
             relevantRowInputs[k].disabled = (rowClass === "fyw" && k >= 2);
-            setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
+            setCourseInputColorOnEmpty(relevantRowInputs[k], k+1, currentSemester);
         }
         return;
     }  
@@ -1187,12 +1200,23 @@ function updateTable(relevantRow, j) {
 
 
         if (isValidCourse(inputValue, firstCell.innerHTML, programTitle)) {
-
-            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("light_green"));
+            if (rowClass == "clps") {
+                if (isNaN(parseInt(inputValue)) || parseInt(inputValue) < 0) {
+                    relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("light_red"));
+                    firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
+                }
+                else {
+                    relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("light_green"));
+                    firstCell.setAttribute("style", setColorOnSystemSettings("orange"));
+                }
+            }
+            else{
+                setCourseInputColorOnInput(relevantRowInputs[j-1], j, currentSemester);
+            }
         }
         // invalid course
         else {
-            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("crimson"));
+            relevantRowInputs[j-1].setAttribute("style", setColorOnSystemSettings("light_red"));
             // pink indicates something is wrong with the input, but it's not empty
             firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
             if (rowClass != "clps" && rowClass != "fyw") {
@@ -1200,7 +1224,7 @@ function updateTable(relevantRow, j) {
                 for (let k = 0; k < relevantRowInputs.length; k++) {
                     relevantRowInputs[k].disabled = false;
                     if (relevantRowInputs[k].value == "") {
-                        setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
+                        setCourseInputColorOnEmpty(relevantRowInputs[k], k+1, currentSemester);
                     }
                 }
             }
@@ -1239,7 +1263,7 @@ function updateTable(relevantRow, j) {
                         for (let k = 0; k < disabledArr.length; k++) {
                             if (disabledArr[k] == "") {
                                 relevantRowInputs[k].disabled = true;
-                                setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
+                                setCourseInputColorOnEmpty(relevantRowInputs[k], k+1, currentSemester);
                                 
                             }
                         }
@@ -1268,7 +1292,7 @@ function updateTable(relevantRow, j) {
                             if (disabledArr[k] == "" || !isValidCourse(disabledArr[k], rowClass)) {
                                 relevantRowInputs[k].value = "";
                                 relevantRowInputs[k].disabled = true;
-                                setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
+                                setCourseInputColorOnEmpty(relevantRowInputs[k], k+1, currentSemester);
                             }
                         }
                     }
@@ -1283,7 +1307,7 @@ function updateTable(relevantRow, j) {
                         for (let k = 0; k < relevantRowInputs.length; k++) {
                             relevantRowInputs[k].disabled = false;
                             if (disabledArr[k] == "" || !isValidCourse(disabledArr[k], rowClass)) {
-                                setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
+                                setCourseInputColorOnEmpty(relevantRowInputs[k], k+1, currentSemester);
                             }
                         }
                     }
@@ -1303,7 +1327,7 @@ function updateTable(relevantRow, j) {
                 if (k+1 != j) {
                     relevantRowInputs[k].value = "";
                     relevantRowInputs[k].disabled = true;
-                    setCourseInputColor(relevantRowInputs[k], k+1, currentSemester);
+                    setCourseInputColorOnEmpty(relevantRowInputs[k], k+1, currentSemester);
                 }
             }
         }
@@ -1312,7 +1336,7 @@ function updateTable(relevantRow, j) {
     // if the input field is empty
     else {
         // if input is current semester, set to purple, otherwise set to enabled/disabled color
-        relevantRowInputs[j-1].setAttribute("style", setCourseInputColor(relevantRowInputs[j-1], j, currentSemester));
+        relevantRowInputs[j-1].setAttribute("style", setCourseInputColorOnEmpty(relevantRowInputs[j-1], j, currentSemester));
         // reset first cell to red if all inputs in row are empty
         if (Array.from(relevantRowInputs).every(input => input.value === "")) {
             firstCell.setAttribute("style", setColorOnSystemSettings("red"));
@@ -1323,7 +1347,7 @@ function updateTable(relevantRow, j) {
 }
 
 // This function updates the styling of all tables based on the semester slider's current value.
-// Runs isValidCourse(), setFirstColColor(), and setCourseInputColor().
+// Runs isValidCourse(), setFirstColColor(), and setCourseInputColorOnEmpty().
 function updateTableColorsOnSlider(semester) {
     // Get all tables GER and Major 
     var tables = document.querySelectorAll(".programTable");
@@ -1349,14 +1373,25 @@ function updateTableColorsOnSlider(semester) {
                 var currentInput = relevantRowInputs[j];
                 var userInput = currentInput.type == "checkbox" ? currentInput.checked : currentInput.value;
                 if(userInput != "" && (rowClass != "clps") && isValidCourse(userInput, rowLabel, programTitle)) {
+                    setCourseInputColorOnInput(relevantRowInputs[j], j+1, semester);
                     firstCell.setAttribute("style", setFirstColColor(j, semester-1));
                 }
                 else if (userInput != "" && (rowClass != "clps") && !isValidCourse(userInput, rowLabel, programTitle)) {
-                    relevantRowInputs[j].setAttribute("style", setColorOnSystemSettings("crimson"));
+                    relevantRowInputs[j].setAttribute("style", setColorOnSystemSettings("light_red"));
                     firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
                 }
+                else if (userInput != "" && rowClass == "clps") {
+                    if (isNaN(parseInt(userInput)) || parseInt(userInput) < 0) {
+                        relevantRowInputs[j].setAttribute("style", setColorOnSystemSettings("light_red"));
+                        firstCell.setAttribute("style", setColorOnSystemSettings("pink"));
+                    }
+                    else if (parseInt(userInput) >= 0) {
+                        relevantRowInputs[j].setAttribute("style", setColorOnSystemSettings("light_green"));
+                        firstCell.setAttribute("style", setColorOnSystemSettings("orange"));
+                    }
+                }
                 if (userInput == "") {
-                    setCourseInputColor(relevantRowInputs[j], j+1, semester);
+                    setCourseInputColorOnEmpty(relevantRowInputs[j], j+1, semester);
                 }
             }
         }
@@ -1389,42 +1424,53 @@ function setFirstColColor(j, semester) {
     }
 }
 function setColorOnSystemSettings(color) {
-    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var systemStyling = getPageStyling();
+    // console.log("System Settings Styling: ", systemStyling);
+    // isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
     
-    if (!isDarkMode) {
+    if (systemStyling == "light") {
         var color_dict = {
             "pink"          : "background-color: #f9dede;",
+
             "green"         : "background-color: #4aa564;",
             "orange"       : "background-color: #fdb81e;",
             "blue"          : "background-color: #00a6d2;",
-            "crimson"   : "background-color: #e59393;",
             "red"           : "background-color: #a80101ff;",
-            "light_green"   : "background-color: #94bfa2;"
+
+            "light_green"   : "background-color: #94bfa2;",
+            "light_orange"  : "background-color: #feedc7;",
+            "light_blue"    : "background-color: #99eaff;",
+            "light_red"       : "background-color: #feaaaa;"
             }
         }
     else {
         var color_dict = {
             "pink"          : "background-color: #db7093;",
-            "green"         : "background-color: green;",
+
+            "green"         : "background-color: #008000;",
             "orange"       : "background-color: #e26310;",
-            "blue"          : "background-color: blue;",
-            "crimson"   : "background-color: crimson;",
-            "red"           : "background-color: rgb(199, 2, 2);",
-            "light_green"   : "background-color: lightgreen;"
+            "blue"          : "background-color: #4169e1;",
+            "red"           : "background-color: #c70202;",
+
+            "light_green"   : "background-color: #9fff9f;",
+            "light_orange"  : "background-color: #fbd7c0;",
+            "light_blue"    : "background-color: #beccf5;",
+            "light_red"       : "background-color: #fd4747;"
             }
         }
     return color_dict[color]
 }
 
 function getColorOnSystemSettings(color) {
-    var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    if (!isDarkMode) {
+    // var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    var systemStyling = getPageStyling();
+    if (systemStyling == "light") {
         var color_dict = {
             "#f9dede"                 : "pink",
             "#4aa564"                 : "green",
             "#fdb81e"                 : "orange",
             "#00a6d2"                 : "blue",
-            "#e59393"                 : "crimson",
+            "#e59393"                 : "light_red",
             "#a80101ff"               : "red",
             "#94bfa2"                 : "light_green",
             }
@@ -1435,7 +1481,7 @@ function getColorOnSystemSettings(color) {
             "green"         : "green",
             "#e26310"     : "orange",
             "blue"          : "blue",
-            "crimson"       : "crimson",
+            "crimson"       : "light_red",
             "rgb(199, 2, 2)" : "red",
             "lightgreen"    : "light_green",
             }
@@ -1445,7 +1491,7 @@ function getColorOnSystemSettings(color) {
 
 // This function sets the background color of the input field based on the semester and whether the input is disabled or not.
 // Purple(_transparent) represents the current semester, lightgrey for enabled inputs, darkgrey for disabled
-function setCourseInputColor(input, j, semester) {
+function setCourseInputColorOnEmpty(input, j, semester) {
 
     var color_dict = {
         "purple"            : "background-color: rgb(196, 83, 196);",
@@ -1463,6 +1509,27 @@ function setCourseInputColor(input, j, semester) {
     else
         color = color_dict["darkgrey"];
 
+    input.setAttribute("style", color);
+}
+
+function setCourseInputColorOnInput(input, j, semester) {
+    var color;
+    console.log("Input: ", input, "J: ", j, "Semester: ", semester);
+    if (isValidCourse) {
+        if (j == semester) {
+            color = setColorOnSystemSettings("light_orange");
+        }
+        else if (j < semester) {
+            color = setColorOnSystemSettings("light_green");
+        }
+        else {
+            color = setColorOnSystemSettings("light_blue");
+        }
+    }
+    else {
+        color = setCourseInputColorOnEmpty(input, j, semester);
+    }
+    console.log("Color: ", color);
     input.setAttribute("style", color);
 }
 
@@ -1538,6 +1605,7 @@ function createEditBtn(tableId, tableDiv) {
     var editBtn = document.createElement("input");
     editBtn.setAttribute("id", tableId.concat("-edit"));
     editBtn.setAttribute("class", "editProgramBtn");
+    editBtn.classList.add(getPageStyling() + "-mode");
     editBtn.setAttribute("type", "button");
     editBtn.onclick = function(event) {
         var tableId = event.target.id.replace("-edit", "");
@@ -1795,4 +1863,95 @@ function showHoverText(element, x, y) {
 function hideHoverText() {
     var hoverText = document.getElementById("hoverText");
     hoverText.style.display = "none";
+}
+
+function toggleStylingMode() {
+    var stylingBtn = document.getElementById("toggleStylingModeIcon");
+    var store = isDarkMode;
+    console.log("Current styling is " + store + ".", stylingBtn);
+    console.log(stylingBtn.src);
+
+    var link = window.location.origin;
+
+    if (stylingBtn.src == `${link}/imgs/system-mode.png`) {
+        // Switch to light mode from system preferences mode
+        isDarkMode = "light";
+        stylingBtn.src = "/imgs/light-mode.png";
+    } 
+    else if (stylingBtn.src == `${link}/imgs/dark-mode.png`) {
+        // Switch to system preferences mode from dark mode
+        isDarkMode = "system";
+        stylingBtn.src = "/imgs/system-mode.png";
+    }
+    else if (stylingBtn.src == `${link}/imgs/light-mode.png`) {
+        // Switch to dark mode from light mode
+        isDarkMode = "dark";
+        stylingBtn.src = "/imgs/dark-mode.png";
+    }
+    console.log("Shifting styling from " + store + " to " + isDarkMode + ".");
+
+    var systemStyling = getPageStyling();
+
+    console.log("Updating page styling to: ", systemStyling, " (previously: ", store, ")");
+    if (store != systemStyling) {
+        updatePageStyling(store);
+    }
+
+}
+
+function getPageStyling() {
+    var systemStyling = isDarkMode == "system" ? window.matchMedia('(prefers-color-scheme: light)').matches : isDarkMode;
+    if (typeof(systemStyling) === "boolean") {
+        systemStyling = systemStyling ? "light" : "dark";
+    }
+    return systemStyling;
+}
+
+function updatePageStyling(store) {    
+    var systemStyling = getPageStyling()
+
+
+    var oldBody = Array.from(document.body.classList).find(cls => cls.match(/.*-mode/));
+    if (oldBody) {
+        console.log("Element: ", document.body, " Old Style: ", oldBody);
+        // remove the old style
+        document.body.classList.remove(oldBody);
+    }
+    document.body.classList.add(systemStyling + "-mode");
+
+    var all = document.querySelectorAll("*");
+    // update the styling of all elements on the page
+    for (let i = 0; i < all.length; i++) {
+        var element = all[i];
+        // regex for "*-mode" to match any class that has with "-mode"
+        // var oldStyle = element.classList.value.match(/.*-mode/);
+        // if the element can have light-mode/dark-mode:
+
+            // if element has id/class, or if its the following: body, label[for="semesterSlider"], input:checked + .slider , input:focus + .slider, code, td, input, input[type="text"], input:disabled
+        if (element.id != "" || element.classList.value != "" || 
+            element.matches("label[for=\"semesterSlider\"], input:checked + .slider, input:focus + .slider, code, td, input, input[type=\"text\"], input:disabled")) {
+
+            var oldStyle = Array.from(element.classList).find(cls => cls.match(/.*-mode/));
+            if (oldStyle) {
+                console.log("Element: ", element, " Old Style: ", oldStyle);
+                // remove the old style
+                element.classList.remove(oldStyle);
+            }
+            element.classList.add(systemStyling + "-mode");
+        }
+            
+    }
+    updateLegend();
+    updateSemesterLabel();
+}
+
+function updateLegend() {
+    var legend = document.getElementById("legend");
+
+    if (legend) {
+        for (let i = legend.children.length - 1; i >= 0; i--) {
+            legend.children[i].remove();
+        }
+    }
+    createLegend();    
 }

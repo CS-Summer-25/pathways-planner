@@ -1,302 +1,294 @@
-/* -------------Colors------------- */
-/* Light Mode Styling */
-@media (prefers-color-scheme: light) {
-    body,
-    #body-wrapper,
-    #mainBody {
-        background-color: #dad5dd;
-        /* background-color: rgb(34, 34, 34); */
-        /* color: ; */
-    }
+.light-mode body,
+.light-mode #body-wrapper,
+.light-mode #mainBody {
+    background-color: #dad5dd;
+}
 
-    #header {
-        background-color: #cfc0d7;
-        color: black;
-        border: solid 1px rgb(44,44,44);
-    }
+/* .light-mode + body {
+    background-color: #dad5dd;
+} */
 
-    #logo {
-        filter: saturate(0.5);
-    }
+.light-mode #header {
+    background-color: #cfc0d7;
+    color: black;
+    border: solid 1px rgb(44,44,44);
+}
 
-    #heading {
-        color: #2c2c2c;
-    }
+.light-mode #logo {
+    filter: saturate(0.5);
+}
 
-    #switchLabel,
-    #semesterValue,
-    label[for="semesterSlider"] {
-        color: black;
-    }
+.light-mode #heading {
+    color: #2c2c2c;
+}
 
-    .slider {
-        /* background-color: rgba(0, 0, 0, 0.5); */
-        background-color: #b2bcc2;
-    }
-    
-    .slider:before {
-        background-color: white;
-    }
-    
-    input:checked + .slider {
-        background-color: rgb(158, 83, 196);
-    }
-    
-    input:focus + .slider {
-        box-shadow: 0 0 1px rgb(158, 83, 196);
-    }
+.light-mode #switchLabel,
+.light-mode #semesterValue,
+.light-mode label[for="semesterSlider"] {
+    color: black;
+}
 
-    #controlPanel {
-        border: solid 1px #3f3f3f;
-        color: #3f3f3f;
-        background-color: #b2bcc2;
-    }
+.light-mode .slider {
+    background-color: #b2bcc2;
+}
 
-    .panelBtns {
-        background-color: rgb(158, 83, 196, 0.75);
-        color: rgb(14, 16, 16);
-        border: 1px solid #3f3f3f;
-    }
+.light-mode .slider:before {
+    background-color: white;
+}
 
-    code {
-            background-color: #b8b6b684;
-            color: white;
-        }
+.light-mode input:checked + .slider {
+    background-color: rgb(158, 83, 196);
+}
 
-    .popup {
-        /* background-color: rgba(201, 201, 201, 0.95); */
-        background-color: whitesmoke;
-        border-color: rgb(158, 83, 196);
-        color: black;
-        border: 1px solid rgb(158, 83, 196);
-    }
+.light-mode input:focus + .slider {
+    box-shadow: 0 0 1px rgb(158, 83, 196);
+}
 
-    #codeSentMsg {
-        color: rgb(158, 83, 196);
-    }
+.light-mode #controlPanel {
+    border: solid 1px #3f3f3f;
+    color: #3f3f3f;
+    background-color: #b2bcc2;
+}
 
-    .headerBtns, .addRowBtns, .toggleBtn{
-        filter: invert(0);
-    }
-    .addRowBtns {
-        color: whitesmoke;
-    }
+.light-mode .panelBtns {
+    background-color: rgba(158, 83, 196, 0.75);
+    color: rgb(14, 16, 16);
+    border: 1px solid #3f3f3f;
+}
 
-    .toggleBtn {
-        color: whitesmoke;
-        background-color: rgb(158, 83, 196);
-        color: black;
-    }
+.light-mode code {
+    background-color: #b8b6b684;
+    color: white;
+}
 
-    .tableGroup {
-        border: solid 1px rgb(196, 83, 196);
-        background-color: #b2bcc2;
-    }
+.light-mode .popup {
+    background-color: whitesmoke;
+    border-color: rgb(158, 83, 196);
+    color: black;
+    border: 1px solid rgb(158, 83, 196);
+}
 
-    #tableName {
-        background-color: #b2bcc2;
-        color: black;
-    }
+.light-mode #codeSentMsg {
+    color: rgb(158, 83, 196);
+}
 
-    .headerRows {
-        background-color: rgb(217, 236, 255);
-        color: black;
-    }
+.light-mode .headerBtns,
+.light-mode .addRowBtns,
+.light-mode .toggleBtn,
+.light-mode .editProgramBtn {
+    filter: invert(0);
+}
 
-    .firstCol {
-        background-color: rgb(168, 1, 1);
-        color: black;
-    }
+.light-mode .addRowBtns {
+    color: whitesmoke;
+}
 
-    td {
-        border: 1px solid #c2bbb2;
-        /* background-color: #3d444d; */
-        color: #c2bbb2;
-    }
+.light-mode .tableGroup {
+    border: solid 1px rgb(196, 83, 196);
+    background-color: #b2bcc2;
+}
 
-    input,
-    input[type="text"],
-    .ui-autocomplete,
-    .courseInput[type="checkbox"] {
-        background-color: rgba(255, 255, 255, 0.99);
-        /* color: #212529; */
-    }
+.light-mode #tableName {
+    background-color: #b2bcc2;
+    color: black;
+}
 
-    input:disabled {
-        background-color:rgba(255, 255, 255, 0.25);
-    }
+.light-mode .headerRows {
+    background-color: rgb(217, 236, 255);
+    color: black;
+}
 
-    #selects {
-        color: black;
-    }
+.light-mode .firstCol {
+    background-color: rgb(168, 1, 1);
+    color: black;
+}
 
-    #footer {
-        background-color: rgb(158, 83, 196, 0.75);
-        color: black;
-    }
+.light-mode td {
+    border: 1px solid #c2bbb2;
+    color: #c2bbb2;
+}
 
-    #hoverText {
-        background-color: rgba(0, 0, 0, 0.75);
-        color: white;
-    }
+/* .light-mode input, */
+.light-mode input[type="text"],
+.light-mode .ui-autocomplete,
+.light-mode .courseInput[type="checkbox"] {
+    background-color: rgba(255, 255, 255, 0.99);
+}
 
-    #legend {
-        color: inherit;
-        font-weight: bold;
-    }
+.light-mode input:disabled {
+    background-color: rgba(255, 255, 255, 0.25);
+}
 
+.light-mode #selects {
+    color: black;
+}
+
+.light-mode #footer {
+    background-color: rgba(158, 83, 196, 0.75);
+    color: black;
+}
+
+.light-mode #hoverText {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+}
+
+.light-mode #legend {
+    color: inherit;
+    font-weight: bold;
 }
 
 /* Dark Mode Styling */
-@media (prefers-color-scheme: dark) {
-    body,
-    #body-wrapper,
-    #mainBody {
-        background-color: #222;
-        /* color: ; */
-    }
-
-    #header {
-        /* background-color: #343a40; */
-        color: white;
-        border: solid 1px rgb(35, 35, 35);
-    }
-
-    #logo {
-        filter: invert(0.25);
-    }
-
-    #heading {
-        color: lightgrey;
-    }
-
-    #switchLabel,
-    #semesterValue,
-    label[for="semesterSlider"] {
-        color: white;
-    }
-
-    .slider {
-    background-color: #ccc;
-    }
-    
-    .slider:before {
-        background-color: whitesmoke;
-    }
-    
-    input:checked + .slider {
-        background-color: rgb(158, 83, 196);
-    }
-    
-    input:focus + .slider {
-        box-shadow: 0 0 1px rgb(158, 83, 196);
-    }
-
-    #controlPanel {
-        border: solid 1px rgb(196, 83, 196);
-        color: silver;
-        background-color: #3d444d
-    }
-
-    .panelBtns {
-        background-color: rgb(158, 83, 196, 0.75);
-        color: rgb(241, 239, 239);
-        border: 1px solid silver;
-    }
-
-    code {
-        background-color: #b8b6b684;
-        color: white;
-    }
-
-    .popup {
-        background-color: whitesmoke;
-        border-color: rgb(158, 83, 196);
-        color: black;
-        border: 1px solid rgb(158, 83, 196);
-    }
-
-    #codeSentMsg {
-        color: rgb(158, 83, 196);
-    }
-
-    .headerBtns, .addRowBtns, .toggleBtn{
-        filter: invert(1);
-    }
-    .addRowBtns {
-        color: whitesmoke;
-    }
-    .toggleBtn {
-        color: whitesmoke;
-        background-color: rgb(158, 83, 196);
-        color: black;
-    }
-
-    .tableGroup {
-        border: solid 1px rgb(196, 83, 196);
-        background-color: #3d444d;
-    }
-
-    #tableName {
-        background-color: #3d444d;
-        color: white;
-    }
-
-    .headerRows {
-        background-color: slategrey;
-        color: whitesmoke;
-    }
-
-    .firstCol {
-        background-color: rgb(199, 2, 2);
-        color: white;
-    }
-
-    td {
-        border: 1px solid #3d444d;
-        /* background-color: #3d444d; */
-        color: #3d444d;
-    }
-
-    input,
-    input[type="text"],
-    .ui-autocomplete,
-    .courseInput[type="checkbox"] {
-        background-color: rgba(255, 255, 255, 0.99);
-        /* color: #212529; */
-    }
-
-    input:disabled {
-        background-color:rgba(255, 255, 255, 0.25);
-    }
-
-    #selects {
-        color: white;
-    }
-
-    #footer {
-        background-color: rgb(158, 83, 196, 0.75);
-        color: white;
-    }
-    #hoverText {
-        background-color: rgba(255, 255, 255, 0.75);
-        color: black;
-    }
-
-    #legend {
-        color: white;
-    }
+.dark-mode body,
+.dark-mode #body-wrapper,
+.dark-mode #mainBody {
+    background-color: #222;
 }
+
+.dark-mode #header {
+    /* background-color: #343a40; */
+    color: white;
+    border: solid 1px rgb(35, 35, 35);
+}
+
+.dark-mode #logo {
+    filter: invert(0.25);
+}
+
+.dark-mode #heading {
+    color: lightgrey;
+}
+
+.dark-mode #switchLabel,
+.dark-mode #semesterValue,
+.dark-mode label[for="semesterSlider"] {
+    color: white;
+}
+
+.dark-mode .slider {
+    background-color: #ccc;
+}
+
+.dark-mode .slider:before {
+    background-color: whitesmoke;
+}
+
+.dark-mode input:checked + .slider {
+    background-color: rgb(158, 83, 196);
+}
+
+.dark-mode input:focus + .slider {
+    box-shadow: 0 0 1px rgb(158, 83, 196);
+}
+
+.dark-mode #controlPanel {
+    border: solid 1px rgb(196, 83, 196);
+    color: silver;
+    background-color: #3d444d;
+}
+
+.dark-mode .panelBtns {
+    background-color: rgba(158, 83, 196, 0.75);
+    color: rgb(241, 239, 239);
+    border: 1px solid silver;
+}
+
+.dark-mode code {
+    background-color: #b8b6b684;
+    color: white;
+}
+
+.dark-mode .popup {
+    background-color: whitesmoke;
+    border-color: rgb(158, 83, 196);
+    color: black;
+    border: 1px solid rgb(158, 83, 196);
+}
+
+.dark-mode #codeSentMsg {
+    color: rgb(158, 83, 196);
+}
+
+.dark-mode .headerBtns,
+.dark-mode .addRowBtns,
+.dark-mode .toggleBtn,
+.dark-mode .editProgramBtn {
+    filter: invert(1);
+}
+
+.dark-mode .addRowBtns {
+    color: whitesmoke;
+}
+
+/* .dark-mode .toggleBtn {
+    background-color: rgb(158, 83, 196);
+    color: black;
+} */
+
+.dark-mode .tableGroup {
+    border: solid 1px rgb(196, 83, 196);
+    background-color: #3d444d;
+}
+
+.dark-mode #tableName {
+    background-color: #3d444d;
+    color: white;
+}
+
+.dark-mode .headerRows {
+    background-color: slategrey;
+    color: whitesmoke;
+}
+
+.dark-mode .firstCol {
+    background-color: rgb(199, 2, 2);
+    color: white;
+}
+
+.dark-mode td {
+    border: 1px solid #3d444d;
+    color: #3d444d;
+}
+
+/* .dark-mode input, */
+.dark-mode input[type="text"],
+.dark-mode .ui-autocomplete,
+.dark-mode .courseInput[type="checkbox"] {
+    background-color: rgba(255, 255, 255, 0.99);
+}
+
+.dark-mode input:disabled {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.dark-mode #selects {
+    color: white;
+}
+
+.dark-mode #footer {
+    background-color: rgba(158, 83, 196, 0.75);
+    color: white;
+}
+
+.dark-mode #hoverText {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: black;
+}
+
+.dark-mode #legend {
+    color: white;
+}
+
 /* ----------Other Styling--------- */
 
-body{
+body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     /* font-family: Arial, Helvetica, sans-serif;
     font-family: Helvetica, sans-serif; */
     font-size: large;
     font-weight:bold;
     min-height: 100vh;
-    /* background-color:  */
+    margin: 1px;
 }
 
 #body-wrapper {
@@ -304,7 +296,8 @@ body{
     flex-direction: column;
     
     min-height: 100vh;
-    width: 100%;
+    min-width: 100vh;
+    /* width: 100%; */
     /* order: 1px solid rgb(35, 35, 35); */
     row-gap: 2%;    
 }
@@ -647,22 +640,16 @@ svg {
 
 .toggleBtn{
     /* move to right */
-    justify-self: flex-end;
     width: 1.75%;
     /* margin-bottom: 1%; */
     border: none;
     padding: 0.25%;
-    font-size: large;
-    font-weight: bold;
     cursor: pointer;
-    /* border-radius: 5px; */
-    font-family: inherit;
     background: url("imgs/down.png") no-repeat;
     background-size: contain;
     align-self: flex-end;
     justify-self: flex-end;
     float: right;
-
 }
 
 .editProgramBtn{
@@ -724,7 +711,7 @@ svg {
     overflow-x: auto;
 }
 
-.courseInput, td, input, input:disabled {--size: 100%;}
+.courseInput, td, input[type="number"], input[type="text"], input:disabled {--size: 100%;}
 
 td{
     height: auto;
@@ -737,7 +724,7 @@ td{
      
 }
 
-input{
+input[type="text"], input[type="number"]{
     height: auto;
     /* width: inherit; */
     width: calc(var(--size) - 5%);
