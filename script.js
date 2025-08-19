@@ -1828,28 +1828,27 @@ function hideHoverText() {
 function toggleStylingMode() {
     var stylingBtn = document.getElementById("toggleStylingModeIcon");
     var store = isDarkMode;
-    console.log("Current styling is " + store + "."); //, stylingBtn);
-    // console.log(stylingBtn.src);
+    console.log("Current styling is " + store + ".");
+    console.log("old src : ", stylingBtn.src);
 
-    var link = window.location.origin;
-
-    if (stylingBtn.src == `${link}/imgs/system-mode.png`) {
+    if (stylingBtn.src.includes(`system-mode.png`)) {
         // Switch to light mode from system preferences mode
         isDarkMode = "light";
-        stylingBtn.src = `${link}/imgs/light-mode.png`;
+        stylingBtn.src = stylingBtn.src.replace("system-mode.png", "light-mode.png");
     } 
-    else if (stylingBtn.src == `${link}/imgs/dark-mode.png`) {
+    else if (stylingBtn.src.includes(`dark-mode.png`)) {
         // Switch to system preferences mode from dark mode
         isDarkMode = "system";
-        stylingBtn.src = `${link}/imgs/system-mode.png`;
+        stylingBtn.src =stylingBtn.src.replace("dark-mode.png", "system-mode.png");
     }
-    else if (stylingBtn.src == `${link}/imgs/light-mode.png`) {
+    else if (stylingBtn.src.includes(`light-mode.png`)) {
         // Switch to dark mode from light mode
         isDarkMode = "dark";
-        stylingBtn.src = `${link}/imgs/dark-mode.png`;
+        stylingBtn.src = stylingBtn.src.replace("light-mode.png", "dark-mode.png");
     }
     // console.log("Shifting styling from " + store + " to " + isDarkMode + ".");
 
+    console.log("new src : ", stylingBtn.src);
     var systemStyling = getPageStyling();
 
     
@@ -1857,7 +1856,6 @@ function toggleStylingMode() {
         console.log("Updating page styling to: ", systemStyling, " (previously: " + isDarkMode + ")");
         updatePageStyling(store);
     }
-
 }
 
 function getPageStyling() {

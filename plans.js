@@ -38,6 +38,7 @@ function sendCode(emailField){
     fetch(constructedUrl)
     .then(response => {
         if (!response.ok) {
+            console.error("Network response not okay: Code Not Sent");
             throw new Error("Network response was not ok");
         }
         result = response.json(); // Assuming the server responds with JSON
@@ -222,6 +223,7 @@ function savePlan() {
     fetch(constructedUrl)
     .then(response => {
         if (!response.ok) {
+            console.error("Network response not okay: Plan Not Saved");
             throw new Error("Network response was not ok");
         }
         return response;;
@@ -254,6 +256,7 @@ function loadPlan() {
     fetch(constructedUrl)
     .then(response => {
         if (!response.ok) {
+            console.error("Network response not okay: Plan Not Loaded");
             throw new Error("Network response was not ok");
         }
 
