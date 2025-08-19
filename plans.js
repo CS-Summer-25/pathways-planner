@@ -263,7 +263,7 @@ function loadPlan() {
             return;
         }
 
-        coursesInfo.then(data => {
+        coursesInfo.then(async data => {
 
             // loop over data, fill the table with courses
             var tables = document.querySelectorAll(".programTable");
@@ -292,7 +292,7 @@ function loadPlan() {
 
                    programSelect.value = program;
                    console.log("Program Select: " + programSelect.value);
-                   grabCourses(tableGroup + "Select");
+                   await grabCourses(tableGroup + "Select");
                 }
                 setTimeout(() => {
                     // console.log("Loading table: " + tableGroup);
@@ -384,9 +384,11 @@ function loadTable(tableGroup, data, i) {
 // This function closes all autocomplete menu items on the page.
 function closeMenuItems() {
     var menus = document.querySelectorAll(".ui-menu-item-wrapper");
-    for (let i = 0; i < menus.length; i++) {
+    var len = menus.length;
+    for (let i = 0; i < len; i++) {
         menus[i].click(); // This will close the menu items
     }
+    console.log(`Closed all autocomplete menu items: ${len} items.`);
 }
 
 // This function closes the popup with the given ID.
@@ -484,7 +486,7 @@ function parseLine(parts, major){
     return [isMinor, isGER, isMajor, isDoubleMajor, program, course, semesterColIdx, major];
 }
 
-function getOrCreateTable(tableGroup, tableType) {
+async function getOrCreateTable(tableGroup, tableType) {
     console.debug(tableType, tableGroup)
     var [isMinor, isMajor, isDoubleMajor] = tableType;
     var table = document.getElementById(tableGroup + "-table");
@@ -502,7 +504,7 @@ function getOrCreateTable(tableGroup, tableType) {
         var selectBox = document.getElementById(programId + "Select");
         if (selectBox.value == "") {
             document.getElementById(programId + "Select").value = tableGroup; // Set the appropriate select to the program
-            grabCourses(programId + "Select");
+            await grabCourses(programId + "Select");
         }
         else console.debug("Select box already has a value:", selectBox.value, "Attempted to set:", tableGroup);
         table = document.getElementById(programId + "-table");
@@ -511,7 +513,7 @@ function getOrCreateTable(tableGroup, tableType) {
     return table;
 }
 
-function processLine(line, major){
+async function processLine(line, major){
 
     var parts = checkIfValidLine(line);
     if (!parts) return; // Skip invalid lines
@@ -526,7 +528,7 @@ function processLine(line, major){
     }
 
 
-    var table = getOrCreateTable(tableGroup, programType);
+    var table = await getOrCreateTable(tableGroup, programType);
     if (!table) {
         console.warn("Table not found for group:", tableGroup);
         return; // Skip if table not found
@@ -540,7 +542,7 @@ function processLine(line, major){
         var clpValue = course.split("CLPs:")[1].trim();
         const clpRowIdx = firstCol.indexOf("CLPs");
 
-        fillInputByIndices(table, clpRowIdx, semesterColIdx, clpValue);
+        await fillInputByIndices(table, clpRowIdx, semesterColIdx, clpValue);
         return; // Move to the next line after handling CLPs
     }
 
@@ -578,7 +580,7 @@ function processLine(line, major){
         
         var rowIdx = firstClass.indexOf(rowClass);
         console.debug("Specific Cell: ", table.id.split("-")[0], `[${rowIdx}, ${semesterColIdx}]: ${course}`);
-        var inputCell = fillInputByIndices(table, rowIdx, semesterColIdx, course);
+        var inputCell = await fillInputByIndices(table, rowIdx, semesterColIdx, course);
         console.debug("Input filled: ", inputCell);
         console.debug(course, "Is Program Type: ", programType.some(t => t));
         if (inputCell != false && programType.some(t => t)) {
@@ -587,9 +589,10 @@ function processLine(line, major){
     }
 }
 
-function fillInputByIndices(table, rowIdx, semesterIdx, course) {
+async function fillInputByIndices(table, rowIdx, semesterIdx, course) {    
     var headerSize = document.getElementById(table.id.split("-")[0] + "-tableheaders").rows.length;
-    var relevantRow = table.rows[rowIdx + headerSize];
+    var relevantRow = table.rows[parseInt(rowIdx) + headerSize];
+    console.log("Relevant Row: ", relevantRow, "Row Index: ", rowIdx, "Semester Index: ", semesterIdx, "Course: ", course);
     if (!relevantRow) {
         console.warn("Row not found:", rowIdx);
         return;
