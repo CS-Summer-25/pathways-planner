@@ -687,65 +687,48 @@ function tourWebsite() {
     tutorial.setOptions({
             disableInteraction: false,
             showProgress: false,
-            // overlayOpacity: 0.85,
-            overlayOpacity: 0,
+            overlayOpacity: 0.85,
+            // overlayOpacity: 0,
             disableInteraction: false,
             // disableInteraction: false,
             steps: [
-                {
-                    element: document.querySelector('#guideIcon'),
-                    intro: `
-                     <img src="imgs/close.png" alt="Close Popup" id="closeIcon" onclick="closePopup('guidePopup')">
-                    <h2>Guided Tour</h2>
-                    <p>Welcome to the guided tour! This will help you fill out your plan.</p>
-                    <p>To start, enter your course code in the input below. For example, if you want to add the course "CSC-101", type "CSC-101" in the input field.</p>
-                    <p>Once you enter the course code, click on the</p>
-                    <input onclick="initializeGuidePopup()" type="text" id="guideCourseInput"  placeholder="Enter course code (e.g. CSC-101)">
-
-                    <div id="guideTime" style="display: none;">
-                        <p>When did you take it?</p>
-                        <input type="text" id="guideYearInput" class="yearInput" placeholder="Enter year (e.g. 2025)" name="Enter a year"><br/><br/>
-                        <p>Was it Fall or Spring?</p>
-                        <input type="text" id="guideTermInput" class="termInput" placeholder="Enter term (e.g. Fall)" name="Enter a term"><br/><br/>
-                    </div>
-
-                    <div id="guideMajor" style="display: none;">
-                        <p>What is your major?</p>
-                        <input type="text" id="guideMajorInput" class="majorInput" placeholder="Enter your major (e.g. Computer Science)"><br/><br/>
-                    </div>
-
-                    <!-- <div id="guideMinor" style="display: none;">
-                        <p>Do you have a minor?</p>
-                        <input type="text" id="guideMinorInput" class="minorInput" placeholder="Enter your minor (e.g. Mathematics)"><br/><br/>
-                    </div> -->
-
-                    <div id="guideConfirm" style="display: none;">
-                        <button id="guideAddBtn">Looks all good? Add to plan?</button>
-                    </div>`
-                },
-                 {
-
-                    element: document.querySelector('#GERS_5-4'),
-                    intro: 'Hey! Welcome to the Pathways Planner! <input type="text"></input>This is a tool to help you plan your courses and track your progress towards graduation.',
-                    position: 'top',
-                    // disableInteraction: true,
-                },
                 {
                     element: document.querySelector('#questionIcon'),
                     intro: 'Hey! Welcome to the Planadin! This is a tool to help you plan your courses and track your progress towards graduation.',
                     position: 'right'
 
                 },
-                {
-                    element: document.querySelector('#body-wrapper'),
-                    intro: 'Each of these sections represents a different part of your academic plan. You can add courses to each section typing in a course name.',
-                    // position: 'top'
-                },
+                // {
+                //     element: document.querySelector('#body-wrapper'),
+                //     intro: 'Each of these sections represents a different part of your academic plan. You can add courses to each section typing in a course name.',
+                //     // position: 'top'
+                // },
                 {
                     element: document.querySelector('#GERS-wrapper'),
                     intro: 'This is where you can see your General Education Requirements (GERs). You can search for courses in each field.',
                     // position: 'right'
                 },
+                {
+
+                    element: document.querySelector('#GERS_5-4'),
+                    intro: 'Each cell corresponds to <u>Year</u>, <u>Semester</u> and <u>Requirement</u>.<br/><br/>For example, this particular cell corresponds to<br/><br/><u>Spring semester</u> of <u>Sophomore year</u> (column labels)<br/><br/> and <u>IEJ requirement</u> (row label).',
+                    position: 'top',
+                    // disableInteraction: true,
+                },
+                {
+
+                    element: document.querySelector('#legend'),
+                    intro: 'Once you select a course in a cell, the relevant requirement row will be marked as one of these colors, representing status.',
+                    position: 'bottom',
+                    // disableInteraction: true,
+                },  
+                {
+
+                    element: document.querySelector('#sliderWrapper'),
+                    intro: 'You can use this slider to select your current semester. As you move the slider, the relevant column will be highlighted.',
+                    position: 'bottom',
+                    // disableInteraction: true,
+                },  
                 {
                     element: document.querySelector('#mainMajor-wrapper'),
                     intro: "This is where you can select your main major. You can search for courses in each field.",
@@ -754,7 +737,7 @@ function tourWebsite() {
                 // Wait for user to enter a course
                 {
                     element: document.querySelector('#mainMajorSelect'),
-                    intro: 'Select your main major from the dropdown. You can also search for it using the autocomplete feature.',
+                    intro: 'Search for your primary major here using the autocomplete feature. Once you select a major, a table similar to GER table with relevant major requirements will appear below.',
                     // wait for user to enter a course
                     // disableInteraction: true,
                     // hideButtons: true,
@@ -767,9 +750,19 @@ function tourWebsite() {
                 },
                 {
                     element: '#doubleMajorSelect',
-                    intro: 'Select your double major from the dropdown. You can also search for it using the autocomplete feature.',
+                    intro: 'Search your double major from the autocomplete text field. Once you select a major, a table similar to GER table with relevant major requirements will appear below.',
                     // disableInteraction: false,
                 },
+                {
+                    element: '#minor-wrapper',
+                    intro: 'Search your double major from the autocomplete text field. Once you select a major, a table similar to GER table with relevant major requirements will appear below.',
+                    // disableInteraction: false,
+                },
+                {
+                    element: '#header',
+                    intro: 'Finally, you can use a lot of nifty features like save / load plan from the header buttons. Just hover over these to see which button does what.<br/><br/>Have fun planning 😊',
+                    // disableInteraction: false,
+                }
             ],
         }
     )
