@@ -755,7 +755,7 @@ function tourWebsite() {
                 },
                 {
                     element: '#minor-wrapper',
-                    intro: 'Search your double major from the autocomplete text field. Once you select a major, a table similar to GER table with relevant major requirements will appear below.',
+                    intro: 'Similarly you can select a minor from here.',
                     // disableInteraction: false,
                 },
                 {
